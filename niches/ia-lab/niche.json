@@ -12,7 +12,7 @@
   },
   "voz": {
     "motor": "elevenlabs",
-    "voice_id": "21LSpLIiGJgAzwF0WwKh",
+    "voice_id": "ZGcU5sxBYchGwevqeNoR",
     "model_id": "eleven_multilingual_v2",
     "output_format": "mp3_44100_128",
     "stability": 0.5,
