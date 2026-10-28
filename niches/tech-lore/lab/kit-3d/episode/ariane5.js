@@ -559,7 +559,7 @@ export function build(canvas) {
     exposure *= 1 - 0.92 * Math.exp(-Math.pow((V - 21.5) / 0.07, 2));
     let ca = 0;
     for (const vi of [2.25, 28.24, 31.42, 32.82, 39.09]) if (V >= vi) ca += 0.008 * Math.max(0, 1 - (V - vi) / 0.35);
-    S.render(V, { focus: c.dist, aperture: sh.ap * (isExt ? 1 : 0.6), exposure, ca, grain: 0.03, vignette: 0.5, shutter: 0.4 }, prev);
+    S.render(V, { focus: c.dist, aperture: sh.ap * (isExt ? 1 : 0.6), exposure, ca, vignette: 0.5, shutter: 0.4 }, prev);
   }
   return { render };
 }

@@ -230,7 +230,7 @@ export function createStage(canvas, W = 1080, H = 1920) {
       uAperture: { value: 0 },
       uMaxBlur: { value: 14 },
       uTime: { value: 0 },
-      uGrain: { value: 0.035 },
+      uGrain: { value: 0 },
       uCA: { value: 0 },
       uVignette: { value: 0.55 },
       uExposure: { value: 1 },
@@ -275,7 +275,7 @@ export function createStage(canvas, W = 1080, H = 1920) {
     u.uFocus.value = post.focus;
     u.uAperture.value = post.aperture ?? 0;
     u.uTime.value = t;
-    u.uGrain.value = post.grain ?? 0.035;
+    u.uGrain.value = post.grain ?? 0; // ruído novo a cada quadro multiplica o arquivo (~12x a CRF 16): use só em planos curtos
     u.uCA.value = post.ca ?? 0;
     u.uVignette.value = post.vignette ?? 0.55;
     u.uExposure.value = post.exposure ?? 1;
