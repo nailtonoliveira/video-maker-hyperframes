@@ -1,0 +1,11 @@
+TÍTULO
+US$ 440 milhões evaporaram em 45 min por código morto #shorts
+
+DESCRIÇÃO
+Em 2012, um deploy manual incompleto em apenas 1 de 8 servidores reativou uma rotina legada na Knight Capital. O sistema entrou em loop infinito, disparando 4 milhões de ordens e queimando 440 milhões de dólares em 45 minutos. Fonte: SEC (https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf).
+
+HASHTAGS
+#shorts #tecnologia #programacao
+
+TAGS
+knight capital, engenharia de software, programação, deploy, devops, tecnologia, bugs

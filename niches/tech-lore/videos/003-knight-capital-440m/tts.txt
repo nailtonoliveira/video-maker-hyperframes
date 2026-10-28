@@ -1,0 +1,5 @@
+Quatrocentos e quarenta milhões de dólares evaporaram em quarenta e cinco minutos... porque um técnico esqueceu de atualizar um de oito servidores.
+Em primeiro de agosto de dois mil e doze, a corretora Knight Capital Americas ligou o roteador SMARS na abertura da Bolsa de Nova York.
+Os engenheiros reaproveitaram uma flag que ativava a rotina morta Power Peg... desativada em dois mil e três e deixada sem trava de parada desde dois mil e cinco.
+O servidor esquecido entrou em loop infinito e disparou quatro milhões de ordens em cento e cinquenta e quatro ações, queimando cerca de cento e sessenta e três mil dólares por segundo.
+A falha ainda rendeu multa de doze milhões de dólares da esse-ê-cê e destruiu a empresa... Foi exatamente assim que...

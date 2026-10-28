@@ -1,0 +1,59 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--ground);
+      overflow: hidden;
+    }
+    #bg-grid {
+      position: absolute;
+      left: 0;
+      top: -300px;
+      width: 1080px;
+      height: 2520px;
+      --line: rgba(125, 133, 144, 0.14);
+      --major: rgba(125, 133, 144, 0.24);
+      background-image:
+        linear-gradient(to right, var(--major) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--major) 1px, transparent 1px),
+        linear-gradient(to right, var(--line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+      background-size:
+        300px 300px,
+        300px 300px,
+        60px 60px,
+        60px 60px;
+      background-position: 0 0;
+    }
+    #bg-alert {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255, 51, 102, 0.22), rgba(255, 51, 102, 0) 70%);
+      opacity: 0;
+    }
+    #bg-shade {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 35%, rgba(8, 10, 15, 0) 40%, rgba(8, 10, 15, 0.75) 100%);
+    }
+  </style>
+  <div data-hf-id="hf-dzqo" id="root" data-composition-id="bg" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-gtgm" id="bg-grid" data-layout-ignore></div>
+    <div data-hf-id="hf-op08" id="bg-alert" data-layout-ignore></div>
+    <div data-hf-id="hf-f8n5" id="bg-shade" data-layout-ignore></div>
+  </div>
+  <script>
+    (function () {
+      // = data-duration do index.html (tools/set_duration.py mantém os dois iguais).
+      const DUR = 44.96;
+      const tl = gsap.timeline({ paused: true });
+      // Grade desliza exatamente uma célula (60 px) no vídeo inteiro: o último frame casa com o primeiro.
+      tl.fromTo("#bg-grid", { y: 0 }, { y: 60, duration: DUR, ease: "none" }, 0);
+      // Atmosfera vermelha do loop infinito ("entrou", 28.72) até a barra da empresa bater no zero (41.99): corte seco.
+      tl.fromTo("#bg-alert", { opacity: 0 }, { opacity: 0.85, duration: 0.4, ease: "power2.inOut" }, 28.72);
+      tl.set("#bg-alert", { opacity: 0 }, 41.99);
+      window.__timelines["bg"] = tl;
+    })();
+  </script>
+</template>

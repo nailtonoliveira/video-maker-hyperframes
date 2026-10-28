@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:06,320
+440 milhões de dólares evaporaram em 45 minutos, porque um técnico esqueceu de atualizar
+
+2
+00:00:06,320 --> 00:00:07,480
+um de 8 servidores.
+
+3
+00:00:08,100 --> 00:00:13,660
+Em primeiro de agosto de 2012, a corretora Knight Capital Américas ligou o roteador
+
+4
+00:00:13,660 --> 00:00:16,220
+Smart na abertura da bolsa de Nova Iorque.
+
+5
+00:00:16,760 --> 00:00:22,540
+Os engenheiros reaproveitaram uma flag que ativava a rotina morta Powerpeg, desativada em
+
+6
+00:00:22,540 --> 00:00:26,860
+2003 e deixada centrava de parada desde 2005.
+
+7
+00:00:27,580 --> 00:00:33,820
+O servidor esquecido entrou em loop infinito e disparou 4 milhões de ordens em 154 ações,
+
+8
+00:00:34,060 --> 00:00:37,260
+queimando cerca de 163 mil dólares por segundo.
+
+9
+00:00:37,740 --> 00:00:42,740
+A falha ainda rendeu multa de 12 milhões de dólares da SESC e destruiu a empresa.
+
+10
+00:00:43,220 --> 00:00:44,920
+Foi exatamente assim que...

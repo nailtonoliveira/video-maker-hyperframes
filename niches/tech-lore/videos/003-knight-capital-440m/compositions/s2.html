@@ -1,0 +1,203 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-mono);
+      font-variant-ligatures: none;
+      color: var(--ink);
+    }
+    /* Janela de terminal: x 96–948, y 200–1130. Filhos posicionados em relação ao topo da janela (y − 200). */
+    #s2-win {
+      position: absolute;
+      left: 96px;
+      top: 200px;
+      width: 852px;
+      height: 930px;
+      border: 1px solid rgba(125, 133, 144, 0.45);
+      background: rgba(8, 10, 15, 0.8);
+      clip-path: inset(0px 0% 0px 0px);
+    }
+    .s2-bar {
+      height: 56px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(125, 133, 144, 0.35);
+      font-size: 30px;
+      line-height: 1;
+      color: var(--gray);
+    }
+    #s2-date {
+      position: absolute;
+      left: 32px;
+      top: 80px;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--cyan);
+      white-space: nowrap;
+    }
+    #s2-sub {
+      position: absolute;
+      left: 32px;
+      top: 132px;
+      font-size: 30px;
+      line-height: 1;
+      color: var(--gray);
+    }
+    .s2-box {
+      position: absolute;
+      left: 32px;
+      padding: 20px 24px;
+      background: rgba(8, 10, 15, 0.9);
+    }
+    #s2-node {
+      top: 190px;
+      width: 788px;
+      border: 1px solid rgba(230, 237, 243, 0.45);
+      clip-path: inset(0px 100% 0px 0px);
+    }
+    .s2-label {
+      font-size: 30px;
+      line-height: 1;
+      color: var(--gray);
+    }
+    #s2-node-name {
+      margin-top: 12px;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+    #s2-smars {
+      top: 360px;
+      width: 788px;
+      border: 1px solid rgba(0, 255, 157, 0.55);
+      clip-path: inset(0px 0px 100% 0px);
+    }
+    #s2-smars-name {
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    #s2-smars-full {
+      margin-top: 12px;
+      white-space: nowrap;
+    }
+    #s2-status {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 30px;
+      line-height: 1;
+      color: var(--mint);
+    }
+    #s2-led {
+      width: 18px;
+      height: 18px;
+      background: var(--mint);
+    }
+    /* Fio ortogonal 1 px do SMARS (base y 742) à NYSE (y 880), em x 188. */
+    #s2-wire {
+      position: absolute;
+      left: 92px;
+      top: 542px;
+      width: 1px;
+      height: 138px;
+      background: rgba(230, 237, 243, 0.7);
+      transform-origin: 50% 0;
+    }
+    #s2-flow {
+      position: absolute;
+      left: 88px;
+      top: 542px;
+      width: 9px;
+      height: 138px;
+      overflow: hidden;
+    }
+    .s2-pulse {
+      position: absolute;
+      left: 0;
+      top: -24px;
+      width: 9px;
+      height: 24px;
+      background: var(--cyan);
+    }
+    #s2-nyse {
+      top: 680px;
+      width: 560px;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      clip-path: inset(0px 100% 0px 0px);
+    }
+    #s2-nyse-name {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+    #s2-nyse-sub {
+      margin-top: 10px;
+    }
+  </style>
+  <div data-hf-id="hf-bmd6" id="root" data-composition-id="s2" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-jbdf" id="s2-win">
+      <div data-hf-id="hf-hwm7" class="s2-bar">knight@nyse-gw: ~/smars</div>
+      <div data-hf-id="hf-8ajq" id="s2-date">DATE: 2012-08-01 // 09:30 EDT</div>
+      <div data-hf-id="hf-moqe" id="s2-sub">// abertura do pregão</div>
+
+      <div data-hf-id="hf-if8b" class="s2-box" id="s2-node">
+        <div data-hf-id="hf-0sl4" class="s2-label">NODE:</div>
+        <div data-hf-id="hf-i2ro" id="s2-node-name">KNIGHT CAPITAL AMERICAS LLC</div>
+      </div>
+
+      <div data-hf-id="hf-f92t" class="s2-box" id="s2-smars">
+        <div data-hf-id="hf-lyjl" id="s2-smars-name">SMARS</div>
+        <div data-hf-id="hf-csgo" class="s2-label" id="s2-smars-full">[Smart Market Access Routing System]</div>
+        <div data-hf-id="hf-t89b" id="s2-status"><div data-hf-id="hf-o4oe" id="s2-led"></div>STATUS: ACTIVE</div>
+      </div>
+
+      <div data-hf-id="hf-bpt4" id="s2-wire"></div>
+      <div data-hf-id="hf-z7xz" id="s2-flow">
+        <div data-hf-id="hf-dz7m" class="s2-pulse" id="s2-p1"></div>
+        <div data-hf-id="hf-a13l" class="s2-pulse" id="s2-p2"></div>
+        <div data-hf-id="hf-99fs" class="s2-pulse" id="s2-p3"></div>
+        <div data-hf-id="hf-5bbr" class="s2-pulse" id="s2-p4"></div>
+      </div>
+
+      <div data-hf-id="hf-3d08" class="s2-box" id="s2-nyse">
+        <div data-hf-id="hf-qdx6" id="s2-nyse-name">NYSE ORDER BOOK</div>
+        <div data-hf-id="hf-61p3" class="s2-label" id="s2-nyse-sub">09:30:00 · OPEN</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const T0 = 8.82;
+      const at = (abs) => +(abs - T0).toFixed(3);
+      const tl = gsap.timeline({ paused: true });
+
+      // 8.82 "agosto de 2012": corte seco, janela e DATE já cravados no 1º frame da cena.
+
+      // 11.12 "Knight Capital Americas": caixa NODE imprime da esquerda.
+      tl.fromTo("#s2-node", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 0.35, ease: "expo.out" }, at(11.12));
+
+      // 13.12 "o roteador SMARS": bloco abre de cima com STATUS: ACTIVE.
+      tl.fromTo("#s2-smars", { clipPath: "inset(0px 0px 100% 0px)" }, { clipPath: "inset(0px 0px 0% 0px)", duration: 0.35, ease: "expo.out" }, at(13.12));
+
+      // 15.06 "Bolsa de Nova York": fio desenha, NYSE entra, pulsos ciano descem.
+      tl.fromTo("#s2-wire", { scaleY: 0 }, { scaleY: 1, duration: 0.35, ease: "expo.out" }, at(15.06));
+      tl.fromTo("#s2-nyse", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 0.35, ease: "expo.out" }, at(15.21));
+      ["#s2-p1", "#s2-p2", "#s2-p3", "#s2-p4"].forEach((p, i) => {
+        tl.fromTo(p, { y: 0 }, { y: 162, duration: 0.6, ease: "none", repeat: 2 }, at(15.4) + i * 0.15);
+      });
+
+      // Saída.
+      tl.to("#s2-win", { clipPath: "inset(0px 100% 0px 0px)", duration: 0.25, ease: "power3.in" }, at(16.51));
+
+      window.__timelines["s2"] = tl;
+    })();
+  </script>
+</template>

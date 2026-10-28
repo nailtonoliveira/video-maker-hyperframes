@@ -1,0 +1,31 @@
+{
+  "id": "tech-lore-002-crowdstrike-channel-291",
+  "nicho": "tech-lore",
+  "tema_id": "T009",
+  "tema": {
+    "id": "T009",
+    "titulo": "CrowdStrike Channel File 291: O 21º campo ausente que travou 8,5 milhões de computadores",
+    "slug": "crowdstrike-channel-291",
+    "gancho": "8,5 milhões de computadores entraram em tela azul ao mesmo tempo porque um arquivo entregou 20 campos onde o código esperava 21.",
+    "resumo": "Em 19 de julho de 2024, uma atualização silenciosa de configuração do sensor CrowdStrike Falcon paralisou aeroportos, hospitais e bancos no mundo inteiro. O interpretador em C++ rodando no núcleo do Windows esperava um array de 21 parâmetros, mas o arquivo Channel File 291 veio com apenas 20, provocando uma leitura fora dos limites da memória e derrubando o sistema operacional instantaneamente.",
+    "fatos_chave": [
+      "Data e sistema: 19 de julho de 2024 (04:09 UTC), no driver de kernel do sensor CrowdStrike Falcon para Windows via atualização do Channel File 291.",
+      "Erro técnico: O template IPC exigia 21 campos de entrada, mas o arquivo de configuração forneceu 20, causando out-of-bounds memory read em Ring 0.",
+      "Consequência: 8,5 milhões de máquinas Windows travadas em loop de inicialização (BSOD), milhares de voos cancelados e bilhões de dólares em prejuízos globais."
+    ],
+    "por_que_prende": "Conecta o maior apagão de TI da história recente a um simples acesso ao índice 20 de um array de 20 posições (0 a 19) direto no kernel do Windows.",
+    "fontes": [
+      "https://www.crowdstrike.com/wp-content/uploads/2024/08/Executive-Summary_Root-Cause-Analysis_Channel-File-291.pdf",
+      "https://www.crowdstrike.com/en-us/blog/channel-file-291-rca-available/"
+    ]
+  },
+  "ensaio": false,
+  "criado_em": "2026-10-27T16:26:29-03:00",
+  "etapas": {
+    "roteiro": {
+      "status": "erro",
+      "em": "2026-10-27T16:31:29-03:00",
+      "erro": "Antigravity (gemini-4-argon-high) terminou sem resposta: status ERROR"
+    }
+  }
+}

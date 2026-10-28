@@ -1,0 +1,212 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-mono);
+      font-variant-ligatures: none;
+      color: var(--ink);
+    }
+    /* Painel do SRV-08: x 96–948, y 200–1130. Filhos posicionados em relação ao topo da janela (y − 200). */
+    #s4-win {
+      position: absolute;
+      left: 96px;
+      top: 200px;
+      width: 852px;
+      height: 930px;
+      border: 1px solid rgba(255, 51, 102, 0.5);
+      background: rgba(8, 10, 15, 0.8);
+      clip-path: inset(0px 0% 0px 0px);
+    }
+    .s4-bar {
+      height: 56px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(125, 133, 144, 0.35);
+      font-size: 30px;
+      line-height: 1;
+      color: var(--gray);
+    }
+    .s4-abs {
+      position: absolute;
+      left: 32px;
+    }
+    .s4-gray {
+      font-size: 30px;
+      line-height: 1;
+      color: var(--gray);
+    }
+    #s4-tag {
+      top: 76px;
+    }
+    #s4-loop {
+      top: 122px;
+    }
+    #s4-loop-in {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 46px;
+      white-space: pre;
+      color: var(--alert);
+      opacity: 0;
+    }
+    #s4-count {
+      top: 284px;
+      font-size: 76px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      white-space: nowrap;
+      color: var(--alert);
+      opacity: 0;
+    }
+    #s4-prog {
+      top: 384px;
+      width: 788px;
+      height: 22px;
+      border: 1px solid rgba(125, 133, 144, 0.5);
+      opacity: 0;
+    }
+    #s4-fill {
+      position: absolute;
+      inset: 3px;
+      background: var(--alert);
+      transform-origin: 0 50%;
+    }
+    #s4-prog-label {
+      top: 422px;
+      font-size: 30px;
+      line-height: 1;
+      opacity: 0;
+    }
+    #s4-log {
+      top: 476px;
+      width: 788px;
+      height: 210px;
+      overflow: hidden;
+      border-top: 1px solid rgba(125, 133, 144, 0.3);
+      border-bottom: 1px solid rgba(125, 133, 144, 0.3);
+      opacity: 0;
+    }
+    .s4-row {
+      height: 30px;
+      font-size: 28px;
+      line-height: 30px;
+      white-space: pre;
+      color: var(--gray);
+    }
+    .s4-row b {
+      font-weight: 400;
+      color: var(--ink);
+    }
+    #s4-rate-label {
+      top: 712px;
+      opacity: 0;
+    }
+    #s4-rate {
+      top: 754px;
+      width: 788px;
+      height: 148px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      border: 2px solid var(--alert);
+      background: rgba(255, 51, 102, 0.1);
+      font-size: 92px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      white-space: nowrap;
+      color: var(--alert);
+      opacity: 0;
+    }
+    #s4-flash {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+      opacity: 0;
+    }
+  </style>
+  <div data-hf-id="hf-q5j8" id="root" data-composition-id="s4" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-h1zh" id="s4-win">
+      <div data-hf-id="hf-5qub" class="s4-bar">SRV-08 :: smars-prod · exec.log</div>
+      <div data-hf-id="hf-612v" class="s4-abs s4-gray" id="s4-tag">// SRV-08 · LEGACY BUILD</div>
+      <div data-hf-id="hf-vgns" class="s4-abs" id="s4-loop">
+        <div data-hf-id="hf-c840" id="s4-loop-in">SRV-08 -&gt; while(FLAG_0x08) {
+    route_PowerPeg();
+}</div>
+      </div>
+      <div data-hf-id="hf-p9zq" class="s4-abs" id="s4-count"><span data-hf-id="hf-lesc" id="s4-num">4.000.000</span> ORDENS</div>
+      <div data-hf-id="hf-9any" class="s4-abs" id="s4-prog"><div data-hf-id="hf-e9fe" id="s4-fill"></div></div>
+      <div data-hf-id="hf-khzs" class="s4-abs" id="s4-prog-label">154 AÇÕES DA NYSE</div>
+      <div data-hf-id="hf-wn2g" class="s4-abs" id="s4-log"><div data-hf-id="hf-9r8e" id="s4-log-list"></div></div>
+      <div data-hf-id="hf-uomh" class="s4-abs s4-gray" id="s4-rate-label">loss_rate =</div>
+      <div data-hf-id="hf-tlwh" class="s4-abs" id="s4-rate">-US$ 163.000/s</div>
+    </div>
+    <div data-hf-id="hf-6uvo" id="s4-flash" data-layout-ignore></div>
+  </div>
+  <script>
+    (function () {
+      const T0 = 27.36;
+      const F = 1 / 30;
+      const ROW = 30;
+      const at = (abs) => +(abs - T0).toFixed(3);
+      const tl = gsap.timeline({ paused: true });
+
+      // Log de execuções: conteúdo determinístico (LCG semeado), gerado uma vez; só a posição é animada.
+      let seed = 20120801;
+      const rnd = () => (seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296;
+      const pad = (n, w) => String(n).padStart(w, "0");
+      let ms = 0;
+      const rows = [];
+      for (let i = 0; i < 250; i++) {
+        ms += 4 + Math.floor(rnd() * 9);
+        const ts = `09:3${Math.floor(ms / 60000) % 10}:${pad(Math.floor(ms / 1000) % 60, 2)}.${pad(ms % 1000, 3)}`;
+        const side = rnd() < 0.5 ? "BUY " : "SELL";
+        const qty = String((1 + Math.floor(rnd() * 9)) * 100).padStart(4, " ");
+        const id = pad(Math.floor(rnd() * 16777216).toString(16).toUpperCase(), 6);
+        rows.push(`<div class="s4-row">${ts}  <b>${side}</b> ${qty} sh  #${id}</div>`);
+      }
+      document.querySelector("#s4-log-list").innerHTML = rows.join("");
+
+      // 27.36 "O servidor esquecido": corte seco, painel e rótulo já no 1º frame.
+
+      // 28.72 "entrou em loop infinito": laço crava, treme e pisca; o log começa a rolar; atmosfera vermelha (bg).
+      tl.set("#s4-loop-in", { opacity: 1 }, at(28.72));
+      tl.set("#s4-log", { opacity: 1 }, at(28.72));
+      [-10, 9, -8, 7, -6, 5, -4, 3, -2, 1, 0].forEach((x, k) => tl.set("#s4-loop", { x }, at(28.72) + k * F));
+      for (let k = 1; at(28.72) + k * 0.2 < at(37.49); k++) {
+        tl.set("#s4-loop-in", { opacity: k % 2 ? 0.4 : 1 }, at(28.72) + k * 0.2);
+      }
+      let step = 0;
+      for (let t = at(28.72) + 2 * F; t < at(30.62); t += 2 * F) tl.set("#s4-log-list", { y: -ROW * ++step }, t);
+      for (let t = at(30.62); t < at(37.49); t += F) tl.set("#s4-log-list", { y: -ROW * ++step }, t);
+
+      // 30.62 "4 milhões de ordens": contador em degraus por frame até 4.000.000 em 31.54.
+      const fmt = (v) => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      const N = Math.round((at(31.54) - at(30.62)) * 30);
+      tl.set("#s4-count", { opacity: 1 }, at(30.62));
+      tl.set("#s4-prog", { opacity: 1 }, at(30.62));
+      for (let k = 1; k <= N; k++) {
+        const v = k === N ? 4000000 : Math.round(4000000 * (1 - Math.pow(1 - k / N, 3)) / 137) * 137;
+        tl.set("#s4-num", { textContent: fmt(v) }, at(30.62) + (k - 1) * F);
+      }
+
+      // 31.90 "em 154 ações": barra enche 100 %.
+      tl.fromTo("#s4-fill", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "expo.out" }, at(31.9));
+      tl.set("#s4-prog-label", { opacity: 1 }, at(31.9));
+
+      // 34.06 "queimando": o medidor anuncia; 35.88 "mil dólares por segundo": flash 60 % por 1 frame + caixa crava.
+      tl.set("#s4-rate-label", { opacity: 1 }, at(34.06));
+      tl.set("#s4-flash", { opacity: 0.6 }, at(35.88));
+      tl.set("#s4-flash", { opacity: 0 }, at(35.88) + F);
+      tl.set("#s4-rate", { opacity: 1 }, at(35.88));
+
+      // Saída.
+      tl.to("#s4-win", { clipPath: "inset(0px 100% 0px 0px)", duration: 0.25, ease: "power3.in" }, at(37.49));
+
+      window.__timelines["s4"] = tl;
+    })();
+  </script>
+</template>

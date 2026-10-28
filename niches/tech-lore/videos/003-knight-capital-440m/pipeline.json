@@ -1,0 +1,77 @@
+{
+  "id": "tech-lore-003-knight-capital-440m",
+  "nicho": "tech-lore",
+  "tema_id": "T002",
+  "tema": {
+    "id": "T002",
+    "titulo": "Knight Capital: A flag de código morto que queimou US$ 440 milhões em 45 minutos",
+    "slug": "knight-capital-440m",
+    "gancho": "440 milhões de dólares evaporaram em 45 minutos porque um técnico esqueceu de atualizar 1 de 8 servidores.",
+    "resumo": "Em 1º de agosto de 2012, a corretora americana Knight Capital inundou a Bolsa de Nova York com 4 milhões de ordens erradas em 154 ações, comprando na alta e vendendo na baixa sem parar. Os engenheiros reaproveitaram uma flag que ativava a rotina de testes legada Power Peg, desativada desde 2005, e esqueceram de atualizar um único servidor SMARS durante o deploy manual.",
+    "fatos_chave": [
+      "Data e sistema: 1º de agosto de 2012, no roteador de ordens SMARS (Smart Market Access Routing System) da Knight Capital Americas LLC.",
+      "Erro técnico: Reutilização da flag da função morta Power Peg (de 2003) combinada com deploy incompleto em 1 dos 8 servidores de produção.",
+      "Consequência: Prejuízo pré-impostos de US$ 440 milhões em 45 minutos (cerca de US$ 163 mil por segundo) e multa de US$ 12 milhões da SEC."
+    ],
+    "por_que_prende": "Mostra visualmente no terminal como 7 servidores verdes e 1 servidor vermelho esquecido num deploy manual conseguiram quebrar uma gigante de Wall Street antes do almoço.",
+    "fontes": [
+      "https://www.sec.gov/Archives/edgar/data/1060749/000119312512336167/d392288d8k.htm",
+      "https://www.sec.gov/newsroom/press-releases/2013-222"
+    ]
+  },
+  "ensaio": false,
+  "criado_em": "2026-10-27T16:31:53-03:00",
+  "etapas": {
+    "roteiro": {
+      "status": "aprovado",
+      "em": "2026-10-27T16:35:13-03:00",
+      "resumo": "# Knight Capital: A flag de código morto que queimou US$ 440 milhões em 45 minutos\n\n**Título na tela (frame 0):** ERRO DE 440 MILHÕES  \n**Resumo:** Em 1º de agosto de 2012, um deploy manual incompleto em 1 de 8 servidores SMARS da Knight Capital ativou a rotina morta Power Peg em loop infinito, gerando 4 milhões de ordens em 154 ações e um prejuízo de US$ 440 milhões em 45 minutos.  \n**Palavras:** 107 (≈ 47 s de narração)\n\n## Cena 1 — O Gancho\n\n**Locução:** 440 milhões de dólares evaporaram em 45 minutos porque um técnico esqueceu de atualizar 1 de 8 servidores.\n\n**Visual:** Chão #080a0f com grade ortogonal de 1 px (60 px, mestras a 300 px). No topo esquerdo (x 96, y 220), título 'ERRO DE 440 MILHÕES' em JetBrains Mono 800 (124 px, tracking -2%, #ff3366) já pousado desde o frame 0. Abaixo, contador de prejuízo em vermelho (#ff3366), cronômetro de 45 minutos em ciano (#38bdf8) e matriz de 8 caixas de servidores (SRV-01 a SRV-08) entre y 680 e y 1020, onde 7 ficam em verde-menta (#00ff9d) e a 8ª pisca em vermelho (#ff3366).\n\n**Âncoras:**\n- \"440 milhões de dólares\" → Contador numérico abaixo do título crava '-US$ 440.000.000' via tl.set de 0 ms em vermelho (#ff3366, 64 px).\n- \"em 45 minutos\" → Rótulo de tempo '00:45:00' em ciano (#38bdf8, 40 px) entra com expo.out (0.35 s) ao lado de uma barra horizontal que esvazia.\n- \"esqueceu de atualizar\" → Bloco com 8 caixas de servidores (SRV-01 a SRV-08) entra em expo.out (0.4 s); as 7 primeiras acendem em verde-menta (#00ff9d) com stagger de 0.067 s.\n- \"1 de 8 servidores.\" → A caixa SRV-08 muda em corte seco (tl.set, 0 ms) para vermelho (#ff3366) com rótulo 'LEGACY BUILD' em cinza (#7d8590, 30 px) e sofre tremor determinístico horizontal.\n\n## Cena 2 — O Contexto\n\n**Locução:** Em 1º de agosto de 2012, a corretora Knight Capital Americas ligou o roteador SMARS na abertura da Bolsa de Nova York.\n\n**Visual:** Janela de terminal limpa em x 96–948 e y 200–1130 exibindo cabeçalho de sessão com data e horário de abertura do mercado em ciano (#38bdf8), caixa de identificação da corretora em tinta #e6edf3 e diagrama em blocos conectando o roteador de ordens SMARS ao nó da NYSE.\n\n**Âncoras:**\n- \"agosto de 2012,\" → Cena anterior sai em power3.in (0.25 s) e topo do terminal crava 'DATE: 2012-08-01 // 09:30 EDT' em ciano (#38bdf8, 36 px).\n- \"Knight Capital Americas\" → Caixa superior exibe 'NODE: KNIGHT CAPITAL AMERICAS LLC' em JetBrains Mono 700 (40 px, #e6edf3) com entrada expo.out (0.35 s).\n- \"o roteador SMARS\" → Bloco central 'SMARS [Smart Market Access Routing System]' aparece em y 560 com indicador 'STATUS: ACTIVE' em verde-menta (#00ff9d).\n- \"Bolsa de Nova York.\" → Linha ortogonal de 1 px conecta o bloco SMARS à caixa 'NYSE ORDER BOOK' em y 880, iniciando fluxo de pulsos retangulares em ciano (#38bdf8).\n\n## Cena 3 — A Falha Técnica\n\n**Locução:** Os engenheiros reaproveitaram uma flag que ativava a rotina morta Power Peg, desativada em 2003 e deixada sem trava de parada desde 2005.\n\n**Visual:** Editor de código em JetBrains Mono (34 px) mostra a definição da flag reaproveitada para o programa RLP, a chamada legada 'PowerPeg()' marcada como código morto de 2003 e um painel de diff de 2005 destacando a remoção da verificação de limite de ações.\n\n**Âncoras:**\n- \"reaproveitaram uma flag\" → Linha de código '01  #define FLAG_RLP_MODE  0x08' entra em expo.out (0.35 s) sobrepondo o comentário cinza '// old: FLAG_POWER_PEG' (#7d8590).\n- \"rotina morta Power Peg,\" → Caixa de código em y 500 destaca 'exec_PowerPeg(order)' com borda vermelha (#ff3366) acionada em tl.set de 0 ms.\n- \"desativada em 2003\" → Etiqueta '[DEPRECATED SINCE 2003]' aparece em ciano (#38bdf8, 30 px) alinhada à direita do cabeçalho da função.\n- \"sem trava de parada\" → Bloco de diff 'COMMIT 2005' surge em y 780 mostrando a linha '- if (cum_shares >= max_shares) break;' riscada em vermelho (#ff3366).\n\n## Cena 4 — O Colapso\n\n**Locução:** O servidor esquecido entrou em loop infinito e disparou 4 milhões de ordens em 154 ações, queimando cerca de 163 mil dólares por segundo.\n\n**Visual:** Painel de execução do servidor SRV-08 em colapso: laço 'while(true)' travado no topo, log de ordens de compra e venda rolando em corte seco, contadores gigantes de ordens e ações afetadas, e medidor de perda financeira por segundo em vermelho (#ff3366).\n\n**Âncoras:**\n- \"entrou em loop infinito\" → Topo do terminal mostra 'SRV-08 -> while(FLAG_0x08) { route_PowerPeg(); }' piscando em vermelho (#ff3366) com tremor determinístico.\n- \"4 milhões de ordens\" → Contador principal salta em passos rápidos até '4.000.000 ORDENS' (JetBrains Mono 800, 76 px, #ff3366) sobre lista de execuções em alta velocidade.\n- \"em 154 ações,\" → Barra de progresso abaixo do contador preenche 100% em expo.out (0.35 s) com o rótulo '154 AÇÕES DA NYSE' em tinta #e6edf3.\n- \"mil dólares por segundo.\" → Flash branco seguro a 60% de opacidade por 1 frame revela a caixa '-US$ 163.000 / s' em vermelho (#ff3366, 92 px) via tl.set de 0 ms.\n\n## Cena 5 — O Detalhe Absurdo\n\n**Locução:** A falha ainda rendeu multa de 12 milhões de dólares da SEC e destruiu a empresa. Foi exatamente assim que\n\n**Visual:** Relatório final de auditoria no terminal exibe a autuação da SEC pela regra 15c3-5 e uma barra vertical de capitalização da empresa que zera em colapso seco; no fim da frase, a tela limpa e reconstrói exatamente o frame 0 com a grade deslocada em 60 px.\n\n**Âncoras:**\n- \"multa de 12 milhões\" → Caixa de alerta 'SEC ENFORCEMENT // MULTA: US$ 12.000.000' entra em tl.set (0 ms) em y 320 com texto em vermelho (#ff3366).\n- \"destruiu a empresa.\" → Barra de valor de mercado da Knight Capital despenca a zero em power3.in (0.25 s) com rótulo 'STATUS: INSOLVENTE' (#7d8590) e corte total de SFX.\n- \"exatamente assim que\" → Elementos saem em power3.in (0.25 s), a grade fecha o deslocamento exato de 60 px e o título 'ERRO DE 440 MILHÕES' remonta em x 96, y 220 idêntico ao frame 0.\n\n## Loop\n\n> Foi exatamente assim que 440 milhões de dólares evaporaram em 45 minutos porque um técnico esqueceu de atualizar 1 de 8 servidores.\n\n## Fatos\n\n- Em 1º de agosto de 2012, a corretora Knight Capital Americas LLC sofreu uma falha grave no sistema automatizado de roteamento de ordens SMARS (Smart Market Access Routing System) na abertura da NYSE. — *https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf* (alta)\n- Para participar do novo Retail Liquidity Program (RLP), engenheiros reaproveitaram uma flag que antes ativava a rotina legada Power Peg (desativada em 2003 e cuja verificação de contagem cumulativa de ações fora removida num refactor em 2005), e um técnico esqueceu de atualizar 1 dos 8 servidores SMARS. — *https://www.ciopages.com/articles/knight-capital-dead-code* (alta)\n- Durante os primeiros 45 minutos de pregão, o servidor não atualizado executou mais de 4 milhões de ordens em 154 ações, gerando um prejuízo pré-impostos reportado inicialmente em US$ 440 milhões (e posteriormente atualizado para cerca de US$ 460 milhões). — *https://www.henricodolfing.ch/en/case-study-4-the-440-million-software-error-at-knight-capital/* (alta)\n- Ritmo médio de perda estimado em cerca de US$ 163 mil por segundo (US$ 440 milhões divididos por 2.700 segundos / 45 minutos). — *https://en.wikipedia.org/wiki/Knight_Capital_Group* (média)\n- Em outubro de 2013, a SEC aplicou uma multa de US$ 12 milhões à Knight Capital Americas LLC por violação da Market Access Rule (Regra 15c3-5). — *https://www.sec.gov/newsroom/press-releases/2013-222* (alta)\n"
+    },
+    "tts": {
+      "status": "feito",
+      "em": "2026-10-27T16:35:30-03:00",
+      "resumo": "Quatrocentos e quarenta milhões de dólares evaporaram em quarenta e cinco minutos... porque um técnico esqueceu de atualizar um de oito servidores.\nEm primeiro de agosto de dois mil e doze, a corretora Knight Capital Americas ligou o roteador SMARS na abertura da Bolsa de Nova York.\nOs engenheiros reaproveitaram uma flag que ativava a rotina morta Power Peg... desativada em dois mil e três e deixada sem trava de parada desde dois mil e cinco.\nO servidor esquecido entrou em loop infinito e disparou quatro milhões de ordens em cento e cinquenta e quatro ações, queimando cerca de cento e sessenta e três mil dólares por segundo.\nA falha ainda rendeu multa de doze milhões de dólares da esse-ê-cê e destruiu a empresa... Foi exatamente assim que..."
+    },
+    "voz": {
+      "status": "aprovado",
+      "em": "2026-10-27T16:39:20-03:00",
+      "resumo": "niches/tech-lore/videos/003-knight-capital-440m/assets/voice.mp3 — 45.0 s\nOuça antes de aprovar: xdg-open niches/tech-lore/videos/003-knight-capital-440m/assets/voice.mp3"
+    },
+    "tempos": {
+      "status": "feito",
+      "em": "2026-10-27T16:39:24-03:00",
+      "resumo": "Duração: 44.95 s  (use como data-duration no index.html)"
+    },
+    "legendas": {
+      "status": "feito",
+      "em": "2026-10-27T16:39:24-03:00",
+      "resumo": "index.html: 10 → 44.96 s (4 elementos)\n40 grupos · duração 44.96s\ncorreções da transcrição: Américas → Americas, Smart → SMARS, bolsa → Bolsa, SESC → SEC"
+    },
+    "prompt": {
+      "status": "feito",
+      "em": "2026-10-27T16:39:24-03:00",
+      "resumo": "hyperframes-prompt.md — 5 cenas, 17/19 âncoras localizadas no áudio"
+    },
+    "cenas": {
+      "status": "aprovado",
+      "em": "2026-10-27T17:20:37-03:00",
+      "resumo": "74 turnos\ncheck: 0 erros, 4 avisos · quadros: niches/tech-lore/videos/003-knight-capital-440m/.hyperframes/artifacts/snapshots/5fcdf9ae-0278-4800-9b64-3d3912a76d25/contact-sheet.jpg\nPreview para revisar: cd niches/tech-lore/videos/003-knight-capital-440m && npx hyperframes preview --background\n(pare com: npx hyperframes preview --stop)"
+    },
+    "render": {
+      "status": "feito",
+      "em": "2026-10-27T17:21:27-03:00",
+      "resumo": "niches/tech-lore/videos/003-knight-capital-440m/renders/003-knight-capital-440m_2026-10-27_17-20-38.mp4 — 45.0 s, 7.1 MB"
+    },
+    "metadados": {
+      "status": "aprovado",
+      "em": "2026-10-27T17:59:34-03:00",
+      "resumo": "── youtube ──\nTÍTULO\nUS$ 440 milhões evaporaram em 45 min por código morto #shorts\n\nDESCRIÇÃO\nEm 2012, um deploy manual incompleto em apenas 1 de 8 servidores reativou uma rotina legada na Knight Capital. O sistema entrou em loop infinito, disparando 4 milhões de ordens e queimando 440 milhões de dólares em 45 minutos. Fonte: SEC (https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf).\n\nHASHTAGS\n#shorts #tecnologia #programacao\n\nTAGS\nknight capital, engenharia de software, programação, deploy, devops, tecnologia, bugs\n\n── tiktok ──\nLEGENDA\nUS$ 440 milhões evaporaram em 45 min por erro de deploy. #tech #programacao #devops #curiosidades\n\n── instagram ──\nLEGENDA\nUm deploy manual em 1 de 8 servidores ativou código morto e custou US$ 440 milhões em 45 minutos na Knight Capital. Você já subiu algo em produção com medo de quebrar tudo?\n\nHASHTAGS\n#programacao #devops #tecnologia #software #tech\n\n── facebook ──\nLEGENDA\nUm técnico esqueceu de atualizar 1 de 8 servidores e a empresa perdeu US$ 440 milhões em 45 minutos. Qual foi a maior falha que você já presenciou acontecer em produção?\n"
+    },
+    "publicar": {
+      "status": "feito",
+      "em": "2026-10-27T17:59:34-03:00",
+      "resumo": "niches/tech-lore/videos/003-knight-capital-440m/publicar/ pronto: tech-lore-003-knight-capital-440m.mp4, textos por plataforma e CHECKLIST.md"
+    }
+  },
+  "render": "niches/tech-lore/videos/003-knight-capital-440m/renders/003-knight-capital-440m_2026-10-27_17-20-38.mp4"
+}

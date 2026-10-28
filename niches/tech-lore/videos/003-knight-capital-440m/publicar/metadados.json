@@ -1,0 +1,36 @@
+{
+  "youtube": {
+    "titulo": "US$ 440 milhões evaporaram em 45 min por código morto #shorts",
+    "descricao": "Em 2012, um deploy manual incompleto em apenas 1 de 8 servidores reativou uma rotina legada na Knight Capital. O sistema entrou em loop infinito, disparando 4 milhões de ordens e queimando 440 milhões de dólares em 45 minutos. Fonte: SEC (https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf).",
+    "tags": [
+      "knight capital",
+      "engenharia de software",
+      "programação",
+      "deploy",
+      "devops",
+      "tecnologia",
+      "bugs"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#tecnologia",
+      "#programacao"
+    ]
+  },
+  "tiktok": {
+    "legenda": "US$ 440 milhões evaporaram em 45 min por erro de deploy. #tech #programacao #devops #curiosidades"
+  },
+  "instagram": {
+    "legenda": "Um deploy manual em 1 de 8 servidores ativou código morto e custou US$ 440 milhões em 45 minutos na Knight Capital. Você já subiu algo em produção com medo de quebrar tudo?",
+    "hashtags": [
+      "#programacao",
+      "#devops",
+      "#tecnologia",
+      "#software",
+      "#tech"
+    ]
+  },
+  "facebook": {
+    "legenda": "Um técnico esqueceu de atualizar 1 de 8 servidores e a empresa perdeu US$ 440 milhões em 45 minutos. Qual foi a maior falha que você já presenciou acontecer em produção?"
+  }
+}

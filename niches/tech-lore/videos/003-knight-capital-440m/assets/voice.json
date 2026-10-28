@@ -1,0 +1,717 @@
+{
+  "idioma": "pt",
+  "probabilidade": 1,
+  "duracao": 44.9538125,
+  "segmentos": [
+    {
+      "id": 1,
+      "inicio": 0.0,
+      "fim": 6.32,
+      "texto": "440 milhões de dólares evaporaram em 45 minutos, porque um técnico esqueceu de atualizar",
+      "palavras": [
+        {
+          "palavra": "440",
+          "inicio": 0.0,
+          "fim": 1.12,
+          "probabilidade": 0.676
+        },
+        {
+          "palavra": "milhões",
+          "inicio": 1.12,
+          "fim": 1.42,
+          "probabilidade": 0.978
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.42,
+          "fim": 1.66,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "dólares",
+          "inicio": 1.66,
+          "fim": 1.98,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "evaporaram",
+          "inicio": 1.98,
+          "fim": 2.66,
+          "probabilidade": 0.852
+        },
+        {
+          "palavra": "em",
+          "inicio": 2.66,
+          "fim": 2.8,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "45",
+          "inicio": 2.8,
+          "fim": 3.52,
+          "probabilidade": 0.965
+        },
+        {
+          "palavra": "minutos,",
+          "inicio": 3.52,
+          "fim": 4.04,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "porque",
+          "inicio": 4.32,
+          "fim": 4.62,
+          "probabilidade": 0.973
+        },
+        {
+          "palavra": "um",
+          "inicio": 4.62,
+          "fim": 4.8,
+          "probabilidade": 0.934
+        },
+        {
+          "palavra": "técnico",
+          "inicio": 4.8,
+          "fim": 5.22,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "esqueceu",
+          "inicio": 5.22,
+          "fim": 5.7,
+          "probabilidade": 0.978
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.7,
+          "fim": 5.84,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "atualizar",
+          "inicio": 5.84,
+          "fim": 6.32,
+          "probabilidade": 0.996
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "inicio": 6.32,
+      "fim": 7.48,
+      "texto": "um de 8 servidores.",
+      "palavras": [
+        {
+          "palavra": "um",
+          "inicio": 6.32,
+          "fim": 6.52,
+          "probabilidade": 0.736
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.52,
+          "fim": 6.66,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "8",
+          "inicio": 6.66,
+          "fim": 6.84,
+          "probabilidade": 0.652
+        },
+        {
+          "palavra": "servidores.",
+          "inicio": 6.84,
+          "fim": 7.48,
+          "probabilidade": 0.973
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "inicio": 8.1,
+      "fim": 13.66,
+      "texto": "Em primeiro de agosto de 2012, a corretora Knight Capital Américas ligou o roteador",
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 8.1,
+          "fim": 8.32,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "primeiro",
+          "inicio": 8.32,
+          "fim": 8.64,
+          "probabilidade": 0.596
+        },
+        {
+          "palavra": "de",
+          "inicio": 8.64,
+          "fim": 8.82,
+          "probabilidade": 0.9
+        },
+        {
+          "palavra": "agosto",
+          "inicio": 8.82,
+          "fim": 9.14,
+          "probabilidade": 0.923
+        },
+        {
+          "palavra": "de",
+          "inicio": 9.14,
+          "fim": 9.38,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "2012,",
+          "inicio": 9.38,
+          "fim": 10.12,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "a",
+          "inicio": 10.68,
+          "fim": 10.7,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "corretora",
+          "inicio": 10.7,
+          "fim": 11.12,
+          "probabilidade": 0.947
+        },
+        {
+          "palavra": "Knight",
+          "inicio": 11.12,
+          "fim": 11.42,
+          "probabilidade": 0.343
+        },
+        {
+          "palavra": "Capital",
+          "inicio": 11.42,
+          "fim": 11.96,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "Américas",
+          "inicio": 11.96,
+          "fim": 12.72,
+          "probabilidade": 0.752
+        },
+        {
+          "palavra": "ligou",
+          "inicio": 12.72,
+          "fim": 13.12,
+          "probabilidade": 0.951
+        },
+        {
+          "palavra": "o",
+          "inicio": 13.12,
+          "fim": 13.28,
+          "probabilidade": 0.933
+        },
+        {
+          "palavra": "roteador",
+          "inicio": 13.28,
+          "fim": 13.66,
+          "probabilidade": 0.77
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "inicio": 13.66,
+      "fim": 16.22,
+      "texto": "Smart na abertura da bolsa de Nova Iorque.",
+      "palavras": [
+        {
+          "palavra": "Smart",
+          "inicio": 13.66,
+          "fim": 14.08,
+          "probabilidade": 0.42
+        },
+        {
+          "palavra": "na",
+          "inicio": 14.08,
+          "fim": 14.42,
+          "probabilidade": 0.592
+        },
+        {
+          "palavra": "abertura",
+          "inicio": 14.42,
+          "fim": 14.88,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "da",
+          "inicio": 14.88,
+          "fim": 15.06,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "bolsa",
+          "inicio": 15.06,
+          "fim": 15.42,
+          "probabilidade": 0.794
+        },
+        {
+          "palavra": "de",
+          "inicio": 15.42,
+          "fim": 15.56,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "Nova",
+          "inicio": 15.56,
+          "fim": 15.7,
+          "probabilidade": 0.941
+        },
+        {
+          "palavra": "Iorque.",
+          "inicio": 15.7,
+          "fim": 16.22,
+          "probabilidade": 0.722
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "inicio": 16.76,
+      "fim": 22.54,
+      "texto": "Os engenheiros reaproveitaram uma flag que ativava a rotina morta Powerpeg, desativada em",
+      "palavras": [
+        {
+          "palavra": "Os",
+          "inicio": 16.76,
+          "fim": 16.92,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "engenheiros",
+          "inicio": 16.92,
+          "fim": 17.46,
+          "probabilidade": 0.968
+        },
+        {
+          "palavra": "reaproveitaram",
+          "inicio": 17.46,
+          "fim": 18.34,
+          "probabilidade": 0.798
+        },
+        {
+          "palavra": "uma",
+          "inicio": 18.34,
+          "fim": 18.54,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "flag",
+          "inicio": 18.54,
+          "fim": 18.8,
+          "probabilidade": 0.911
+        },
+        {
+          "palavra": "que",
+          "inicio": 18.8,
+          "fim": 19.1,
+          "probabilidade": 0.929
+        },
+        {
+          "palavra": "ativava",
+          "inicio": 19.1,
+          "fim": 19.52,
+          "probabilidade": 0.975
+        },
+        {
+          "palavra": "a",
+          "inicio": 19.52,
+          "fim": 19.74,
+          "probabilidade": 0.951
+        },
+        {
+          "palavra": "rotina",
+          "inicio": 19.74,
+          "fim": 20.08,
+          "probabilidade": 0.884
+        },
+        {
+          "palavra": "morta",
+          "inicio": 20.08,
+          "fim": 20.5,
+          "probabilidade": 0.891
+        },
+        {
+          "palavra": "Powerpeg,",
+          "inicio": 20.5,
+          "fim": 21.22,
+          "probabilidade": 0.556
+        },
+        {
+          "palavra": "desativada",
+          "inicio": 21.68,
+          "fim": 22.34,
+          "probabilidade": 0.877
+        },
+        {
+          "palavra": "em",
+          "inicio": 22.34,
+          "fim": 22.54,
+          "probabilidade": 0.998
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "inicio": 22.54,
+      "fim": 26.86,
+      "texto": "2003 e deixada centrava de parada desde 2005.",
+      "palavras": [
+        {
+          "palavra": "2003",
+          "inicio": 22.54,
+          "fim": 23.3,
+          "probabilidade": 0.912
+        },
+        {
+          "palavra": "e",
+          "inicio": 23.3,
+          "fim": 23.82,
+          "probabilidade": 0.947
+        },
+        {
+          "palavra": "deixada",
+          "inicio": 23.82,
+          "fim": 24.26,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "centrava",
+          "inicio": 24.26,
+          "fim": 24.94,
+          "probabilidade": 0.875
+        },
+        {
+          "palavra": "de",
+          "inicio": 24.94,
+          "fim": 25.06,
+          "probabilidade": 0.957
+        },
+        {
+          "palavra": "parada",
+          "inicio": 25.06,
+          "fim": 25.52,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "desde",
+          "inicio": 25.52,
+          "fim": 25.88,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "2005.",
+          "inicio": 25.88,
+          "fim": 26.86,
+          "probabilidade": 0.993
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "inicio": 27.58,
+      "fim": 33.82,
+      "texto": "O servidor esquecido entrou em loop infinito e disparou 4 milhões de ordens em 154 ações,",
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 27.36,
+          "fim": 27.7,
+          "probabilidade": 0.526
+        },
+        {
+          "palavra": "servidor",
+          "inicio": 27.7,
+          "fim": 28.12,
+          "probabilidade": 0.914
+        },
+        {
+          "palavra": "esquecido",
+          "inicio": 28.12,
+          "fim": 28.72,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "entrou",
+          "inicio": 28.72,
+          "fim": 29.06,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "em",
+          "inicio": 29.06,
+          "fim": 29.2,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "loop",
+          "inicio": 29.2,
+          "fim": 29.38,
+          "probabilidade": 0.521
+        },
+        {
+          "palavra": "infinito",
+          "inicio": 29.38,
+          "fim": 30.1,
+          "probabilidade": 0.886
+        },
+        {
+          "palavra": "e",
+          "inicio": 30.1,
+          "fim": 30.22,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "disparou",
+          "inicio": 30.22,
+          "fim": 30.62,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "4",
+          "inicio": 30.62,
+          "fim": 31.04,
+          "probabilidade": 0.69
+        },
+        {
+          "palavra": "milhões",
+          "inicio": 31.04,
+          "fim": 31.26,
+          "probabilidade": 0.962
+        },
+        {
+          "palavra": "de",
+          "inicio": 31.26,
+          "fim": 31.54,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "ordens",
+          "inicio": 31.54,
+          "fim": 31.9,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "em",
+          "inicio": 31.9,
+          "fim": 32.14,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "154",
+          "inicio": 32.14,
+          "fim": 33.2,
+          "probabilidade": 0.901
+        },
+        {
+          "palavra": "ações,",
+          "inicio": 33.2,
+          "fim": 33.82,
+          "probabilidade": 0.954
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "inicio": 34.06,
+      "fim": 37.26,
+      "texto": "queimando cerca de 163 mil dólares por segundo.",
+      "palavras": [
+        {
+          "palavra": "queimando",
+          "inicio": 34.06,
+          "fim": 34.32,
+          "probabilidade": 0.97
+        },
+        {
+          "palavra": "cerca",
+          "inicio": 34.32,
+          "fim": 34.58,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "de",
+          "inicio": 34.58,
+          "fim": 34.78,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "163",
+          "inicio": 34.78,
+          "fim": 35.88,
+          "probabilidade": 0.923
+        },
+        {
+          "palavra": "mil",
+          "inicio": 35.88,
+          "fim": 36.18,
+          "probabilidade": 0.793
+        },
+        {
+          "palavra": "dólares",
+          "inicio": 36.18,
+          "fim": 36.54,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "por",
+          "inicio": 36.54,
+          "fim": 36.8,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "segundo.",
+          "inicio": 36.8,
+          "fim": 37.26,
+          "probabilidade": 0.984
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "inicio": 37.74,
+      "fim": 42.74,
+      "texto": "A falha ainda rendeu multa de 12 milhões de dólares da SESC e destruiu a empresa.",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 37.74,
+          "fim": 37.96,
+          "probabilidade": 0.959
+        },
+        {
+          "palavra": "falha",
+          "inicio": 37.96,
+          "fim": 38.3,
+          "probabilidade": 0.915
+        },
+        {
+          "palavra": "ainda",
+          "inicio": 38.3,
+          "fim": 38.68,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "rendeu",
+          "inicio": 38.68,
+          "fim": 39.02,
+          "probabilidade": 0.853
+        },
+        {
+          "palavra": "multa",
+          "inicio": 39.02,
+          "fim": 39.38,
+          "probabilidade": 0.903
+        },
+        {
+          "palavra": "de",
+          "inicio": 39.38,
+          "fim": 39.5,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "12",
+          "inicio": 39.5,
+          "fim": 39.82,
+          "probabilidade": 0.966
+        },
+        {
+          "palavra": "milhões",
+          "inicio": 39.82,
+          "fim": 40.06,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "de",
+          "inicio": 40.06,
+          "fim": 40.32,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "dólares",
+          "inicio": 40.32,
+          "fim": 40.66,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "da",
+          "inicio": 40.66,
+          "fim": 40.92,
+          "probabilidade": 0.974
+        },
+        {
+          "palavra": "SESC",
+          "inicio": 40.92,
+          "fim": 41.46,
+          "probabilidade": 0.567
+        },
+        {
+          "palavra": "e",
+          "inicio": 41.46,
+          "fim": 41.74,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "destruiu",
+          "inicio": 41.74,
+          "fim": 42.2,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "a",
+          "inicio": 42.2,
+          "fim": 42.32,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "empresa.",
+          "inicio": 42.32,
+          "fim": 42.74,
+          "probabilidade": 0.99
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "inicio": 43.22,
+      "fim": 44.92,
+      "texto": "Foi exatamente assim que...",
+      "palavras": [
+        {
+          "palavra": "Foi",
+          "inicio": 43.22,
+          "fim": 43.44,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "exatamente",
+          "inicio": 43.44,
+          "fim": 43.86,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "assim",
+          "inicio": 43.86,
+          "fim": 44.28,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "que...",
+          "inicio": 44.28,
+          "fim": 44.92,
+          "probabilidade": 0.863
+        }
+      ]
+    }
+  ]
+}

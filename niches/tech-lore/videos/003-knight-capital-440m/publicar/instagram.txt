@@ -1,0 +1,5 @@
+LEGENDA
+Um deploy manual em 1 de 8 servidores ativou código morto e custou US$ 440 milhões em 45 minutos na Knight Capital. Você já subiu algo em produção com medo de quebrar tudo?
+
+HASHTAGS
+#programacao #devops #tecnologia #software #tech

@@ -1,0 +1,2 @@
+LEGENDA
+Um técnico esqueceu de atualizar 1 de 8 servidores e a empresa perdeu US$ 440 milhões em 45 minutos. Qual foi a maior falha que você já presenciou acontecer em produção?

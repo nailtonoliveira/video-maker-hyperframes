@@ -1,0 +1,208 @@
+{
+  "temas": [
+    {
+      "id": "T001",
+      "estado": "produzido",
+      "criado_em": "2026-10-27T00:43:23-03:00",
+      "titulo": "O bug de 370 milhões de dólares do foguete Ariane 5",
+      "slug": "ariane5",
+      "gancho": "Um erro de código de uma única linha custou 370 milhões de dólares em apenas 37 segundos.",
+      "resumo": "Em 1996, uma conversão de 64 para 16 bits num código herdado e inútil após a decolagem destruiu o Ariane 5.",
+      "video": "001-ariane5"
+    },
+    {
+      "id": "T002",
+      "estado": "pronto",
+      "criado_em": "2026-10-27T16:15:49-03:00",
+      "titulo": "Knight Capital: A flag de código morto que queimou US$ 440 milhões em 45 minutos",
+      "slug": "knight-capital-440m",
+      "gancho": "440 milhões de dólares evaporaram em 45 minutos porque um técnico esqueceu de atualizar 1 de 8 servidores.",
+      "resumo": "Em 1º de agosto de 2012, a corretora americana Knight Capital inundou a Bolsa de Nova York com 4 milhões de ordens erradas em 154 ações, comprando na alta e vendendo na baixa sem parar. Os engenheiros reaproveitaram uma flag que ativava a rotina de testes legada Power Peg, desativada desde 2005, e esqueceram de atualizar um único servidor SMARS durante o deploy manual.",
+      "fatos_chave": [
+        "Data e sistema: 1º de agosto de 2012, no roteador de ordens SMARS (Smart Market Access Routing System) da Knight Capital Americas LLC.",
+        "Erro técnico: Reutilização da flag da função morta Power Peg (de 2003) combinada com deploy incompleto em 1 dos 8 servidores de produção.",
+        "Consequência: Prejuízo pré-impostos de US$ 440 milhões em 45 minutos (cerca de US$ 163 mil por segundo) e multa de US$ 12 milhões da SEC."
+      ],
+      "por_que_prende": "Mostra visualmente no terminal como 7 servidores verdes e 1 servidor vermelho esquecido num deploy manual conseguiram quebrar uma gigante de Wall Street antes do almoço.",
+      "fontes": [
+        "https://www.sec.gov/Archives/edgar/data/1060749/000119312512336167/d392288d8k.htm",
+        "https://www.sec.gov/newsroom/press-releases/2013-222"
+      ],
+      "atualizado_em": "2026-10-27T17:59:34-03:00",
+      "video": "003-knight-capital-440m"
+    },
+    {
+      "id": "T003",
+      "estado": "sugerido",
+      "criado_em": "2026-10-27T16:15:50-03:00",
+      "titulo": "Mars Climate Orbiter: O erro entre libras e newtons que destruiu uma sonda de US$ 125 milhões",
+      "slug": "mars-climate-orbiter",
+      "gancho": "125 milhões de dólares queimaram na atmosfera de Marte por causa de uma multiplicação por 4,45 que ninguém fez.",
+      "resumo": "Em 23 de setembro de 1999, a sonda Mars Climate Orbiter da NASA mergulhou a 57 quilômetros da superfície de Marte — quase 100 quilômetros abaixo da órbita segura — e se desintegrou. O módulo terrestre SM_FORCES, feito pela Lockheed Martin, enviava dados de impulso em libras-força por segundo (sistema imperial), enquanto o sistema de navegação do JPL lia os números como newtons por segundo (sistema métrico).",
+      "fatos_chave": [
+        "Data e sistema: 23 de setembro de 1999, no arquivo de interface terrestre SM_FORCES da sonda Mars Climate Orbiter (NASA/JPL).",
+        "Erro técnico: Violação da especificação SIS ao emitir impulsos em lbf·s em vez de N·s, subestimando a força dos propulsores em 4,45 vezes por 9 meses e meio.",
+        "Consequência: Entrada na atmosfera marciana a 57 km de altitude (em vez de 140–150 km) e perda total da sonda de US$ 125 milhões (US$ 327,6 milhões no programa)."
+      ],
+      "por_que_prende": "O contraste entre a complexidade da engenharia interplanetária e um erro escolar de conversão de unidades rende uma comparação numérica imediata na tela.",
+      "fontes": [
+        "https://llis.nasa.gov/lesson/740",
+        "https://en.wikipedia.org/wiki/Mars_Climate_Orbiter"
+      ]
+    },
+    {
+      "id": "T004",
+      "estado": "sugerido",
+      "criado_em": "2026-10-27T16:15:51-03:00",
+      "titulo": "Bateria Patriot em Dhahran: O atraso de 0,34 segundo em 24 bits que custou 28 vidas",
+      "slug": "patriot-dhahran-24bits",
+      "gancho": "0,34 segundo de atraso no relógio de um radar impediu a interceptação de um míssil e matou 28 soldados.",
+      "resumo": "Em 25 de fevereiro de 1991, durante a Guerra do Golfo, uma bateria antiaérea Patriot em Dhahran, na Arábia Saudita, falhou em detectar um míssil Scud que atingiu um alojamento militar americano. O software contava o tempo em décimos de segundo usando um registrador de 24 bits; como 0,1 é uma dízima periódica em binário, o truncamento acumulado após 100 horas ligado desviou o feixe do radar em quase 700 metros.",
+      "fatos_chave": [
+        "Data e sistema: 25 de fevereiro de 1991, no computador de controle de tiro do sistema MIM-104 Patriot em Dhahran (relatório GAO/IMTEC-92-26).",
+        "Erro técnico: Representação de 1/10 em binário (0.0001100110011...) truncada em 24 bits, gerando erro de 0,000000095 s por décimo de segundo.",
+        "Consequência: Após 100 horas de operação contínua, o atraso de 0,34 s deslocou a janela de rastreio em ~687 metros, deixando passar o Scud que matou 28 soldados."
+      ],
+      "por_que_prende": "Transforma um conceito abstrato da computação — dízima periódica em binário — numa contagem regressiva letal em que frações invisíveis viram centenas de metros.",
+      "fontes": [
+        "https://www.gao.gov/assets/imtec-92-26.pdf",
+        "https://www.iro.umontreal.ca/~mignotte/IFT2425/Disasters.html"
+      ]
+    },
+    {
+      "id": "T005",
+      "estado": "sugerido",
+      "criado_em": "2026-10-27T16:15:52-03:00",
+      "titulo": "Therac-25: A condição de corrida de 8 segundos que aplicou doses letais de radiação",
+      "slug": "therac-25-race-condition",
+      "gancho": "8 segundos para editar uma letra no teclado transformaram uma máquina de radioterapia em uma arma letal.",
+      "resumo": "Entre 1985 e 1987, o acelerador linear médico Therac-25 aplicou descargas de até 25.000 rads — mais de 100 vezes a dose prescrita — em seis pacientes no Canadá e nos Estados Unidos. Se o operador corrigisse o modo de disparo no terminal em menos de 8 segundos enquanto os ímãs se alinhavam, uma condição de corrida impedia a atualização das variáveis de controle e disparava o feixe de alta potência sem o filtro protetor.",
+      "fatos_chave": [
+        "Data e sistema: Junho de 1985 a janeiro de 1987, no acelerador linear Therac-25 da estatal canadense AECL, programado em assembly de PDP-11.",
+        "Erro técnico: Race condition na rotina de teclado (Datent) durante o ciclo de 8 segundos de ajuste dos ímãs, somada ao overflow de 1 byte na variável Class3.",
+        "Consequência: 6 acidentes documentados de superdosagem maciça (exibindo apenas 'MALFUNCTION 54' na tela), resultando em 3 mortes diretas e mutilações graves."
+      ],
+      "por_que_prende": "O fato de que digitar rápido demais no terminal acionava o bug cria uma tensão imediata e permite visualizar as duas threads disputando a mesma variável.",
+      "fontes": [
+        "https://web.mit.edu/6.033/2004/wwwdocs/papers/Therac_1.html",
+        "https://www.read.seas.harvard.edu/~kohler/class/05f-osp/rep1.html"
+      ]
+    },
+    {
+      "id": "T006",
+      "estado": "sugerido",
+      "criado_em": "2026-10-27T16:15:53-03:00",
+      "titulo": "Apagão da AT&T de 1990: O comando break que derrubou 60 milhões de chamadas nos EUA",
+      "slug": "att-1990-break-switch",
+      "gancho": "60 milhões de ligações caíram nos Estados Unidos por causa de uma única palavra de 5 letras em C.",
+      "resumo": "Em 15 de janeiro de 1990, a rede de longa distância da AT&T entrou em colapso por 9 horas porque cada central telefônica que reiniciava derrubava as centrais vizinhas em efeito dominó. Um programador havia colocado um comando break dentro de um bloco if que estava aninhado num switch; em vez de sair apenas do if, o código saltou todo o switch e corrompeu os ponteiros de memória ao receber duas mensagens seguidas.",
+      "fatos_chave": [
+        "Data e sistema: 15 de janeiro de 1990, no software de sinalização SS7 dos 114 comutadores eletrônicos 4ESS da AT&T.",
+        "Erro técnico: Um statement 'break;' dentro de uma cláusula 'if' aninhada em um 'case' de 'switch' em C, pulando a inicialização de variáveis de estado.",
+        "Consequência: Paralisação em cascata das 114 centrais por 9 horas, mais de 60 milhões de chamadas perdidas e prejuízo estimado em US$ 60 milhões."
+      ],
+      "por_que_prende": "Qualquer pessoa que já viu código entende em 3 segundos o erro de um 'break' dentro de um 'switch', e o efeito dominó em 114 servidores é perfeito para motion graphics.",
+      "fontes": [
+        "https://www5.in.tum.de/~huckle/attcrash1.htm",
+        "https://read.engineerscodex.com/p/how-one-line-of-code-caused-a-60"
+      ]
+    },
+    {
+      "id": "T007",
+      "estado": "sugerido",
+      "criado_em": "2026-10-27T16:15:54-03:00",
+      "titulo": "Mizuho Securities: A venda de 610 mil ações a 1 iene que a Bolsa de Tóquio recusou cancelar",
+      "slug": "mizuho-jcom-1-iene",
+      "gancho": "40,7 bilhões de ienes sumiram em minutos porque o botão de cancelar da Bolsa de Tóquio tinha um bug.",
+      "resumo": "Em 8 de dezembro de 2005, um operador da corretora Mizuho tentou vender 1 ação da estreante J-Com por 610 mil ienes, mas inverteu os campos e lançou a venda de 610 mil ações por 1 iene cada — 42 vezes mais ações do que a empresa possuía. O operador tentou abortar a ordem imediatamente, mas uma falha de software no motor da Bolsa de Valores de Tóquio ignorou os comandos de cancelamento enquanto algoritmos rivais compravam tudo.",
+      "fatos_chave": [
+        "Data e sistema: 8 de dezembro de 2005, no sistema de negociação de ações da Bolsa de Valores de Tóquio (TSE) durante o IPO da J-Com Co.",
+        "Erro técnico: Ordem invertida (610.000 ações a ¥1 em vez de 1 ação a ¥610.000) agravada por um bug na TSE que descartava cancelamentos quando havia ordens no limite diário de preço.",
+        "Consequência: Prejuízo de 40,7 bilhões de ienes (~US$ 340 milhões) para recomprar os papéis inexistentes e renúncia da cúpula da Bolsa de Tóquio."
+      ],
+      "por_que_prende": "A inversão visual dos dois números nos campos de entrada seguida por tentativas desesperadas de 'CANCEL -> FAILED' no terminal cria um clímax de puro desespero.",
+      "fontes": [
+        "https://www.cbc.ca/news/business/tokyo-stock-exchange-sued-over-huge-trading-error-1.614324",
+        "https://www.theguardian.com/business/2006/jun/20/japan.money"
+      ]
+    },
+    {
+      "id": "T008",
+      "estado": "sugerido",
+      "criado_em": "2026-10-27T16:15:55-03:00",
+      "titulo": "Sonda Schiaparelli: O segundo de saturação que fez o computador achar que estava embaixo da terra",
+      "slug": "schiaparelli-exomars-2016",
+      "gancho": "3,7 quilômetros acima do chão de Marte, o computador da sonda europeia calculou que sua altitude era negativa e desligou os freios.",
+      "resumo": "Em 19 de outubro de 2016, o módulo de pouso Schiaparelli, da Agência Espacial Europeia, balançou forte ao abrir o paraquedas e saturou seu giroscópio por apenas 1 segundo. O software de navegação integrou esse valor travado a um ângulo superior a 90 graus, concluiu que a nave já estava abaixo do nível do solo marciano e ejetou o paraquedas em plena queda livre.",
+      "fatos_chave": [
+        "Data e sistema: 19 de outubro de 2016, no sistema de orientação, navegação e controle (GNC) do módulo Schiaparelli EDM da missão ExoMars (ESA).",
+        "Erro técnico: Saturação da Unidade de Medição Inercial (IMU) por ~1 segundo gerou erro de inclinação que fez o estimador calcular altitude negativa a 3,7 km do solo.",
+        "Consequência: Ejeção prematura do paraquedas, acionamento dos propulsores por apenas 3 segundos (em vez de 30 s) e colisão em Marte a 540 km/h."
+      ],
+      "por_que_prende": "A ironia de uma sonda espacial abrir mão do paraquedas a quase 4 mil metros de altura porque uma variável de altitude ficou com sinal de menos é visualmente impactante.",
+      "fontes": [
+        "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Exploration/ExoMars/Schiaparelli_landing_investigation_completed",
+        "https://www.planetary.org/articles/11230922-schiaparelli-investigation"
+      ]
+    },
+    {
+      "id": "T009",
+      "estado": "em_producao",
+      "criado_em": "2026-10-27T16:15:56-03:00",
+      "titulo": "CrowdStrike Channel File 291: O 21º campo ausente que travou 8,5 milhões de computadores",
+      "slug": "crowdstrike-channel-291",
+      "gancho": "8,5 milhões de computadores entraram em tela azul ao mesmo tempo porque um arquivo entregou 20 campos onde o código esperava 21.",
+      "resumo": "Em 19 de julho de 2024, uma atualização silenciosa de configuração do sensor CrowdStrike Falcon paralisou aeroportos, hospitais e bancos no mundo inteiro. O interpretador em C++ rodando no núcleo do Windows esperava um array de 21 parâmetros, mas o arquivo Channel File 291 veio com apenas 20, provocando uma leitura fora dos limites da memória e derrubando o sistema operacional instantaneamente.",
+      "fatos_chave": [
+        "Data e sistema: 19 de julho de 2024 (04:09 UTC), no driver de kernel do sensor CrowdStrike Falcon para Windows via atualização do Channel File 291.",
+        "Erro técnico: O template IPC exigia 21 campos de entrada, mas o arquivo de configuração forneceu 20, causando out-of-bounds memory read em Ring 0.",
+        "Consequência: 8,5 milhões de máquinas Windows travadas em loop de inicialização (BSOD), milhares de voos cancelados e bilhões de dólares em prejuízos globais."
+      ],
+      "por_que_prende": "Conecta o maior apagão de TI da história recente a um simples acesso ao índice 20 de um array de 20 posições (0 a 19) direto no kernel do Windows.",
+      "fontes": [
+        "https://www.crowdstrike.com/wp-content/uploads/2024/08/Executive-Summary_Root-Cause-Analysis_Channel-File-291.pdf",
+        "https://www.crowdstrike.com/en-us/blog/channel-file-291-rca-available/"
+      ],
+      "atualizado_em": "2026-10-27T16:26:29-03:00",
+      "video": "002-crowdstrike-channel-291"
+    },
+    {
+      "id": "T010",
+      "estado": "sugerido",
+      "criado_em": "2026-10-27T16:15:57-03:00",
+      "titulo": "USS Yorktown: A divisão por zero no Windows NT que deixou um navio de guerra à deriva",
+      "slug": "uss-yorktown-divisao-zero",
+      "gancho": "1 único zero digitado no teclado desligou os motores de um cruzador de guerra de 9.600 toneladas por quase 3 horas.",
+      "resumo": "Em 21 de setembro de 1997, o cruzador lança-mísseis USS Yorktown, vitrine do programa Smart Ship da Marinha dos Estados Unidos, ficou totalmente sem propulsão na costa da Virgínia. Ao calibrar uma válvula de combustível, um marinheiro digitou 0 num campo do banco de dados, gerando uma divisão por zero não tratada que derrubou em cascata os 27 computadores com Windows NT 4.0 do navio.",
+      "fatos_chave": [
+        "Data e sistema: 21 de setembro de 1997, no software Remote Data Base Manager (RDM) rodando sobre Windows NT 4.0 a bordo do USS Yorktown (CG-48).",
+        "Erro técnico: Entrada do valor '0' em um campo de válvula provocou exceção não tratada de divisão por zero, travando o RDM e o Standard Monitoring Control System (SMCS) via LAN.",
+        "Consequência: O navio de guerra ficou 'dead in the water' (imobilizado no mar) por 2 horas e 45 minutos até os sistemas serem reiniciados."
+      ],
+      "por_que_prende": "O contraste absurdo entre o poder bélico de um cruzador de mísseis guiados e o erro mais elementar da programação (`x / 0`) sem bloco de captura.",
+      "fontes": [
+        "https://en.wikipedia.org/wiki/USS_Yorktown_(CG-48)",
+        "https://www.rose-hulman.edu/class/cs/csse442/current/hw/homework6-story.pdf"
+      ]
+    },
+    {
+      "id": "T011",
+      "estado": "sugerido",
+      "criado_em": "2026-10-27T16:15:57-03:00",
+      "titulo": "Voo Qantas 72: Os dois picos de 1,2 segundo que fizeram um Airbus mergulhar sozinho",
+      "slug": "qantas-72-adiru-airbus",
+      "gancho": "1,2 segundo entre dois números corrompidos enganou o piloto automático e jogou um avião com 315 pessoas em queda livre.",
+      "resumo": "Em 7 de outubro de 2008, o Airbus A330 do voo Qantas 72 voava tranquilo a 37 mil pés rumo à Austrália quando o computador de voo empurrou o nariz bruscamente para baixo duas vezes, ferindo 119 pessoas. A unidade inercial ADIRU 1 empacotou rótulos binários errados e enviou dois picos falsos de ângulo de ataque espaçados por exatos 1,2 segundo — o único intervalo capaz de burlar o filtro de segurança do computador primário FCPC.",
+      "fatos_chave": [
+        "Data e sistema: 7 de outubro de 2008, na unidade LTN-101 ADIRU nº 1 e nos computadores FCPC do Airbus A330-303 (prefixo VH-QPA) no voo Qantas 72.",
+        "Erro técnico: Corrupção de pacotes na CPU da ADIRU gerou dois picos falsos de ângulo de ataque (AOA) com 1,2 s de intervalo, superando a janela de memorização do algoritmo de filtragem do FCPC.",
+        "Consequência: Mergulho automático não comandado de 8,4 graus (perda de 650 pés em segundos), deixando 119 feridos (12 em estado grave) e forçando pouso de emergência em Learmonth."
+      ],
+      "por_que_prende": "Mostra como um filtro projetado para ignorar picos de erro falhou diante de dois picos separados pela janela exata de 1,2 segundo, fazendo o próprio avião lutar contra os pilotos.",
+      "fontes": [
+        "https://www.atsb.gov.au/investigations/ao-2008-070",
+        "https://www.atsb.gov.au/statements/2008/qantas-airbus-a330-accident-media-conference"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-mono);
+      font-variant-ligatures: none;
+      color: var(--ink);
+    }
+    /* Texto só em x 96–948 (trilho de ações do Shorts à direita) e y 200–1130. */
+    #s1-stage {
+      position: absolute;
+      left: 96px;
+      top: 0;
+      width: 852px;
+      height: 1920px;
+    }
+    /* Título + contador: a cena 5 repete esta mesma marcação e estas medidas (último frame = frame 0). */
+    #s1-title {
+      position: absolute;
+      left: 0;
+      top: 220px;
+      width: 852px;
+    }
+    .s1-line {
+      font-size: 124px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      white-space: pre;
+      color: var(--alert);
+    }
+    #s1-loss {
+      position: absolute;
+      left: 0;
+      top: 500px;
+    }
+    .s1-label {
+      font-size: 30px;
+      line-height: 1;
+      color: var(--gray);
+    }
+    #s1-loss-num {
+      margin-top: 12px;
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--alert);
+      white-space: nowrap;
+    }
+    #s1-timer {
+      position: absolute;
+      left: 0;
+      top: 640px;
+      width: 852px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      clip-path: inset(0px 100% 0px 0px);
+    }
+    #s1-clock {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--cyan);
+    }
+    #s1-track {
+      position: relative;
+      flex: 1;
+      height: 14px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+    #s1-fill {
+      position: absolute;
+      inset: 2px;
+      background: var(--cyan);
+      transform-origin: 0 50%;
+    }
+    #s1-rack {
+      position: absolute;
+      left: 0;
+      top: 720px;
+      width: 852px;
+      height: 300px;
+      display: grid;
+      grid-template-columns: 420px 420px;
+      grid-auto-rows: 66px;
+      gap: 12px;
+      clip-path: inset(0px 0px 100% 0px);
+    }
+    .s1-srv {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border: 1px solid rgba(125, 133, 144, 0.5);
+      background: rgba(8, 10, 15, 0.85);
+    }
+    .s1-name {
+      position: relative;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gray);
+    }
+    .s1-st {
+      position: relative;
+      font-size: 30px;
+      line-height: 1;
+      color: var(--mint);
+      opacity: 0;
+    }
+    #s1-srv8 .s1-st {
+      color: var(--gray);
+    }
+    #s1-hot {
+      position: absolute;
+      inset: -1px;
+      border: 2px solid var(--alert);
+      background: rgba(255, 51, 102, 0.16);
+      opacity: 0;
+    }
+  </style>
+  <div data-hf-id="hf-qmpn" id="root" data-composition-id="s1" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-swk8" id="s1-stage">
+      <div data-hf-id="hf-6rtc" id="s1-title">
+        <div data-hf-id="hf-bhfb" class="s1-line"><span data-hf-id="hf-l6y4">E</span><span data-hf-id="hf-f8cp">R</span><span data-hf-id="hf-i48t">R</span><span data-hf-id="hf-h7vu">O</span> <span data-hf-id="hf-ksn3">D</span><span data-hf-id="hf-16v8">E</span></div>
+        <div data-hf-id="hf-y29j" class="s1-line"><span data-hf-id="hf-gl5b">4</span><span data-hf-id="hf-rktr">4</span><span data-hf-id="hf-i6df">0</span> <span data-hf-id="hf-i0hw">M</span><span data-hf-id="hf-jlq0">I</span><span data-hf-id="hf-hm6v">L</span><span data-hf-id="hf-j7ez">H</span><span data-hf-id="hf-vwv0">Õ</span><span data-hf-id="hf-zzy5">E</span><span data-hf-id="hf-fmnq">S</span></div>
+      </div>
+
+      <div data-hf-id="hf-eb5v" id="s1-loss">
+        <div data-hf-id="hf-3p3x" class="s1-label">let prejuizo =</div>
+        <div data-hf-id="hf-xx93" id="s1-loss-num" data-var-text="loss">-US$ 440.000.000</div>
+      </div>
+
+      <div data-hf-id="hf-e1kl" id="s1-timer">
+        <div data-hf-id="hf-x1vl" id="s1-clock">00:45:00</div>
+        <div data-hf-id="hf-k6cv" id="s1-track"><div data-hf-id="hf-79a9" id="s1-fill"></div></div>
+      </div>
+
+      <div data-hf-id="hf-gmrj" id="s1-rack">
+        <div data-hf-id="hf-lof7" class="s1-srv" id="s1-srv1"><span data-hf-id="hf-741k" class="s1-name">SRV-01</span><span data-hf-id="hf-1zh3" class="s1-st">RLP OK</span></div>
+        <div data-hf-id="hf-asxk" class="s1-srv" id="s1-srv2"><span data-hf-id="hf-5x4h" class="s1-name">SRV-02</span><span data-hf-id="hf-jo47" class="s1-st">RLP OK</span></div>
+        <div data-hf-id="hf-bkld" class="s1-srv" id="s1-srv3"><span data-hf-id="hf-6bfi" class="s1-name">SRV-03</span><span data-hf-id="hf-j9t6" class="s1-st">RLP OK</span></div>
+        <div data-hf-id="hf-2wpi" class="s1-srv" id="s1-srv4"><span data-hf-id="hf-54if" class="s1-name">SRV-04</span><span data-hf-id="hf-ivi5" class="s1-st">RLP OK</span></div>
+        <div data-hf-id="hf-6utj" class="s1-srv" id="s1-srv5"><span data-hf-id="hf-5itg" class="s1-name">SRV-05</span><span data-hf-id="hf-lnnc" class="s1-st">RLP OK</span></div>
+        <div data-hf-id="hf-y6xo" class="s1-srv" id="s1-srv6"><span data-hf-id="hf-4bwd" class="s1-name">SRV-06</span><span data-hf-id="hf-l9cb" class="s1-st">RLP OK</span></div>
+        <div data-hf-id="hf-yylh" class="s1-srv" id="s1-srv7"><span data-hf-id="hf-4q7e" class="s1-name">SRV-07</span><span data-hf-id="hf-kv1a" class="s1-st">RLP OK</span></div>
+        <div data-hf-id="hf-o33u" class="s1-srv" id="s1-srv8">
+          <div data-hf-id="hf-suyb" id="s1-hot"></div>
+          <span data-hf-id="hf-9w6r" class="s1-name">SRV-08</span><span data-hf-id="hf-3c44" class="s1-st">LEGACY BUILD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // 1ª cena: tempo local = absoluto.
+      const F = 1 / 30;
+      const MINT = "#00ff9d";
+      const ALERT = "#ff3366";
+      const tl = gsap.timeline({ paused: true });
+
+      // 0.00 "440 milhões de dólares": título e contador já cravados no frame 0 (thumbnail).
+
+      // 2.66 "em 45 minutos": cronômetro imprime da esquerda; a barra esvazia até a saída.
+      tl.fromTo("#s1-timer", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 0.35, ease: "expo.out" }, 2.66);
+      tl.fromTo("#s1-fill", { scaleX: 1 }, { scaleX: 0, duration: 8.57 - 3.01, ease: "none" }, 3.01);
+
+      // 5.22 "esqueceu de atualizar": rack abre de cima; 7 servidores acendem em menta.
+      tl.fromTo("#s1-rack", { clipPath: "inset(0px 0px 100% 0px)" }, { clipPath: "inset(0px 0px 0% 0px)", duration: 0.4, ease: "expo.out" }, 5.22);
+      for (let i = 1; i <= 7; i++) {
+        const t = 5.55 + (i - 1) * 0.067;
+        tl.set(`#s1-srv${i}`, { borderColor: MINT }, t);
+        tl.set(`#s1-srv${i} .s1-name`, { color: MINT }, t);
+        tl.set(`#s1-srv${i} .s1-st`, { opacity: 1 }, t);
+      }
+
+      // 6.32 "um de 8 servidores": SRV-08 corta seco para vermelho, treme e pisca.
+      tl.set("#s1-srv8 .s1-name", { color: ALERT }, 6.32);
+      tl.set("#s1-srv8 .s1-st", { opacity: 1 }, 6.32);
+      tl.set("#s1-hot", { opacity: 1 }, 6.32);
+      [-10, 9, -8, 7, -6, 5, -4, 3, -2, 1, 0].forEach((x, k) => tl.set("#s1-srv8", { x }, 6.32 + k * F));
+      for (let k = 1; 6.32 + k * 0.2 < 8.57; k++) {
+        tl.set("#s1-hot", { opacity: k % 2 ? 0.25 : 1 }, 6.32 + k * 0.2);
+      }
+
+      // Saída: varre para a esquerda e entrega o corte de "agosto" (8.82).
+      tl.fromTo("#s1-stage", { clipPath: "inset(0px 0% 0px 0px)" }, { clipPath: "inset(0px 100% 0px 0px)", duration: 0.25, ease: "power3.in", immediateRender: false }, 8.57);
+
+      window.__timelines["s1"] = tl;
+    })();
+  </script>
+</template>
