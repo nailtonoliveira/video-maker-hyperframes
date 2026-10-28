@@ -1,0 +1,181 @@
+<!doctype html>
+<html
+  lang="pt-BR"
+  data-resolution="portrait"
+  data-composition-variables='[
+    {"id":"ground","type":"color","label":"Fundo","default":"#080a0f"},
+    {"id":"ink","type":"color","label":"Texto","default":"#e6edf3"},
+    {"id":"mint","type":"color","label":"Verde-menta","default":"#00ff9d"},
+    {"id":"alert","type":"color","label":"Vermelho-alerta","default":"#ff3366"},
+    {"id":"cyan","type":"color","label":"Ciano","default":"#38bdf8"},
+    {"id":"gray","type":"color","label":"Cinza","default":"#7d8590"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #080a0f;
+        --ink: #e6edf3;
+        --mint: #00ff9d;
+        --alert: #ff3366;
+        --cyan: #38bdf8;
+        --gray: #7d8590;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--ground);
+      }
+      #root {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        font-family: var(--font-mono);
+        color: var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-majc"
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="48.28"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- Fundo: grade de terminal -->
+      <div data-hf-id="hf-bmb5"
+        id="bg"
+        data-composition-id="bg"
+        data-composition-src="compositions/bg.html"
+        data-start="0"
+        data-duration="48.28"
+        data-track-index="0"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 1"
+      ></div>
+
+      <!-- Cenas -->
+      <div data-hf-id="hf-divj"
+        id="s1"
+        data-composition-id="s1"
+        data-composition-src="compositions/s1.html"
+        data-start="0"
+        data-duration="8.1"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 2"
+      ></div>
+      <div data-hf-id="hf-twg8"
+        id="s2"
+        data-composition-id="s2"
+        data-composition-src="compositions/s2.html"
+        data-start="8.1"
+        data-duration="9.7"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 2"
+      ></div>
+      <div data-hf-id="hf-9ybl"
+        id="s3"
+        data-composition-id="s3"
+        data-composition-src="compositions/s3.html"
+        data-start="17.8"
+        data-duration="12.2"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 2"
+      ></div>
+      <div data-hf-id="hf-mwe4"
+        id="s4"
+        data-composition-id="s4"
+        data-composition-src="compositions/s4.html"
+        data-start="30"
+        data-duration="10.7"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 2"
+      ></div>
+      <div data-hf-id="hf-nrab"
+        id="s5"
+        data-composition-id="s5"
+        data-composition-src="compositions/s5.html"
+        data-start="40.7"
+        data-duration="7.58"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 2"
+      ></div>
+
+      <!-- Legendas -->
+      <div data-hf-id="hf-3k8p"
+        id="captions"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions.html"
+        data-start="0"
+        data-duration="48.28"
+        data-track-index="2"
+        data-track-kind="captions"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 5"
+      ></div>
+
+      <!-- Locução -->
+      <audio data-hf-id="hf-3v1d" id="voice" class="clip" src="assets/voice.mp3" data-start="0" data-track-index="10" data-volume="1.18"></audio>
+
+      <!-- SFX: cada início = momento da imagem + 1 frame − pico do arquivo -->
+      <audio data-hf-id="hf-2pbg" id="sfx-cost-in" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="2.07" data-duration="0.57" data-track-index="11" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-nx6z" id="sfx-cost-land" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="4.8" data-duration="2.12" data-track-index="12" data-volume="0.22"></audio>
+      <audio data-hf-id="hf-1xgk" id="sfx-timer-in" class="clip" src="assets/sfx/key-press.mp3" data-start="5.46" data-duration="0.43" data-track-index="11" data-volume="2"></audio>
+      <audio data-hf-id="hf-ryis" id="sfx-timer-lock" class="clip" src="assets/sfx/ping.mp3" data-start="7.03" data-duration="1.32" data-track-index="13" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-r9ra" id="sfx-ariane-in" class="clip" src="assets/sfx/whoosh.mp3" data-start="8.43" data-duration="0.57" data-track-index="11" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-dmj9" id="sfx-type-esa" class="clip" src="assets/sfx/typing.mp3" data-start="10.36" data-duration="1.54" data-track-index="12" data-volume="1"></audio>
+      <audio data-hf-id="hf-gpbe" id="sfx-type-v501" class="clip" src="assets/sfx/typing.mp3" data-start="11.9" data-duration="1.54" data-track-index="13" data-volume="0.9"></audio>
+      <audio data-hf-id="hf-rh62" id="sfx-sats" class="clip" src="assets/sfx/pop.mp3" data-start="14.93" data-duration="0.72" data-track-index="11" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-om0e" id="sfx-whip" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="17.47" data-duration="0.57" data-track-index="12" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-i3f8" id="sfx-type-code" class="clip" src="assets/sfx/typing.mp3" data-start="19.82" data-duration="1.54" data-track-index="11" data-volume="1"></audio>
+      <audio data-hf-id="hf-01bl" id="sfx-transfer" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="25.97" data-duration="0.57" data-track-index="12" data-volume="0.25"></audio>
+      <audio data-hf-id="hf-8az1" id="sfx-overflow" class="clip" src="assets/sfx/error.mp3" data-start="26.65" data-duration="1.62" data-track-index="13" data-volume="2.5"></audio>
+      <audio data-hf-id="hf-6j25" id="sfx-glitch-cut" class="clip" src="assets/sfx/glitch-1.mp3" data-start="29.01" data-duration="2.64" data-track-index="11" data-volume="0.28"></audio>
+      <audio data-hf-id="hf-1asb" id="sfx-crash-a" class="clip" src="assets/sfx/error.mp3" data-start="29.73" data-duration="1.62" data-track-index="12" data-volume="2.5"></audio>
+      <audio data-hf-id="hf-rw1c" id="sfx-crash-b-tex" class="clip" src="assets/sfx/glitch-3.mp3" data-start="30.83" data-duration="3.1" data-track-index="13" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-m0hm" id="sfx-crash-b" class="clip" src="assets/sfx/error.mp3" data-start="31.91" data-duration="1.62" data-track-index="14" data-volume="2.2"></audio>
+      <audio data-hf-id="hf-410c" id="sfx-snap" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="36.37" data-duration="0.57" data-track-index="11" data-volume="0.35"></audio>
+      <audio data-hf-id="hf-y4yr" id="sfx-boom" class="clip" src="assets/sfx/impact-bass-2.mp3" data-start="37.05" data-duration="2.59" data-track-index="12" data-volume="0.25"></audio>
+      <audio data-hf-id="hf-wwnh" id="sfx-code-in" class="clip" src="assets/sfx/key-press.mp3" data-start="40.82" data-duration="0.43" data-track-index="11" data-volume="2"></audio>
+      <audio data-hf-id="hf-yn49" id="sfx-strike" class="clip" src="assets/sfx/click.mp3" data-start="43.68" data-duration="0.37" data-track-index="12" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-na4i" id="sfx-rewind" class="clip" src="assets/sfx/glitch-3.mp3" data-start="44.71" data-duration="3.1" data-track-index="13" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-voar" id="sfx-loop" class="clip" src="assets/sfx/whoosh.mp3" data-start="46.53" data-duration="0.57" data-track-index="11" data-volume="0.25"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

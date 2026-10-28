@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Atalho do pipeline: usa o Python de tools/.venv (whisper, SDKs de IA) a partir de qualquer pasta.
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec "$ROOT/tools/.venv/bin/python" "$ROOT/tools/pipeline.py" "$@"

@@ -1,0 +1,232 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-mono);
+      color: var(--ink);
+    }
+    #s5-stage {
+      position: absolute;
+      left: 96px;
+      top: 0;
+      width: 852px;
+      height: 1920px;
+    }
+    #s5-code {
+      position: absolute;
+      left: 0;
+      top: 214px;
+      width: 852px;
+    }
+    #s5-code-in {
+      border: 2px solid rgba(125, 133, 144, 0.55);
+      background: rgba(13, 17, 23, 0.92);
+      padding: 14px 0;
+      font-size: 32px;
+    }
+    .s5-ln {
+      position: relative;
+      display: flex;
+      height: 56px;
+      align-items: center;
+      white-space: pre;
+    }
+    .s5-ln .g {
+      width: 76px;
+      flex: none;
+      text-align: center;
+      color: var(--gray);
+      margin-right: 18px;
+    }
+    .s5-ln .c {
+      position: relative;
+    }
+    .s5-strike {
+      position: absolute;
+      left: -6px;
+      right: -6px;
+      top: 50%;
+      height: 5px;
+      margin-top: -2px;
+      background: var(--alert);
+      transform-origin: 0 50%;
+    }
+    #s5-ln-43 {
+      background: rgba(255, 51, 102, 0.16);
+    }
+    .k-com {
+      color: var(--gray);
+    }
+    .k-kw {
+      color: var(--cyan);
+    }
+    .k-op {
+      color: var(--gray);
+    }
+    #s5-big {
+      position: absolute;
+      left: 0;
+      top: 500px;
+      width: 852px;
+    }
+    .s5-big-line {
+      font-size: 116px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      white-space: nowrap;
+    }
+    .s5-big-line span {
+      display: inline-block;
+    }
+    #s5-useless {
+      color: var(--alert);
+    }
+    #s5-why {
+      position: absolute;
+      left: 0;
+      top: 905px;
+      font-size: 34px;
+      line-height: 1;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+    #s5-why b {
+      color: var(--alert);
+      font-weight: 800;
+    }
+    #s5-bar {
+      position: absolute;
+      left: 0;
+      top: 1030px;
+      width: 852px;
+    }
+    #s5-bar-label {
+      position: relative;
+      height: 34px;
+      font-size: 30px;
+      line-height: 34px;
+    }
+    #s5-bar-label span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      white-space: nowrap;
+    }
+    #s5-bar-run {
+      color: var(--gray);
+    }
+    #s5-bar-loop {
+      color: var(--mint);
+    }
+    #s5-bar-track {
+      margin-top: 16px;
+      width: 852px;
+      height: 12px;
+      background: rgba(125, 133, 144, 0.3);
+    }
+    #s5-bar-fill {
+      width: 852px;
+      height: 12px;
+      background: var(--alert);
+      transform-origin: 0 50%;
+    }
+    /* Remontagem do título da cena 1: mesmos valores de s1 para o loop casar no último frame. */
+    #s5-title {
+      position: absolute;
+      left: 0;
+      top: 240px;
+      width: 852px;
+    }
+    .s5-tline {
+      font-size: 124px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      white-space: nowrap;
+    }
+    .s5-tline .w {
+      display: inline-block;
+    }
+    .s5-mint {
+      color: var(--mint);
+    }
+    #s5-caret {
+      display: inline-block;
+      width: 62px;
+      height: 104px;
+      margin-left: 18px;
+      background: var(--mint);
+      vertical-align: -10px;
+    }
+  </style>
+  <div data-hf-id="hf-ejdb" id="root" data-composition-id="s5" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-os90" id="s5-stage">
+      <div data-hf-id="hf-6ev4" id="s5-code" class="clip" data-start="0.1" data-duration="6.3">
+        <div data-hf-id="hf-2adv" id="s5-code-in">
+          <div data-hf-id="hf-cxto" class="s5-ln" id="s5-ln-41"><span data-hf-id="hf-9b6n" class="g">41</span><span data-hf-id="hf-tf0h" class="c k-com">-- herdado do <span data-hf-id="hf-g9dv" class="k-kw">Ariane 4</span></span></div>
+          <div data-hf-id="hf-llpj" class="s5-ln" id="s5-ln-42"><span data-hf-id="hf-8wvm" class="g">42</span><span data-hf-id="hf-hfam" class="c"><span data-hf-id="hf-ba1w" class="k-kw">procedure</span> Align_SRI <span data-hf-id="hf-1hr7" class="k-kw">is</span><span data-hf-id="hf-2hsc" class="s5-strike" id="s5-strike-42"></span></span></div>
+          <div data-hf-id="hf-hnli" class="s5-ln" id="s5-ln-43"><span data-hf-id="hf-8ikl" class="g">43</span><span data-hf-id="hf-an9t" class="c">   bh <span data-hf-id="hf-yzzx" class="k-op">:=</span> <span data-hf-id="hf-d7rz" class="k-kw">int16</span>(horizontal_bias)<span data-hf-id="hf-td5x" class="k-op">;</span><span data-hf-id="hf-39g5" class="s5-strike" id="s5-strike-43"></span></span></div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-sivk" id="s5-big" class="clip" data-start="2.6" data-duration="3.8">
+        <div data-hf-id="hf-ejbc" class="s5-big-line"><span data-hf-id="hf-9ihf" class="s5-w">LINHA</span> <span data-hf-id="hf-lpma" class="s5-w">DE</span></div>
+        <div data-hf-id="hf-89fk" class="s5-big-line"><span data-hf-id="hf-wdky" class="s5-w">CÓDIGO</span></div>
+        <div data-hf-id="hf-72ih" class="s5-big-line"><span data-hf-id="hf-5fby" class="s5-w" id="s5-useless">INÚTIL</span></div>
+      </div>
+
+      <div data-hf-id="hf-hatk" id="s5-why" class="clip" data-start="3.8" data-duration="2.6">// rodava <b data-hf-id="hf-gkko">40 s</b> após a decolagem</div>
+
+      <div data-hf-id="hf-2hq5" id="s5-bar" class="clip" data-start="0.1" data-duration="7.45">
+        <div data-hf-id="hf-6hww" id="s5-bar-label"><span data-hf-id="hf-m0wp" id="s5-bar-run">align_sri() // rodando sem motivo</span><span data-hf-id="hf-j9ml" id="s5-bar-loop">↻ reiniciando</span></div>
+        <div data-hf-id="hf-x44r" id="s5-bar-track"><div data-hf-id="hf-5tdh" id="s5-bar-fill"></div></div>
+      </div>
+
+      <div data-hf-id="hf-17iu" id="s5-title" class="clip" data-start="5.9" data-duration="1.68">
+        <div data-hf-id="hf-drf9" class="s5-tline"><span data-hf-id="hf-j7lp" class="w">UMA</span> <span data-hf-id="hf-zglj" class="w s5-mint">LINHA</span></div>
+        <div data-hf-id="hf-3a6h" class="s5-tline"><span data-hf-id="hf-wfvn" class="w">DE</span> <span data-hf-id="hf-dedf" class="w">CÓDIGO</span><span data-hf-id="hf-chz4" id="s5-caret"></span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // Tempo local: 0 = 40.70 s absoluto.
+      const T0 = 40.7;
+      const at = (abs) => +(abs - T0).toFixed(3);
+      const tl = gsap.timeline({ paused: true });
+
+      // "O detalhe" (40.86): o código da função, com a linha do bug marcada.
+      tl.fromTo("#s5-code-in", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, at(40.86));
+      tl.fromTo("#s5-bar-label, #s5-bar-track", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, at(40.86));
+
+      // Barra: a função "rodando" até 46.50, quando zera e reinicia em verde.
+      gsap.set("#s5-bar-loop", { opacity: 0 });
+      tl.fromTo("#s5-bar-fill", { scaleX: 0 }, { scaleX: 1, duration: 46.5 - 40.86, ease: "none" }, at(40.86));
+      tl.set("#s5-bar-fill", { scaleX: 0, backgroundColor: "#00ff9d" }, at(46.5));
+      tl.set("#s5-bar-run", { opacity: 0 }, at(46.5));
+      tl.set("#s5-bar-loop", { opacity: 1 }, at(46.5));
+      tl.to("#s5-bar-fill", { scaleX: 1, duration: 1.45, ease: "none" }, at(46.52));
+      tl.to("#s5-bar", { opacity: 0, duration: 0.2, ease: "power2.in" }, at(48.0));
+
+      // "nem" (43.40): LINHA DE CÓDIGO INÚTIL, palavra a palavra.
+      tl.fromTo(".s5-w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power2.out", stagger: 0.067 }, at(43.4));
+      // "precisava" (43.72): o código é riscado.
+      tl.fromTo(["#s5-strike-42", "#s5-strike-43"], { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "expo.out", stagger: 0.08 }, at(43.72));
+      tl.to(["#s5-ln-42 .c", "#s5-ln-43 .c"], { opacity: 0.45, duration: 0.3, ease: "power2.out" }, at(43.8));
+
+      // "rodando após a decolagem" (44.58).
+      tl.fromTo("#s5-why", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, at(44.58));
+
+      // Fade-out do destaque (46.10).
+      tl.to(["#s5-code-in", "#s5-big", "#s5-why"], { opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, at(46.1));
+
+      // "exatamente" (46.66): o título da cena 1 remonta no mesmo lugar; o último frame = frame 0.
+      tl.fromTo("#s5-title .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power2.out", stagger: 0.067 }, at(46.66));
+      tl.fromTo("#s5-caret", { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, at(46.66 + 4 * 0.067));
+
+      window.__timelines["s5"] = tl;
+    })();
+  </script>
+</template>

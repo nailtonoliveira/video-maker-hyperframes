@@ -1,0 +1,31 @@
+{
+  "temas": [
+    {
+      "titulo": "O bug de 370 milhões de dólares do foguete Ariane 5",
+      "slug": "ariane5",
+      "gancho": "Uma linha de código custou 370 milhões de dólares em 37 segundos.",
+      "resumo": "Conversão de 64 para 16 bits num código herdado do Ariane 4 derruba o voo inaugural do Ariane 5 em 1996.",
+      "fatos_chave": ["Voo V501, 4/6/1996", "Overflow no SRI", "Backup com o mesmo software"],
+      "por_que_prende": "Número absurdo + causa minúscula + ironia do código inútil.",
+      "fontes": ["Relatório da comissão de inquérito do voo 501"]
+    },
+    {
+      "titulo": "Therac-25: a máquina de radioterapia que matou pacientes por uma condição de corrida",
+      "slug": "therac25",
+      "gancho": "Uma máquina feita para curar câncer aplicou doses cem vezes maiores que o normal.",
+      "resumo": "Entre 1985 e 1987, falhas de software no acelerador linear Therac-25 causaram overdoses de radiação.",
+      "fatos_chave": ["6 acidentes conhecidos (1985–1987)", "Condição de corrida ao editar rápido", "Travas de hardware removidas"],
+      "por_que_prende": "Software matando pessoas, com um erro que só acontecia quando o operador digitava rápido.",
+      "fontes": ["Leveson & Turner, 'An Investigation of the Therac-25 Accidents' (IEEE Computer, 1993)"]
+    },
+    {
+      "titulo": "Mars Climate Orbiter: a sonda perdida por confundir libras com newtons",
+      "slug": "mars-climate-orbiter",
+      "gancho": "A NASA perdeu uma sonda de 125 milhões de dólares por causa de uma conversão de unidades.",
+      "resumo": "Em 1999, um software entregava impulso em libra-força·segundo enquanto a NASA esperava newton·segundo.",
+      "fatos_chave": ["Setembro de 1999", "Libra-força vs newton", "Sonda entrou baixo demais em Marte"],
+      "por_que_prende": "Erro de escola primária num projeto de milhões.",
+      "fontes": ["NASA, Mars Climate Orbiter Mishap Investigation Board Phase I Report (1999)"]
+    }
+  ]
+}

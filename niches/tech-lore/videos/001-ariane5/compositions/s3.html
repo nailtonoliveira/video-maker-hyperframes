@@ -1,0 +1,338 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-mono);
+      color: var(--ink);
+    }
+    #s3-stage {
+      position: absolute;
+      left: 96px;
+      top: 0;
+      width: 852px;
+      height: 1920px;
+    }
+    .s3-label {
+      font-size: 30px;
+      color: var(--gray);
+      line-height: 1;
+    }
+    .s3-label b {
+      color: var(--cyan);
+      font-weight: 400;
+    }
+    #s3-time {
+      position: absolute;
+      left: 0;
+      top: 200px;
+      width: 852px;
+    }
+    #s3-time-num {
+      margin-top: 14px;
+      font-size: 84px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--cyan);
+    }
+    #s3-code {
+      position: absolute;
+      left: 0;
+      top: 372px;
+      width: 852px;
+      height: 106px;
+    }
+    #s3-code-in {
+      width: 852px;
+      height: 106px;
+      border: 2px solid rgba(125, 133, 144, 0.55);
+      background: rgba(13, 17, 23, 0.92);
+      display: flex;
+      align-items: center;
+      font-size: 38px;
+      white-space: nowrap;
+    }
+    .s3-gutter {
+      width: 82px;
+      flex: none;
+      text-align: center;
+      color: var(--gray);
+      border-right: 2px solid rgba(125, 133, 144, 0.35);
+      line-height: 102px;
+      margin-right: 22px;
+    }
+    #s3-code-text {
+      display: inline-block;
+    }
+    .k-op {
+      color: var(--gray);
+    }
+    .k-type {
+      color: var(--cyan);
+    }
+    .k-num {
+      color: var(--mint);
+    }
+    .s3-card {
+      position: absolute;
+      left: 0;
+      width: 852px;
+      border: 2px solid rgba(125, 133, 144, 0.55);
+      background: rgba(13, 17, 23, 0.92);
+      padding: 20px 24px;
+    }
+    .s3-card-head {
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 34px;
+    }
+    .s3-card-head .t {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+    .s3-card-head .m {
+      color: var(--gray);
+      font-size: 30px;
+    }
+    .s3-val {
+      margin-top: 8px;
+      height: 96px;
+      font-size: 96px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+    .s3-val span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      white-space: nowrap;
+    }
+    .s3-bits {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .s3-bit {
+      background: rgba(125, 133, 144, 0.35);
+    }
+    #s3-float {
+      top: 508px;
+    }
+    #s3-float .s3-bit {
+      width: 23px;
+      height: 10px;
+    }
+    #s3-arrow {
+      position: absolute;
+      left: 0;
+      top: 754px;
+      width: 852px;
+      height: 70px;
+    }
+    #s3-arrow-line {
+      position: absolute;
+      left: 52px;
+      top: 0;
+      width: 6px;
+      height: 70px;
+      background: var(--cyan);
+      transform-origin: 50% 0;
+    }
+    #s3-arrow-head {
+      position: absolute;
+      left: 41px;
+      top: 52px;
+      width: 0;
+      height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 22px solid var(--cyan);
+    }
+    #s3-arrow-label {
+      position: absolute;
+      left: 104px;
+      top: 16px;
+      font-size: 34px;
+      color: var(--cyan);
+    }
+    #s3-arrow-label i {
+      font-style: normal;
+      color: var(--gray);
+    }
+    #s3-int {
+      top: 836px;
+    }
+    #s3-int .s3-bit {
+      width: 48px;
+      height: 14px;
+    }
+    #s3-ghost {
+      position: absolute;
+      left: 26px;
+      top: 578px;
+      font-size: 96px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    #s3-error {
+      position: absolute;
+      left: 0;
+      top: 1074px;
+      width: 852px;
+    }
+    #s3-error-tag {
+      display: inline-block;
+      background: var(--alert);
+      color: var(--ground);
+      font-size: 44px;
+      font-weight: 800;
+      padding: 10px 22px;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+  </style>
+  <div data-hf-id="hf-vizh" id="root" data-composition-id="s3" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-4jte" id="s3-stage">
+      <div data-hf-id="hf-8lcp" id="s3-time" class="clip" data-start="0.2" data-duration="12">
+        <div data-hf-id="hf-8zt5" id="s3-time-in">
+          <div data-hf-id="hf-nswb" class="s3-label">// aos <b data-hf-id="hf-jmw5">36 s</b> de voo</div>
+          <div data-hf-id="hf-s0o8" id="s3-time-num">T+00:36</div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-et93" id="s3-code" class="clip" data-start="2.3" data-duration="9.9">
+        <div data-hf-id="hf-byal" id="s3-code-in">
+          <span data-hf-id="hf-6wqr" class="s3-gutter">42</span><span data-hf-id="hf-ic57" id="s3-code-text">bh <span data-hf-id="hf-yzzx" class="k-op">:=</span> <span data-hf-id="hf-1uv9" class="k-type">int16</span>(horizontal_bias)<span data-hf-id="hf-td5x" class="k-op">;</span></span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-y6ex" id="s3-float-clip" class="clip" data-start="4.3" data-duration="7.9">
+      <div data-hf-id="hf-ck7g" id="s3-float" class="s3-card">
+        <div data-hf-id="hf-b0as" class="s3-card-head"><span data-hf-id="hf-6bud" class="t">float64</span><span data-hf-id="hf-qz73" class="m">64 bits · ponto flutuante</span></div>
+        <div data-hf-id="hf-7p0w" class="s3-val"><span data-hf-id="hf-t6h6">32768.5</span></div>
+        <div data-hf-id="hf-uvxz" class="s3-bits" id="s3-float-bits"></div>
+      </div>
+      </div>
+
+      <div data-hf-id="hf-r2pn" id="s3-arrow" class="clip" data-start="6.8" data-duration="5.4">
+        <div data-hf-id="hf-20ki" id="s3-arrow-line"></div>
+        <div data-hf-id="hf-a7xm" id="s3-arrow-head"></div>
+        <div data-hf-id="hf-drmf" id="s3-arrow-label">int16( ) <i data-hf-id="hf-6shy">// converter</i></div>
+      </div>
+
+      <div data-hf-id="hf-sdvx" id="s3-int-clip" class="clip" data-start="7" data-duration="5.2">
+      <div data-hf-id="hf-pvzx" id="s3-int" class="s3-card">
+        <div data-hf-id="hf-xv98" class="s3-card-head"><span data-hf-id="hf-vxyb" class="t">int16</span><span data-hf-id="hf-xzzu" class="m" id="s3-int-max">16 bits · máx 32767</span></div>
+        <div data-hf-id="hf-wvns" class="s3-val">
+          <span data-hf-id="hf-awy2" id="s3-int-empty" style="color: #7d8590">_</span>
+          <span data-hf-id="hf-91e3" id="s3-int-val">32768.5</span>
+          <span data-hf-id="hf-30un" id="s3-int-over" style="color: #ff3366">[OVERFLOW]</span>
+        </div>
+        <div data-hf-id="hf-uz2o" class="s3-bits" id="s3-int-bits"></div>
+      </div>
+      </div>
+
+      <div data-hf-id="hf-pvvz" id="s3-ghost-clip" class="clip" data-start="8" data-duration="0.6"><div data-hf-id="hf-lixy" id="s3-ghost">32768.5</div></div>
+
+      <div data-hf-id="hf-bz1x" id="s3-error" class="clip" data-start="9.56" data-duration="2.64">
+        <div data-hf-id="hf-6lfz" id="s3-error-tag">ERROR: INTEGER OVERFLOW</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // Tempo local: 0 = 17.80 s absoluto.
+      const T0 = 17.8;
+      const at = (abs) => +(abs - T0).toFixed(3);
+      const tl = gsap.timeline({ paused: true });
+
+      // Células de bits (decoração): 64 e 16.
+      const fill = (sel, n) => {
+        const host = document.querySelector(sel);
+        for (let i = 0; i < n; i++) {
+          const b = document.createElement("div");
+          b.className = "s3-bit";
+          host.appendChild(b);
+        }
+      };
+      fill("#s3-float-bits", 64);
+      fill("#s3-int-bits", 16);
+
+      const blurIn = (sel, t, y = 40) =>
+        tl.fromTo(sel, { opacity: 0, y, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, t);
+
+      // "36 segundos" (18.08): chega de baixo, continuando o whip.
+      blurIn("#s3-time-in", at(18.08), 90);
+
+      // "computador" (20.24): a linha de código digitada até "converter" (21.40).
+      blurIn("#s3-code-in", at(20.0), 20);
+      const CH = 29, CW = 38 * 0.6;
+      const ty = { n: 0 };
+      const setType = () => {
+        const hidden = (CH - Math.round(ty.n)) * CW;
+        document.querySelector("#s3-code-text").style.clipPath = `inset(-10px ${hidden.toFixed(1)}px -10px 0)`;
+      };
+      setType();
+      tl.fromTo(ty, { n: 0 }, { n: CH, duration: 1.16, ease: "none", onUpdate: setType }, at(20.24));
+
+      // "64" (22.22) a caixa float64; "bits" (22.72) as 64 células acendem.
+      blurIn("#s3-float", at(22.22), 30);
+      tl.fromTo("#s3-float .s3-bit", { backgroundColor: "rgba(125,133,144,0.35)" }, { backgroundColor: "#38bdf8", duration: 0.05, stagger: 0.008, ease: "none" }, at(22.72));
+
+      // "para" (24.66) a seta de conversão; "um inteiro" (24.90) a caixa int16; "16" (25.64) as 16 células.
+      tl.fromTo("#s3-arrow-line", { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "expo.out" }, at(24.66));
+      tl.fromTo("#s3-arrow-head", { opacity: 0 }, { opacity: 1, duration: 0.1 }, at(24.82));
+      tl.fromTo("#s3-arrow-label", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, at(24.7));
+      blurIn("#s3-int", at(24.9), 30);
+      gsap.set("#s3-int-val, #s3-int-over", { opacity: 0 });
+      tl.fromTo("#s3-int .s3-bit", { backgroundColor: "rgba(125,133,144,0.35)" }, { backgroundColor: "#38bdf8", duration: 0.05, stagger: 0.025, ease: "none" }, at(25.64));
+
+      // O valor viaja do float64 para o int16 (25.90 → 26.35) e não cabe.
+      tl.fromTo("#s3-ghost", { y: 0, scale: 1 }, { y: 330, duration: 0.45, ease: "power3.inOut" }, at(25.9));
+      tl.set("#s3-ghost", { opacity: 0 }, at(26.35));
+      tl.set("#s3-int-empty", { opacity: 0 }, at(26.35));
+      tl.set("#s3-int-val", { opacity: 1 }, at(26.35));
+      // "O número era grande demais" (26.60): tudo vermelho.
+      tl.set("#s3-int", { borderColor: "#ff3366" }, at(26.6));
+      tl.set("#s3-int-val", { color: "#ff3366" }, at(26.6));
+      tl.set("#s3-int .s3-bit", { backgroundColor: "#ff3366" }, at(26.6));
+      tl.set("#s3-int-max", { color: "#ff3366" }, at(26.6));
+      tl.to("#s3-int .s3-val", { keyframes: { x: [0, 14, -12, 9, -6, 3, 0] }, duration: 0.4, ease: "none" }, at(26.6));
+
+      // "número" (27.36): [OVERFLOW] + ERROR piscando.
+      tl.set("#s3-int-val", { opacity: 0 }, at(27.36));
+      tl.set("#s3-int-over", { opacity: 1 }, at(27.36));
+      tl.set("#s3-error-tag", { opacity: 1 }, at(27.36));
+      for (let i = 1; i <= 9; i++) {
+        const t = at(27.36 + i * 0.13);
+        const on = i % 2 === 0;
+        tl.set("#s3-error-tag", { opacity: on ? 1 : 0.15 }, t);
+        tl.set("#s3-int", { borderColor: on ? "#ff3366" : "rgba(255,51,102,0.25)" }, t);
+      }
+      tl.set("#s3-error-tag", { opacity: 1 }, at(27.36 + 10 * 0.13));
+      tl.set("#s3-int", { borderColor: "#ff3366" }, at(27.36 + 10 * 0.13));
+
+      // Saída em glitch (29.80): saltos de 1 frame, depois corte.
+      const g = [
+        [29.8, { x: 18, skewX: -6, opacity: 0.9 }],
+        [29.834, { x: -24, skewX: 8, opacity: 0.6 }],
+        [29.867, { x: 10, skewX: -3, opacity: 1 }],
+        [29.9, { x: -30, skewX: 10, opacity: 0.5 }],
+        [29.934, { x: 22, skewX: -8, opacity: 0.35 }],
+        [29.967, { x: 0, skewX: 0, opacity: 0 }],
+      ];
+      tl.set("#s3-stage", { x: 0, skewX: 0, opacity: 1 }, 0);
+      g.forEach(([t, v]) => tl.set("#s3-stage", v, at(t)));
+
+      window.__timelines["s3"] = tl;
+    })();
+  </script>
+</template>

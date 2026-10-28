@@ -1,0 +1,266 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-mono);
+      color: var(--ink);
+    }
+    #s2-stage {
+      position: absolute;
+      left: 96px;
+      top: 0;
+      width: 852px;
+      height: 1920px;
+    }
+    #s2-title {
+      position: absolute;
+      left: 0;
+      top: 230px;
+      width: 852px;
+    }
+    .s2-line {
+      font-size: 140px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.02;
+      white-space: nowrap;
+    }
+    .s2-line .ch {
+      display: inline-block;
+    }
+    .s2-year {
+      color: var(--mint);
+    }
+    #s2-info {
+      position: absolute;
+      left: 0;
+      top: 548px;
+      width: 852px;
+      font-size: 32px;
+      line-height: 48px;
+      color: var(--gray);
+      white-space: pre;
+    }
+    #s2-info b {
+      color: var(--cyan);
+      font-weight: 400;
+    }
+    #s2-chart {
+      position: absolute;
+      left: 0;
+      top: 670px;
+      width: 852px;
+      height: 310px;
+    }
+    #s2-chart svg {
+      position: absolute;
+      inset: 0;
+      overflow: visible;
+    }
+    #s2-readout {
+      position: absolute;
+      left: 96px;
+      top: 18px;
+      font-size: 30px;
+      line-height: 42px;
+      color: var(--ink);
+      white-space: pre;
+    }
+    #s2-readout span {
+      color: var(--gray);
+    }
+    #s2-payload {
+      position: absolute;
+      left: 0;
+      top: 996px;
+      width: 852px;
+    }
+    #s2-payload-label {
+      font-size: 30px;
+      color: var(--gray);
+      line-height: 1;
+    }
+    #s2-payload-label b {
+      color: var(--cyan);
+      font-weight: 400;
+    }
+    #s2-sats {
+      margin-top: 18px;
+      display: flex;
+      gap: 28px;
+    }
+    .s2-sat {
+      width: 192px;
+      height: 78px;
+      border: 2px solid rgba(125, 133, 144, 0.55);
+      background: rgba(8, 10, 15, 0.85);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 16px;
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .s2-sat svg {
+      width: 52px;
+      height: 32px;
+      flex: none;
+    }
+    .s2-dot {
+      width: 16px;
+      height: 16px;
+      background: var(--gray);
+      margin-left: auto;
+      flex: none;
+    }
+  </style>
+  <div data-hf-id="hf-bmd6" id="root" data-composition-id="s2" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-pmtr" id="s2-stage">
+      <div data-hf-id="hf-rtxf" id="s2-title" class="clip" data-start="0.18" data-duration="9.52">
+        <div data-hf-id="hf-2rvh" class="s2-line" id="s2-name">
+          <span data-hf-id="hf-zpsv" class="ch">A</span><span data-hf-id="hf-syle" class="ch">R</span><span data-hf-id="hf-wjcn" class="ch">I</span><span data-hf-id="hf-6cwv" class="ch">A</span><span data-hf-id="hf-xq9q" class="ch">N</span><span data-hf-id="hf-1b0z" class="ch">E</span><span data-hf-id="hf-5eis" class="ch">&nbsp;</span><span data-hf-id="hf-oqqr" class="ch">5</span>
+        </div>
+        <div data-hf-id="hf-r5hk" class="s2-line" id="s2-date">
+          <span data-hf-id="hf-33hs" class="ch">—</span><span data-hf-id="hf-6zuk" class="ch">&nbsp;</span><span data-hf-id="hf-pttq" class="ch s2-year">1</span><span data-hf-id="hf-t09y" class="ch s2-year">9</span><span data-hf-id="hf-9p9m" class="ch s2-year">9</span><span data-hf-id="hf-omwn" class="ch s2-year">6</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-8u92" id="s2-info" class="clip" data-start="2.6" data-duration="7.1"><span data-hf-id="hf-er9w" id="s2-info-1"></span>
+<span data-hf-id="hf-pmrj" id="s2-info-2"></span></div>
+
+      <div data-hf-id="hf-t75q" id="s2-chart" class="clip" data-start="4.6" data-duration="5.1">
+        <div data-hf-id="hf-wznr" id="s2-chart-in">
+          <svg data-hf-id="hf-agba" width="852" height="310" viewBox="0 0 852 310">
+            <g data-hf-id="hf-0736" stroke="#7d8590" stroke-width="2" fill="none">
+              <path data-hf-id="hf-pmi1" id="s2-axes" d="M60 10 V280 H840" />
+            </g>
+            <g data-hf-id="hf-yc0m" stroke="rgba(125,133,144,0.35)" stroke-width="1">
+              <line data-hf-id="hf-5iz2" x1="60" y1="190" x2="840" y2="190" />
+              <line data-hf-id="hf-7a98" x1="60" y1="100" x2="840" y2="100" />
+            </g>
+            <g data-hf-id="hf-z9gk" font-family="JetBrains Mono, monospace" font-size="28" fill="#7d8590">
+              <text data-hf-id="hf-23ro" x="0" y="40">km</text>
+              <text data-hf-id="hf-h9q1" x="760" y="310">T+s</text>
+            </g>
+            <path data-hf-id="hf-vusl" id="s2-curve" d="" stroke="#00ff9d" stroke-width="5" fill="none" stroke-linecap="round" />
+            <g data-hf-id="hf-z9xp" id="s2-rocket">
+              <polygon data-hf-id="hf-8ttv" points="0,-18 10,12 -10,12" fill="#00ff9d" />
+            </g>
+          </svg>
+          <div data-hf-id="hf-xtx1" id="s2-readout"><span data-hf-id="hf-tbv0">T+ </span><b data-hf-id="hf-fs8j" id="s2-ro-t">00.0 s</b>
+<span data-hf-id="hf-m0og">ALT</span> <b data-hf-id="hf-505t" id="s2-ro-alt">0.00 km</b></div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-ob89" id="s2-payload" class="clip" data-start="6.8" data-duration="2.9">
+        <div data-hf-id="hf-1fp1" id="s2-payload-label">carga = <b data-hf-id="hf-78y6">4× CLUSTER</b> // satélites científicos</div>
+        <div data-hf-id="hf-qvok" id="s2-sats">
+          <div data-hf-id="hf-2dcg" class="s2-sat" id="s2-sat-1">
+            <svg data-hf-id="hf-63r9" viewBox="0 0 52 32"><rect data-hf-id="hf-0p3l" x="18" y="8" width="16" height="16" fill="#e6edf3" /><rect data-hf-id="hf-1n4x" x="0" y="12" width="15" height="8" fill="#38bdf8" /><rect data-hf-id="hf-fiqz" x="37" y="12" width="15" height="8" fill="#38bdf8" /></svg>C1<span data-hf-id="hf-rvid" class="s2-dot" id="s2-dot-1"></span>
+          </div>
+          <div data-hf-id="hf-slh2" class="s2-sat" id="s2-sat-2">
+            <svg data-hf-id="hf-h8ex" viewBox="0 0 52 32"><rect data-hf-id="hf-z72d" x="18" y="8" width="16" height="16" fill="#e6edf3" /><rect data-hf-id="hf-cuid" x="0" y="12" width="15" height="8" fill="#38bdf8" /><rect data-hf-id="hf-3yq3" x="37" y="12" width="15" height="8" fill="#38bdf8" /></svg>C2<span data-hf-id="hf-vtme" class="s2-dot" id="s2-dot-2"></span>
+          </div>
+          <div data-hf-id="hf-brdc" class="s2-sat" id="s2-sat-3">
+            <svg data-hf-id="hf-ifc0" viewBox="0 0 52 32"><rect data-hf-id="hf-0dzg" x="18" y="8" width="16" height="16" fill="#e6edf3" /><rect data-hf-id="hf-e1fg" x="0" y="12" width="15" height="8" fill="#38bdf8" /><rect data-hf-id="hf-3kf2" x="37" y="12" width="15" height="8" fill="#38bdf8" /></svg>C3<span data-hf-id="hf-zrqf" class="s2-dot" id="s2-dot-3"></span>
+          </div>
+          <div data-hf-id="hf-gx9u" class="s2-sat" id="s2-sat-4">
+            <svg data-hf-id="hf-i10z" viewBox="0 0 52 32"><rect data-hf-id="hf-zzof" x="18" y="8" width="16" height="16" fill="#e6edf3" /><rect data-hf-id="hf-dn4f" x="0" y="12" width="15" height="8" fill="#38bdf8" /><rect data-hf-id="hf-3641" x="37" y="12" width="15" height="8" fill="#38bdf8" /></svg>C4<span data-hf-id="hf-3pug" class="s2-dot" id="s2-dot-4"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // Tempo local: 0 = 8.10 s absoluto.
+      const T0 = 8.1;
+      const at = (abs) => +(abs - T0).toFixed(3);
+      const tl = gsap.timeline({ paused: true });
+
+      // "ARIANE 5" letra a letra em "1996" (8.56); "— 1996" logo atrás.
+      tl.fromTo(
+        "#s2-name .ch",
+        { opacity: 0.3, filter: "blur(6px)", y: 0 },
+        { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power2.out", stagger: 0.05 },
+        at(8.56),
+      );
+      tl.fromTo(
+        "#s2-date .ch",
+        { opacity: 0, filter: "blur(6px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power2.out", stagger: 0.05 },
+        at(8.95),
+      );
+
+      // Linhas digitadas: ESA em "agência" (10.78), voo em "lançou" (12.18).
+      const lines = [
+        { id: "#s2-info-1", text: "org = ESA // Agência Espacial Europeia", start: 10.78, dur: 1.1 },
+        { id: "#s2-info-2", text: "voo = V501 · 04/06/1996 · Kourou", start: 12.18, dur: 0.9 },
+      ];
+      lines.forEach((ln) => {
+        const p = { n: 0 };
+        tl.fromTo(
+          p,
+          { n: 0 },
+          {
+            n: ln.text.length,
+            duration: ln.dur,
+            ease: "none",
+            onUpdate: () => {
+              document.querySelector(ln.id).textContent = ln.text.slice(0, Math.round(p.n));
+            },
+          },
+          at(ln.start),
+        );
+      });
+
+      // Telemetria: ALT = 3.5 km · (t/36)², desenhada de "foguete" (12.80) até 15.10.
+      const X0 = 60, X1 = 820, Y0 = 280, Y1 = 30;
+      const pt = (p) => [X0 + (X1 - X0) * p, Y0 - (Y0 - Y1) * p * p];
+      let d = "";
+      for (let i = 0; i <= 60; i++) {
+        const [x, y] = pt(i / 60);
+        d += (i ? " L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+      }
+      const curve = document.querySelector("#s2-curve");
+      curve.setAttribute("d", d);
+      curve.setAttribute("pathLength", "100");
+      curve.setAttribute("stroke-dasharray", "100 120");
+
+      tl.fromTo("#s2-chart-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, at(12.6));
+      const fl = { p: 0 };
+      const setFlight = () => {
+        const p = fl.p;
+        curve.setAttribute("stroke-dashoffset", (110 - 110 * p).toFixed(2));
+        const [x, y] = pt(Math.max(p, 0.0001));
+        const [x2, y2] = pt(Math.min(p + 0.01, 1));
+        const ang = (Math.atan2(y2 - y, x2 - x) * 180) / Math.PI + 90;
+        document.querySelector("#s2-rocket").setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${ang.toFixed(1)})`);
+        document.querySelector("#s2-ro-t").textContent = (36 * p).toFixed(1).padStart(4, "0") + " s";
+        document.querySelector("#s2-ro-alt").textContent = (3.5 * p * p).toFixed(2) + " km";
+      };
+      setFlight();
+      tl.fromTo(fl, { p: 0 }, { p: 1, duration: 2.3, ease: "power1.inOut", onUpdate: setFlight }, at(12.8));
+
+      // 4 satélites conectando em "quatro" (15.02).
+      tl.fromTo("#s2-payload-label", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, at(14.9));
+      tl.fromTo(
+        ".s2-sat",
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "expo.out", stagger: 0.08 },
+        at(15.02),
+      );
+      [1, 2, 3, 4].forEach((i) => {
+        const t = at(15.3 + (i - 1) * 0.08);
+        tl.set(`#s2-dot-${i}`, { backgroundColor: "#00ff9d" }, t);
+        tl.set(`#s2-sat-${i}`, { borderColor: "#00ff9d" }, t);
+      });
+
+      // Saída em whip para cima: o próximo bloco chega de baixo.
+      tl.to("#s2-stage", { y: -160, opacity: 0, filter: "blur(14px)", duration: 0.3, ease: "power3.in" }, at(17.45));
+
+      window.__timelines["s2"] = tl;
+    })();
+  </script>
+</template>

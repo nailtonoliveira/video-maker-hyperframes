@@ -1,0 +1,18 @@
+{
+  "youtube": {
+    "titulo": "Uma linha de código destruiu um foguete de 370 milhões 🚀💥 #shorts",
+    "descricao": "Em 1996, o Ariane 5 explodiu 37 segundos após a decolagem. O motivo: uma conversão de 64 para 16 bits num código que nem precisava estar rodando.\n\nFonte: relatório da comissão de inquérito do voo 501 (ESA/CNES).",
+    "tags": ["ariane 5", "bug", "programação", "overflow", "desastres da tecnologia", "tech lore"],
+    "hashtags": ["#shorts", "#programacao", "#tecnologia"]
+  },
+  "tiktok": {
+    "legenda": "Uma linha de código. 370 milhões de dólares. 37 segundos. 🚀💥 #programacao #tecnologia #bug #ariane5 #curiosidades"
+  },
+  "instagram": {
+    "legenda": "Uma linha de código destruiu um foguete de 370 milhões de dólares em 37 segundos. 🚀💥\n\nO pior? Aquela função nem precisava estar rodando.",
+    "hashtags": ["#programacao", "#tecnologia", "#bug", "#ariane5", "#curiosidades"]
+  },
+  "facebook": {
+    "legenda": "Em 1996, uma única linha de código custou 370 milhões de dólares ao programa espacial europeu. Você sabe por quê? 🚀💥"
+  }
+}

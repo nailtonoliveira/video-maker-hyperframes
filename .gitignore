@@ -1,0 +1,21 @@
+# Python
+tools/.venv/
+__pycache__/
+
+# HyperFrames: estado e caches regeneráveis de cada vídeo
+**/.hyperframes/
+**/.thumbnails/
+**/.waveform-cache/
+node_modules/
+
+# Renders (grandes; guarde os finais fora do git ou com Git LFS)
+**/renders/
+*.mp4
+
+# Segredos
+.env
+
+# Pipeline: cache de embeddings (regenerável) e logs por vídeo
+niches/*/.embeddings.json
+**/.pipeline/
+**/publicar/*.mp4

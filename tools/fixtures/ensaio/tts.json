@@ -1,0 +1,9 @@
+{
+  "cenas": [
+    {"n": 1, "texto": "Um erro de código de uma única linha custou trezentos e setenta milhões de dólares, em apenas trinta e sete segundos."},
+    {"n": 2, "texto": "Em mil novecentos e noventa e seis, a Agência Espacial Europeia lançou o foguete Ariane cinco, carregando quatro satélites científicos de ponta."},
+    {"n": 3, "texto": "Aos trinta e seis segundos de voo, o computador tentou converter um número de sessenta e quatro bits em ponto flutuante para um inteiro de dezesseis bits."},
+    {"n": 4, "texto": "O número era grande demais para caber na memória... o processador primário travou. O de backup travou logo em seguida, pelo mesmo erro. Os motores viraram no ângulo máximo, e o foguete se desintegrou no ar."},
+    {"n": 5, "texto": "O detalhe mais absurdo? Aquela função nem precisava estar rodando após a decolagem. Foi exatamente assim que..."}
+  ]
+}

@@ -1,0 +1,40 @@
+Roteiro 1: Tech Lore (Desastres da Tecnologia)
+
+Tema: O bug de 370 milhões de dólares do foguete Ariane 5
+Duração estimada: ~42 segundos
+Identidade Visual (Hyperframes): Tema escuro (dark mode estilo terminal/VS Code), tipografia monospace (JetBrains Mono ou Fira Code), paleta preto, verde-menta e vermelho-alerta, animações de texto e contadores numéricos via CSS/GSAP.
+Cena 1: O Gancho (0s – 5s)
+
+Locução: "Um erro de código de uma única linha custou 370 milhões de dólares em apenas 37 segundos."
+Visual no Hyperframes:
+Fundo preto com grade sutil de coordenadas (grid em CSS).
+Contador numérico animado subindo rapidamente: $0 até $370,000,000 em vermelho neon.
+Um cronômetro ao lado marcando de 00:00 até 00:37 em contagem regressiva.
+Cena 2: O Contexto (5s – 14s)
+
+Locução: "Em 1996, a Agência Espacial Europeia lançou o foguete Ariane 5 carregando quatro satélites científicos de ponta."
+Visual no Hyperframes:
+Texto tipográfico minimalista em destaque: "ARIANE 5 — 1996".
+Gráfico vetorial limpo de telemetria mostrando um vetor de aceleração subindo com dados simulados em texto monospace rodando na lateral.
+Cena 3: A Falha Técnica (14s – 26s)
+
+Locução: "Aos 36 segundos de voo, o computador tentou converter um número de 64 bits em ponto flutuante para um inteiro de 16 bits. O número era grande demais para caber na memória."
+Visual no Hyperframes:
+Layout de divisão de tela ou caixa de código centralizada:
+Bloco superior: float64: 32768.5 (tamanho normal).
+Seta apontando para o bloco inferior: int16: [Overflow].
+A caixa de 16 bits começa a piscar com bordas vermelhas e gera uma tag de erro animada: ERROR: INTEGER OVERFLOW.
+Cena 4: O Colapso (26s – 36s)
+
+Locução: "O processador primário travou. O de backup travou logo em seguida pelo mesmo erro. Os motores viraram no ângulo máximo e o foguete se desintegrou no ar."
+Visual no Hyperframes:
+Status do sistema alternando de verde para vermelho:
+PRIMARY_CPU: CRASHED
+BACKUP_CPU: CRASHED
+Um vetor de trajetória angular mudando abruptamente de 0° para 90° com um flash branco suave na tela.
+Cena 5: Conclusão e Conexão em Loop (36s – 42s)
+
+Locução: "O detalhe mais absurdo? Aquela função nem precisava estar rodando após a decolagem. Foi exatamente assim que..." (conecta perfeitamente com a frase inicial: "Um erro de código de uma única linha...")
+Visual no Hyperframes:
+Texto centralizado em caixa alta com efeito fade-out: "LINHA DE CÓDIGO INÚTIL".
+Transição limpa retornando para o contador da Cena 1.

@@ -1,0 +1,81 @@
+{
+  "titulo": "O bug de 370 milhões de dólares do foguete Ariane 5",
+  "titulo_tela": "UMA LINHA DE CÓDIGO",
+  "resumo": "Em 1996, uma conversão de 64 bits para 16 bits num código herdado e inútil após a decolagem destruiu o Ariane 5 em 37 segundos.",
+  "cenas": [
+    {
+      "n": 1,
+      "nome": "O Gancho",
+      "locucao": "Um erro de código de uma única linha custou 370 milhões de dólares, em apenas 37 segundos.",
+      "visual": "Título 'UMA LINHA DE CÓDIGO' já no frame 0. Contador em código (let prejuizo =) subindo de $0 a $370,000,000 em vermelho. Cronômetro T+ em ciano que trava em 00:37 e fica vermelho.",
+      "ancoras": [
+        {"gatilho": "uma única linha", "visual": "sublinhar LINHA no título"},
+        {"gatilho": "370 milhões de dólares", "visual": "contador começa a subir de $0"},
+        {"gatilho": "37 segundos", "visual": "cronômetro corre até T+00:37 e trava em vermelho"}
+      ]
+    },
+    {
+      "n": 2,
+      "nome": "O Contexto",
+      "locucao": "Em 1996, a Agência Espacial Europeia lançou o foguete Ariane 5, carregando quatro satélites científicos de ponta.",
+      "visual": "'ARIANE 5 — 1996' letra a letra. Linhas de código digitadas com org = ESA e o voo V501. Gráfico de telemetria ALT x T+ subindo. 4 indicadores Cluster conectando.",
+      "ancoras": [
+        {"gatilho": "Em 1996", "visual": "ARIANE 5 — 1996 entra letra a letra"},
+        {"gatilho": "Agência Espacial Europeia", "visual": "linha digitada: org = ESA"},
+        {"gatilho": "lançou o foguete", "visual": "linha do voo V501 + gráfico de telemetria começa a subir"},
+        {"gatilho": "quatro satélites", "visual": "4 indicadores CLUSTER conectando"}
+      ]
+    },
+    {
+      "n": 3,
+      "nome": "A Falha Técnica",
+      "locucao": "Aos 36 segundos de voo, o computador tentou converter um número de 64 bits em ponto flutuante para um inteiro de 16 bits.",
+      "visual": "T+00:36. Linha de código bh := int16(horizontal_bias); digitada. Caixa float64 com 32768.5 e 64 células de bits; seta int16(); caixa int16 com 16 células.",
+      "ancoras": [
+        {"gatilho": "36 segundos de voo", "visual": "T+00:36 em ciano"},
+        {"gatilho": "o computador tentou converter", "visual": "linha de código digitada"},
+        {"gatilho": "64 bits em ponto flutuante", "visual": "caixa float64 32768.5 + 64 bits acendendo"},
+        {"gatilho": "um inteiro de 16 bits", "visual": "seta int16() e caixa int16 com 16 bits"}
+      ]
+    },
+    {
+      "n": 4,
+      "nome": "O Colapso",
+      "locucao": "O número era grande demais para caber na memória, o processador primário travou, o de backup travou logo em seguida, pelo mesmo erro. Os motores viraram no ângulo máximo e o foguete se desintegrou no ar.",
+      "visual": "Valor estoura a caixa int16: [OVERFLOW] e tag ERROR: INTEGER OVERFLOW piscando. Monitor SRI: PRIMARY_CPU e BACKUP_CPU de ONLINE para CRASHED. Foguete num mostrador gira de 0° a 90°, flash e fragmentos, SINAL PERDIDO.",
+      "ancoras": [
+        {"gatilho": "O número era grande demais", "visual": "valor não cabe: [OVERFLOW] + ERROR: INTEGER OVERFLOW piscando"},
+        {"gatilho": "o processador primário travou", "visual": "PRIMARY_CPU: CRASHED"},
+        {"gatilho": "o de backup travou", "visual": "BACKUP_CPU: CRASHED"},
+        {"gatilho": "pelo mesmo erro", "visual": "log: mesmo software, mesmo erro"},
+        {"gatilho": "Os motores viraram", "visual": "vetor dos motores gira de 0° a 90°"},
+        {"gatilho": "se desintegrou no ar", "visual": "flash de colapso + fragmentos"}
+      ]
+    },
+    {
+      "n": 5,
+      "nome": "Conclusão e Conexão em Loop",
+      "locucao": "O detalhe mais absurdo? Aquela função nem precisava estar rodando após a decolagem. Foi exatamente assim que...",
+      "visual": "Código Align_SRI herdado do Ariane 4, linhas riscadas. 'LINHA DE CÓDIGO INÚTIL' palavra a palavra. Barra de loop zera e reenche; título da cena 1 remonta no mesmo lugar (último frame = frame 0).",
+      "ancoras": [
+        {"gatilho": "O detalhe mais absurdo", "visual": "código Align_SRI herdado do Ariane 4"},
+        {"gatilho": "nem precisava estar rodando", "visual": "LINHA DE CÓDIGO INÚTIL + código riscado"},
+        {"gatilho": "após a decolagem", "visual": "rodava 40 s após a decolagem"},
+        {"gatilho": "Foi exatamente assim que", "visual": "barra de loop zera; título da cena 1 remonta"}
+      ]
+    }
+  ],
+  "loop": {
+    "ultima_frase": "Foi exatamente assim que...",
+    "primeira_frase": "Um erro de código de uma única linha custou 370 milhões de dólares, em apenas 37 segundos.",
+    "leitura_continua": "Foi exatamente assim que um erro de código de uma única linha custou 370 milhões de dólares, em apenas 37 segundos."
+  },
+  "fatos": [
+    {"fato": "Voo V501 do Ariane 5, em 4 de junho de 1996, a partir de Kourou (Guiana Francesa).", "fonte": "Relatório da comissão de inquérito do voo 501 (ESA/CNES, 1996)", "confianca": "alta"},
+    {"fato": "O foguete se autodestruiu cerca de 37 segundos após a ignição.", "fonte": "Relatório da comissão de inquérito do voo 501", "confianca": "alta"},
+    {"fato": "A falha foi uma conversão de ponto flutuante de 64 bits para inteiro de 16 bits com sinal (horizontal bias) sem proteção contra overflow, no sistema de referência inercial (SRI).", "fonte": "Relatório da comissão de inquérito do voo 501", "confianca": "alta"},
+    {"fato": "O SRI de backup falhou pelo mesmo motivo, pois rodava o mesmo software.", "fonte": "Relatório da comissão de inquérito do voo 501", "confianca": "alta"},
+    {"fato": "A função de alinhamento era herdada do Ariane 4 e não tinha utilidade após a decolagem do Ariane 5.", "fonte": "Relatório da comissão de inquérito do voo 501", "confianca": "alta"},
+    {"fato": "A carga eram os quatro satélites científicos Cluster; o prejuízo costuma ser estimado em cerca de 370 milhões de dólares.", "fonte": "ESA (missão Cluster); estimativas de imprensa", "confianca": "média"}
+  ]
+}

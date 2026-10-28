@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:07,320
+Um erro de código de uma única linha custou 370 milhões de dólares, em apenas 37 segundos.
+
+2
+00:00:08,280 --> 00:00:17,380
+Em 1996, a agência espacial europeia lançou o foguete Ariane 5, carregando quatro satélites científicos de ponta.
+
+3
+00:00:17,960 --> 00:00:26,600
+Ao 36 segundos de voo, o computador tentou converter um número de 64 bits em ponto flutuante para um inteiro de 16 bits.
+
+4
+00:00:26,600 --> 00:00:35,400
+O número era grande demais para caber na memória, o processador primário travou, o de backup travou logo em seguida, pelo mesmo erro.
+
+5
+00:00:35,940 --> 00:00:40,440
+Os motores viraram no ângulo máximo e o foguete se desintegrou no ar.
+
+6
+00:00:40,860 --> 00:00:48,240
+O detalhe mais absurdo, aquela função nem precisava estar rodando após a decolagem. Foi exatamente assim que...

@@ -1,0 +1,188 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-mono);
+      color: var(--ink);
+    }
+    #s1-stage {
+      position: absolute;
+      left: 96px;
+      top: 0;
+      width: 852px;
+      height: 1920px;
+    }
+    #s1-title {
+      position: absolute;
+      left: 0;
+      top: 240px;
+      width: 852px;
+    }
+    .s1-line {
+      font-size: 124px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      white-space: nowrap;
+    }
+    .s1-mint {
+      color: var(--mint);
+      position: relative;
+      display: inline-block;
+    }
+    #s1-underline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 4px;
+      height: 10px;
+      background: var(--mint);
+      transform-origin: 0 50%;
+    }
+    #s1-caret {
+      display: inline-block;
+      width: 62px;
+      height: 104px;
+      margin-left: 18px;
+      background: var(--mint);
+      vertical-align: -10px;
+    }
+    .s1-label {
+      font-size: 34px;
+      color: var(--gray);
+      line-height: 1;
+    }
+    .s1-label b {
+      color: var(--cyan);
+      font-weight: 400;
+    }
+    #s1-cost {
+      position: absolute;
+      left: 0;
+      top: 560px;
+      width: 852px;
+    }
+    #s1-cost-num {
+      margin-top: 22px;
+      font-size: 116px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--alert);
+      white-space: nowrap;
+      transform-origin: 0 50%;
+    }
+    #s1-timer {
+      position: absolute;
+      left: 0;
+      top: 830px;
+      width: 852px;
+    }
+    #s1-timer-num {
+      margin-top: 22px;
+      font-size: 112px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--cyan);
+      white-space: nowrap;
+    }
+    #s1-timer-tag {
+      display: inline-block;
+      margin-left: 28px;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ground);
+      background: var(--alert);
+      padding: 6px 14px;
+      vertical-align: 26px;
+      letter-spacing: 0;
+    }
+  </style>
+  <div data-hf-id="hf-qmpn" id="root" data-composition-id="s1" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-swk8" id="s1-stage">
+      <div data-hf-id="hf-brn8" id="s1-title" class="clip" data-start="0" data-duration="8.1">
+        <div data-hf-id="hf-aokw" class="s1-line">UMA <span data-hf-id="hf-38c6" class="s1-mint">LINHA<span data-hf-id="hf-tryp" id="s1-underline"></span></span></div>
+        <div data-hf-id="hf-n2bz" class="s1-line">DE CÓDIGO<span data-hf-id="hf-eet0" id="s1-caret"></span></div>
+      </div>
+
+      <div data-hf-id="hf-581a" id="s1-cost" class="clip" data-start="2.2" data-duration="5.9">
+        <div data-hf-id="hf-vimr" id="s1-cost-in">
+          <div data-hf-id="hf-kcml" class="s1-label">let <b data-hf-id="hf-7za1">prejuizo</b> =</div>
+          <div data-hf-id="hf-cgd2" id="s1-cost-num">$0</div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-4ntc" id="s1-timer" class="clip" data-start="5.5" data-duration="2.6">
+        <div data-hf-id="hf-7jrn" id="s1-timer-in">
+          <div data-hf-id="hf-63s1" class="s1-label">let <b data-hf-id="hf-zd01">tempo_de_voo</b> =</div>
+          <div data-hf-id="hf-mk8i" id="s1-timer-num"><span data-hf-id="hf-9sal" id="s1-timer-val">T+00:00</span><span data-hf-id="hf-ewtb" id="s1-timer-tag">FIM</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      const money = (n) => "$" + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      const clock = (s) => "T+00:" + String(Math.floor(s)).padStart(2, "0");
+
+      // Título já no frame 0 (thumbnail). Cursor de terminal pisca até o contador entrar.
+      tl.set("#s1-caret", { opacity: 1 }, 0);
+      for (let t = 0.5; t < 2.2; t += 0.5) {
+        tl.set("#s1-caret", { opacity: Math.round(t / 0.5) % 2 ? 0 : 1 }, t);
+      }
+      tl.set("#s1-caret", { opacity: 1 }, 2.2);
+      // "linha" (1.62)
+      tl.fromTo("#s1-underline", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "expo.out" }, 1.62);
+
+      // Contador: entra em 2.2, sobe de 2.42 ("370") a 4.84 (fim de "dólares").
+      tl.fromTo("#s1-cost-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 2.2);
+      const cost = { v: 0 };
+      tl.fromTo(
+        cost,
+        { v: 0 },
+        {
+          v: 370000000,
+          duration: 2.42,
+          ease: "power3.out",
+          onUpdate: () => {
+            document.querySelector("#s1-cost-num").textContent = money(cost.v);
+          },
+        },
+        2.42,
+      );
+      // Acerto ao pousar: 0 ms, depois assenta.
+      tl.set("#s1-cost-num", { scale: 1.08, color: "#ffffff" }, 4.84);
+      tl.to("#s1-cost-num", { scale: 1, color: "#ff3366", duration: 0.3, ease: "expo.out" }, 4.87);
+
+      // Cronômetro: entra em 5.5, corre de 5.88 ("37") a 7.32 (fim de "segundos") e trava em vermelho.
+      gsap.set("#s1-timer-tag", { opacity: 0 });
+      tl.fromTo("#s1-timer-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 5.5);
+      const fly = { s: 0 };
+      tl.fromTo(
+        fly,
+        { s: 0 },
+        {
+          s: 37,
+          duration: 1.44,
+          ease: "none",
+          onUpdate: () => {
+            document.querySelector("#s1-timer-val").textContent = clock(fly.s);
+          },
+        },
+        5.88,
+      );
+      tl.set("#s1-timer-num", { color: "#ff3366" }, 7.32);
+      tl.set("#s1-timer-tag", { opacity: 1 }, 7.32);
+      tl.fromTo("#s1-timer-num", { x: -12 }, { x: 0, duration: 0.3, ease: "elastic.out(1, 0.4)" }, 7.32);
+
+      // Saída: blur-out do palco inteiro.
+      tl.to("#s1-stage", { opacity: 0, filter: "blur(10px)", duration: 0.24, ease: "power3.in" }, 7.84);
+
+      window.__timelines["s1"] = tl;
+    })();
+  </script>
+</template>
