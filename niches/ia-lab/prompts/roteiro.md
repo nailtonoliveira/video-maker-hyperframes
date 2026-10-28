@@ -1,4 +1,4 @@
-Atue como roteirista sênior e diretor criativo de vídeos curtos 3D de alta retenção (YouTube Shorts / Reels / TikTok). O vídeo é renderizado no HyperFrames usando nossa biblioteca de diorama 3D (`assets/kit3d.js`: bancada de madeira, agentes em blocos estilo Claude/dev, telas de código 3D, setas 3D de pressão/fluxo e HUD superior de papel rasgado com fita crepe + placar dinâmico).
+Atue como roteirista sênior e diretor criativo de vídeos curtos 3D de altíssima retenção (YouTube Shorts / Reels / TikTok), no estilo exato de `clubedasskills` e `comoconstroi`. O vídeo é renderizado no HyperFrames usando nossa biblioteca de diorama 3D (`assets/kit3d.js`: bancada de madeira, bonecos em blocos estilo Claude, telas 3D simples, setas 3D de pressão/fluxo e HUD superior de papel rasgado com fita crepe + placar dinâmico).
 
 # A série (identidade fixa: siga à risca, não reinvente)
 {{NICHE_MD}}
@@ -6,37 +6,38 @@ Atue como roteirista sênior e diretor criativo de vídeos curtos 3D de alta ret
 # O episódio
 {{TEMA}}
 
-# Regras do roteiro
-1. **Idioma:** pt-BR, falado, direto, frases curtas e ritmadas (zero enrolação acadêmica).
-2. **Quantidade de cenas dinâmica (`N` cenas guiadas pelo tema):** o número de cenas **não é fixo**. Analise o tema e divida-o em quantas cenas forem necessárias (tipicamente entre 4 e 8 cenas) para que cada gargalo (*"Só que..."*) ou cada agente da banca tenha seu próprio momento claro:
-   - **Cena 1:** Gancho forte + a primeira tentativa / configuração inicial.
-   - **Cenas `2` até `N-2`:** Cada cena apresenta um gargalo real (*"Só que..."*) ou um especialista atuando, seguido da peça que resolve aquele ponto (*"Então..."*).
-   - **Cena `N-1`:** O veredito / sistema completo rodando redondo (placar zerando erros ou batendo 100%).
-   - **Cena `N`:** Payoff rápido + CTA direto (ex.: *"Comenta [PALAVRA] que eu te mando o prompt/arquitetura"* ou *"Manda pra um dev e segue o canal"*).
-3. **Tamanho da locução:** ajuste o total de palavras à complexidade do tema (referência base: entre **{{PALAVRAS_MIN}} e {{PALAVRAS_MAX}} palavras**, podendo variar em ±25% se o tema exigir mais ou menos etapas). Não escreva tempos em segundos: eles vêm do áudio depois.
-4. **Direção Visual (`visual`) e Âncoras (`ancoras`) prontas para o `kit3d.js`:**
-   Em cada cena, especifique claramente:
-   - **Faixa do topo (`#hud-banner-text`):** o texto curto em CAIXA ALTA (até 26 caracteres) que entra na faixa de fita crepe daquela cena.
-   - **Placar (`#hud-score-card`):** qual é o rótulo da métrica e para qual valor/cor (`verde`, `vermelho`, `âmbar`) o número muda nas âncoras da cena (ex.: `BUGS VISTOS: 0`, `INVASÕES: 1`, `ALUCINAÇÕES: 9`, `ERROS: 0`).
-   - **Ação 3D na bancada:** quais agentes (`coder`, `hacker`, `senior`, `tester`, `boss`, `user`), telas de código (`createCodeScreen`) e setas 3D (`createFlowArrow`) aparecem ou reagem (`type`, `panic`, `point`, `celebrate`, `stamp`).
-5. **Âncoras de sincronia:** para cada cena, liste de 2 a 5 momentos em que algo muda na tela (troca de faixa, subida do placar, falha na tela 3D, entrada de agente, abertura do modal CTA). O `gatilho` deve ser um trecho **copiado exatamente da locução** daquela cena (2 a 5 palavras).
-6. **Título na tela (`titulo_tela`):** frase curta de impacto em CAIXA ALTA (até 26 caracteres) que já começa estampada na faixa de fita crepe no frame 0 (thumbnail).
-7. **Números na locução:** escreva números com algarismos ("5 agentes", "9 erros"). Eles viram texto por extenso na etapa de TTS e ficam em algarismos na legenda.
+# Regras do roteiro (Foco Total em Retenção e Simplicidade)
+1. **Linguagem 100% popular e direta (Teste do Iniciante):** escreva para que uma pessoa que começou a usar IA ontem entenda cada frase sem esforço. Frases curtas, conversacionais e cheias de imagem mental (*"clique em tudo errado até quebrar"*, *"acha a senha que ficou esquecida"*, *"corta o papel em tirinhas"*).
+2. **Zero Sopa de Letrinhas:** é terminantemente proibido falar termos como `BM25`, `AST`, `JSON-RPC`, `KV Cache`, `Embeddings`, `Idempotência` ou `Context Window`. Se precisar falar de memória da IA, chame de *"memória da conversa"* ou *"mesa de trabalho"*; se falar de agentes, chame de *"equipe de IAs"* ou dê profissões humanas a eles (*o hacker*, *o usuário confuso*, *o sênior*, *o testador*, *o chefe*).
+3. **Quantidade de cenas dinâmica (`N` cenas guiadas pelo tema):** o número de cenas **não é fixo**. Divida a história em quantas cenas o tema pedir (tipicamente de 5 a 8 cenas curtas e dinâmicas):
+   - **Cena 1:** Gancho direto + o jeito que todo mundo tenta fazer e acha que está ótimo.
+   - **Cenas `2` até `N-2`:** Cada cena mostra um problema claro (*"Só que..."*) ou um boneco especialista entrando em ação (*"O primeiro é..."*, *"O segundo é..."*), seguido do que acontece na bancada.
+   - **Cena `N-1`:** O veredito / a solução final funcionando redonda e zerando os erros no placar.
+   - **Cena `N`:** Fechamento rápido + CTA direto (*"Comenta [PALAVRA] que eu te mando o prompt no direct"* ou *"Manda pra quem usa IA todo dia"*).
+4. **Tamanho da locução:** frases enxutas (referência base: entre **{{PALAVRAS_MIN}} e {{PALAVRAS_MAX}} palavras**, ajustável conforme o número de cenas do tema). Não escreva tempos em segundos: eles vêm do áudio depois.
+5. **Direção Visual (`visual`) e Âncoras (`ancoras`) prontas para o `kit3d.js`:**
+   Em cada cena, especifique:
+   - **Faixa de fita crepe (`#hud-banner-text`):** frase curta e fácil em CAIXA ALTA (até 26 caracteres, ex.: `QUEM ESCREVEU NÃO VÊ O ERRO`, `O USUÁRIO CONFUSO`, `MEMÓRIA CHEIA`, `O VEREDITO`).
+   - **Placar (`#hud-score-card`):** rótulo simples de 1–2 palavras e o número subindo/descendo (ex.: `BUGS VISTOS: 0`, `CLIQUES: 19`, `ESQUECIMENTOS: 7`, `ERROS: 0`).
+   - **Ação 3D na bancada:** quais bonecos (`coder`, `hacker`, `senior`, `tester`, `boss`, `user`), telas 3D (`createCodeScreen` com 3 linhas em português super simples) e setas 3D (`createFlowArrow`) aparecem ou reagem (`type`, `panic`, `point`, `celebrate`, `stamp`).
+6. **Âncoras de sincronia:** para cada cena, liste de 2 a 4 momentos em que algo muda na tela. O `gatilho` deve ser um trecho **copiado exatamente da locução** daquela cena (2 a 5 palavras).
+7. **Título na tela (`titulo_tela`):** frase curta de impacto em CAIXA ALTA (até 26 caracteres) na faixa de fita crepe no frame 0 (thumbnail).
+8. **Números na locução:** escreva números com algarismos ("5 IAs", "19 cliques"). Eles viram texto por extenso no TTS e ficam em algarismos na legenda.
 {{AJUSTES}}
 # Formato da resposta
 Somente JSON, sem texto antes ou depois:
 {
-  "titulo": "título do episódio",
+  "titulo": "título simples e magnético do episódio",
   "titulo_tela": "FAIXA DO FRAME 0 (ATÉ 26 CHARS)",
-  "resumo": "1–2 frases resumindo a evolução do vídeo",
+  "resumo": "1–2 frases simples resumindo o vídeo",
   "cenas": [
     {
       "n": 1,
-      "nome": "nome da etapa/cena (ex.: Tentativa Inicial / Gargalo 1 / O Hacker / Veredito / CTA)",
-      "locucao": "texto falado da cena",
-      "visual": "Faixa: '...' | Placar: '...' | 3D: descrição dos agentes, tela de código e setas na bancada",
+      "nome": "nome curto da cena",
+      "locucao": "texto falado da cena (simples, direto, sem jargão)",
+      "visual": "Faixa: '...' | Placar: '...' | 3D: descrição dos bonecos, tela e setas na bancada",
       "ancoras": [
-        {"gatilho": "trecho exato da locução", "visual": "ação exata no HUD (setBanner/setScore) ou no 3D (agente/tela/seta)"}
+        {"gatilho": "trecho exato da locução", "visual": "ação exata no HUD (setBanner/setScore) ou no 3D (boneco/tela/seta)"}
       ]
     }
   ],
@@ -46,6 +47,6 @@ Somente JSON, sem texto antes ou depois:
     "leitura_continua": "resumo do fechamento + gancho"
   },
   "fatos": [
-    {"fato": "conceito ou mecanismo técnico real explicado", "fonte": "documentação ou referência", "confianca": "alta | média"}
+    {"fato": "conceito real explicado de forma simples", "fonte": "referência", "confianca": "alta | média"}
   ]
 }

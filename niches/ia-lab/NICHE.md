@@ -1,24 +1,28 @@
-# Nicho: IA Lab — Engenharia de IA & Bastidores de Código em 3D
+# Nicho: IA Lab — Como a IA Funciona por Dentro (Em 3D, Sem Jargão)
 
-Shorts sobre como arquiteturas reais de IA, agentes, MCPs, RAGs, prompts e automações funcionam por dentro — e por que o jeito amador quebra. Narração sem rosto, tudo encenado em **diorama 3D WebGL (Three.js + `assets/kit3d.js`)** sobre uma bancada de madeira quente com agentes em blocos, telas de código, setas de fluxo 3D e **HUD 2D de papel rasgado com fita crepe + placar dinâmico**.
+Shorts sobre como a Inteligência Artificial (ChatGPT, Claude, agentes, prompts e automações) funciona por dentro — e por que o jeito que todo mundo usa dá errado. Feito para **prender qualquer pessoa (mesmo quem é leigo ou está começando na IA)** usando metáforas físicas simples, zero "sopa de letrinhas" técnica e tudo encenado em **diorama 3D WebGL (Three.js + `assets/kit3d.js`)** sobre uma bancada de madeira quente com bonecos em blocos, telas simples, setas de fluxo 3D e **HUD 2D de papel rasgado com fita crepe + placar dinâmico**.
 
 Fonte da verdade da identidade do nicho: o que está aqui vale para todo vídeo da série; o `template/` é a implementação disso e é copiado para cada vídeo novo. Este arquivo também vai inteiro dentro dos prompts do pipeline (`prompts/`), então o que estiver aqui guia temas, roteiro, metadados e cenas. Voz, modelos de IA e aprovações ficam em `niche.json`.
 
 ## Formato
 - YouTube Shorts / Reels / TikTok `1080 × 1920`, `30 fps`, duração dinâmica conforme a complexidade do tema (`35–75 s`; a duração final é a da locução).
-- **Quantidade de cenas dinâmica (`N` cenas guiadas pelo tema):** o número de cenas nunca é fixo; é determinado por quantos gargalos/etapas ou especialistas o mecanismo do episódio exige:
-  1. **Cena 1 (Gancho + Tentativa Inicial):** apresenta a promessa/dor prática e a solução óbvia que todo mundo tenta primeiro.
-  2. **Cenas Intermediárias (`Cena 2` até `Cena N-2` — Loop *"Só que... Então..."* ou Banca de Agentes):** cada cena mostra **um gargalo técnico real** (*"Só que..."* → falha visível no 3D, seta vermelha de pressão, placar subindo em alerta) seguido da **peça de engenharia que resolve aquele gargalo** (*"Então você coloca..."* → novo agente/módulo entra na bancada).
-  3. **Cena `N-1` (O Veredito / Arquitetura Rodando):** o sistema completo operando integrado, zerando os erros no placar (`ERROS: 9 → 0`) ou carimbando `APROVADO`.
-  4. **Cena `N` (Payoff + CTA Final — últimos 3–4 s):** card de engajamento na tela (*"Comenta [PALAVRA] que eu te mando o prompt/arquitetura"* ou *"Manda pra um dev e segue o canal"*).
+- **Quantidade de cenas dinâmica (`N` cenas guiadas pelo tema):** o número de cenas nunca é fixo; é determinado por quantos problemas/etapas ou bonecos especialistas o vídeo exige:
+  1. **Cena 1 (Gancho + O Jeito Comum):** apresenta uma situação que todo mundo que usa IA já viveu e o jeito óbvio que as pessoas tentam fazer.
+  2. **Cenas Intermediárias (`Cena 2` até `Cena N-2` — Loop *"Só que... Então..."* ou Banca de Especialistas):** cada cena mostra **um problema real de forma física e óbvia** (*"Só que..."* → o boneco se confunde, a folha rasga, a senha vaza, o placar sobe no vermelho) seguido da **solução simples e visual** (*"Então você coloca..."* → entra outro boneco com uma função clara, uma regra ou um filtro).
+  3. **Cena `N-1` (O Veredito / Tudo Funcionando):** a bancada inteira trabalhando junta, zerando os erros no placar (`ERROS: 9 → 0`) ou carimbando `APROVADO`.
+  4. **Cena `N` (Payoff + CTA Final — últimos 3–4 s):** card de engajamento na tela (*"Comenta [PALAVRA] que eu te mando o prompt"* ou *"Manda pra quem usa IA todo dia e segue o canal"*).
 - **Legenda queimada estilo Etiqueta Recortada (`label-tag`):** grupos de até 3 palavras em `bottom: 380px`, caixas terracota `#c85a32` levemente inclinadas, com a palavra falada no instante atual destacando em amarelo-ouro `#ffd43b` e texto preto `#141414`.
 - Todo evento visual (troca da faixa de fita crepe, incremento do placar, entrada de agente/seta 3D, corte de câmera) preso ao início da palavra correspondente na transcrição (`assets/voice.json`).
 
-## Roteiro
-- Frase 1 = gancho direto na ferida ou promessa técnica concreta (ex.: *"Um único Claude codando sozinho vai quebrar sua produção"*, *"Por que seu RAG inventa resposta mesmo com o PDF certo"*). Nada de saudação nem *"você sabia"*.
-- Progressão causal sem gordura: conecte as cenas usando o contraste *"Só que..."* (gargalo) → *"Então..."* (solução arquitetural) ou enumerando os agentes da banca (`O primeiro é...`, `O segundo...`, `O veredito...`).
-- Fatos e conceitos técnicos reais: cite os mecanismos reais (context window, system prompt, MCP, tool calling, embeddings, chunking, guardrails, unit tests, sandbox, git worktree).
-- Última cena entrega um CTA curto e acionável com uma palavra-chave clara entre aspas ou convite direto para compartilhar com outro dev.
+## Roteiro (Regra de Ouro: Zero Jargão / Acessível para Leigos)
+- **Qualquer pessoa precisa entender em 2 segundos:** fale como no vídeo da `clubedasskills` e do `comoconstroi` — vocabulário de conversa do dia a dia.
+- **PROIBIDO usar siglas ou jargões pesados de engenharia** na locução, nos títulos ou no HUD (`BM25`, `AST`, `JSON-RPC`, `KV Cache`, `HNSW`, `Cross-Encoder`, `Embeddings`, `Idempotência`, `Latência P99`).
+- **Traduza tudo em papéis humanos ou objetos físicos na mesa:**
+  - Em vez de *"viés de confirmação na mesma janela de contexto"* → diga *"quem escreveu acha que tá tudo certo e não vê o próprio erro"*.
+  - Em vez de *"chunking semântico no RAG"* → diga *"a IA corta o seu PDF em tirinhas e perde o título da página"*.
+  - Em vez de *"testes de borda e vulnerabilidade SAST"* → diga *"o usuário confuso que clica em tudo errado até quebrar, e o hacker que acha a senha esquecida"*.
+- **Código na tela 3D é sempre ilustrativo e em português simples:** máximo 3–4 linhas curtas que até quem não programa entende ao bater o olho (ex.: `SENHA = "123"`, `se preco == 0:`, `apagar_tudo()`).
+- Última cena entrega um CTA curto e acionável com uma palavra-chave clara entre aspas ou convite direto para compartilhar.
 
 ## Visual (Diorama 3D + HUD Paper/Tape)
 - **Arquitetura de Composição:**
