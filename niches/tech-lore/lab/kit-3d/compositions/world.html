@@ -1,0 +1,253 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--ground);
+      overflow: hidden;
+      font-family: var(--font-mono);
+      color: var(--ink);
+    }
+    #gl {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    /* placa escura atrás de todo texto de cena: contraste garantido sobre céu claro ou placa */
+    .title,
+    .sub,
+    .hud,
+    .row {
+      background: rgba(8, 10, 15, 0.8);
+      padding: 6px 18px 10px;
+      margin-left: -18px;
+    }
+    .title {
+      position: absolute;
+      left: 96px;
+      top: 200px;
+      font-size: 128px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      white-space: nowrap;
+      opacity: 0;
+    }
+    .sub {
+      position: absolute;
+      left: 96px;
+      top: 362px;
+      font-size: 40px;
+      font-weight: 700;
+      white-space: nowrap;
+      color: var(--ink);
+      opacity: 0;
+    }
+    .hud {
+      position: absolute;
+      left: 96px;
+      top: 210px;
+      font-size: 56px;
+      font-weight: 800;
+      white-space: nowrap;
+      color: var(--cyan);
+      opacity: 0;
+    }
+    .hud .k,
+    .sub .k {
+      color: var(--gray);
+    }
+    #t-line {
+      line-height: 1.02;
+    }
+    #t-line .w2 {
+      display: inline-block;
+    }
+    #money {
+      font-size: 88px;
+    }
+    #tlost {
+      font-size: 100px;
+    }
+    #money,
+    #tover,
+    #tsame,
+    #tlost,
+    #tuseless {
+      color: var(--alert);
+    }
+    #t16,
+    #tcluster {
+      color: var(--mint);
+    }
+    .row {
+      position: absolute;
+      left: 96px;
+      font-size: 44px;
+      font-weight: 700;
+      white-space: nowrap;
+      opacity: 0;
+    }
+    .row .k {
+      display: inline-block;
+      width: 300px;
+    }
+    .row .v {
+      display: inline-block;
+    }
+    #row-a {
+      top: 210px;
+    }
+    #row-b {
+      top: 276px;
+    }
+  </style>
+  <div id="root" data-composition-id="world" data-width="1080" data-height="1920">
+    <canvas id="gl" width="1080" height="1920" data-layout-ignore></canvas>
+
+    <div id="t-line" class="title">UMA <span id="w-linha" class="w2">LINHA</span><br />DE CÓDIGO</div>
+    <div id="money" class="title">US$ 0</div>
+    <div id="timer" class="hud"><span class="k">T+</span><span id="timer-v">00:00</span></div>
+    <div id="t1996" class="title">1996</div>
+    <div id="s-esa" class="sub"><span class="k">&gt; </span>ESA · voo V501</div>
+    <div id="tariane" class="title">ARIANE 5</div>
+    <div id="tcluster" class="title">4× CLUSTER</div>
+    <div id="s-cluster" class="sub"><span class="k">// </span>satélites científicos</div>
+    <div id="hud36" class="hud"><span class="k">T+</span><span id="hud36-v">00:35</span></div>
+    <div id="t64" class="title">64 BITS</div>
+    <div id="s-64" class="sub"><span class="k">// </span>float64 · ponto flutuante</div>
+    <div id="t16" class="title">16 BITS</div>
+    <div id="s-16" class="sub"><span class="k">// </span>int16 · máx 32 767</div>
+    <div id="tover" class="title">OVERFLOW</div>
+    <div id="s-over" class="sub"><span class="k">// </span>valor &gt; 32 767</div>
+    <div id="row-a" class="row"><span class="k">PRIMÁRIO</span><span id="va" class="v">OK</span></div>
+    <div id="row-b" class="row"><span class="k">BACKUP</span><span id="vb" class="v">OK</span></div>
+    <div id="tsame" class="title">MESMO ERRO</div>
+    <div id="hud37" class="hud"><span class="k">T+</span><span id="hud37-v">00:36</span></div>
+    <div id="tmax" class="title">ÂNGULO MÁX</div>
+    <div id="tlost" class="title">SINAL PERDIDO</div>
+    <div id="tuseless" class="title">INÚTIL</div>
+    <div id="s-useless" class="sub"><span class="k">// </span>rodava 40 s após a decolagem</div>
+  </div>
+  <script>
+    (function () {
+      // ---------- camada 2D: títulos presos às palavras da locução ----------
+      const tl = gsap.timeline({ paused: true });
+      const show = (sel, t) => tl.set(sel, { opacity: 1 }, t);
+      const hide = (sel, t) => tl.set(sel, { opacity: 0 }, t);
+      const wipe = (sel, t) =>
+        tl.fromTo(sel, { opacity: 1, clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.38, ease: "expo.out" }, t);
+      const hit = (sel, t) => tl.fromTo(sel, { x: -16 }, { x: 0, duration: 0.4, ease: "elastic.out(1, 0.3)" }, t);
+      const pad2 = (n) => String(n).padStart(2, "0");
+
+      // gancho (o título está pousado no quadro 0 e volta idêntico no fim)
+      tl.set("#t-line", { opacity: 1, clipPath: "inset(0 0% 0 0)" }, 0);
+      tl.set("#w-linha", { color: "#e6edf3" }, 0);
+      tl.set("#w-linha", { color: "#ff3366" }, 1.62);
+      hide("#t-line", 2.0);
+      tl.set("#money", { textContent: "US$ 0" }, 0);
+      show("#money", 2.42);
+      hit("#money", 2.42);
+      for (let i = 1; i <= 48; i++) {
+        const k = 1 - Math.pow(1 - i / 48, 3);
+        tl.set("#money", { textContent: "US$ " + Math.round(370 * k) + ".000.000" }, 2.42 + i * 0.05);
+      }
+      hit("#money", 4.84);
+      hide("#money", 5.34);
+      show("#timer", 5.88);
+      for (let s = 0; s <= 37; s++) tl.set("#timer-v", { textContent: "00:" + pad2(s) }, 5.88 + (s / 37) * 1.44);
+      tl.set("#timer", { color: "#38bdf8" }, 5.88);
+      tl.set("#timer", { color: "#ff3366" }, 7.32);
+      hit("#timer", 7.32);
+      hide("#timer", 8.28);
+
+      // contexto
+      wipe("#t1996", 8.56);
+      wipe("#s-esa", 10.78);
+      hide("#t1996", 12.18);
+      hide("#s-esa", 12.18);
+      wipe("#tariane", 13.16);
+      hide("#tariane", 14.66);
+      wipe("#tcluster", 15.02);
+      wipe("#s-cluster", 16.1);
+      hide("#tcluster", 17.96);
+      hide("#s-cluster", 17.96);
+
+      // a falha
+      show("#hud36", 17.96);
+      tl.set("#hud36-v", { textContent: "00:35" }, 17.96);
+      tl.set("#hud36-v", { textContent: "00:36" }, 18.08);
+      hit("#hud36", 18.08);
+      hide("#hud36", 20.24);
+      wipe("#t64", 22.72);
+      wipe("#s-64", 24.04);
+      hide("#t64", 24.66);
+      hide("#s-64", 24.66);
+      wipe("#t16", 25.64);
+      wipe("#s-16", 25.64);
+      hide("#t16", 26.6);
+      hide("#s-16", 26.6);
+      show("#tover", 28.24);
+      hit("#tover", 28.24);
+      wipe("#s-over", 28.4);
+      hide("#tover", 30.22);
+      hide("#s-over", 30.22);
+      wipe("#row-a", 30.22);
+      wipe("#row-b", 30.3);
+      tl.set("#va", { textContent: "OK", color: "#00ff9d" }, 30.22);
+      tl.set("#vb", { textContent: "OK", color: "#00ff9d" }, 30.22);
+      tl.set("#va", { textContent: "TRAVOU", color: "#ff3366" }, 31.42);
+      hit("#row-a", 31.42);
+      tl.set("#vb", { textContent: "TRAVOU", color: "#ff3366" }, 32.82);
+      hit("#row-b", 32.82);
+      hide("#row-a", 33.38);
+      hide("#row-b", 33.38);
+      show("#tsame", 34.64);
+      hit("#tsame", 34.64);
+      hide("#tsame", 35.94);
+
+      // colapso
+      show("#hud37", 35.94);
+      tl.set("#hud37", { color: "#38bdf8" }, 35.94);
+      tl.set("#hud37-v", { textContent: "00:36" }, 35.94);
+      wipe("#tmax", 37.38);
+      hide("#tmax", 38.48);
+      tl.set("#hud37-v", { textContent: "00:37" }, 39.09);
+      tl.set("#hud37", { color: "#ff3366" }, 39.09);
+      hit("#hud37", 39.09);
+      hide("#hud37", 39.6);
+      wipe("#tlost", 39.6);
+      hide("#tlost", 40.86);
+
+      // a função inútil e o loop
+      show("#tuseless", 43.72);
+      hit("#tuseless", 43.72);
+      wipe("#s-useless", 44.58);
+      hide("#tuseless", 45.98);
+      hide("#s-useless", 45.98);
+      tl.set("#w-linha", { color: "#e6edf3" }, 46.6);
+      wipe("#t-line", 46.66);
+      tl.set({}, {}, 48.28);
+      window.__timelines["world"] = tl;
+
+      // ---------- mundo 3D: kit + episódio (módulos locais) ----------
+      let api = null;
+      let lastT = 0;
+      const ready = Promise.all([document.fonts.load('800 64px "JetBrains Mono"'), document.fonts.load('700 64px "JetBrains Mono"')])
+        .then(() => import("./episode/ariane5.js"))
+        .then((ep) => {
+          api = ep.build(document.getElementById("gl"));
+          api.render(lastT);
+        });
+      window.__hf = window.__hf || {};
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      window.__hf.buildReady.world = ready;
+      window.addEventListener("hf-seek", (e) => {
+        lastT = e.detail.time;
+        if (api) api.render(lastT);
+        else e.detail.waitUntil(ready);
+      });
+    })();
+  </script>
+</template>
