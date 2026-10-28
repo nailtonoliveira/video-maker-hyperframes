@@ -1,0 +1,401 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--ground);
+      overflow: hidden;
+      font-family: var(--font-sans);
+    }
+    #gl {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    #vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 92% 78% at 50% 48%,
+        rgba(11, 15, 29, 0) 52%,
+        rgba(11, 15, 29, 0.58) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* 1. Watermark Pill no topo direito */
+    #hud-watermark {
+      position: absolute;
+      top: 96px;
+      right: 76px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(15, 19, 32, 0.85);
+      border: 2px solid rgba(255, 255, 255, 0.14);
+      padding: 10px 22px;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    #hud-wm-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: var(--claude);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 16px;
+    }
+    #hud-wm-text {
+      color: #f4efe6;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    /* 2. Faixa de Papel Rasgado + Fita Crepe */
+    #hud-tape-wrap {
+      position: absolute;
+      left: 56px;
+      top: 196px;
+      width: 968px;
+      height: 118px;
+    }
+    #hud-paper-strip {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      border: 4px solid #141414;
+      border-radius: 8px;
+      box-shadow: 0 10px 0 #141414, 0 18px 28px rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 40px;
+    }
+    #hud-banner-text {
+      color: #141414;
+      font-size: 46px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .tape-piece {
+      position: absolute;
+      width: 118px;
+      height: 44px;
+      background: #d6ba8a;
+      border: 2px solid rgba(20, 20, 20, 0.35);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      opacity: 0.92;
+    }
+    #tape-left {
+      left: -24px;
+      top: -14px;
+      transform: rotate(-28deg);
+    }
+    #tape-right {
+      right: -24px;
+      top: -12px;
+      transform: rotate(26deg);
+    }
+
+    /* 3. Placar / Scoreboard Card abaixo da faixa à direita */
+    #hud-score-card {
+      position: absolute;
+      top: 344px;
+      right: 84px;
+      min-width: 390px;
+      height: 102px;
+      background: var(--paper);
+      border: 5px solid #141414;
+      border-radius: 16px;
+      box-shadow: 0 8px 0 #141414, 0 14px 24px rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      gap: 24px;
+    }
+    #hud-score-label {
+      color: #141414;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    #hud-score-val {
+      display: inline-block;
+      color: var(--alert);
+      font-size: 62px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    /* 4. Card CTA Final (aparece nos últimos segundos) */
+    #hud-cta-modal {
+      position: absolute;
+      left: 110px;
+      top: 860px;
+      width: 860px;
+      background: var(--paper);
+      border: 6px solid #141414;
+      border-radius: 22px;
+      box-shadow: 0 12px 0 #141414, 0 24px 48px rgba(0, 0, 0, 0.65);
+      padding: 32px 40px;
+      opacity: 0;
+    }
+    #hud-cta-eyebrow {
+      color: var(--claude);
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    #hud-cta-title {
+      color: #141414;
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    #hud-cta-pill {
+      display: inline-block;
+      background: #141414;
+      color: #ffd43b;
+      font-family: var(--font-mono);
+      font-size: 32px;
+      font-weight: 800;
+      padding: 12px 26px;
+      border-radius: 12px;
+    }
+  </style>
+
+  <div id="root" data-composition-id="world" data-width="1080" data-height="1920">
+    <canvas id="gl" width="1080" height="1920" data-layout-ignore></canvas>
+    <div id="vignette" data-layout-ignore></div>
+
+    <div id="hud-watermark" data-layout-ignore>
+      <div id="hud-wm-dot">*</div>
+      <div id="hud-wm-text" data-var-text="brand">ia-lab.dev</div>
+    </div>
+
+    <div id="hud-tape-wrap" data-layout-allow-overflow>
+      <div id="hud-paper-strip">
+        <div id="hud-banner-text">1 AGENTE SOZINHO QUEBRA</div>
+      </div>
+      <div id="tape-left" class="tape-piece" data-layout-ignore></div>
+      <div id="tape-right" class="tape-piece" data-layout-ignore></div>
+    </div>
+
+    <div id="hud-score-card">
+      <div id="hud-score-label">ALUCINAÇÕES</div>
+      <div id="hud-score-val">0</div>
+    </div>
+
+    <div id="hud-cta-modal">
+      <div id="hud-cta-eyebrow">ARQUITETURA COMPLETA</div>
+      <div id="hud-cta-title">COMENTA "BANCA" NO DIRECT</div>
+      <div id="hud-cta-pill">&gt; /banca-de-codigo</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const DUR = 12;
+      const tl = gsap.timeline({ paused: true });
+
+      // Helpers de HUD presos às âncoras da locução
+      function setBanner(text, t) {
+        tl.fromTo(
+          "#hud-paper-strip",
+          { scale: 0.94, y: -8 },
+          { scale: 1, y: 0, duration: 0.24, ease: "back.out(2.2)" },
+          t
+        );
+        tl.set("#hud-banner-text", { textContent: text }, t);
+      }
+
+      function setScore(label, val, colorHex, t) {
+        tl.set("#hud-score-label", { textContent: label }, t);
+        tl.set("#hud-score-val", { textContent: String(val), color: colorHex }, t);
+        tl.fromTo(
+          "#hud-score-val",
+          { scale: 1.35 },
+          { scale: 1, duration: 0.28, ease: "back.out(2.4)" },
+          t
+        );
+      }
+
+      // Cena 1 (0.0s - 3.5s): Gancho + Tentativa Ingênua
+      tl.set("#hud-banner-text", { textContent: "1 AGENTE SOZINHO QUEBRA" }, 0);
+      tl.set("#hud-score-label", { textContent: "ALUCINAÇÕES" }, 0);
+      tl.set("#hud-score-val", { textContent: "0", color: "#18864b" }, 0);
+
+      // Cena 2 (3.5s - 7.2s): "Só que..." (Gargalo 1: estoura e alucina)
+      setBanner("SÓ QUE ELE NÃO VÊ O ERRO", 3.5);
+      setScore("ALUCINAÇÕES", 4, "#c92a2a", 4.1);
+      setScore("ALUCINAÇÕES", 9, "#c92a2a", 5.8);
+
+      // Cena 3 (7.2s - 9.4s): "Então..." (Entra o Revisor Sênior + Testador)
+      setBanner("ENTÃO ENTRA A BANCA", 7.2);
+      setScore("ERROS RESTANTES", 2, "#b45309", 7.8);
+      setScore("ERROS RESTANTES", 0, "#18864b", 8.8);
+
+      // Cena 4 (9.4s - 12.0s): CTA Final (segura >= 2.5s para leitura confortável)
+      setBanner("COMENTA BANCA", 9.4);
+      tl.fromTo(
+        "#hud-cta-modal",
+        { opacity: 0, y: 40, scale: 0.92 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.8)" },
+        9.4
+      );
+
+      tl.set({}, {}, DUR);
+      window.__timelines["world"] = tl;
+
+      // ---------- Mundo 3D (Three.js + kit3d.js): função pura de t ----------
+      let api = null;
+      let lastT = 0;
+      const ready = Promise.all([
+        import("https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.min.js"),
+        import("../assets/kit3d.js"),
+        document.fonts.load('900 48px "Inter"'),
+        document.fonts.load('700 28px "JetBrains Mono"'),
+      ]).then(([THREE, KIT]) => {
+        api = buildScene(THREE, KIT);
+        api.render(lastT);
+      });
+
+      window.__hf = window.__hf || {};
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      window.__hf.buildReady.world = ready;
+
+      window.addEventListener("hf-seek", (e) => {
+        lastT = e.detail.time;
+        if (api) api.render(lastT);
+        else e.detail.waitUntil(ready);
+      });
+
+      function buildScene(THREE, KIT) {
+        const { PALETTE, E, seg, shake, createDioramaStage, createBlockAgent, createCodeScreen, createFlowArrow, applyCameraShot } = KIT;
+        const stage = createDioramaStage(THREE, document.getElementById("gl"));
+        const { scene, cam, sky, renderer, updateStage } = stage;
+
+        // Tela de código central
+        const screen = createCodeScreen(THREE, {
+          title: "agent_deploy.py",
+          lines: [
+            "import claude_sdk",
+            "API_KEY = 'sk-12345' # VAZOU",
+            "def deploy_prod(code):",
+            "  return claude.run(code)",
+          ],
+          width: 4.0,
+          height: 2.6,
+        });
+        screen.group.position.set(0, 2.35, -1.8);
+        scene.add(screen.group);
+
+        // Agente 1: Coder original
+        const coder = createBlockAgent(THREE, {
+          role: "coder",
+          color: PALETTE.claude,
+          scale: 0.95,
+          labelText: "CODER",
+        });
+        coder.group.position.set(-1.35, 0, 0.85);
+        scene.add(coder.group);
+
+        // Agente 2: Revisor Sênior (entra na solução)
+        const senior = createBlockAgent(THREE, {
+          role: "senior",
+          color: 0xe67e22,
+          scale: 0.95,
+          labelText: "SÊNIOR",
+        });
+        senior.group.position.set(1.35, 0, 0.85);
+        scene.add(senior.group);
+
+        // Agente 3: Testador de Capacete (entra na solução)
+        const tester = createBlockAgent(THREE, {
+          role: "tester",
+          color: 0x38bdf8,
+          scale: 0.92,
+          labelText: "TESTER",
+        });
+        tester.group.position.set(0, 0, 1.75);
+        scene.add(tester.group);
+
+        // Seta 3D de pressão/erro (estilo comoconstroi)
+        const errArrow = createFlowArrow(THREE, { color: PALETTE.red, length: 1.5 });
+        errArrow.group.position.set(-3.1, 2.3, -1.1);
+        scene.add(errArrow.group);
+
+        // Planos de câmera (SHOTS) — enquadramento amplo que mantém agentes, placas e tela 100% dentro das margens
+        const SHOTS = [
+          { a: 0, b: 3.5, p0: [0, 3.6, 9.2], p1: [-0.6, 3.3, 8.2], l0: [0, 1.5, -0.4], l1: [-0.4, 1.5, -0.4], ease: "p2io" },
+          { a: 3.5, b: 7.2, p0: [-1.8, 3.3, 8.0], p1: [0.3, 3.5, 8.5], l0: [-0.3, 1.6, -0.8], l1: [0, 1.7, -0.8], ease: "p2io" },
+          { a: 7.2, b: 12.01, p0: [1.6, 3.7, 9.0], p1: [0, 4.0, 9.8], l0: [0.1, 1.5, 0], l1: [0, 1.4, 0], ease: "p2out" },
+        ];
+
+        function render(t) {
+          const isErrorPhase = t >= 3.5 && t < 7.5;
+          const isFixPhase = t >= 7.5;
+
+          updateStage(t, isErrorPhase ? 0.85 : 0);
+
+          // Estado da tela de código
+          if (t < 3.5) {
+            screen.draw("normal", -1, "");
+          } else if (t < 7.5) {
+            screen.draw("error", 1, "FALHA CRÍTICA");
+          } else {
+            screen.draw("ok", 3, "APROVADO");
+          }
+
+          // Seta de pressão (visível durante o gargalo)
+          errArrow.group.visible = t >= 3.5;
+          if (isErrorPhase) {
+            errArrow.setColor(PALETTE.red);
+            errArrow.pulse(t, 14, 0.22);
+          } else if (isFixPhase) {
+            errArrow.setColor(PALETTE.green);
+            errArrow.pulse(t, 6, 0.08);
+          }
+
+          // Animação dos agentes
+          coder.act(t, isErrorPhase ? "panic" : isFixPhase ? "celebrate" : "type", 0);
+
+          const kSenior = E.backOut(seg(t, 7.2, 7.7));
+          senior.group.visible = t >= 7.2;
+          senior.group.scale.setScalar(Math.max(0.001, 0.95 * kSenior));
+          senior.act(t, "point", 1.7);
+
+          const kTester = E.backOut(seg(t, 7.8, 8.3));
+          tester.group.visible = t >= 7.8;
+          tester.group.scale.setScalar(Math.max(0.001, 0.92 * kTester));
+          tester.act(t, "celebrate", 3.1);
+
+          // Câmera + Shake nos cortes
+          const camShake = shake(t, 3.5, 0.14, 0.35) + shake(t, 7.5, 0.12, 0.35);
+          applyCameraShot(THREE, cam, sky, SHOTS, t, camShake);
+
+          renderer.render(scene, cam);
+        }
+
+        return { render };
+      }
+    })();
+  </script>
+</template>
