@@ -125,16 +125,11 @@ export function registerState(reg, t, { riseAt, jamAt, crackAt }) {
   reg.position.x = shake(t, jamAt, 0.05, 0.35) + shake(t, crackAt, 0.08, 0.5);
 }
 
-// ---------- bloco de bits: linhas de `cols` células; 1 = célula clara ----------
-// cada célula guarda row/col em userData (bitBlockState usa o mesmo cols)
-export function makeBitBlock(bits, { cols = 16 } = {}) {
+// ---------- bloco de bits: uma célula por bit; 1 = célula clara ----------
+// as colunas são de bitBlockState (cols), que posiciona cada célula pelo índice
+export function makeBitBlock(bits) {
   const geo = new THREE.BoxGeometry(0.42, 0.42, 0.42);
-  return bits.map((b, i) => {
-    const c = solid(geo, b ? M.ink : M.slate, M.eInk);
-    c.userData.row = Math.floor(i / cols);
-    c.userData.col = i % cols;
-    return c;
-  });
+  return bits.map((b) => solid(geo, b ? M.ink : M.slate, M.eInk));
 }
 // nasce em onda (bornAt), desliza até a bandeja (slideA→slideB), só a 1ª linha cabe; as outras são cuspidas em ejectAt
 export function bitBlockState(cells, bits, t, { bornAt, slideA, slideB, jamAt, ejectAt, redAt, P = 0.5, start = -1.1, cols = 16 }) {

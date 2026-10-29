@@ -85,16 +85,18 @@ if __name__ == "__main__":
     ap.add_argument("video", help="pasta do vídeo (ex.: niches/tech-lore/videos/001-slug)")
     ap.add_argument("--nicho", required=True, help="pasta em niches/ com o tema.json (ex.: tech-lore)")
     ap.add_argument("--motor", default="3d", help="motor em shared/motor-<nome>/ (padrão: 3d)")
+    ap.add_argument("--raiz", help=argparse.SUPPRESS)  # só para testes: raiz do workspace falsa
     args = ap.parse_args()
+    raiz = pathlib.Path(args.raiz).resolve() if args.raiz else ROOT
     pasta = pathlib.Path(args.video).resolve()
     if not pasta.is_dir():
         sys.exit(f"pasta de vídeo inexistente: {args.video}")
     try:
-        versao = instalar_motor(pasta, args.nicho, args.motor)
+        versao = instalar_motor(pasta, args.nicho, args.motor, raiz=raiz)
     except (ValueError, FileNotFoundError) as e:
         sys.exit(str(e))
     try:
-        rel = pasta.relative_to(ROOT)
+        rel = pasta.relative_to(raiz)
     except ValueError:
         rel = pasta
     print(f"motor {args.motor} {versao} instalado em {rel}/assets/motor")

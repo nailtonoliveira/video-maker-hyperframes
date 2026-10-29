@@ -30,7 +30,7 @@ export function makeLaunchPad() {
 }
 
 // Ariane 5 (1 u ≈ 5 m; origem do grupo = centro; base dos bocais em y = −5.2)
-export function makeRocket() {
+export function makeAriane5() {
   const white = fill(0xe4e8ee, 0.7);
   const eWhite = edge(0x6b7684, 0.55);
   const bandMat = fill(0x2a323d);

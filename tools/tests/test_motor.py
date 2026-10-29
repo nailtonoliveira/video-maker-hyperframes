@@ -1,5 +1,5 @@
 """Testes de tools/motor.py (unittest, sem dependências)."""
-import json, pathlib, sys, tempfile, unittest
+import json, pathlib, subprocess, sys, tempfile, unittest
 
 TOOLS = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
@@ -122,6 +122,32 @@ class InstalarMotor(unittest.TestCase):
     def test_sem_meta_nao_cria(self):
         motor.instalar_motor(self.video, "n", raiz=self.raiz)
         self.assertFalse((self.video / "meta.json").exists())
+
+    def test_falta_motor(self):
+        with self.assertRaises(FileNotFoundError) as c:
+            motor.instalar_motor(self.video, "n", "2d", raiz=self.raiz)
+        self.assertIn("shared/motor-2d", str(c.exception).replace("\\", "/"))
+
+    def test_falta_tema(self):
+        (self.raiz / "niches" / "n" / "tema.json").unlink()
+        with self.assertRaises(FileNotFoundError) as c:
+            motor.instalar_motor(self.video, "n", raiz=self.raiz)
+        self.assertIn("tema.json", str(c.exception))
+        self.assertIn(str(self.raiz / "niches" / "n"), str(c.exception))
+
+    def test_cli(self):
+        cmd = [sys.executable, str(TOOLS / "motor.py"), str(self.video), "--nicho", "n", "--raiz", str(self.raiz)]
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("motor 3d 0.1.0 instalado", r.stdout)
+        self.assertTrue((self.video / "assets" / "motor" / "util.js").is_file())
+        self.assertTrue((self.video / "assets" / "tema.js").is_file())
+
+    def test_cli_erro_sai_com_mensagem(self):
+        cmd = [sys.executable, str(TOOLS / "motor.py"), str(self.video), "--nicho", "n", "--motor", "2d", "--raiz", str(self.raiz)]
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("motor-2d", r.stderr)
 
 
 if __name__ == "__main__":

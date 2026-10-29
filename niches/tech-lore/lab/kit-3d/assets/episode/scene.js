@@ -3,7 +3,7 @@
 import { THREE, createStage, createEpisode, SKIES, makeTerrain, solid, floorLabel, hash, seg, E, shake, rng, follow, pulses, dip } from "../motor/core.js";
 import { M, makeChip, chipState, makeRegister, registerState, makeBitBlock, float64Bits, bitBlockState, makePulses, makeBus, makeCodeLine, makeBug, bugState, bugWalk } from "../kit/props.js";
 import { BOARD_SKY, makeBoard } from "../kit/placa.js";
-import { makeLaunchPad, makeRocket } from "../kit/exteriores.js";
+import { makeLaunchPad, makeAriane5 } from "../kit/exteriores.js";
 import { makeTrail, makeGroundCloud, makeExplosion } from "../kit/efeitos.js";
 
 const LOOP = 48.28;
@@ -18,7 +18,7 @@ export function build(canvas) {
   const ext = new THREE.Group();
   scene.add(ext);
   ext.add(makeTerrain({}).group, makeLaunchPad());
-  const rocket = makeRocket();
+  const rocket = makeAriane5();
   ext.add(rocket.group);
 
   // ---- trajetória por F: sobe acelerando, inclina para o mar, vira de lado depois da falha ----

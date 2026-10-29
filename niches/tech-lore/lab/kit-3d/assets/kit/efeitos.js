@@ -80,7 +80,8 @@ export function makeGroundCloud({ count = 150, center = [0, 0, 6] } = {}) {
 }
 
 // explosão em `at`: fogo facetado (cor plena), fumaça escura e destroços; update(dt), dt = s desde o estouro
-export function makeExplosion({ at }) {
+export function makeExplosion({ at: pos }) {
+  const at = pos.clone();
   const FIRE = 46;
   // fogo facetado: cor por bolha (amarelo → laranja → vermelho) com emissão parcial, para ter volume sem brilho
   const fireMat = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xff7a2a, emissiveIntensity: 0.45, roughness: 1, flatShading: true });
