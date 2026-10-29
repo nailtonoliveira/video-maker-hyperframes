@@ -85,8 +85,8 @@
 
       // 1 gancho: o título está pousado no quadro 0 (clipPath explícito) e volta idêntico no fim
       tl.set("#t-line", { opacity: 1, clipPath: "inset(0 0% 0 0)" }, 0);
-      tl.set("#w-linha", { color: "#e6edf3" }, 0);
-      tl.set("#w-linha", { color: "#ff3366" }, 1.2);
+      tl.set("#w-linha", { color: "var(--ink, #e6edf3)" }, 0);
+      tl.set("#w-linha", { color: "var(--alert, #ff3366)" }, 1.2);
       hide("#t-line", 2.4);
 
       // 2 mergulho
@@ -109,7 +109,7 @@
       hide("#s-over", 9.2);
 
       // 5 volta ao quadro 0
-      tl.set("#w-linha", { color: "#e6edf3" }, 10.4);
+      tl.set("#w-linha", { color: "var(--ink, #e6edf3)" }, 10.4);
       wipe("#t-line", 10.5);
       tl.set({}, {}, DUR);
       window.__timelines["world"] = tl;

@@ -9,8 +9,8 @@ LOOK:    identidade do nicho (../../NICHE.md → Visual): maquete 3D (motor em a
          assets/kit/, guia KIT.md). Diferenças deste episódio: <nenhuma | quais>
 LAYOUT:  títulos 2D (world.html) só em x 96–948 e y 200–1130; legendas com base em y 1310.
 WORLDS:  <exterior: lugar/veículo real do kit> · mergulho · placa (a linha de código, chips, o bug no ponto da falha)
-CAMERA:  planos de 1,7–3 s, câmera sempre em movimento, fov ~50, assunto em 50–60 % da largura; texto no chão só em
-         plano de cima; ap alto nos planos próximos, baixo nos abertos.
+CAMERA:  planos de 1,7–3 s, câmera sempre em movimento, fov ~50, assunto em 50–60 % da largura (assunto alto/vertical:
+         pela altura, ~55 %); texto no chão só em plano de cima; ap alto nos planos próximos, baixo nos abertos.
 SHOTS:   (planos do assets/episode/scene.js; títulos do world.html nos mesmos tempos)
   1 0.00–<t>  exterior · quadro 0 = título do gancho (thumbnail)
   2 ...       mergulho para dentro da máquina

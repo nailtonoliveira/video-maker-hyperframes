@@ -9,7 +9,7 @@ import { makeLaunchPad, makeAriane5 } from "../kit/exteriores.js";
 
 const LOOP = 12;
 const T = { dive: 2.4, board: 4.4, alarm: 6.8, back: 9.2 }; // início de cada ato depois do 1
-const I = new THREE.Vector3(0, -5000, 0); // origem da placa (bem abaixo da Terra, fora de quadro)
+const I = new THREE.Vector3(0, -500, 0); // origem da placa: os grupos se alternam por visible; a base só separa os mundos
 const ROCKET = new THREE.Vector3(0, 7.8, 0); // centro do Ariane 5 parado na base
 
 export function build(canvas) {
@@ -34,7 +34,7 @@ export function build(canvas) {
   inside.add(board.group, line.group, chip, bug);
   // o bug anda pela linha e para no ponto da falha: a conversão int16(...)
   const BUG_A = new THREE.Vector3(-6.8, 0.012, -0.75);
-  const FAULT = new THREE.Vector3(-3.6, 0.012, -0.75);
+  const FAULT = new THREE.Vector3(-3.85, 0.012, -0.75);
   const blinkP = loopPeriod(LOOP, 0.8);
 
   // ==================== PLANOS (1,7–3 s, câmera sempre em movimento) ====================
@@ -42,13 +42,14 @@ export function build(canvas) {
   const IN = () => I.clone();
   const SH = [
     // 1 exterior: o quadro 0 (gancho com o título); o plano 5 termina exatamente em p0/l0 deste
+    // assunto alto/vertical: enquadre pela altura (~55 %)
     { a: 0, b: T.dive, env: "ext", base: R, p0: [12, -1.5, 16.5], p1: [9.8, 0, 14], l0: [0, 1.2, 0], l1: [0, 1.8, 0], ap: 1.5 },
     // 2 mergulho: a escotilha abre e a câmera entra na gaveta do SRI
     { a: T.dive, b: T.board, env: "ext", base: R, p0: [5, 3.2, 9.5], p1: [0.02, 1.6, 1.12], l0: [0, 1.8, 0], l1: [0, 1.6, 0.9], ap: 6, ease: "p2in" },
     // 3 placa, de cima (texto no chão só em plano de cima): o mergulho continua até a linha de código
-    { a: T.board, b: T.alarm, env: "int", base: IN, p0: [-5, 14, 4.5], p1: [-4.4, 7.6, 2.6], l0: [-4.4, 0, -1.5], l1: [-4, 0, -1.3], ap: 10, ease: "p2out" },
-    // 4 alarme: outro lado, mais baixo; tremor no estouro
-    { a: T.alarm, b: T.back, env: "int", base: IN, p0: [8.4, 4.4, 9.6], p1: [7, 3.8, 8.2], l0: [0, 0.3, 0.6], l1: [-0.4, 0.3, 0.4], ap: 8, shake: [T.alarm, 0.05, 0.5, 55] },
+    { a: T.board, b: T.alarm, env: "int", base: IN, p0: [-2.7, 22, 7.5], p1: [-2.5, 13.2, 5.2], l0: [-2.5, 0, -1.6], l1: [-2.35, 0, -1.45], ap: 10, ease: "p2out" },
+    // 4 alarme: outro lado, ~30° de elevação (texto no chão não fica rasante); tremor no estouro
+    { a: T.alarm, b: T.back, env: "int", base: IN, p0: [7.6, 7.4, 8.6], p1: [6.4, 6.4, 7.4], l0: [0, 0.3, 0.6], l1: [-0.4, 0.3, 0.4], ap: 8, shake: [T.alarm, 0.05, 0.5, 55] },
     // 5 volta: afasta do foguete pelo outro lado até o quadro 0
     { a: T.back, b: LOOP + 0.01, env: "ext", base: R, p0: [-6, 5, 9], p1: [12, -1.5, 16.5], l0: [0, 2.5, 0], l1: [0, 1.2, 0], ap: 1.5 },
   ];
