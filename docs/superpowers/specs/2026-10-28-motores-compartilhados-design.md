@@ -222,3 +222,23 @@ O ponto 2 do critério da fase 3 é a prova de que o motor é genérico sem toca
 - O lab continua no repositório até o primeiro episódio real 3D ser aprovado. Depois a gente decide se fica.
 - Todo o trabalho segue na branch `lab/kit-3d`, ou numa branch nova a partir dela, sem tocar na `main` até a fase 2 ser
   aprovada.
+
+## 10. Estado da fase 1
+
+Concluída. O lab do tech-lore (Ariane 5, 48,28 s) roda sobre `shared/motor-3d/` e o kit do nicho. `scene.js` ficou com
+247 linhas. MP4 final: 33,3 MB (1080×1920, 30 fps, 48,3 s). SSIM mínimo = 1,000000 nas comparações do quadro de referência (golden, ordem invertida e
+tempo extra); fechamento do loop (quadro 0 contra o último): SSIM 0,9935. `shared/motor-3d/PROMPT.md` (73 linhas) descreve o
+motor para o prompt de cenas.
+
+Decisões tomadas durante a implementação, que mudam ou precisam esta spec:
+- `camera.js` é separado do `core.js`.
+- `efeitos.js` fica no kit do nicho, não no motor, por enquanto, porque só o tech-lore usa.
+- `tema.css` fica adiado para a fase 2.
+- O ciclo `hf-seek`/`buildReady` fica num bootstrap curto no `world.html`, não dentro do `createEpisode`: o listener
+  precisa existir antes de o módulo carregar.
+- A biblioteca de exteriores começa só com o foguete e a base; os outros 6 objetos são da fase 2.
+- `cameraOf` passa o plano como 3º argumento a `path`/`aim` (é assim que `follow(..., { rotate: true })` lê
+  `p0`/`l0`).
+- `node --test` precisa de glob `tests/*.test.js` neste Node; a forma de diretório falha.
+- `makeRocket` modela hoje especificamente o Ariane 5; a biblioteca de exteriores da fase 2 vai generalizá-lo e
+  renomeá-lo.
