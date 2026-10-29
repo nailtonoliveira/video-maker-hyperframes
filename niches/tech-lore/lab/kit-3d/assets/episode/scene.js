@@ -1,22 +1,21 @@
 // Episódio 001 — Ariane 5 (voo 501, 1996): o que é só deste episódio.
 // Relógio V = segundos do vídeo (locução). Relógio F = segundos de voo (T+), mapeado por plano.
-import { THREE, COL, createStage, shotAt, cameraOf, setLoop, solid, setLook, fill, edge, glowless, label, floorLabel, hash, seg, E, shake, blink, rng } from "../kit/core.js";
+import { THREE, COL, createStage, createEpisode, SKIES, makeTerrain, solid, setLook, fill, edge, glowless, label, floorLabel, hash, seg, E, shake, blink, rng } from "../motor/core.js";
 import { M, makeChip, chipState, makeRegister, registerState, makeBitBlock, float64Bits, bitBlockState, makePulses, makeBug, bugState, bugWalk } from "../kit/props.js";
-import { SKY, makeBoard, makeEarth } from "../kit/worlds.js";
+import { BOARD_SKY, makeBoard } from "../kit/placa.js";
 
 const LOOP = 48.28;
 const FB = 37.0; // T+ da desintegração ("em apenas 37 segundos")
 const I = new THREE.Vector3(0, -5000, 0); // origem da placa (bem abaixo da Terra, fora de quadro)
 
 export function build(canvas) {
-  setLoop(LOOP);
   const S = createStage(canvas);
   const { scene } = S;
 
   // ==================== EXTERIOR ====================
   const ext = new THREE.Group();
   scene.add(ext);
-  const earth = makeEarth({});
+  const earth = makeTerrain({});
   ext.add(earth.group);
 
   // base ELA-3: laje, mesa de lançamento, fosso das chamas, trilhos de transferência e 4 torres para-raios
@@ -477,7 +476,7 @@ export function build(canvas) {
     { a: 5.34, b: 8.28, env: "ext", f0: 39.2, rate: 0.8, aimAbs: true, p0: [230, 3.5, 300], p1: [222, 4.5, 290], ap: 0.5 },
     // contexto: base, decolagem, satélites
     { a: 8.28, b: 11.06, env: "ext", f0: -3.9, rate: 1, base: W, p0: [26, 2.5, 34], p1: [20, 12, 28], l0: [0, 8, 0], l1: [0, 10, 0], ap: 3 },
-    { a: 11.06, b: 12.8, env: "ext", f0: -1.12, rate: 1, base: W, p0: [13, 1.8, 17], p1: [12.5, 2.2, 16], l0: [0, 9, 0], l1: [0, 10.5, 0], ap: 2, kick: 12.18 },
+    { a: 11.06, b: 12.8, env: "ext", f0: -1.12, rate: 1, base: W, p0: [13, 1.8, 17], p1: [12.5, 2.2, 16], l0: [0, 9, 0], l1: [0, 10.5, 0], ap: 2, shake: [12.18, 0.12, 1.2, 55] },
     { a: 12.8, b: 14.66, env: "ext", f0: 0.62, rate: 1, base: W, p0: [-24, 3, 28], p1: [-22, 5, 26], aimRocket: true, ap: 2 },
     { a: 14.66, b: 16.1, env: "ext", f0: 2.48, rate: 1, rel: "R", p0: [7, -3, 9], p1: [4.2, 3.2, 6], l0: [0, 0.5, 0], l1: [0, 3.2, 0], ap: 4 },
     { a: 16.1, b: 17.96, env: "ext", f0: 3.92, rate: 1, rel: "R", p0: [4.2, 3.6, 5.2], p1: [-3.6, 3.9, 5.4], l0: [0, 3.1, 0], l1: [0, 3.1, 0], ap: 6 },
@@ -531,35 +530,26 @@ export function build(canvas) {
     if (sh.f0 !== undefined) sh.F = Fof;
   }
 
-  function render(V) {
-    const sh = shotAt(SH, V);
+  // o motor escolhe o plano, põe céu e câmera; aqui fica só a cena e o pós deste episódio
+  function update(V, sh, c) {
     const isExt = sh.env === "ext";
     ext.visible = isExt;
     inside.visible = !isExt;
-    S.setSky(isExt ? SKY.day : SKY.board);
     if (isExt) updateExterior(sh.F(V), V);
-    else updateInterior(V);
-
-    const c = cameraOf(sh, V);
-    if (sh.kick) c.pos.y += shake(V, sh.kick, 0.12, 1.2, 55);
-    S.cam.position.copy(c.pos);
-    S.cam.up.set(0, 1, 0);
-    S.cam.lookAt(c.look);
-    // quadro anterior para o borrão de movimento (só dentro do mesmo plano)
-    const Vp = V - 1 / 30;
-    const prev = Vp >= sh.a ? cameraOf(sh, Vp) : null;
-
-    if (!isExt) {
+    else {
+      updateInterior(V);
       const alarm = Math.max(V >= 28.24 && V < 30.22 ? 1 - seg(V, 28.24, 30.0) : 0, V >= 31.42 && V < 35.94 ? 0.6 : 0);
       board.update(V, { focus: c.look.clone().sub(I), alarm });
     }
+  }
+  function post(V, sh, c) {
     // exposição: clarão nas explosões, mergulho no escuro ao entrar no SRI
     let exposure = 1;
     for (const vb of [2.25, 39.09]) if (V >= vb) exposure += 0.55 * Math.max(0, 1 - (V - vb) / 0.3);
     exposure *= 1 - 0.92 * Math.exp(-Math.pow((V - 21.5) / 0.07, 2));
     let ca = 0;
     for (const vi of [2.25, 28.24, 31.42, 32.82, 39.09]) if (V >= vi) ca += 0.008 * Math.max(0, 1 - (V - vi) / 0.35);
-    S.render(V, { focus: c.dist, aperture: sh.ap * (isExt ? 1 : 0.6), exposure, ca, vignette: 0.5, shutter: 0.4 }, prev);
+    return { focus: c.dist, aperture: sh.ap * (sh.env === "ext" ? 1 : 0.6), exposure, ca };
   }
-  return { render };
+  return createEpisode(S, { loop: LOOP, shots: SH, skies: { ext: SKIES.day, int: BOARD_SKY }, update, post });
 }

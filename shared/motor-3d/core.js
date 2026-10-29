@@ -1,107 +1,20 @@
-// Kit 3D do tech-lore — núcleo: palco, pós-processamento, utilidades e câmera.
+// Motor 3D — núcleo: palco (renderer, céu, pós-processamento) e o laço do episódio.
 // Regra de ouro: tudo que aparece na tela é função pura do tempo t (o HyperFrames busca quadros fora de ordem).
-import * as THREE from "./three.module.min.js";
+// Reexporta THREE e os outros módulos do motor, para o kit e o episódio importarem de um lugar só.
+import * as THREE from "./three/three.module.min.js";
+import { TEMA } from "../tema.js";
+import { shake } from "./util.js";
+import { shotAt, cameraOf } from "./camera.js";
 export { THREE };
+export * from "./util.js";
+export * from "./camera.js";
+export * from "./materiais.js";
+export * from "./texto.js";
+export * from "./mundos.js";
 
-export const COL = {
-  ground: 0x080a0f,
-  ink: 0xe6edf3,
-  gray: 0x7d8590,
-  mint: 0x00ff9d,
-  alert: 0xff3366,
-  cyan: 0x38bdf8,
-  slate: 0x1c2531,
-  dead: 0x4a1222,
-};
-
-// ---------- tempo e acaso determinísticos ----------
-export function rng(seed) {
-  return function () {
-    seed |= 0;
-    seed = (seed + 0x6d2b79f5) | 0;
-    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-export const hash = (i, k) => {
-  const x = Math.sin(i * 127.1 + k * 311.7) * 43758.5453;
-  return x - Math.floor(x);
-};
-export const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
-export const seg = (t, a, b) => clamp((t - a) / (b - a));
-export const E = {
-  lin: (k) => k,
-  expoOut: (k) => (k >= 1 ? 1 : 1 - Math.pow(2, -10 * k)),
-  p2in: (k) => k * k,
-  p2out: (k) => 1 - (1 - k) * (1 - k),
-  p2io: (k) => (k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2),
-  p3io: (k) => (k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2),
-  p3out: (k) => 1 - Math.pow(1 - k, 3),
-  backOut: (k) => 1 + 2.70158 * Math.pow(k - 1, 3) + 1.70158 * Math.pow(k - 1, 2),
-};
-export const shake = (t, t0, amp, dur, f = 70) => (t < t0 || t > t0 + dur ? 0 : amp * (1 - (t - t0) / dur) * Math.sin((t - t0) * f));
-// pisca com período que divide a duração do vídeo: o último quadro casa com o primeiro
-export const blink = (t, period, phase = 0, duty = 0.5) => ((((t + phase) / period) % 1) + 1) % 1 < duty;
-export const v3 = (a) => new THREE.Vector3(a[0], a[1], a[2]);
-
-// ---------- materiais: maquete técnica = sólido fosco + aresta de 1 px ----------
-export const fill = (c, r = 0.85, extra = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: r, metalness: 0, flatShading: true, ...extra });
-export const edge = (c, o = 1) => new THREE.LineBasicMaterial({ color: c, transparent: o < 1, opacity: o });
-export const glowless = (c) => new THREE.MeshBasicMaterial({ color: c }); // LED/chama: cor plena, sem bloom
-
-export function solid(geom, f, e, shadow = true) {
-  const g = new THREE.Group();
-  const mesh = new THREE.Mesh(geom, f);
-  mesh.castShadow = shadow;
-  mesh.receiveShadow = true;
-  g.add(mesh);
-  if (e) {
-    const line = new THREE.LineSegments(new THREE.EdgesGeometry(geom, 25), e);
-    g.add(line);
-    g.userData.line = line;
-  }
-  g.userData.mesh = mesh;
-  return g;
-}
-export function setLook(obj, f, e) {
-  obj.userData.mesh.material = f;
-  if (obj.userData.line && e) obj.userData.line.material = e;
-}
-
-// texto como textura (JetBrains Mono já carregada pela composição)
-export function label(text, color, px, worldH, weight = 800) {
-  const c = document.createElement("canvas");
-  const ctx = c.getContext("2d");
-  ctx.font = `${weight} ${px}px "JetBrains Mono"`;
-  c.width = Math.ceil(ctx.measureText(text).width) + px * 0.4;
-  c.height = Math.ceil(px * 1.3);
-  ctx.font = `${weight} ${px}px "JetBrains Mono"`;
-  ctx.fillStyle = color;
-  ctx.textBaseline = "middle";
-  ctx.fillText(text, px * 0.2, c.height / 2);
-  const tex = new THREE.CanvasTexture(c);
-  tex.anisotropy = 8;
-  tex.colorSpace = THREE.SRGBColorSpace;
-  const w = (worldH * c.width) / c.height;
-  const m = new THREE.Mesh(new THREE.PlaneGeometry(w, worldH), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
-  m.userData.w = w;
-  return m;
-}
-// texto deitado no chão, lido por uma câmera que olha para −z
-export function floorLabel(text, color, px, worldH, weight = 800) {
-  const m = label(text, color, px, worldH, weight);
-  m.rotation.x = -Math.PI / 2;
-  return m;
-}
-
-export function gridLines(cx, cz, half, step, color, opacity, y) {
-  const p = [];
-  for (let i = -half; i <= half; i += step) p.push(cx - half, y, cz + i, cx + half, y, cz + i, cx + i, y, cz - half, cx + i, y, cz + half);
-  const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.Float32BufferAttribute(p, 3));
-  return new THREE.LineSegments(g, new THREE.LineBasicMaterial({ color, transparent: true, opacity }));
-}
+// padrões de pós do tema, nos nomes que o render do palco lê
+const P = TEMA.pos;
+const POST = { vignette: P.vinheta, shutter: P.obturador, ca: P.aberracao, grain: P.granulacao, exposure: P.exposicao };
 
 // ---------- palco: renderer, céu, pós-processamento ----------
 const FULL_VS = "varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }";
@@ -213,7 +126,7 @@ export function createStage(canvas, W = 1080, H = 1920) {
       tDepth: { value: rtScene.depthTexture },
       uInvViewProj: { value: new THREE.Matrix4() },
       uPrevViewProj: { value: new THREE.Matrix4() },
-      uShutter: { value: 0.5 },
+      uShutter: { value: POST.shutter },
     },
   });
   const final = new THREE.ShaderMaterial({
@@ -230,10 +143,10 @@ export function createStage(canvas, W = 1080, H = 1920) {
       uAperture: { value: 0 },
       uMaxBlur: { value: 14 },
       uTime: { value: 0 },
-      uGrain: { value: 0 },
-      uCA: { value: 0 },
-      uVignette: { value: 0.55 },
-      uExposure: { value: 1 },
+      uGrain: { value: POST.grain },
+      uCA: { value: POST.ca },
+      uVignette: { value: POST.vignette },
+      uExposure: { value: POST.exposure },
       uRes: { value: new THREE.Vector2(W, H) },
     },
   });
@@ -260,7 +173,7 @@ export function createStage(canvas, W = 1080, H = 1920) {
       prevCam.lookAt(prev.look);
       prevCam.updateMatrixWorld();
       mblur.uniforms.uPrevViewProj.value.multiplyMatrices(prevCam.projectionMatrix, prevCam.matrixWorldInverse).multiply(camT);
-      mblur.uniforms.uShutter.value = post.shutter ?? 0.4;
+      mblur.uniforms.uShutter.value = post.shutter ?? POST.shutter;
     } else {
       mblur.uniforms.uPrevViewProj.value.copy(vp);
       mblur.uniforms.uShutter.value = 0;
@@ -275,10 +188,10 @@ export function createStage(canvas, W = 1080, H = 1920) {
     u.uFocus.value = post.focus;
     u.uAperture.value = post.aperture ?? 0;
     u.uTime.value = t;
-    u.uGrain.value = post.grain ?? 0; // ruído novo a cada quadro multiplica o arquivo (~12x a CRF 16): use só em planos curtos
-    u.uCA.value = post.ca ?? 0;
-    u.uVignette.value = post.vignette ?? 0.55;
-    u.uExposure.value = post.exposure ?? 1;
+    u.uGrain.value = post.grain ?? POST.grain; // ruído novo a cada quadro multiplica o arquivo (~12x a CRF 16): use só em planos curtos
+    u.uCA.value = post.ca ?? POST.ca;
+    u.uVignette.value = post.vignette ?? POST.vignette;
+    u.uExposure.value = post.exposure ?? POST.exposure;
     quad.material = final;
     renderer.setRenderTarget(null);
     renderer.render(postScene, postCam);
@@ -296,25 +209,23 @@ export function createStage(canvas, W = 1080, H = 1920) {
   return { THREE, renderer, scene, cam, render, setSky };
 }
 
-// ---------- câmera por plano ----------
-// shot = { a, b, base(t) -> Vector3, p0, p1, l0, l1, ease, hand }
-export function shotAt(shots, t) {
-  return shots.find((q) => t >= q.a && t < q.b) || shots[shots.length - 1];
-}
-// câmera na mão: frequências múltiplas de 2π/duração, para o último quadro casar com o primeiro
-let LOOP_LEN = 0;
-export function setLoop(seconds) {
-  LOOP_LEN = seconds;
-}
-const handW = (w) => (LOOP_LEN ? (Math.max(1, Math.round((w * LOOP_LEN) / (2 * Math.PI))) * 2 * Math.PI) / LOOP_LEN : w);
-export function cameraOf(shot, t) {
-  const k = E[shot.ease || "p2io"](seg(t, shot.a, shot.b));
-  const base = shot.base ? shot.base(t) : new THREE.Vector3();
-  const pos = shot.path ? shot.path(t, k) : v3(shot.p0).lerp(v3(shot.p1), k).add(base);
-  const look = shot.aim ? shot.aim(t, k) : v3(shot.l0).lerp(v3(shot.l1), k).add(base);
-  const dist = pos.distanceTo(look);
-  const hand = (shot.hand ?? 0.006) * dist;
-  pos.x += hand * (Math.sin(t * handW(1.3)) + 0.5 * Math.sin(t * handW(3.1) + 1));
-  pos.y += hand * (Math.sin(t * handW(1.7) + 2) + 0.5 * Math.sin(t * handW(2.6)));
-  return { pos, look, dist };
+// ---------- laço do episódio: plano → céu → câmera → cena → pós ----------
+// shots: planos de camera.js (+ env, chave de skies; + shake = [t0, amp, dur, f] opcional)
+// update(t, sh, c): põe a cena no tempo t; post(t, sh, c): campos de pós que sobrepõem os padrões do tema
+export function createEpisode(S, { loop, fps = 30, shots, skies, update, post }) {
+  function render(t) {
+    const sh = shotAt(shots, t);
+    S.setSky(skies[sh.env]);
+    const c = cameraOf(sh, t, loop);
+    if (sh.shake) c.pos.y += shake(t, ...sh.shake);
+    S.cam.position.copy(c.pos);
+    S.cam.up.set(0, 1, 0);
+    S.cam.lookAt(c.look);
+    // quadro anterior para o borrão de movimento (só dentro do mesmo plano; sem o tremor)
+    const tp = t - 1 / fps;
+    const prev = tp >= sh.a ? cameraOf(sh, tp, loop) : null;
+    if (update) update(t, sh, c);
+    S.render(t, { ...POST, ...(post ? post(t, sh, c) : {}) }, prev);
+  }
+  return { render };
 }

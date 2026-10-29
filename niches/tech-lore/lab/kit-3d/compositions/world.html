@@ -231,13 +231,13 @@
       tl.set({}, {}, 48.28);
       window.__timelines["world"] = tl;
 
-      // ---------- mundo 3D: kit + episódio (módulos locais) ----------
+      // ---------- mundo 3D: motor + kit + episódio (módulos locais em assets/) ----------
       let api = null;
       let lastT = 0;
-      const ready = Promise.all([document.fonts.load('800 64px "JetBrains Mono"'), document.fonts.load('700 64px "JetBrains Mono"')])
-        .then(() => import("./episode/ariane5.js"))
-        .then((ep) => {
-          api = ep.build(document.getElementById("gl"));
+      const ready = import("./assets/motor/montar.js")
+        .then((m) => m.mount({ canvas: document.getElementById("gl"), episode: new URL("./assets/episode/scene.js", document.baseURI).href }))
+        .then((a) => {
+          api = a;
           api.render(lastT);
         });
       window.__hf = window.__hf || {};

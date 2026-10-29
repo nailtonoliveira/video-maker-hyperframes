@@ -1,6 +1,6 @@
 """Gera a trilha procedural do episódio Ariane 5 em assets/audio/ (ambiente, música e efeitos sintetizados).
 
-Determinística: ruídos do ffmpeg com semente fixa e síntese em numpy. Os tempos são os mesmos de episode/ariane5.js.
+Determinística: ruídos do ffmpeg com semente fixa e síntese em numpy. Os tempos são os mesmos de assets/episode/scene.js.
 Uso:  tools/.venv/bin/python niches/tech-lore/lab/kit-3d/episode/ariane5_audio.py
 """
 import math
@@ -52,7 +52,7 @@ def place(track, at, x, gain=1.0):
 
 
 def jshash(i, k):
-    """Mesmo hash do kit (kit/core.js): fract(sin(i·127.1 + k·311.7)·43758.5453)."""
+    """Mesmo hash do kit (assets/motor/util.js): fract(sin(i·127.1 + k·311.7)·43758.5453)."""
     x = math.sin(i * 127.1 + k * 311.7) * 43758.5453
     return x - math.floor(x)
 
@@ -138,7 +138,7 @@ def zap(seed):
     return hp * gate * np.exp(-t * 6) * 0.6 + np.sin(2 * np.pi * 120 * t) * np.exp(-t * 8) * 0.5
 place(fx, 31.43, zap(7), 1.0)
 place(fx, 32.83, zap(8), 1.0)
-# um clique por bit que cai na placa (mesma física de kit/props.js: ejectAt 29.38)
+# um clique por bit que cai na placa (mesma física de assets/kit/props.js: ejectAt 29.38)
 click = one_shot(0.03, lambda t: np.sin(2 * np.pi * 3200 * t) * np.exp(-t * 260) + np.sin(2 * np.pi * 900 * t) * np.exp(-t * 180) * 0.5)
 for i in range(16, 64):
     row, col = divmod(i, 16)

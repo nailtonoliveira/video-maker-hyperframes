@@ -1,5 +1,5 @@
 // Kit 3D do tech-lore — peças reutilizáveis: chip, registrador, bloco de bits, pulsos de barramento e o "bug".
-import { THREE, COL, solid, setLook, fill, edge, glowless, label, E, seg, hash, blink, shake } from "./core.js";
+import { THREE, COL, solid, setLook, fill, edge, glowless, label, E, seg, hash, blink, shake } from "../motor/core.js";
 
 export const M = {
   slate: fill(COL.slate),
