@@ -36,16 +36,26 @@ class Base(unittest.TestCase):
 
 
 class Trilha(Base):
+    def _json(self):
+        ep = self.dir / "assets" / "episode"
+        ep.mkdir()
+        (ep / "trilha.json").write_text(TRILHA_TEMPLATE.read_text(encoding="utf-8"), encoding="utf-8")
+
     def test_trilha_sem_json_nao_faz_nada(self):
         v = self.video(trilha=True)
         self.assertEqual(stages.etapa_trilha(v), "sem trilha.json: nada a gerar")
         self.assertEqual(sorted(p.name for p in (self.dir / "assets").iterdir()), [])
 
+    def test_trilha_desligada_no_nicho_nao_faz_nada(self):
+        self._json()
+        for cfg in ({}, {"trilha": False}):
+            v = self.video(**cfg)
+            self.assertEqual(stages.etapa_trilha(v), "trilha desligada no niche.json: nada a gerar")
+            self.assertEqual(list(self.dir.rglob("*.wav")), [])
+
     @unittest.skipUnless(importlib.util.find_spec("numpy"), "precisa de numpy")
     def test_trilha_com_json_gera_wavs(self):
-        ep = self.dir / "assets" / "episode"
-        ep.mkdir()
-        (ep / "trilha.json").write_text(TRILHA_TEMPLATE.read_text(encoding="utf-8"), encoding="utf-8")
+        self._json()
         v = self.video(trilha=True)
         out = stages.etapa_trilha(v)
         self.assertTrue(out)
@@ -98,6 +108,54 @@ class Render(Base):
         norm.assert_called_once()
         self.assertEqual(norm.call_args[0][1], -14)
         self.assertIn("áudio: -20.0 → -14.0 LUFS", out)
+
+    def test_render_normaliza_antes_de_registrar(self):
+        v = self.video(audio_lufs=-14)
+        self._mock_render(v)
+        v.catalogo = mock.Mock()
+
+        def norm(mp4, lufs):
+            self.assertNotIn("render", v.state)
+            v.catalogo.assert_not_called()
+            raise RuntimeError("ffmpeg falhou")
+
+        mock.patch.object(audio, "normalizar", side_effect=norm).start()
+        with self.assertRaises(RuntimeError):
+            stages.etapa_render(v)
+        self.assertNotIn("render", v.state)
+        v.catalogo.assert_not_called()
+
+
+class LoopDur(Base):
+    """Depois das cenas: LOOP do scene.js e DUR do world.html têm que bater com a duração da voz (index.html: 3 s)."""
+
+    def _3d(self, loop, dur):
+        (self.dir / "assets" / "episode").mkdir(parents=True, exist_ok=True)
+        (self.dir / "assets" / "episode" / "scene.js").write_text(
+            f"const LOOP = {loop};\nconst T = {{}};\n", encoding="utf-8")
+        (self.dir / "compositions").mkdir(exist_ok=True)
+        (self.dir / "compositions" / "world.html").write_text(
+            f"<script>\n      const DUR = {dur};\n</script>\n", encoding="utf-8")
+
+    def _cenas(self):
+        v = self.video()
+        v.ensaio = True
+        mock.patch.object(stages, "_check_e_snapshot", return_value=(True, "check: 0 erros, 0 avisos")).start()
+        return stages.etapa_cenas(v)
+
+    def test_bate_sem_aviso(self):
+        self._3d(3, 3.004)
+        self.assertNotIn("LOOP/DUR", self._cenas())
+
+    def test_diferente_avisa(self):
+        self._3d(12, 3)
+        out = self._cenas()
+        self.assertIn("⚠ LOOP/DUR (12/3) ≠ duração da voz (3) — ajuste scene.js e world.html", out)
+        self._3d(3, 12)
+        self.assertIn("⚠ LOOP/DUR (3/12) ≠ duração da voz (3)", self._cenas())
+
+    def test_video_2d_sem_aviso(self):
+        self.assertNotIn("LOOP/DUR", self._cenas())
 
 
 class Prompt(Base):

@@ -11,8 +11,9 @@ Em Python: `gerar(spec, duracao, saida) -> {"ambiente": Path, "musica": Path, "e
 
 ## Esquema do trilha.json
 
-Tempos absolutos, em segundos do vídeo. Todas as chaves são opcionais; camada ausente = silêncio
-(arquivo de zeros).
+Tempos absolutos, em segundos do vídeo. Camadas e fontes são opcionais (camada ausente = silêncio,
+arquivo de zeros), mas `pulso` exige `inicio` e `fim` (`bpm` opcional, padrão 120) e `subida` exige
+`inicio` e `fim`.
 
     {"semente": 501,
      "ambiente": {"ronco": {"env": [...]}, "vento": {"env": [...]},
@@ -23,8 +24,8 @@ Tempos absolutos, em segundos do vídeo. Todas as chaves são opcionais; camada 
      "efeitos":  [{"tipo": "trava", "t": 20.31, "ganho": 0.8},
                   {"tipo": "clique", "tempos": [29.9, 29.95], "ganho": 0.3}]}
 
-- `env`: lista de `[a, b, nível, subida?, descida?]` (rampas lineares em s; padrão 0,08). Trechos
-  sobrepostos valem pelo maior nível.
+- `env`: lista de `[a, b, nível, subida?, descida?]` (rampas lineares em s; padrão 0,08; 0 = corte seco).
+  Trechos sobrepostos valem pelo maior nível. Sinal com NaN/inf é erro (código 1), nunca um wav mudo.
 - `ambiente.ronco` (estrondo grave), `vento` (sopro médio), `zumbido` (50/100/150 Hz + chiado);
   `alarme` faz o zumbido tremer a 2 Hz nos trechos `[a, b]`.
 - `musica.tom`: `la_menor` (padrão), `re_menor` ou `mi_menor` (transpõe o mesmo acorde); outro valor dá

@@ -38,7 +38,8 @@ def normalizar(mp4: Path, lufs: float, ffmpeg_bin: str = "ffmpeg") -> tuple[floa
     tmp = mp4.with_name(mp4.stem + ".norm.tmp" + mp4.suffix)
     try:
         _rodar([ffmpeg_bin, "-hide_banner", "-y", "-i", str(mp4), "-map", "0:v", "-map", "0:a",
-                "-c:v", "copy", "-af", filtro, "-ar", "48000", "-c:a", "aac", "-b:a", "192k", str(tmp)])
+                "-c:v", "copy", "-af", filtro, "-ar", "48000", "-c:a", "aac", "-b:a", "192k",
+                "-movflags", "+faststart", str(tmp)])
         depois = medir_lufs(tmp, ffmpeg_bin)
         os.replace(tmp, mp4)
     finally:

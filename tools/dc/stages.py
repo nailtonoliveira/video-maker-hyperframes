@@ -271,6 +271,23 @@ def _check_e_snapshot(v):
     return d.get("ok", False) and erros == 0, f"check: {erros} erros, {avisos} avisos · quadros: {config.rel(sheet) if sheet != '?' else sheet}"
 
 
+def _const(path, nome):
+    m = re.search(rf"\bconst\s+{nome}\s*=\s*([\d.]+)\s*;", path.read_text(encoding="utf-8")) if path.exists() else None
+    return float(m.group(1)) if m else None
+
+
+def _aviso_loop(v):
+    """Vídeo 3D: LOOP do scene.js e DUR do world.html têm que ser a duração da voz. → linha de aviso ou ''."""
+    scene, world = v.dir / "assets" / "episode" / "scene.js", v.dir / "compositions" / "world.html"
+    if not (scene.exists() and world.exists()):
+        return ""
+    d, loop, dur = v.duracao(), _const(scene, "LOOP"), _const(world, "DUR")
+    if loop is not None and dur is not None and abs(loop - d) <= 0.01 and abs(dur - d) <= 0.01:
+        return ""
+    f = lambda x: "?" if x is None else f"{x:g}"
+    return f"⚠ LOOP/DUR ({f(loop)}/{f(dur)}) ≠ duração da voz ({d:g}) — ajuste scene.js e world.html"
+
+
 def etapa_cenas(v, ajustes=""):
     if v.ensaio:
         info = "ensaio: Claude Code não foi chamado (cenas do template mantidas)"
@@ -283,12 +300,17 @@ def etapa_cenas(v, ajustes=""):
     ok, chk = _check_e_snapshot(v)
     if not ok:
         say(f"  ⚠ {chk}")
+    if aviso := _aviso_loop(v):
+        say(f"  {aviso}")
+        chk += "\n" + aviso
     return "\n".join([info, chk, "Preview para revisar: cd " + config.rel(v.dir) + " && npx hyperframes preview --background",
                       "(pare com: npx hyperframes preview --stop)"])
 
 
 # ==== 7b. trilha sonora ============================================================================
 def etapa_trilha(v, ajustes=""):
+    if not v.cfg.get("trilha"):
+        return "trilha desligada no niche.json: nada a gerar"
     if not (v.dir / "assets" / "episode" / "trilha.json").exists():
         return "sem trilha.json: nada a gerar"
     r = subprocess.run([str(config.VENV_PY), str(config.ROOT / "shared" / "trilha" / "trilha.py"), str(v.dir)],
@@ -305,11 +327,11 @@ def etapa_render(v, ajustes=""):
     if r.returncode:
         raise SystemExit(f"render falhou:\n{r.stdout[-2000:]}\n{r.stderr[-2000:]}")
     mp4 = max((v.dir / "renders").glob("*.mp4"), key=lambda p: p.stat().st_mtime)
-    v.state["render"] = config.rel(mp4)
-    v.catalogo("produzido")
     lufs = v.cfg.get("audio_lufs")
     if lufs is not None:
         antes, depois = audio.normalizar(mp4, lufs)
+    v.state["render"] = config.rel(mp4)
+    v.catalogo("produzido")
     resumo = f"{config.rel(mp4)} — {ffprobe_dur(mp4):.1f} s, {mp4.stat().st_size / 1e6:.1f} MB"
     return resumo + (f"\náudio: {antes:.1f} → {depois:.1f} LUFS" if lufs is not None else "")
 

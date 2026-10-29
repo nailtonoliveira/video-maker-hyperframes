@@ -59,16 +59,16 @@ export function build(canvas) {
     const isExt = sh.env === "ext";
     ext.visible = isExt;
     inside.visible = !isExt;
-    // exterior: foguete parado; escotilha (dobradiça, gaveta) só durante o mergulho
+    // exterior: foguete parado; escotilha (dobradiça, gaveta) só durante o mergulho, em tempos relativos ao corte
     const diving = V >= T.dive && V < T.board;
     rocket.pose(ROCKET, 0);
     rocket.burn(0, V, false);
     rocket.nozzle(0);
     rocket.breakup(0);
     rocket.xray(false, V, 0);
-    rocket.hatch(diving ? E.p2io(seg(V, 2.9, 3.4)) : 0, diving ? E.p2io(seg(V, 3.2, 3.8)) : 0);
-    // interior: bug até a falha, sublinhado e chip vermelhos no alarme
-    const pose = bugWalk(V, 4.6, 6.4, BUG_A, FAULT);
+    rocket.hatch(diving ? E.p2io(seg(V, T.dive + 0.5, T.dive + 1)) : 0, diving ? E.p2io(seg(V, T.dive + 0.8, T.dive + 1.4)) : 0);
+    // interior: o bug sai 0,2 s depois do corte da placa e para na falha 0,4 s antes do alarme; sublinhado e chip vermelhos no alarme
+    const pose = bugWalk(V, T.board + 0.2, T.alarm - 0.4, BUG_A, FAULT);
     pose.pos.x += shake(V, T.alarm, 0.06, 0.4);
     bugState(bug, pose);
     line.underline.material = V >= T.alarm ? M.ledAlert : M.ledOff;

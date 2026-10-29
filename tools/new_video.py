@@ -55,5 +55,11 @@ Próximos passos (a partir da raiz dark-channels/):
   2. tools/.venv/bin/python tools/transcribe.py {rel}/assets/voice.mp3
   3. python3 tools/set_duration.py {rel}
   4. Corrija erros da transcrição em {rel}/captions.json e rode:
-     python3 tools/build_captions.py {rel}
-  5. SPEC.md, cenas em compositions/, depois dentro da pasta: npm run check · npx hyperframes snapshot · npm run render""")
+     python3 tools/build_captions.py {rel}""")
+if versao:
+    print(f"""  5. SPEC.md, cena 3D em {rel}/assets/episode/scene.js (LOOP = duração da voz) e títulos em
+     {rel}/compositions/world.html (DUR igual); trilha em assets/episode/trilha.json
+  6. Antes do render: tools/.venv/bin/python shared/trilha/trilha.py {rel}
+  7. Dentro da pasta: npm run check · npx hyperframes snapshot --describe false · npm run render""")
+else:
+    print("  5. SPEC.md, cenas em compositions/, depois dentro da pasta: npm run check · npx hyperframes snapshot · npm run render")

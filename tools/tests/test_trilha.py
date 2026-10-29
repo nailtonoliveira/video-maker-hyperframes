@@ -75,6 +75,25 @@ class Trilha(unittest.TestCase):
             self.gerar(spec)
         self.assertIn("tom", str(c.exception))
 
+    def _amostras(self, p):
+        import numpy as np
+        return np.frombuffer(ler(p)[4], np.int16)
+
+    def test_rampa_zero_nao_silencia(self):
+        # subida 0 com a em amostra (0/0 = NaN) e descida 0 com b em amostra: corte seco, faixa audível e finita
+        for seg in ([0, 2, 0.8, 0, 0.1], [0.5, 2, 0.8, 0.1, 0]):
+            spec = {"semente": 1, "musica": {"drone": {"env": [seg]}}}
+            x = self._amostras(self.gerar(spec)["musica"])
+            self.assertGreater(int(abs(x.astype(int)).max()), 1000, seg)
+
+    def test_write_recusa_nan(self):
+        import numpy as np
+        p = pathlib.Path(tempfile.mkdtemp()) / "x.wav"
+        for ruim in (np.nan, np.inf):
+            with self.assertRaises(ValueError) as c:
+                trilha.write(p, np.array([0.0, ruim, 0.5]), 0.7)
+            self.assertIn("x.wav", str(c.exception))
+
     def test_efeito_desconhecido(self):
         spec = copy.deepcopy(SPEC)
         spec["efeitos"] = [{"tipo": "buzina", "t": 1}]

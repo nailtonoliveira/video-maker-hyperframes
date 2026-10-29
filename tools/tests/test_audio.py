@@ -22,6 +22,20 @@ def _duracao_video(mp4):
     return float(out.strip())
 
 
+def _caixas(mp4):
+    """Tipos das caixas de nível superior do MP4, em ordem."""
+    out, dados, i = [], pathlib.Path(mp4).read_bytes(), 0
+    while i + 8 <= len(dados):
+        n, tipo = int.from_bytes(dados[i:i + 4], "big"), dados[i + 4:i + 8].decode("latin-1")
+        if n == 1:
+            n = int.from_bytes(dados[i + 8:i + 16], "big")
+        out.append(tipo)
+        if n < 8:
+            break
+        i += n
+    return out
+
+
 class Normalizar(unittest.TestCase):
     def setUp(self):
         self._tmp = tempfile.TemporaryDirectory()
@@ -43,6 +57,11 @@ class Normalizar(unittest.TestCase):
         audio.normalizar(self.mp4, -14)
         self.assertEqual(_hash_video(self.mp4), h)
         self.assertAlmostEqual(_duracao_video(self.mp4), d, delta=0.05)
+
+    def test_faststart_moov_antes_de_mdat(self):
+        audio.normalizar(self.mp4, -14)
+        cx = _caixas(self.mp4)
+        self.assertLess(cx.index("moov"), cx.index("mdat"), cx)
 
     def test_falha_preserva_original(self):
         antes = self.mp4.read_bytes()

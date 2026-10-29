@@ -83,6 +83,7 @@ aqui guia temas, roteiro, metadados e cenas. Voz, modelos de IA e aprovações f
 ## Episódios
 Os episódios 001–003 são **2D** (motion graphics de terminal, template antigo) e ficam congelados assim. Do próximo em
 diante, a série é **3D** (template atual).
+O 002 (parado no roteiro com erro) não pode mais ser retomado pelo pipeline (os prompts 3D rodariam numa pasta 2D): se quiser o tema, recrie-o como episódio 3D novo; e `--refazer render` em 001–003 agora normalizaria o áudio deles a −14 LUFS.
 
 | Nº | Pasta | Tema | Estado |
 | --- | --- | --- | --- |

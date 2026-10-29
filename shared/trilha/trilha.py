@@ -41,12 +41,12 @@ def ff_noise(c, cor, seed, filt):
 
 
 def env(c, segments):
-    """Envelope por trechos: [a, b, nível[, subida, descida]] com rampas lineares."""
+    """Envelope por trechos: [a, b, nível[, subida, descida]] com rampas lineares (0 = corte seco)."""
     e = np.zeros(c.N)
     for s in segments or []:
         a, b, lvl = s[:3]
-        up = s[3] if len(s) > 3 else 0.08
-        down = s[4] if len(s) > 4 else 0.08
+        up = max(s[3] if len(s) > 3 else 0.08, 1 / SR)  # rampa 0 vira 1 amostra: sem 0/0 = NaN em a ou b
+        down = max(s[4] if len(s) > 4 else 0.08, 1 / SR)
         k = np.clip((c.T - a) / up, 0, 1) * np.clip((b - c.T) / down, 0, 1)
         e = np.maximum(e, lvl * k)
     return e
@@ -67,7 +67,10 @@ def place(c, track, at, x, gain=1.0):
 
 
 def write(path, x, peak):
-    """Grava WAV 48 kHz estéreo 16 bits normalizado ao pico; com sinal nulo grava zeros. Devolve o RMS em dBFS."""
+    """Grava WAV 48 kHz estéreo 16 bits normalizado ao pico; com sinal nulo grava zeros. Devolve o RMS em dBFS.
+    Sinal com NaN/inf é erro (ValueError), não silêncio."""
+    if not np.all(np.isfinite(x)):
+        raise ValueError(f"{path.name}: sinal com NaN/inf (confira os envelopes do trilha.json)")
     m = np.max(np.abs(x)) if len(x) else 0.0
     x = x / m * peak if m > 0 else np.zeros_like(x)
     pcm = (np.clip(x, -1, 1) * 32767).astype(np.int16)
