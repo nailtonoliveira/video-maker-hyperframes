@@ -1,4 +1,5 @@
-// Kit 3D do tech-lore — exteriores: lugares reais reutilizáveis (base e Ariane 5, data center, pregão, radioterapia).
+// Kit 3D do tech-lore — exteriores: lugares e veículos reais reutilizáveis (base e Ariane 5, data center, pregão,
+// radioterapia, avião, carro e sonda).
 // Padrão: fábrica makeX(opts) → { group, ...estado }; origem no centro da base; nenhum tempo de episódio aqui dentro.
 // Cada método de estado recebe 0→1 ou booleano e define tudo o que toca em toda chamada.
 import { THREE, COL, solid, setLook, fill, edge, glowless, label, hash, blink, gridLines } from "../motor/core.js";
@@ -207,6 +208,7 @@ export function makeDataCenter({ racks = 8 } = {}) {
   const blankMat = fill(0x0f141a);
   const eUnit = edge(COL.gray, 0.25);
   const ledList = [];
+  const ledGeo = new THREE.BoxGeometry(0.06, 0.026, 0.012); // grande o bastante para ler a 9 m num celular
   let n = 0;
   for (const side of [-1, 1])
     for (let i = 0; i < racks; i++) {
@@ -235,8 +237,8 @@ export function makeDataCenter({ racks = 8 } = {}) {
         r.add(sv);
         if (!blank)
           for (let k = 0; k < 2; k++) {
-            const led = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.016, 0.01), M.ledOff);
-            led.position.set(-RW / 2 + 0.1 + k * 0.06, y + h / 2, RD / 2 + 0.033);
+            const led = new THREE.Mesh(ledGeo, M.ledOff);
+            led.position.set(-RW / 2 + 0.1 + k * 0.085, y + h / 2, RD / 2 + 0.034);
             r.add(led);
             ledList.push({ led, h: hash(n, 3 + k), phase: hash(n, 5 + k) * 2, on: hash(n, 7 + k) < 0.75 ? M.ledMint : M.ledCyan });
           }
@@ -244,6 +246,30 @@ export function makeDataCenter({ racks = 8 } = {}) {
         n++;
       }
       group.add(r);
+    }
+
+  // tampas das pontas das fileiras (o que a câmera vê de lado): painel claro com venezianas e coluna de LEDs da PDU
+  const endMat = fill(0x3a4553, 0.8);
+  const ventGeo = new THREE.BoxGeometry(0.012, 0.035, RD - 0.3);
+  const pduGeo = new THREE.BoxGeometry(0.012, 0.05, 0.05);
+  for (const side of [-1, 1])
+    for (const sx of [-1, 1]) {
+      const x = sx * (L / 2 + 0.012);
+      const z = side * (AISLE / 2 + RD / 2);
+      const end = solid(new THREE.BoxGeometry(0.024, RH - 0.06, RD - 0.04), endMat, eRack, false);
+      end.position.set(x, FL + RH / 2, z);
+      group.add(end);
+      for (let v = 0; v < 14; v++) {
+        const vent = new THREE.Mesh(ventGeo, blankMat);
+        vent.position.set(x + sx * 0.013, FL + 0.95 + v * 0.065, z + side * 0.05);
+        group.add(vent);
+      }
+      for (let k = 0; k < 6; k++) {
+        const led = new THREE.Mesh(pduGeo, M.ledOff);
+        led.position.set(x + sx * 0.013, FL + 0.25 + k * 0.1, z - side * (RD / 2 - 0.12));
+        group.add(led);
+        ledList.push({ led, h: hash(k + side * 7 + sx * 3, 9), phase: hash(k, side + sx + 11) * 2, on: k < 4 ? M.ledMint : M.ledCyan });
+      }
     }
 
   // eletrocalhas sobre as fileiras e réguas de luz sobre o corredor
@@ -270,7 +296,7 @@ export function makeDataCenter({ racks = 8 } = {}) {
     bar.position.set(x, TY + 0.02, 0);
     group.add(bar);
   }
-  const strip = new THREE.Mesh(new THREE.BoxGeometry(L, 0.03, 0.1), glowless(0xcdd6e0));
+  const strip = new THREE.Mesh(new THREE.BoxGeometry(L, 0.03, 0.1), glowless(0x56616e)); // luminária apagada: não rouba o olho
   strip.position.set(0, TY, 0);
   group.add(strip);
 
@@ -305,7 +331,7 @@ export function makeDataCenter({ racks = 8 } = {}) {
 
 // ==================== pregão: mesas de operadores com monitores e o telão de cotação ====================
 // 1 u = 1 m; origem no centro do piso. mesas = posições de operador, 3 por fileira, de frente para o telão (em −z).
-// mesas = 6: piso 9 × 8,8 m, mesas de 1,6 × 0,8 m com 4 monitores (2 × 2) e cadeira, telão de 6 × 2,4 m
+// mesas = 6: piso 9 × 8,8 m, mesas de 1,8 × 0,8 m com 4 monitores (2 × 2) e cadeira, telão de 6 × 2,4 m
 // (base a 1,3 m) na parede do fundo, de 4 m.
 // telas(valor): número do telão (formato brasileiro). queda(k): 0 → 1, o gráfico do telão e dos monitores despenca
 // em vermelho, a seta vira para baixo e a faixa de cotações fica vermelha.
@@ -424,18 +450,33 @@ export function makeTradingFloor({ mesas = 6 } = {}) {
     desk.add(chair);
   }
 
-  const labels = new Map(); // texto → rótulo (o mesmo número reaproveita a textura)
+  // texto → rótulo, LRU de 32: o mesmo número reaproveita a textura; o mais antigo é descartado (textura, material e
+  // geometria). O texto desenhado só depende do valor, então a ordem dos quadros não muda o resultado.
+  const LABELS_MAX = 32;
+  const labels = new Map();
   let shown = null;
   return {
     group,
     telas(valor) {
       const txt = fmtNum(valor);
-      if (!labels.has(txt)) {
-        const l = label(txt, COL.ink, 140, 0.42);
+      let l = labels.get(txt);
+      if (l) labels.delete(txt);
+      else {
+        l = label(txt, COL.ink, 140, 0.42);
         l.position.x = l.userData.w / 2;
-        labels.set(txt, l);
       }
-      const l = labels.get(txt);
+      labels.set(txt, l);
+      if (labels.size > LABELS_MAX) {
+        const [oldTxt, old] = labels.entries().next().value;
+        labels.delete(oldTxt);
+        if (shown === old) {
+          numHolder.remove(old);
+          shown = null;
+        }
+        old.material.map.dispose();
+        old.material.dispose();
+        old.geometry.dispose();
+      }
       if (shown !== l) {
         if (shown) numHolder.remove(shown);
         numHolder.add(l);
@@ -474,7 +515,7 @@ export function makeTradingFloor({ mesas = 6 } = {}) {
 // ==================== radioterapia: acelerador linear (cabeçote giratório), maca com paciente e console ====================
 // 1 u = 1 m; origem no centro do piso da sala (6,6 × 6,6 m). Isocentro a 1,3 m do chão, sobre a maca (eixo z).
 // Estativa de 2,9 m no fundo (−z), braço em C que gira em torno do eixo da maca, maca de 2,2 m com paciente,
-// paredes de blindagem cortadas a 1,1 m (corte da maquete) e o console (terminal) fora da sala, em +x (até x = 5).
+// paredes de blindagem cortadas a 0,75 m (corte da maquete) e o console (terminal) fora da sala, em +x (piso até x = 5,3).
 // giro(k): braço gira, k 0 → 1 = uma volta. feixe(on): feixe ciano do cabeçote ao paciente.
 // alerta(k): tela do console, lâmpada de aviso e luz da sala vão ao vermelho, 0 → 1.
 export function makeMedicalDevice() {
@@ -530,23 +571,35 @@ export function makeMedicalDevice() {
   beam.position.set(0, 0.45 - 0.375, 1.6);
   gantry.add(beam);
 
-  // maca e paciente
+  // maca e paciente: pés para a máquina e cabeça em +z (do lado da câmera, fora do cone do feixe); o feixe cai no
+  // abdome, no isocentro (z = 0). Maca de 2,5 m em balanço sobre a coluna.
   const ped = solid(new THREE.BoxGeometry(0.5, 0.85, 0.7), darkMat, M.eSoft);
-  ped.position.set(0, 0.52, 1.2);
-  const top = solid(new THREE.BoxGeometry(0.56, 0.07, 2.2), fill(0x11161d), M.eSoft);
-  top.position.set(0, 1.0, 0.75);
-  const skin = fill(0x8f99a6);
-  const torso = solid(new THREE.CapsuleGeometry(0.16, 0.45, 4, 10), skin, M.eSoft);
-  torso.rotation.x = Math.PI / 2;
-  torso.scale.set(1.3, 1, 0.7);
-  torso.position.set(0, 1.15, 0.3);
-  const sheet = solid(new THREE.BoxGeometry(0.5, 0.16, 1.0), fill(0x5d7287), M.eSoft);
-  sheet.position.set(0, 1.12, 1.15);
+  ped.position.set(0, 0.52, 0.95);
+  const top = solid(new THREE.BoxGeometry(0.56, 0.07, 2.5), fill(0x11161d), M.eSoft);
+  top.position.set(0, 1.0, -0.2);
+  const skin = fill(0xa9b2bd);
+  const sheetMat = fill(0x5d7287);
+  const capsule = (r, len, mat, x, y, z, sx = 1, sz = 1) => {
+    const c = solid(new THREE.CapsuleGeometry(r, len, 4, 12), mat, M.eSoft);
+    c.rotation.x = Math.PI / 2; // eixo da cápsula ao longo da maca (z); escala: sx largura, sz espessura
+    c.scale.set(sx, 1, sz);
+    c.position.set(x, y, z);
+    return c;
+  };
+  const torso = capsule(0.16, 0.42, skin, 0, 1.15, 0.2, 1.35, 0.75);
+  const arms = [-1, 1].map((sx) => capsule(0.055, 0.45, skin, sx * 0.27, 1.1, 0.18));
+  const legs = capsule(0.19, 0.72, sheetMat, 0, 1.115, -0.75, 1.2, 0.5); // lençol sobre as pernas
+  const feet = [-1, 1].map((sx) => {
+    const f = solid(new THREE.SphereGeometry(0.07, 10, 6), sheetMat, M.eSoft);
+    f.scale.set(1, 1.3, 0.8);
+    f.position.set(sx * 0.09, 1.2, -1.26);
+    return f;
+  });
   const pillow = solid(new THREE.BoxGeometry(0.4, 0.07, 0.3), fill(0xb8bfc8), M.eSoft);
-  pillow.position.set(0, 1.07, -0.25);
-  const pHead = solid(new THREE.SphereGeometry(0.12, 12, 8), skin, M.eSoft);
-  pHead.position.set(0, 1.2, -0.22);
-  group.add(ped, top, torso, sheet, pillow, pHead);
+  pillow.position.set(0, 1.07, 0.66);
+  const pHead = solid(new THREE.SphereGeometry(0.145, 14, 10), fill(0xc3cad3), M.eSoft);
+  pHead.position.set(0, 1.23, 0.64);
+  group.add(ped, top, torso, ...arms, legs, ...feet, pillow, pHead);
 
   // console fora da sala: mesa, terminal (tela que vai ao vermelho), teclado, cadeira e lâmpada de aviso
   const desk = solid(new THREE.BoxGeometry(1.3, 0.05, 0.7), fill(0x2c3542), M.eSoft);
@@ -607,6 +660,469 @@ export function makeMedicalDevice() {
       scrMat.color.copy(cScr).lerp(cScrBad, k);
       for (const ln of lines) ln.material = k >= 0.5 ? txtBad : txtOk;
       roomLight.intensity = 4 * k;
+    },
+  };
+}
+
+// ---------- auxiliares dos exteriores novos ----------
+// placa extrudada: contorno [x, z] no plano horizontal, espessura th centrada em y = 0
+function plankXZ(pts, th, f, e) {
+  const sh = new THREE.Shape(pts.map(([x, z]) => new THREE.Vector2(x, z)));
+  const geo = new THREE.ExtrudeGeometry(sh, { depth: th, bevelEnabled: false });
+  geo.rotateX(Math.PI / 2); // (x, v) → (x, z); a extrusão desce em y
+  geo.translate(0, th / 2, 0);
+  return solid(geo, f, e);
+}
+// placa extrudada: contorno [x, y] no plano vertical, espessura th centrada em z = 0
+function plankXY(pts, th, f, e) {
+  const sh = new THREE.Shape(pts.map(([x, y]) => new THREE.Vector2(x, y)));
+  const geo = new THREE.ExtrudeGeometry(sh, { depth: th, bevelEnabled: false });
+  geo.translate(0, 0, -th / 2);
+  return solid(geo, f, e);
+}
+// cilindro deitado ao longo de x (rTop na ponta +x)
+function cylX(rTop, rBot, len, seg, f, e) {
+  const geo = new THREE.CylinderGeometry(rTop, rBot, len, seg);
+  geo.rotateZ(-Math.PI / 2);
+  return solid(geo, f, e);
+}
+
+// ==================== avião comercial (bimotor de corredor único, tipo A320 / 737) ====================
+// 1 u ≈ 5 m (a mesma escala do Ariane e do terreno). Origem no centro da fuselagem, na altura da asa; nariz em +x,
+// asas ao longo de z. Comprimento ~7,5 u, envergadura ~7,2 u, deriva até y = 1,95. Com trem(1), rodas em y = −0,92.
+// pose(p, a): posição e arfagem (rotação em torno de z, nariz para cima com a > 0) — alvo de follow(…).
+// trem(k): 0 = recolhido (escondido), 1 = baixado. dano(k): 0 → 1, a ponta da asa direita (+z) se solta e gira,
+// a turbina direita fica com aresta vermelha, fogo facetado e fumaça escura atrás.
+export function makeAirplane() {
+  const white = fill(0xe4e8ee, 0.7);
+  const eWhite = edge(0x6b7684, 0.55);
+  const wingMat = fill(0xb9c0c8, 0.7);
+  const livery = fill(0x3d5878, 0.7);
+  const glass = fill(0x161d27, 0.5);
+  const darkMetal = fill(0x3a414a);
+  const tire = fill(0x15191f, 0.9);
+  const group = new THREE.Group();
+
+  // fuselagem: perfil de revolução (eixo x) com a cauda levantada (o ventre sobe, o dorso fica reto)
+  const R = 0.4;
+  const prof = [[0, -3.76], [0.07, -3.74], [0.16, -3.5], [0.27, -3.0], [0.36, -2.4], [0.4, -1.9], [0.4, 2.6], [0.38, 2.95],
+    [0.33, 3.25], [0.24, 3.5], [0.12, 3.68], [0, 3.76]];
+  const rAt = (s) => {
+    for (let i = 1; i < prof.length; i++)
+      if (s <= prof[i][1]) {
+        const [r0, s0] = prof[i - 1];
+        const [r1, s1] = prof[i];
+        return r0 + ((r1 - r0) * (s - s0)) / (s1 - s0);
+      }
+    return 0;
+  };
+  const lift = (s) => (s < -1.9 ? 0.85 * (R - rAt(s)) : 0); // subida da linha de centro na cauda
+  const fGeo = new THREE.LatheGeometry(prof.map(([r, s]) => new THREE.Vector2(r, s)), 24);
+  fGeo.rotateZ(-Math.PI / 2); // eixo y → x (nariz em +x)
+  const fp = fGeo.attributes.position;
+  for (let i = 0; i < fp.count; i++) fp.setY(i, fp.getY(i) + lift(fp.getX(i)));
+  fGeo.computeVertexNormals();
+  const hull = solid(fGeo, white, eWhite);
+  group.add(hull);
+  // peça fina no casco: s ao longo do eixo, th ângulo a partir do topo (para +z), inclinada com a curva do nariz
+  const onHull = (s, th, w, h, mat) => {
+    const r = rAt(s) + 0.004;
+    const m = new THREE.Mesh(new THREE.BoxGeometry(w, 0.012, h), mat);
+    const slope = (rAt(s + 0.02) - rAt(s - 0.02)) / 0.04;
+    m.position.set(s, r * Math.cos(th) + lift(s), r * Math.sin(th));
+    m.rotation.set(th, 0, Math.atan(slope));
+    group.add(m);
+    return m;
+  };
+  for (const th of [-0.95, -0.35, 0.35, 0.95]) onHull(3.33, th, 0.15, 0.13, glass); // para-brisa
+  for (let s = -1.75; s <= 2.45; s += 0.16) for (const th of [-1.25, 1.25]) onHull(s, th, 0.07, 0.085, glass); // janelas
+  for (const th of [-1.6, 1.6]) onHull(0.35, th, 4.4, 0.06, livery); // faixa da pintura
+  for (const [s, th] of [[2.75, 1.22], [2.75, -1.22], [-2.05, 1.22], [-2.05, -1.22]]) onHull(s, th, 0.1, 0.17, fill(0xc4cad2, 0.7)); // portas
+
+  // asas baixas, enflechadas, com diedro de 5°; a ponta direita (+z) é uma peça à parte (dano)
+  const LE = (z) => 0.9 - (z - 0.2) * 0.4647;
+  const TE = (z) => (z < 1.4 ? -0.8 : -0.8 - (z - 1.4) * 0.1364);
+  const ZK = 2.6;
+  let tip = null;
+  let tipBase = null;
+  for (const sz of [-1, 1]) {
+    const wing = new THREE.Group();
+    wing.position.set(0, -0.22, 0);
+    wing.rotation.x = -sz * 0.09;
+    group.add(wing);
+    const inner = plankXZ([[0.9, 0.2 * sz], [LE(ZK), ZK * sz], [TE(ZK), ZK * sz], [-0.8, 1.4 * sz], [-0.8, 0.2 * sz]], 0.07, wingMat, eWhite);
+    wing.add(inner);
+    const outer = new THREE.Group(); // pivô na raiz da ponta (bordo de ataque)
+    outer.position.set(LE(ZK), 0, ZK * sz);
+    wing.add(outer);
+    const ow = plankXZ([[0, 0], [LE(3.6) - LE(ZK), (3.6 - ZK) * sz], [TE(3.6) - LE(ZK), (3.6 - ZK) * sz], [TE(ZK) - LE(ZK), 0]], 0.07, wingMat, eWhite);
+    const wl = plankXY([[LE(3.6) - LE(ZK), 0], [TE(3.6) - LE(ZK), 0], [TE(3.6) - LE(ZK) - 0.18, 0.48], [TE(3.6) - LE(ZK) + 0.06, 0.48]], 0.03, livery, eWhite);
+    wl.position.z = (3.6 - ZK) * sz;
+    outer.add(ow, wl);
+    if (sz > 0) {
+      tip = outer;
+      tipBase = outer.position.clone();
+    }
+  }
+
+  // empenagem: estabilizadores horizontais e deriva com a cor da pintura
+  for (const sz of [-1, 1]) {
+    const hs = plankXZ([[-2.5, 0.12 * sz], [-3.2, 1.35 * sz], [-3.52, 1.35 * sz], [-3.45, 0.12 * sz]], 0.05, wingMat, eWhite);
+    hs.position.y = 0.12;
+    hs.rotation.x = -sz * 0.1;
+    group.add(hs);
+  }
+  const fin = plankXY([[-2.2, 0.25], [-3.3, 1.95], [-3.72, 1.95], [-3.66, 0.25]], 0.06, livery, eWhite);
+  group.add(fin);
+
+  // turbinas sob as asas: nacele, entrada escura com cone, pilone e escape
+  const engines = [];
+  for (const sz of [-1, 1]) {
+    const eg = new THREE.Group();
+    eg.position.set(0.5, -0.43, 1.25 * sz);
+    group.add(eg);
+    const nac = cylX(0.23, 0.18, 0.95, 20, white, eWhite);
+    const fan = new THREE.Mesh(new THREE.CircleGeometry(0.19, 20), fill(0x10151c));
+    fan.rotation.y = Math.PI / 2;
+    fan.position.x = 0.476;
+    const spin = solid(new THREE.ConeGeometry(0.06, 0.12, 12).rotateZ(-Math.PI / 2), darkMetal, null);
+    spin.position.x = 0.5;
+    const exh = solid(new THREE.ConeGeometry(0.12, 0.25, 12).rotateZ(Math.PI / 2), darkMetal, null);
+    exh.position.x = -0.6;
+    const pylon = solid(new THREE.BoxGeometry(0.7, 0.2, 0.06), wingMat, eWhite);
+    pylon.position.set(-0.1, 0.22, 0);
+    eg.add(nac, fan, spin, exh, pylon);
+    engines.push(nac);
+  }
+  // dano: fogo facetado e fumaça escura atrás da turbina direita
+  const fireMat = glowless(0xffa052);
+  const fire = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.7, 7).rotateZ(Math.PI / 2), fireMat);
+  fire.position.set(-0.45, -0.43, 1.25);
+  group.add(fire);
+  const smokeMat = fill(0x2a2f36, 0.95);
+  const smoke = Array.from({ length: 6 }, (_, i) => {
+    const m = solid(new THREE.IcosahedronGeometry(0.2 + 0.07 * i, 0), smokeMat, null, false);
+    m.position.set(-0.8 - 0.55 * i, -0.43 + 0.05 * i, 1.25 + 0.08 * (hash(i, 71) - 0.5));
+    m.rotation.set(hash(i, 72) * 3, hash(i, 73) * 3, 0);
+    group.add(m);
+    return m;
+  });
+
+  // trem de pouso: dois principais (recolhem para o centro) e o do nariz (recolhe para a frente)
+  const gear = [];
+  const leg = (x, z, axis, dir, wheelsZ) => {
+    const g = new THREE.Group();
+    g.position.set(x, -0.3, z);
+    const strut = solid(new THREE.CylinderGeometry(0.025, 0.025, 0.5, 8), darkMetal, null);
+    strut.position.y = -0.25;
+    g.add(strut);
+    for (const wz of wheelsZ) {
+      const w = solid(new THREE.CylinderGeometry(0.12, 0.12, 0.08, 14).rotateX(Math.PI / 2), tire, M.eSoft);
+      w.position.set(0, -0.5, wz);
+      g.add(w);
+    }
+    group.add(g);
+    gear.push({ g, axis, dir });
+  };
+  for (const sz of [-1, 1]) leg(-0.35, 0.75 * sz, "x", sz, [-0.06, 0.06]);
+  leg(2.7, 0, "z", 1, [-0.05, 0.05]);
+
+  const eEngineBad = edge(COL.alert);
+  group.traverse((o) => {
+    if (o.isMesh) o.castShadow = true;
+  });
+  return {
+    group,
+    pose(p, a) {
+      group.position.copy(p);
+      group.rotation.set(0, 0, a);
+    },
+    trem(k) {
+      for (const { g, axis, dir } of gear) {
+        g.visible = k > 0.02;
+        g.rotation.set(0, 0, 0);
+        g.rotation[axis] = dir * (Math.PI / 2) * (1 - k);
+      }
+    },
+    dano(k) {
+      tip.position.set(tipBase.x - 1.6 * k, tipBase.y - 1.1 * k, tipBase.z + 0.9 * k);
+      tip.rotation.set(1.6 * k, 0.7 * k, -0.5 * k);
+      setLook(engines[1], white, k >= 0.5 ? eEngineBad : eWhite);
+      fire.visible = k > 0.02;
+      fire.scale.set(Math.max(0.01, k), 1, 1);
+      smoke.forEach((m, i) => {
+        const s = clamp01(k * 1.4 - i * 0.08);
+        m.visible = s > 0.01;
+        m.scale.setScalar(Math.max(0.01, s));
+      });
+    },
+  };
+}
+const clamp01 = (x) => Math.max(0, Math.min(1, x));
+
+// ==================== carro de passeio (sedã compacto) ====================
+// 1 u = 1 m; origem no chão, no centro do carro; frente em +x. 4,4 × 1,8 × 1,43 m, entre-eixos 2,65 m, rodas de 0,32 m.
+// rodas(ang): giro das rodas em radianos (positivo = rolando para +x; use distância / 0,32). freio(on): lanternas e
+// luz de freio acesas em vermelho. opts.cor: cor da lataria.
+export function makeCar({ cor = 0x50647c } = {}) {
+  const body = fill(cor, 0.6);
+  const eBody = edge(0x0d1117, 0.7);
+  const glass = fill(0x141b24, 0.4);
+  const dark = fill(0x10151b, 0.9);
+  const group = new THREE.Group();
+  const RA = -1.3;
+  const FA = 1.35;
+  const WR = 0.32;
+  const W = 1.78;
+
+  // lataria: perfil lateral extrudado na largura, com os arcos das rodas recortados
+  const sh = new THREE.Shape();
+  const dx = Math.sqrt(0.4 * 0.4 - 0.1 * 0.1);
+  const a0 = Math.asin(0.1 / 0.4);
+  sh.moveTo(-2.22, 0.36);
+  sh.lineTo(-2.15, 0.22);
+  sh.lineTo(RA - dx, 0.22);
+  sh.absarc(RA, WR, 0.4, Math.PI + a0, -a0, true);
+  sh.lineTo(FA - dx, 0.22);
+  sh.absarc(FA, WR, 0.4, Math.PI + a0, -a0, true);
+  sh.lineTo(2.13, 0.22);
+  sh.lineTo(2.21, 0.32);
+  sh.lineTo(2.23, 0.55);
+  sh.lineTo(2.14, 0.72);
+  sh.lineTo(1.0, 0.86);
+  sh.lineTo(-1.75, 0.92);
+  sh.lineTo(-2.12, 0.89);
+  sh.lineTo(-2.23, 0.62);
+  sh.lineTo(-2.22, 0.36);
+  const bGeo = new THREE.ExtrudeGeometry(sh, { depth: W, bevelEnabled: false, curveSegments: 10 });
+  bGeo.translate(0, 0, -W / 2);
+  group.add(solid(bGeo, body, eBody));
+  // cabine de vidro escuro (mais estreita) com teto e colunas da cor da lataria
+  const cab = plankXY([[1.02, 0.85], [0.15, 1.37], [-1.05, 1.39], [-1.76, 0.91]], 1.5, glass, eBody);
+  const roof = plankXY([[0.2, 1.36], [0.12, 1.43], [-1.06, 1.43], [-1.1, 1.37]], 1.54, body, eBody);
+  group.add(cab, roof);
+  for (const sz of [-1, 1]) {
+    const bp = solid(new THREE.BoxGeometry(0.1, 0.5, 0.02), body, null);
+    bp.position.set(-0.4, 1.14, sz * 0.751);
+    const cp = plankXY([[-1.25, 0.92], [-1.0, 1.38], [-1.12, 1.38], [-1.62, 0.92]], 0.02, body, null);
+    cp.position.z = sz * 0.751;
+    const mirror = solid(new THREE.BoxGeometry(0.12, 0.09, 0.14), body, eBody);
+    mirror.position.set(0.88, 0.98, sz * 0.96);
+    group.add(bp, cp, mirror);
+    // costuras das portas e maçanetas
+    const seams = new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints([
+      [0.95, 0.3, 0.86], [0.95, 0.84, 0.86], [-0.4, 0.26, 0.9], [-0.4, 0.9, 0.9], [-1.55, 0.3, 0.86], [-1.55, 0.92, 0.86],
+    ].map(([x, y, h]) => new THREE.Vector3(x, y, sz * (W / 2 + 0.003)))), edge(0x0d1117, 0.9));
+    group.add(seams);
+    for (const x of [0.55, -0.85]) {
+      const hd = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.03, 0.02), dark);
+      hd.position.set(x, 0.78, sz * (W / 2 + 0.008));
+      group.add(hd);
+    }
+  }
+  // frente: faróis, grade e para-choque; traseira: lanternas, placa e para-choque
+  for (const sz of [-1, 1]) {
+    const hl = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.1, 0.36), glowless(0xdfe6ee));
+    hl.position.set(2.19, 0.62, sz * 0.6);
+    group.add(hl);
+  }
+  const grille = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.16, 0.8), dark);
+  grille.position.set(2.225, 0.44, 0);
+  const bumpF = solid(new THREE.BoxGeometry(0.1, 0.12, W + 0.02), dark, null);
+  bumpF.position.set(2.18, 0.3, 0);
+  const bumpR = solid(new THREE.BoxGeometry(0.1, 0.12, W + 0.02), dark, null);
+  bumpR.position.set(-2.18, 0.32, 0);
+  const plate = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.12, 0.4), fill(0xc9d0d8));
+  plate.position.set(-2.235, 0.5, 0);
+  group.add(grille, bumpF, bumpR, plate);
+  const tailOff = glowless(0x4a1c22);
+  const tailOn = glowless(COL.alert);
+  const tails = [];
+  for (const sz of [-1, 1]) {
+    const tl = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.12, 0.38), tailOff);
+    tl.position.set(-2.225, 0.72, sz * 0.62);
+    group.add(tl);
+    tails.push(tl);
+  }
+  const third = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.03, 0.4), tailOff);
+  third.position.set(-1.7, 0.99, 0);
+  group.add(third);
+  tails.push(third);
+  const brakeLight = new THREE.PointLight(COL.alert, 0, 3.5, 1.6);
+  brakeLight.position.set(-2.6, 0.6, 0);
+  group.add(brakeLight);
+
+  // rodas: pneu, aro claro e 5 raios (o giro aparece)
+  const tireMat = fill(0x15191f, 0.9);
+  const rimMat = fill(0x9aa3ad, 0.5);
+  const rims = [];
+  for (const x of [RA, FA])
+    for (const sz of [-1, 1]) {
+      const wg = new THREE.Group();
+      wg.position.set(x, WR, sz * 0.8);
+      const tr = solid(new THREE.CylinderGeometry(WR, WR, 0.22, 22).rotateX(Math.PI / 2), tireMat, M.eSoft);
+      const rim = new THREE.Group();
+      const disc = solid(new THREE.CylinderGeometry(0.2, 0.2, 0.226, 16).rotateX(Math.PI / 2), rimMat, null);
+      rim.add(disc);
+      for (let k = 0; k < 5; k++) {
+        const sp = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.16, 0.01), dark);
+        const a = (k / 5) * Math.PI * 2;
+        sp.position.set(0.09 * Math.sin(a), 0.09 * Math.cos(a), sz * 0.115);
+        sp.rotation.z = -a;
+        rim.add(sp);
+      }
+      const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.24, 10).rotateX(Math.PI / 2), dark);
+      rim.add(hub);
+      wg.add(tr, rim);
+      group.add(wg);
+      rims.push(rim);
+    }
+  group.traverse((o) => {
+    if (o.isMesh) o.castShadow = true;
+  });
+  return {
+    group,
+    rodas(ang) {
+      for (const r of rims) r.rotation.z = -ang;
+    },
+    freio(on) {
+      for (const t of tails) t.material = on ? tailOn : tailOff;
+      brakeLight.intensity = on ? 3 : 0;
+    },
+  };
+}
+
+// ==================== sonda espacial (corpo dourado, antena parabólica e duas asas de painéis solares) ====================
+// Origem no centro do corpo; antena em +y, asas ao longo de z, motor em −y. Corpo 1,2 × 0,9 × 1,2, prato de 1,8 de
+// diâmetro, envergadura aberta ~7,2 (escala livre: 1 u ≈ 1 m numa sonda média).
+// paineis(k): 0 = asas dobradas junto ao corpo, 1 = abertas (0–0,4 a asa desce/sobe, 0,4–1 os painéis desdobram).
+// antena(ang): inclinação do prato em radianos em torno de z (0 = apontando para +y). pose(p, a): posição e rotação em
+// torno de z — alvo de follow(…).
+export function makeSpaceProbe() {
+  const gold = fill(0xa8863f, 0.55);
+  const eGold = edge(0x3b2e14, 0.8);
+  const white = fill(0xdfe4ea, 0.7);
+  const eWhite = edge(0x6b7684, 0.6);
+  const darkMetal = fill(0x3a414a);
+  const cellMat = fill(0x1d3557, 0.4);
+  const eCell = edge(0x6f8fb3, 0.8);
+  const group = new THREE.Group();
+
+  const bus = solid(new THREE.BoxGeometry(1.2, 0.9, 1.2), gold, eGold);
+  const deck = solid(new THREE.BoxGeometry(1.26, 0.06, 1.26), darkMetal, M.eSoft);
+  deck.position.y = 0.48;
+  const deckB = solid(new THREE.BoxGeometry(1.26, 0.06, 1.26), darkMetal, M.eSoft);
+  deckB.position.y = -0.48;
+  group.add(bus, deck, deckB);
+  // motor principal e propulsores de atitude nos cantos
+  const noz = solid(new THREE.CylinderGeometry(0.12, 0.26, 0.4, 16, 1, true), darkMetal, M.eSoft);
+  noz.position.y = -0.71;
+  group.add(noz);
+  for (const [x, z] of [[-0.6, -0.6], [0.6, -0.6], [-0.6, 0.6], [0.6, 0.6]]) {
+    const q = solid(new THREE.BoxGeometry(0.1, 0.1, 0.1), darkMetal, null);
+    q.position.set(x, -0.36, z);
+    group.add(q);
+  }
+  // instrumentos: plataforma de câmeras em +x, rastreador de estrelas e mastro do magnetômetro
+  const cam = solid(new THREE.BoxGeometry(0.22, 0.2, 0.3), white, eWhite);
+  cam.position.set(0.72, -0.15, 0.2);
+  const lens = solid(new THREE.CylinderGeometry(0.06, 0.07, 0.14, 12).rotateZ(-Math.PI / 2), darkMetal, null);
+  lens.position.set(0.88, -0.15, 0.2);
+  const star = solid(new THREE.BoxGeometry(0.14, 0.14, 0.14), darkMetal, M.eSoft);
+  star.position.set(-0.4, 0.58, -0.4);
+  const boom = solid(new THREE.CylinderGeometry(0.015, 0.015, 2.2, 6).rotateZ(Math.PI / 2), white, null);
+  boom.position.set(-1.7, -0.3, 0);
+  const mag = solid(new THREE.CylinderGeometry(0.05, 0.05, 0.16, 10).rotateZ(Math.PI / 2), white, eWhite);
+  mag.position.set(-2.85, -0.3, 0);
+  group.add(cam, lens, star, boom, mag);
+
+  // antena parabólica num mastro, com alimentador no foco sobre três hastes
+  const mast = solid(new THREE.CylinderGeometry(0.06, 0.08, 0.3, 10), darkMetal, null);
+  mast.position.y = 0.66;
+  group.add(mast);
+  const dish = new THREE.Group();
+  dish.position.y = 0.8;
+  group.add(dish);
+  const FOC = 0.45;
+  const dPts = Array.from({ length: 9 }, (_, i) => {
+    const r = (0.9 * i) / 8;
+    return new THREE.Vector2(r, (r * r) / (4 * FOC));
+  });
+  const bowl = solid(new THREE.LatheGeometry(dPts, 28), fill(0xdfe4ea, 0.7, { side: THREE.DoubleSide }), eWhite);
+  const feed = solid(new THREE.CylinderGeometry(0.05, 0.07, 0.14, 10), darkMetal, null);
+  feed.position.y = FOC;
+  dish.add(bowl, feed);
+  for (let k = 0; k < 3; k++) {
+    const a = (k / 3) * Math.PI * 2;
+    const base = new THREE.Vector3(0.78 * Math.cos(a), (0.78 * 0.78) / (4 * FOC), 0.78 * Math.sin(a));
+    const tipP = new THREE.Vector3(0, FOC, 0);
+    const len = base.distanceTo(tipP);
+    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, len, 5), darkMetal);
+    rod.position.copy(base).add(tipP).multiplyScalar(0.5);
+    rod.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), tipP.clone().sub(base).normalize());
+    dish.add(rod);
+  }
+
+  // asas de painéis: braço + 3 painéis em sanfona (1,0 × 0,9), células com grade
+  const PL = 1.0;
+  const PW = 0.9;
+  const PT = 0.03;
+  const panelOf = (sz) => {
+    const g = new THREE.Group();
+    const p = solid(new THREE.BoxGeometry(PW, PT, PL), cellMat, eCell);
+    p.position.z = (sz * PL) / 2;
+    g.add(p);
+    const pts = [];
+    for (let i = 1; i < 4; i++) pts.push(new THREE.Vector3(-PW / 2 + (i * PW) / 4, PT / 2 + 0.002, 0), new THREE.Vector3(-PW / 2 + (i * PW) / 4, PT / 2 + 0.002, sz * PL));
+    for (let i = 1; i < 5; i++) pts.push(new THREE.Vector3(-PW / 2, PT / 2 + 0.002, (sz * i * PL) / 5), new THREE.Vector3(PW / 2, PT / 2 + 0.002, (sz * i * PL) / 5));
+    g.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), edge(0x6f8fb3, 0.45)));
+    return g;
+  };
+  const wings = [];
+  for (const sz of [-1, 1]) {
+    const root = new THREE.Group();
+    root.position.set(0, 0.1, sz * 0.6);
+    group.add(root);
+    const yoke = solid(new THREE.BoxGeometry(0.05, 0.05, 0.4), white, null);
+    yoke.position.z = sz * 0.2;
+    root.add(yoke);
+    const p1 = panelOf(sz);
+    p1.position.z = sz * 0.4;
+    root.add(p1);
+    const h2 = new THREE.Group();
+    h2.position.set(0, PT, sz * PL);
+    p1.add(h2);
+    const p2 = panelOf(sz);
+    p2.position.y = -PT;
+    h2.add(p2);
+    const h3 = new THREE.Group();
+    h3.position.set(0, -PT, sz * PL);
+    p2.add(h3);
+    const p3 = panelOf(sz);
+    p3.position.y = PT;
+    h3.add(p3);
+    wings.push({ sz, root, h2, h3 });
+  }
+  group.traverse((o) => {
+    if (o.isMesh) o.castShadow = true;
+  });
+  return {
+    group,
+    paineis(k) {
+      const k1 = clamp01(k / 0.4);
+      const k2 = clamp01((k - 0.4) / 0.6);
+      for (const { sz, root, h2, h3 } of wings) {
+        root.rotation.x = sz * (Math.PI / 2) * (1 - k1);
+        h2.rotation.x = sz * -Math.PI * (1 - k2);
+        h3.rotation.x = sz * Math.PI * (1 - k2);
+      }
+    },
+    antena(ang) {
+      dish.rotation.set(0, 0, ang);
+    },
+    pose(p, a) {
+      group.position.copy(p);
+      group.rotation.set(0, 0, a);
     },
   };
 }
