@@ -242,3 +242,5 @@ Decisões tomadas durante a implementação, que mudam ou precisam esta spec:
 - `node --test` precisa de glob `tests/*.test.js` neste Node; a forma de diretório falha.
 - `makeRocket` modela hoje especificamente o Ariane 5; a biblioteca de exteriores da fase 2 vai generalizá-lo e
   renomeá-lo.
+- Contrato do episódio, como ficou: `build(canvas)` com imports estáticos de `../motor/core.js` e `../kit/*.js` (e não
+  `build(canvas, { motor, kit, tema })`, como diz o §5.5).

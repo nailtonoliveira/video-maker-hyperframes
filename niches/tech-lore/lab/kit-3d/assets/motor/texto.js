@@ -11,7 +11,7 @@ export function label(text, color, px, worldH, weight = 800) {
   c.width = Math.ceil(ctx.measureText(text).width) + px * 0.4;
   c.height = Math.ceil(px * 1.3);
   ctx.font = `${weight} ${px}px "${FONTE}"`;
-  ctx.fillStyle = color;
+  ctx.fillStyle = typeof color === "number" ? "#" + color.toString(16).padStart(6, "0") : color; // número (COL.ink) ou CSS
   ctx.textBaseline = "middle";
   ctx.fillText(text, px * 0.2, c.height / 2);
   const tex = new THREE.CanvasTexture(c);

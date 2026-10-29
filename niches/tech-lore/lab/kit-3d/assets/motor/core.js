@@ -14,7 +14,7 @@ export * from "./mundos.js";
 
 // padrões de pós do tema, nos nomes que o render do palco lê
 const P = TEMA.pos;
-const POST = { vignette: P.vinheta, shutter: P.obturador, ca: P.aberracao, grain: P.granulacao, exposure: P.exposicao };
+const POST = { vignette: P.vinheta, shutter: P.obturador, ca: P.aberracao, grain: P.granulacao, exposure: P.exposicao, focus: 10, aperture: 0 };
 
 // ---------- palco: renderer, céu, pós-processamento ----------
 const FULL_VS = "varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }";
@@ -215,6 +215,7 @@ export function createStage(canvas, W = 1080, H = 1920) {
 export function createEpisode(S, { loop, fps = 30, shots, skies, update, post }) {
   function render(t) {
     const sh = shotAt(shots, t);
+    if (!skies[sh.env]) throw new Error(`episódio: plano ${sh.a}–${sh.b} usa env "${sh.env}" sem céu em skies`);
     S.setSky(skies[sh.env]);
     const c = cameraOf(sh, t, loop);
     if (sh.shake) c.pos.y += shake(t, ...sh.shake);

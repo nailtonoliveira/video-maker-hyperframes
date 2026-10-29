@@ -6,7 +6,8 @@ export const BOARD_SKY = { top: 0x05070b, mid: 0x111a26, bottom: 0x05070b, fog: 
 
 // ==================== a placa: trilhas, vias, componentes, LEDs, serigrafia ====================
 // keepOut: retângulos [x0, z0, x1, z1] onde a cena do episódio acontece (sem enfeites)
-export function makeBoard({ seed = 11, cx = 4, cz = 0, half = 70, keepOut = [], loop = 48.28 }) {
+export function makeBoard({ seed = 11, cx = 4, cz = 0, half = 70, keepOut = [], loop }) {
+  if (!loop) throw new Error("makeBoard: informe loop (duração do vídeo)");
   const group = new THREE.Group();
   const free = (x, z, pad = 0) => !keepOut.some(([x0, z0, x1, z1]) => x > x0 - pad && x < x1 + pad && z > z0 - pad && z < z1 + pad);
 

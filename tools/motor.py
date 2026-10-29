@@ -9,6 +9,7 @@ import argparse, json, pathlib, re, shutil, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 PAPEIS = ("chao", "tinta", "secundaria", "ok", "alerta", "destaque", "ardosia", "morto")
+POS_CHAVES = ("vinheta", "obturador", "aberracao", "granulacao", "exposicao")
 IGNORAR = ("tests", "package.json", "node_modules")
 
 
@@ -23,6 +24,21 @@ def gerar_tema_js(tema: dict, origem: str) -> str:
         valor = cores[papel]
         if not isinstance(valor, str) or not re.fullmatch(r"#[0-9a-fA-F]{6}", valor):
             raise ValueError(f'tema.json: cor "{papel}" inválida: "{valor}" (use #rrggbb)')
+    fontes = tema.get("fontes")
+    rotulo = fontes.get("rotulo3d") if isinstance(fontes, dict) else None
+    if not isinstance(rotulo, str) or not rotulo.strip():
+        raise ValueError('tema.json: falta "fontes.rotulo3d" (nome da fonte, texto não vazio)')
+    if not isinstance(tema.get("material"), str):
+        raise ValueError('tema.json: "material" deve ser texto')
+    pos = tema.get("pos")
+    if not isinstance(pos, dict):
+        raise ValueError('tema.json: falta o bloco "pos"')
+    for chave in POS_CHAVES:
+        if chave not in pos:
+            raise ValueError(f'tema.json: falta pos "{chave}"')
+        valor = pos[chave]
+        if isinstance(valor, bool) or not isinstance(valor, (int, float)):
+            raise ValueError(f'tema.json: pos "{chave}" inválido: {valor!r} (use um número)')
     corpo = json.dumps(tema, indent=2, ensure_ascii=False)
     return f"// gerado por tools/motor.py a partir de {origem} — não edite\nexport const TEMA = {corpo};\n"
 
@@ -38,17 +54,27 @@ def instalar_motor(video: pathlib.Path, nicho: str, motor: str = "3d", *, raiz: 
     if not arq_tema.is_file():
         raise FileNotFoundError(f"nicho sem tema: {arq_tema}")
     versao = (origem / "VERSION").read_text(encoding="utf-8").strip()
-    tema_js = gerar_tema_js(json.loads(arq_tema.read_text(encoding="utf-8")), arq_tema.relative_to(raiz).as_posix())
+    try:
+        tema = json.loads(arq_tema.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise ValueError(f"{arq_tema.name}: JSON inválido ({e})") from e
+    tema_js = gerar_tema_js(tema, arq_tema.relative_to(raiz).as_posix())
 
+    # valida o meta.json antes de mexer em qualquer arquivo (meta malformado não deixa instalação parcial)
+    meta = video / "meta.json"
+    dados = None
+    if meta.is_file():
+        try:
+            dados = json.loads(meta.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            raise ValueError(f"{meta.name}: JSON inválido ({e})") from e
     destino = video / "assets" / "motor"
     if destino.exists():
         shutil.rmtree(destino)
     shutil.copytree(origem, destino, ignore=shutil.ignore_patterns(*IGNORAR))
     (video / "assets" / "tema.js").write_text(tema_js, encoding="utf-8")
 
-    meta = video / "meta.json"
-    if meta.is_file():
-        dados = json.loads(meta.read_text(encoding="utf-8"))
+    if dados is not None:
         dados["motor"] = {"tipo": motor, "versao": versao}
         meta.write_text(json.dumps(dados, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return versao

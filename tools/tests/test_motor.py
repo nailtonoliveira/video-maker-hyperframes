@@ -29,6 +29,38 @@ class GerarTemaJs(unittest.TestCase):
             motor.gerar_tema_js(tema, "x")
         self.assertIn('cor "ok" inválida', str(c.exception))
 
+    def _tema(self):
+        return json.loads(json.dumps(TEMA_TECH_LORE))
+
+    def test_fonte_rotulo3d_faltando(self):
+        tema = self._tema()
+        del tema["fontes"]["rotulo3d"]
+        with self.assertRaises(ValueError) as c:
+            motor.gerar_tema_js(tema, "x")
+        self.assertIn("fontes.rotulo3d", str(c.exception))
+
+    def test_material_nao_string(self):
+        tema = self._tema()
+        tema["material"] = 3
+        with self.assertRaises(ValueError) as c:
+            motor.gerar_tema_js(tema, "x")
+        self.assertIn("material", str(c.exception))
+
+    def test_pos_chave_faltando(self):
+        tema = self._tema()
+        del tema["pos"]["vinheta"]
+        with self.assertRaises(ValueError) as c:
+            motor.gerar_tema_js(tema, "x")
+        self.assertIn('pos "vinheta"', str(c.exception))
+
+    def test_pos_chave_nao_numero(self):
+        for ruim in ("0.5", True, None):
+            tema = self._tema()
+            tema["pos"]["obturador"] = ruim
+            with self.assertRaises(ValueError) as c:
+                motor.gerar_tema_js(tema, "x")
+            self.assertIn('pos "obturador"', str(c.exception))
+
 
 class InstalarMotor(unittest.TestCase):
     def setUp(self):
@@ -74,6 +106,18 @@ class InstalarMotor(unittest.TestCase):
         self.assertEqual(d["name"], "n-001-v")
         self.assertTrue(txt.endswith("\n"))
         self.assertIn('\n  "id"', txt)
+
+    def test_meta_malformado_nao_deixa_instalacao_parcial(self):
+        antigo = self.video / "assets" / "motor"
+        antigo.mkdir(parents=True)
+        (antigo / "velho.js").write_text("//\n", encoding="utf-8")
+        (self.video / "meta.json").write_text("{ quebrado", encoding="utf-8")
+        with self.assertRaises(ValueError) as c:
+            motor.instalar_motor(self.video, "n", raiz=self.raiz)
+        self.assertIn("meta.json", str(c.exception))
+        self.assertTrue((antigo / "velho.js").is_file())
+        self.assertFalse((antigo / "util.js").exists())
+        self.assertFalse((self.video / "assets" / "tema.js").exists())
 
     def test_sem_meta_nao_cria(self):
         motor.instalar_motor(self.video, "n", raiz=self.raiz)

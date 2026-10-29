@@ -26,6 +26,8 @@ export function build(canvas) {
 - `shots`: lista de planos (abaixo), cobrindo `0` até `loop` sem buraco (o último pode terminar em `loop + 0.01`).
 - `skies`: `{ chave: { top, mid, bottom, fog, fogNear, fogFar } }`; cada plano escolhe por `env`. `SKIES.day` pronto.
 - `update(t, sh, c)`: põe a cena no tempo `t` (`sh` = plano atual, `c` = `{ pos, look, dist }` da câmera).
+  Todo `update` define, em toda chamada, toda propriedade mutável que toca; objetos atualizados só em alguns planos
+  ficam escondidos nos outros.
 - `post(t, sh, c)`: devolve campos de pós que sobrepõem o tema: `focus` (use `c.dist`), `aperture`, `exposure`, `ca`,
   `vignette`, `shutter`, `grain` (manter 0).
 - Quem carrega o episódio é o `world.html` (bootstrap com `hf-seek`/`buildReady` + `montar.js`, que carrega a fonte do
@@ -36,9 +38,12 @@ export function build(canvas) {
 - util: `rng`, `hash`, `clamp`, `seg(t, a, b)` (0..1), `E` (easings: lin, expoOut, p2in, p2out, p2io, p3io, p3out,
   backOut), `shake`, `blink`, `loopPeriod`, `pulses(t, tempos, amp, dur)` (decaem linearmente), `dip(t, t0, largura, profundidade)`.
 - câmera: `shotAt`, `cameraOf`, `v3`, `follow(alvo, { rotate })` (alvo(t) → `{ p, a }`).
-- materiais: `COL` (papéis de cor do tema), `color(papel)`, `fill`, `edge`, `glowless`, `solid(geom, fill, edge)`,
+- materiais: `COL` (papéis de cor do tema), `color(papel)`, `fill`, `edge`, `glowless`, `solid(geom, f, e, shadow = true)`,
   `setLook`. Estilo único: maquete (sólido fosco + aresta de 1 px).
-- texto: `label(text, cor, px, alturaMundo)` (plano de frente), `floorLabel(...)` (deitado no chão).
+  `COL` (tema): ground←chao, ink←tinta, gray←secundaria, mint←ok, alert←alerta, cyan←destaque, slate←ardosia, dead←morto.
+  `COL.nome` errado dá `undefined` em silêncio; `color("<papel>")` (nome do tema) dá erro claro.
+- texto: `label(text, cor, px, alturaMundo, weight = 800)` (plano de frente), `floorLabel(...)` (deitado no chão);
+  `cor` aceita número (`COL.ink`) ou string CSS.
 - mundos: `gridLines`, `SKIES`, `makeTerrain({ seed, coast, ... })` (morros, costa, mar, nuvens).
 
 ## Um plano (`shots[i]`)
@@ -52,6 +57,7 @@ export function build(canvas) {
   shake: [t0, amp, dur, f],              // tremor de impacto (só desloca y; não entra no desfoque)
   ap: 3 }                                // dado livre do episódio (aqui: abertura da DOF), lido pelo seu `post`
 ```
+- `base` é ignorado quando há `path`/`aim` (com só `aim`, `pos` ainda soma `base`, `look` não).
 - Em vez de `p0/p1/l0/l1`, `path(t, k, plano)` e `aim(t, k, plano)` devolvem Vector3 (k = progresso eased).
 - `follow(alvo)` espalhado no plano faz `base` seguir o alvo; `follow(alvo, { rotate: true })` gira `p0/p1/l0/l1`
   com o ângulo do alvo (câmera presa ao corpo).

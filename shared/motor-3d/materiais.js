@@ -6,9 +6,8 @@ if (TEMA.material !== "maquete") throw new Error(`tema: material "${TEMA.materia
 
 // hex do papel de cor do tema como número; o erro nomeia o papel que falta
 export function color(papel) {
-  const hex = TEMA.cores[papel];
-  if (hex === undefined) throw new Error(`tema: falta a cor "${papel}"`);
-  return parseInt(hex.slice(1), 16);
+  if (!Object.hasOwn(TEMA.cores, papel)) throw new Error(`tema: falta a cor "${papel}"`);
+  return parseInt(TEMA.cores[papel].slice(1), 16);
 }
 
 export const COL = {
