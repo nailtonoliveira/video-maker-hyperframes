@@ -691,8 +691,8 @@ function cylX(rTop, rBot, len, seg, f, e) {
 // 1 u ≈ 5 m (a mesma escala do Ariane e do terreno). Origem no centro da fuselagem, na altura da asa; nariz em +x,
 // asas ao longo de z. Comprimento ~7,5 u, envergadura ~7,2 u, deriva até y = 1,95. Com trem(1), rodas em y = −0,92.
 // pose(p, a): posição e arfagem (rotação em torno de z, nariz para cima com a > 0) — alvo de follow(…).
-// trem(k): 0 = recolhido (escondido), 1 = baixado. dano(k): 0 → 1, a ponta da asa direita (+z) se solta e gira,
-// a turbina direita fica com aresta vermelha, fogo facetado e fumaça escura atrás.
+// trem(k): 0 = recolhido (escondido), 1 = baixado. dano(k): 0 → 1, a ponta da asa direita (+z) se solta, gira e cai
+// (some em k = 1), a turbina direita fica com aresta vermelha, fogo facetado e fumaça presa ao corpo atrás.
 export function makeAirplane() {
   const white = fill(0xe4e8ee, 0.7);
   const eWhite = edge(0x6b7684, 0.55);
@@ -799,10 +799,11 @@ export function makeAirplane() {
   const fire = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.7, 7).rotateZ(Math.PI / 2), fireMat);
   fire.position.set(-0.45, -0.43, 1.25);
   group.add(fire);
-  const smokeMat = fill(0x2a2f36, 0.95);
+  // fumaça presa ao corpo (no avião em movimento, um rastro no mundo pede makeTrail de efeitos.js)
+  const smokeMat = fill(0x4a5058, 0.95);
   const smoke = Array.from({ length: 6 }, (_, i) => {
-    const m = solid(new THREE.IcosahedronGeometry(0.2 + 0.07 * i, 0), smokeMat, null, false);
-    m.position.set(-0.8 - 0.55 * i, -0.43 + 0.05 * i, 1.25 + 0.08 * (hash(i, 71) - 0.5));
+    const m = solid(new THREE.IcosahedronGeometry(0.12 + 0.045 * i, 0), smokeMat, null, false);
+    m.position.set(-0.85 - 0.7 * i, -0.43 + 0.07 * i, 1.25 + 0.1 * (hash(i, 71) - 0.5));
     m.rotation.set(hash(i, 72) * 3, hash(i, 73) * 3, 0);
     group.add(m);
     return m;
@@ -845,8 +846,10 @@ export function makeAirplane() {
       }
     },
     dano(k) {
-      tip.position.set(tipBase.x - 1.6 * k, tipBase.y - 1.1 * k, tipBase.z + 0.9 * k);
-      tip.rotation.set(1.6 * k, 0.7 * k, -0.5 * k);
+      // a ponta cai em parábola (fica para trás e despenca ~13 u) e some em k = 1: não acompanha o avião depois
+      tip.visible = k < 1;
+      tip.position.set(tipBase.x - 1.6 * k - 3 * k * k, tipBase.y - 1.0 * k - 12 * k * k, tipBase.z + 0.9 * k + 1.5 * k * k);
+      tip.rotation.set(1.6 * k + 3 * k * k, 0.7 * k, -0.5 * k - 2 * k * k);
       setLook(engines[1], white, k >= 0.5 ? eEngineBad : eWhite);
       fire.visible = k > 0.02;
       fire.scale.set(Math.max(0.01, k), 1, 1);

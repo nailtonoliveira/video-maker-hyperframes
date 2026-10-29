@@ -55,9 +55,11 @@ lugares reais e o bug. Não edite o kit dentro de um vídeo: a fonte da verdade 
   `feixe(on)`: cone ciano do cabeçote ao paciente; `alerta(k)`: tela do console, lâmpada e luz local em vermelho.
 - Avião: asas ao longo de z, asa direita em +z. `pose(p, a)`: posição e arfagem (em torno de z), alvo de
   `follow(…)` (com `rotate: true` a câmera fica presa ao corpo, como no Ariane). `trem(k)`: 0 recolhido (escondido),
-  1 baixado (rodas em y = −0,92 do centro). `dano(k)`: a ponta da asa direita se solta e gira, a turbina direita
-  ganha aresta vermelha, fogo facetado e fumaça escura. Lê-se melhor de 3/4 pela frente, um pouco acima, contra o céu
-  (`makeTerrain` lá embaixo).
+  1 baixado (rodas em y = −0,92 do centro). `dano(k)`: a ponta da asa direita se solta, gira e cai em parábola, e
+  **some em k = 1** (deixe a rampa curta, ~1 s, para a queda se ver); a turbina direita ganha aresta vermelha, fogo
+  facetado e fumaça. A fumaça é presa ao corpo: com o avião andando, um rastro no mundo pede `makeTrail`
+  (`efeitos.js`). Lê-se melhor de 3/4 pela frente, um pouco acima, contra o céu (`makeTerrain` lá embaixo).
+- Escalas misturadas: avião (1 u ≈ 5 m) e carro (1 u = 1 m) juntos: escale o carro ×0,2 (ou o avião ×5).
 - Carro: `rodas(ang)` em radianos, positivo rolando para +x (ang = distância / 0,32); as rodas têm 5 raios para o giro
   aparecer. `freio(on)`: lanternas, brake-light e uma luz vermelha curta atrás. Lataria muda com `cor`.
 - Sonda: corpo dourado (manta térmica), prato em +y, asas de painéis ao longo de z, motor em −y, mastro do

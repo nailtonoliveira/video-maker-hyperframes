@@ -23,7 +23,8 @@ Snapshots em `renders/` (fora do git): Tarefa 5 em `it1`, `it2`, `it3`, `final` 
 - Tarefa 6: LEDs maiores (0,06 × 0,026 m, antes 0,035 × 0,016), tampas das pontas claras com venezianas e coluna de
   LEDs da PDU, régua de luz apagada (cinza médio) e órbita na diagonal (122°→88°, y 5,5): a câmera vê as frentes de
   uma fileira e termina na ponta do corredor. `t6-final` 4,5 s, 6 s e 7,6 s: lê-se como sala de servidores nas três
-  amostras; os LEDs passam de 4 px nas frentes.
+  amostras; os LEDs passam de 4 px nas frentes. Confunde: a 4,5 s a fileira da esquerda é cortada pela borda do
+  quadro (só se vê a traseira), sem perder a leitura.
 - `--angle iso` (6 s): o ângulo iso só inclina o plano da composição (o canvas 3D vira um cartão); serve para ver a
   composição, não acrescenta leitura do objeto.
 
@@ -56,8 +57,11 @@ Snapshots em `renders/` (fora do git): Tarefa 5 em `it1`, `it2`, `it3`, `final` 
   bimotor. Fuselagem branca torneada com a cauda levantada, janelas, para-brisa, faixa e deriva azul, asas enflechadas
   com winglets, turbinas com entrada escura. O trem baixa entre 0,5 e 1,6 s, e o `dano` solta a ponta da asa direita,
   com fogo facetado, fumaça e aresta vermelha na turbina.
-- Sem mudança depois do it1. Confunde: visto de frente, a fumaça cai por cima da asa e parece um bloco escuro; a
-  ponta da asa solta cai longe, quase fora do quadro. Num episódio, mostre o dano de lado ou por trás.
+- Sem mudança na malha depois do it1. Confunde (t6-final): visto de frente, a fumaça cai por cima da asa e parece
+  um bloco escuro; a ponta da asa solta parava a ~9 m embaixo da asa e seguiria o avião para sempre.
+- Revisão (fix 1, `t6-fix1` 18,9–19,9 s): a ponta cai em parábola, sai do quadro e some em `dano(1)`. A fumaça virou
+  bolas menores, espaçadas e mais claras (0x4a5058); lê-se como fumaça facetada atrás da turbina, não como um
+  bloco.
 
 ## Carro (`makeCar()`)
 - t6-it1 (órbita 48°→78°): lê-se como sedã (lataria, cabine de vidro escuro, teto, rodas de 5 raios, faróis). Mas a
@@ -70,8 +74,10 @@ Snapshots em `renders/` (fora do git): Tarefa 5 em `it1`, `it2`, `it3`, `final` 
 ## Sonda (`makeSpaceProbe()`)
 - t6-it1 (órbita 70°→100°, r 15): corpo dourado, prato, painéis com grade e estrelas; lê-se como sonda ou satélite.
   As asas abertas cruzavam o quadro de lado e deixavam o corpo pequeno; com r 12,5 (it2) cortavam nas bordas.
-- t6-it3/final: órbita 30°→55° (as asas recuam na diagonal), r 14, y 5. 24,3–25 s: dobrada, a asa sai da lateral;
-  26 s: os painéis desdobram em sanfona; 27,8 s: aberta, com o prato inclinado. Confunde: nada; sem rótulo, lê-se
+- t6-it3/final: órbita 30°→55° (as asas recuam na diagonal), r 14, y 5. 24,3–25 s: dobrada, a asa sai da lateral, com
+  o prato inclinado; 26 s: os painéis desdobram em sanfona; 27,8 s: aberta, com o prato de volta na vertical.
+- Revisão (fix 1): com r 14, a asa esquerda saía do quadro a 27,8 s e encostava nele a 26 s. Com r 15,5
+  (`t6-fix1`), a sonda inteira fica dentro do quadro nos dois tempos. Confunde: nada; sem rótulo, lê-se
   como "sonda/satélite", não necessariamente uma sonda interplanetária (falta contexto de planeta, o que fica para
   o episódio).
 
@@ -79,9 +85,9 @@ Snapshots em `renders/` (fora do git): Tarefa 5 em `it1`, `it2`, `it3`, `final` 
 | Objeto | Reconhecível | Observação |
 | --- | --- | --- |
 | Base + Ariane 5 | sim | Foguete com boosters na base; a mesa de lançamento pesa no pé do quadro. |
-| Data center | sim | Diagonal + ponta do corredor; tampas com venezianas, LEDs maiores, régua apagada; lê-se nas 3 amostras. |
+| Data center | sim | Diagonal + ponta do corredor; tampas com venezianas, LEDs maiores, régua apagada; lê-se nas 3 amostras (fileira da esquerda cortada a 4,5 s). |
 | Pregão | sim | Telão com velas e número, 6 mesas; o gráfico ocupa a metade de baixo do telão. |
 | Radioterapia | sim | Acelerador com braço em C, feixe ciano e paciente que agora se lê como pessoa; console na borda. |
-| Avião | sim | Bimotor comercial de 3/4 contra o terreno; a fumaça do dano vista de frente vira um bloco. |
+| Avião | sim | Bimotor comercial de 3/4 contra o terreno; no dano, a ponta da asa cai e some, e a fumaça sai em bolas. |
 | Carro | sim | Sedã de 3/4 frente → traseira; freio visível; o desenho é datado (quadrado). |
 | Sonda | sim | Corpo dourado, prato e painéis em sanfona; lê-se como sonda/satélite, sem dizer qual. |

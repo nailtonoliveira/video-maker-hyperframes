@@ -72,7 +72,7 @@ export function build(canvas) {
     {
       env: "sala", show: [trade.group], look: [0, 1.2, -0.9], r: 11.5, y: 7.2, a: [-20, 12],
       set: (u) => {
-        trade.telas(4231.5 - 980 * E.p2in(seg(u, 1.8, 3.6)));
+        trade.telas(Math.round((4231.5 - 980 * E.p2in(seg(u, 1.8, 3.6))) / 5) * 5); // de 5 em 5: poucos rótulos
         trade.queda(E.p2io(seg(u, 1.8, 3.4)));
       },
     },
@@ -99,7 +99,7 @@ export function build(canvas) {
       },
     },
     {
-      env: "espaco", show: [probe.group], look: [0, 0, 0], r: 14, y: 5, a: [30, 55],
+      env: "espaco", show: [probe.group], look: [0, 0, 0], r: 15.5, y: 5, a: [30, 55],
       set: (u) => {
         probe.paineis(E.p2io(seg(u, 0.2, 2.4)));
         probe.antena(-0.5 + 0.5 * E.p2io(seg(u, 2.0, 3.6)));
