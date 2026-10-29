@@ -24,6 +24,9 @@ if not (base / "template").is_dir():
     sys.exit(f"nicho de partida sem template: {base.relative_to(ROOT)}")
 
 shutil.copytree(base / "template", dest / "template")
+kit3d_shared = ROOT / "shared" / "kit3d"
+if kit3d_shared.is_dir() and ((dest / "template" / "assets" / "kit3d.js").exists() or (dest / "template" / "compositions" / "world.html").exists()):
+    shutil.copytree(kit3d_shared, dest / "template" / "assets", dirs_exist_ok=True)
 (dest / "videos").mkdir()
 # Prompts e configuração do pipeline: começam iguais aos do nicho de partida; a voz fica vazia para ser escolhida.
 if (base / "prompts").is_dir():

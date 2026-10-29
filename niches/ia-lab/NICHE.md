@@ -27,7 +27,7 @@ Fonte da verdade da identidade do nicho: o que está aqui vale para todo vídeo 
 ## Visual (Oficina Grafite & Âmbar 3D + Droides Cápsula + HUD Placa Metálica)
 - **Arquitetura de Composição:**
   - `compositions/world.html` concentra **tanto o palco 3D (`<canvas id="gl">`) quanto o HUD 2D superior** (`#hud-tape-wrap` / `#hud-paper-strip` / `#hud-led`, `#hud-score-card`, `#hud-cta-modal`), garantindo sincronia absoluta entre cortes de câmera 3D e placas metálicas 2D.
-  - `assets/kit3d.js` fornece os construtores 3D prontos da série (`STAGE_THEMES.amber` por padrão): **sempre use `kit3d.js`** em vez de modelar geometrias cruas do zero.
+  - `assets/kit3d.js` (copiado automaticamente de `shared/kit3d/kit3d.js` para cada novo vídeo por `tools/new_video.py`) fornece os construtores 3D prontos da série (`STAGE_THEMES.amber` por padrão): **sempre use `kit3d.js`** em vez de modelar geometrias cruas do zero. Para evoluir o Kit 3D para todos os nichos futuros, edite `shared/kit3d/kit3d.js`.
 - **Paleta (Tema Padrão `amber` — Grafite & Âmbar Quente):**
   - Fundo Oficina 3D: Grafite carvão neutro `#111113` → `#1f1c19` com linhas técnicas em âmbar-ouro (`rgba(245, 158, 11, 0.20)`), crosshairs `+` e diagramas CAD ao fundo.
   - Bancada de Grafite Chumbo: chapas foscas `#27272a` / `#2e2c29` (`y = 0` é o topo da mesa) com tapete técnico grafite `#181614` emoldurado em âmbar `#f59e0b`, parafusos sextavados e barra de LED frontal âmbar `#fbbf24`.

@@ -5,7 +5,7 @@ Modo sem paradas: não faça perguntas e não ofereça alternativas para escolha
 # O que já existe nesta pasta (não recrie do zero!)
 - Projeto HyperFrames criado a partir do template do nicho `ia-lab`:
   - `index.html`: monta `compositions/world.html` (de `0` até `{{DURACAO}}` s), `compositions/captions.html` e `assets/voice.mp3`.
-  - **`assets/kit3d.js`**: **BIBLIOTECA 3D PRONTA DO NICHO**. Contém `PALETTE`, `E`, `seg`, `shake`, `createDioramaStage`, `createBlockAgent`, `createCodeScreen`, `createFlowArrow`, `createFloatingLabel` e `applyCameraShot`. **Use obrigatoriamente o `kit3d.js`** — nunca modele palco, agentes ou telas do zero.
+  - **`assets/kit3d.js`**: **BIBLIOTECA 3D COMPARTILHADA (`shared/kit3d/kit3d.js`) COPIADA PARA ESTE VÍDEO**. Contém `PALETTE`, `STAGE_THEMES`, `E`, `seg`, `shake`, `createDioramaStage`, `createBlockAgent`, `createCodeScreen`, `createFlowArrow`, `createFloatingLabel` e `applyCameraShot`. **Use obrigatoriamente o `kit3d.js`** — nunca modele palco, agentes ou telas do zero.
   - `compositions/world.html`: contém a estrutura pronta do `<canvas id="gl">`, o HUD 2D de Placa Metálica Industrial com parafusos e LED (`#hud-tape-wrap`, `#hud-paper-strip`, `#hud-led`, `#hud-banner-text`), o placar metálico dinâmico (`#hud-score-card`, `#hud-score-label`, `#hud-score-val`), o card de CTA opcional (`#hud-cta-modal`) e um exemplo funcional do `buildScene(THREE, KIT)`.
   - `assets/voice.mp3` (**{{DURACAO}} s**, {{FRAMES}} frames) e `assets/voice.json` (timestamps palavra por palavra do Whisper).
   - `compositions/captions.html`: legendas estilo pílula dark glass (`dark-pill`) já geradas. **Nunca edite `compositions/captions.html`**.
