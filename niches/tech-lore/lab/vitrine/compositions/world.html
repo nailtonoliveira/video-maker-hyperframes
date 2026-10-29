@@ -1,0 +1,45 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--ground);
+      overflow: hidden;
+    }
+    #gl {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+  </style>
+  <div id="root" data-composition-id="world" data-width="1080" data-height="1920">
+    <canvas id="gl" width="1080" height="1920" data-layout-ignore></canvas>
+  </div>
+  <script>
+    (function () {
+      // sem camada 2D: a timeline só marca a duração
+      const tl = gsap.timeline({ paused: true });
+      tl.set({}, {}, 16);
+      window.__timelines["world"] = tl;
+
+      // ---------- mundo 3D: motor + kit + vitrine (módulos locais em assets/) ----------
+      let api = null;
+      let lastT = 0;
+      const ready = import("./assets/motor/montar.js")
+        .then((m) => m.mount({ canvas: document.getElementById("gl"), episode: new URL("./assets/episode/scene.js", document.baseURI).href }))
+        .then((a) => {
+          api = a;
+          api.render(lastT);
+        });
+      window.__hf = window.__hf || {};
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      window.__hf.buildReady.world = ready;
+      window.addEventListener("hf-seek", (e) => {
+        lastT = e.detail.time;
+        if (api) api.render(lastT);
+        else e.detail.waitUntil(ready);
+      });
+    })();
+  </script>
+</template>
