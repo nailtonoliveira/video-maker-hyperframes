@@ -33,10 +33,12 @@ index, n = pat.subn(lambda mm: mm.group(1) + new_s + '"', index)
 index_file.write_text(index, encoding="utf-8")
 print(f"index.html: {old_s} → {new_s} s ({n} elementos)")
 
-bg_file = VIDEO / "compositions" / "bg.html"
-if bg_file.exists():
-    bg, k = re.subn(r"const DUR = [\d.]+;", f"const DUR = {new_s};", bg_file.read_text(encoding="utf-8"))
-    bg_file.write_text(bg, encoding="utf-8")
-    print(f"bg.html: DUR = {new_s}" if k else "bg.html: sem 'const DUR', ajuste a grade à mão")
+for cname in ("bg.html", "world.html"):
+    cfile = VIDEO / "compositions" / cname
+    if cfile.exists():
+        txt, k = re.subn(r"const DUR = [\d.]+;", f"const DUR = {new_s};", cfile.read_text(encoding="utf-8"))
+        cfile.write_text(txt, encoding="utf-8")
+        if k:
+            print(f"{cname}: DUR = {new_s}")
 
 print("Confira se a última cena termina em", new_s, "s (data-start + data-duration).")

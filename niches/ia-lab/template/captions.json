@@ -1,0 +1,16 @@
+{
+  "fixes": {},
+  "style": "dark-pill",
+  "font_family": "'Inter', sans-serif",
+  "max_words": 3,
+  "max_chars": 22,
+  "pause": 0.14,
+  "left": 110,
+  "width": 860,
+  "bottom": 380,
+  "font_size": 50,
+  "ink": "#f8fafc",
+  "tag_bg": "#141417",
+  "tag_active_bg": "#fbbf24",
+  "tag_active_ink": "#141414"
+}

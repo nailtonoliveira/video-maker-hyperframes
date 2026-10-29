@@ -132,18 +132,39 @@ def cmd_novo(a):
         raise SystemExit(r.stderr or r.stdout)
     vdir = config.ROOT / re.search(r"Criado: (\S+)", r.stdout).group(1)
     tema = {k: v for k, v in t.items() if k not in ("estado", "criado_em", "atualizado_em")}
+    if a.cta:
+        tema["cta"] = a.cta
+    if a.marca is not None and a.marca != "":
+        tema["marca"] = cfg.get("marca_dagua", "ia-lab.dev") if a.marca is True else str(a.marca)
     state = {"id": json.loads((vdir / "meta.json").read_text())["id"], "nicho": a.nicho, "tema_id": t["id"],
              "tema": tema, "ensaio": a.ensaio, "criado_em": agora(), "etapas": {}}
     (vdir / "pipeline.json").write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    v = stages.Video(vdir)
+    stages.aplicar_marca_dagua(v)
     cat.__init__(cfg["_dir"])
     cat.mudar(t["id"], "em_producao", video=vdir.name)
     cat.salvar()
     say(f"Vídeo criado: {config.rel(vdir)}  (tema {t['id']}: {t['titulo']})" + ("  [ENSAIO]" if a.ensaio else ""))
-    stages.rodar(stages.Video(vdir), auto=a.auto, ate=a.ate)
+    stages.rodar(v, auto=a.auto, ate=a.ate)
 
 
 def cmd_rodar(a):
     v = stages.Video(resolver_video(a.video))
+    if a.cta is not None:
+        if a.cta:
+            v.state.setdefault("tema", {})["cta"] = a.cta
+        else:
+            v.state.get("tema", {}).pop("cta", None)
+        v.salvar()
+    if a.marca is not None:
+        if a.marca is True:
+            v.state.setdefault("tema", {})["marca"] = v.cfg.get("marca_dagua", "ia-lab.dev")
+        elif a.marca:
+            v.state.setdefault("tema", {})["marca"] = str(a.marca)
+        else:
+            v.state.get("tema", {}).pop("marca", None)
+        v.salvar()
+        stages.aplicar_marca_dagua(v)
     if a.refazer:
         v.resetar_desde(a.refazer)
     stages.rodar(v, auto=a.auto, ate=a.ate, aprovar=a.aprovar)
@@ -254,6 +275,8 @@ def main():
     p.add_argument("nicho")
     p.add_argument("id", nargs="?", help="ID do tema no catálogo (ex.: T004); sem ID, você escolhe da lista")
     p.add_argument("--tema", help="tema livre, sem passar pelo catálogo de sugestões")
+    p.add_argument("--cta", help="CTA específico para o final deste vídeo (ex.: 'Comenta BANCA que eu te mando o prompt'). Sem --cta, o vídeo fecha sem pedir comentário.")
+    p.add_argument("--marca", nargs="?", const=True, default=None, help="exibe a marca d'água no canto superior direito (usa 'marca_dagua' do niche.json ou o texto passado)")
     p.add_argument("--auto", action="store_true", help="sem paradas para aprovação")
     p.add_argument("--ate", choices=stages.ETAPAS, help="para depois desta etapa")
     p.add_argument("--ensaio", action="store_true", help="usa respostas e voz de exemplo, sem chamar APIs pagas")
@@ -261,6 +284,8 @@ def main():
 
     p = sp.add_parser("rodar", help="continua (ou refaz) o pipeline de um vídeo")
     p.add_argument("video", help="pasta do vídeo ou atalho <nicho>/<NNN>")
+    p.add_argument("--cta", help="define/altera o CTA específico deste vídeo (passe '' para remover)")
+    p.add_argument("--marca", nargs="?", const=True, default=None, help="ativa/altera a marca d'água (usa 'marca_dagua' do niche.json se sem valor; passe '' para ocultar)")
     p.add_argument("--auto", action="store_true")
     p.add_argument("--aprovar", action="store_true", help="aprova a etapa que está aguardando e segue")
     p.add_argument("--refazer", choices=stages.ETAPAS, help="refaz desta etapa em diante")

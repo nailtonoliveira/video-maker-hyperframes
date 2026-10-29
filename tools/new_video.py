@@ -32,8 +32,11 @@ if any(p.name.endswith("-" + args.slug) for p in videos.iterdir()):
 
 dest = videos / f"{num}-{args.slug}"
 shutil.copytree(template, dest)
-# SFX copiados (não referenciados): o HyperFrames só serve arquivos de dentro do projeto, e o vídeo fica congelado.
+# SFX e Kit 3D copiados (não referenciados): o HyperFrames só serve arquivos de dentro do projeto, e o vídeo fica congelado.
 shutil.copytree(ROOT / "shared" / "sfx", dest / "assets" / "sfx", dirs_exist_ok=True)
+kit3d_shared = ROOT / "shared" / "kit3d"
+if kit3d_shared.is_dir() and (dest / "assets" / "kit3d.js").exists():
+    shutil.copytree(kit3d_shared, dest / "assets", dirs_exist_ok=True)
 
 vid = f"{args.nicho}-{num}-{args.slug}"
 (dest / "meta.json").write_text(json.dumps({

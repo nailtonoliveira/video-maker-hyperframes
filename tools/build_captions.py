@@ -10,6 +10,8 @@ import argparse, json, html, pathlib, re, sys
 DEFAULTS = {
     "fixes": {},          # erros de transcrição: {"Ao": "Aos"}
     "fixes_idx": {},      # correção por índice de palavra (gerada pelo pipeline): {"23": "Aos"}
+    "style": "terminal",  # "terminal" (padrão) ou "label-tag" (etiquetas recortadas 3D/papel)
+    "font_family": "var(--font-mono)",
     "max_words": 3,
     "max_chars": 24,
     "pause": 0.15,        # pausa (s) que quebra um grupo
@@ -19,6 +21,9 @@ DEFAULTS = {
     "font_size": 52,
     "active": "#00ff9d",  # palavra falada
     "ink": "#e6edf3",
+    "tag_bg": "#c85a32",
+    "tag_active_bg": "#ffd43b",
+    "tag_active_ink": "#141414",
 }
 
 ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
@@ -61,9 +66,13 @@ if cur:
 
 spans = []
 for gi, g in enumerate(groups):
+    if g[0]["start"] >= DURATION - 0.15:
+        break
     start = max(0.15, g[0]["start"] - 0.04)
     nxt = groups[gi + 1][0]["start"] - 0.04 if gi + 1 < len(groups) else DURATION
     end = min(max(g[-1]["end"] + 0.35, g[-1]["end"]), nxt, round(DURATION - 0.02, 3))
+    if end <= start:
+        continue
     spans.append({"id": f"cap-{gi}", "start": round(start, 3), "end": round(end, 3), "words": g})
 
 markup, script = [], []
@@ -75,12 +84,158 @@ for s in spans:
             ", ".join("[%s, %s]" % (w["start"], w["end"]) for w in s["words"]))
     )
 
-out = f"""<template>
+if cfg["style"] == "dark-pill":
+    out = f"""<template>
   <style>
     #root {{
       position: absolute;
       inset: 0;
-      font-family: var(--font-mono);
+      font-family: {cfg["font_family"]};
+    }}
+    .cap-g {{
+      position: absolute;
+      left: {cfg["left"]}px;
+      width: {cfg["width"]}px;
+      bottom: {cfg["bottom"]}px;
+      text-align: center;
+      overflow: visible;
+      visibility: hidden;
+      opacity: 0;
+    }}
+    .cap-t {{
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: {cfg["tag_bg"]};
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: 3px solid #475569;
+      box-shadow: 0 8px 0 #050a14, 0 14px 28px rgba(0, 0, 0, 0.55);
+    }}
+    .cap-w {{
+      display: inline-block;
+      font-size: {cfg["font_size"]}px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: {cfg["ink"]};
+      background: transparent;
+      padding: 6px 16px 8px;
+      border-radius: 999px;
+    }}
+  </style>
+  <!-- Gerado por tools/build_captions.py a partir de assets/voice.json; edite captions.json e rode de novo. -->
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+{chr(10).join(markup)}
+  </div>
+  <script>
+    (function () {{
+      const tl = gsap.timeline({{ paused: true }});
+      const INK = "{cfg["ink"]}";
+      const ACT_BG = "{cfg["tag_active_bg"]}", ACT_INK = "{cfg["tag_active_ink"]}";
+      function G(id, start, end, ws) {{
+        const g = "#" + id;
+        tl.set(g, {{ visibility: "visible" }}, start);
+        tl.fromTo(g, {{ opacity: 0, y: 12, scale: 0.96 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.12, ease: "back.out(1.8)" }}, start);
+        ws.forEach(([s, e], j) => {{
+          const w = g + "-w" + j;
+          const off = j + 1 < ws.length ? ws[j + 1][0] : end;
+          const tOn = Math.max(s, start);
+          const tOff = Math.min(off, end);
+          tl.set(w, {{ scale: 1, backgroundColor: "transparent", color: INK }}, start);
+          tl.set(w, {{ backgroundColor: ACT_BG, color: ACT_INK }}, tOn);
+          tl.fromTo(w, {{ scale: 1.12 }}, {{ scale: 1.04, duration: 0.14, ease: "back.out(2)" }}, tOn);
+          tl.set(w, {{ scale: 1, backgroundColor: "transparent", color: INK }}, tOff);
+        }});
+        tl.to(g, {{ opacity: 0, duration: 0.08, ease: "power2.in" }}, end - 0.08);
+        tl.set(g, {{ opacity: 0, visibility: "hidden" }}, end);
+      }}
+{chr(10).join(script)}
+      window.__timelines["captions"] = tl;
+    }})();
+  </script>
+</template>
+"""
+elif cfg["style"] == "label-tag":
+    out = f"""<template>
+  <style>
+    #root {{
+      position: absolute;
+      inset: 0;
+      font-family: {cfg["font_family"]};
+    }}
+    .cap-g {{
+      position: absolute;
+      left: {cfg["left"]}px;
+      width: {cfg["width"]}px;
+      bottom: {cfg["bottom"]}px;
+      text-align: center;
+      overflow: visible;
+      visibility: hidden;
+      opacity: 0;
+    }}
+    .cap-t {{
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }}
+    .cap-w {{
+      display: inline-block;
+      font-size: {cfg["font_size"]}px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: {cfg["ink"]};
+      background: {cfg["tag_bg"]};
+      padding: 10px 22px 12px;
+      border-radius: 6px;
+      border: 3px solid #141414;
+      box-shadow: 0 6px 0 #141414, 0 10px 20px rgba(0, 0, 0, 0.45);
+    }}
+  </style>
+  <!-- Gerado por tools/build_captions.py a partir de assets/voice.json; edite captions.json e rode de novo. -->
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+{chr(10).join(markup)}
+  </div>
+  <script>
+    (function () {{
+      const tl = gsap.timeline({{ paused: true }});
+      const TAG_BG = "{cfg["tag_bg"]}", INK = "{cfg["ink"]}";
+      const ACT_BG = "{cfg["tag_active_bg"]}", ACT_INK = "{cfg["tag_active_ink"]}";
+      const ROTS = [-1.6, 1.3, -1.1, 1.5];
+      function G(id, start, end, ws) {{
+        const g = "#" + id;
+        tl.set(g, {{ visibility: "visible" }}, start);
+        tl.fromTo(g, {{ opacity: 0, y: 14 }}, {{ opacity: 1, y: 0, duration: 0.12, ease: "back.out(1.8)" }}, start);
+        ws.forEach(([s, e], j) => {{
+          const w = g + "-w" + j;
+          const rot = ROTS[j % ROTS.length];
+          const off = j + 1 < ws.length ? ws[j + 1][0] : end;
+          const tOn = Math.max(s, start);
+          const tOff = Math.min(off, end);
+          tl.set(w, {{ rotation: rot, scale: 1, backgroundColor: TAG_BG, color: INK }}, start);
+          tl.set(w, {{ backgroundColor: ACT_BG, color: ACT_INK }}, tOn);
+          tl.fromTo(w, {{ scale: 1.14, rotation: rot * -0.8 }}, {{ scale: 1.04, rotation: rot, duration: 0.16, ease: "back.out(2)" }}, tOn);
+          tl.set(w, {{ scale: 1, rotation: rot, backgroundColor: TAG_BG, color: INK }}, tOff);
+        }});
+        tl.to(g, {{ opacity: 0, duration: 0.08, ease: "power2.in" }}, end - 0.08);
+        tl.set(g, {{ opacity: 0, visibility: "hidden" }}, end);
+      }}
+{chr(10).join(script)}
+      window.__timelines["captions"] = tl;
+    }})();
+  </script>
+</template>
+"""
+else:
+    out = f"""<template>
+  <style>
+    #root {{
+      position: absolute;
+      inset: 0;
+      font-family: {cfg["font_family"]};
     }}
     .cap-g {{
       position: absolute;

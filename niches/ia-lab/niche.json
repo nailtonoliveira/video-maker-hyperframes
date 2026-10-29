@@ -1,0 +1,30 @@
+{
+  "nome": "IA Lab — Como a IA Funciona por Dentro (Em 3D, Sem Jargão)",
+  "idioma": "pt-BR",
+  "marca_dagua": "ia-lab.dev",
+  "duracao_alvo_s": 50,
+  "palavras_por_segundo": 2.35,
+  "llm": {
+    "provedor": "antigravity",
+    "modelo_criativo": "gemini-4-argon-high",
+    "modelo_rapido": "gemini-3.8-flash-medium",
+    "modelo_embeddings": "gemini-embedding-001",
+    "pesquisa": true
+  },
+  "voz": {
+    "motor": "elevenlabs",
+    "voice_id": "ZGcU5sxBYchGwevqeNoR",
+    "model_id": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128",
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.0,
+    "speed": 1.0,
+    "use_speaker_boost": true,
+    "regras_texto": "ElevenLabs Multilingual v2: não use marcações entre colchetes; o ritmo vem só da pontuação."
+  },
+  "whisper": { "modelo": "base" },
+  "audio_lufs": -14,
+  "plataformas": ["youtube", "tiktok", "instagram", "facebook"],
+  "aprovacoes": ["roteiro", "voz", "cenas", "metadados"]
+}
