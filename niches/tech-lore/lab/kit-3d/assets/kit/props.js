@@ -1,5 +1,6 @@
-// Kit 3D do tech-lore — peças reutilizáveis: chip, registrador, bloco de bits, pulsos de barramento e o "bug".
-import { THREE, COL, solid, setLook, fill, edge, glowless, label, E, seg, hash, blink, shake } from "../motor/core.js";
+// Kit 3D do tech-lore — peças reutilizáveis: chip, registrador, bloco de bits, barramento, linha de código e o "bug".
+import { THREE, COL, solid, setLook, fill, edge, glowless, label, floorLabel, E, seg, hash, blink, shake } from "../motor/core.js";
+export { intBits, float64Bits } from "./bits.js";
 
 export const M = {
   slate: fill(COL.slate),
@@ -124,27 +125,26 @@ export function registerState(reg, t, { riseAt, jamAt, crackAt }) {
   reg.position.x = shake(t, jamAt, 0.05, 0.35) + shake(t, crackAt, 0.08, 0.5);
 }
 
-// ---------- bloco de bits: linhas de 16 células; 1 = célula clara ----------
-export function makeBitBlock(bits) {
+// ---------- bloco de bits: linhas de `cols` células; 1 = célula clara ----------
+// cada célula guarda row/col em userData (bitBlockState usa o mesmo cols)
+export function makeBitBlock(bits, { cols = 16 } = {}) {
   const geo = new THREE.BoxGeometry(0.42, 0.42, 0.42);
-  return bits.map((b) => solid(geo, b ? M.ink : M.slate, M.eInk));
-}
-export function float64Bits(x) {
-  const dv = new DataView(new ArrayBuffer(8));
-  dv.setFloat64(0, x);
-  const bits = [];
-  for (let i = 0; i < 64; i++) bits.push((dv.getUint8(i >> 3) >> (7 - (i & 7))) & 1);
-  return bits;
+  return bits.map((b, i) => {
+    const c = solid(geo, b ? M.ink : M.slate, M.eInk);
+    c.userData.row = Math.floor(i / cols);
+    c.userData.col = i % cols;
+    return c;
+  });
 }
 // nasce em onda (bornAt), desliza até a bandeja (slideA→slideB), só a 1ª linha cabe; as outras são cuspidas em ejectAt
-export function bitBlockState(cells, bits, t, { bornAt, slideA, slideB, jamAt, ejectAt, redAt, P = 0.5, start = -1.1 }) {
+export function bitBlockState(cells, bits, t, { bornAt, slideA, slideB, jamAt, ejectAt, redAt, P = 0.5, start = -1.1, cols = 16 }) {
   let front = start;
   front += (0 - front) * E.p2in(seg(t, slideA, slideB));
   front += 0.1 * E.expoOut(seg(t, jamAt, jamAt + 0.2));
   const red = t >= redAt;
   cells.forEach((c, i) => {
-    const row = Math.floor(i / 16);
-    const col = i % 16;
+    const row = Math.floor(i / cols);
+    const col = i % cols;
     const t0 = bornAt + i * 0.012;
     c.visible = t >= t0;
     c.scale.setScalar(Math.max(0.001, E.backOut(seg(t, t0, t0 + 0.18))));
@@ -167,6 +167,36 @@ export function bitBlockState(cells, bits, t, { bornAt, slideA, slideB, jamAt, e
     setLook(c, bits[i] ? M.ink : M.slate, red ? M.eAlert : M.eInk);
   });
   return front;
+}
+
+// ---------- barramento: `lanes` trilhas paralelas (passo 1 u, a partir de x0) centradas em z, com o rótulo ----------
+export function makeBus(lanes, { x0, z, length, text = "BARRAMENTO" }) {
+  const g = new THREE.Group();
+  for (let j = 0; j < lanes; j++) {
+    const b = solid(new THREE.BoxGeometry(0.16, 0.035, length), M.bus, null, false);
+    b.position.set(x0 + j, 0.018, z);
+    g.add(b);
+  }
+  const lbl = floorLabel(text, "#7d8590", 120, 0.34);
+  lbl.rotation.z = Math.PI / 2;
+  lbl.position.set(x0 - 1.1, 0.012, z - 1.35);
+  g.add(lbl);
+  return g;
+}
+
+// ---------- linha de código no chão: código, comentário embaixo e o sublinhado que acende ----------
+// x0 = começo do texto; z = linha de base do código
+export function makeCodeLine({ code, comment, x0, z }) {
+  const group = new THREE.Group();
+  const codeLbl = floorLabel(code, "#e6edf3", 120, 0.55, 700);
+  const w = codeLbl.userData.w;
+  codeLbl.position.set(x0 + w / 2 - 0.12, 0.012, z);
+  const commentLbl = floorLabel(comment, "#7d8590", 120, 0.36, 700);
+  commentLbl.position.set(x0 + commentLbl.userData.w / 2 - 0.08, 0.012, z - 0.85);
+  const underline = new THREE.Mesh(new THREE.BoxGeometry(w - 0.3, 0.02, 0.06), M.ledOff);
+  underline.position.set(x0 + w / 2 - 0.12, 0.012, z + 0.4);
+  group.add(codeLbl, commentLbl, underline);
+  return { group, underline };
 }
 
 // ---------- pulsos de dados correndo pelas trilhas ----------
