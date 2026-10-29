@@ -1,0 +1,136 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--ground);
+      overflow: hidden;
+      font-family: var(--font-mono);
+      color: var(--ink);
+    }
+    #gl {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    /* Texto só em x 96–948 (trilho de ações do Shorts à direita) e y 200–1130.
+       Placa escura atrás de todo texto de cena: contraste garantido sobre céu claro ou placa. */
+    .title,
+    .sub {
+      background: rgba(8, 10, 15, 0.8);
+      padding: 6px 18px 10px;
+      margin-left: -18px;
+    }
+    .title {
+      position: absolute;
+      left: 96px;
+      top: 200px;
+      font-size: 128px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      white-space: nowrap;
+      opacity: 0;
+    }
+    .sub {
+      position: absolute;
+      left: 96px;
+      top: 362px;
+      font-size: 40px;
+      font-weight: 700;
+      white-space: nowrap;
+      color: var(--ink);
+      opacity: 0;
+    }
+    .sub .k {
+      color: var(--gray);
+    }
+    #t-line {
+      line-height: 1.02;
+    }
+    #t-line .w2 {
+      display: inline-block;
+    }
+    #t16 {
+      color: var(--mint);
+    }
+    #tover {
+      color: var(--alert);
+    }
+  </style>
+  <div id="root" data-composition-id="world" data-width="1080" data-height="1920">
+    <canvas id="gl" width="1080" height="1920" data-layout-ignore></canvas>
+
+    <div id="t-line" class="title">UMA <span id="w-linha" class="w2">LINHA</span><br />DE CÓDIGO</div>
+    <div id="tariane" class="title">ARIANE 5</div>
+    <div id="s-sri" class="sub"><span class="k">// </span>SRI · computador de navegação</div>
+    <div id="t16" class="title">16 BITS</div>
+    <div id="s-16" class="sub"><span class="k">// </span>int16 · máx 32 767</div>
+    <div id="tover" class="title">OVERFLOW</div>
+    <div id="s-over" class="sub"><span class="k">// </span>valor &gt; 32 767</div>
+  </div>
+  <script>
+    (function () {
+      // = data-duration do index.html e LOOP do assets/episode/scene.js (duração da locução).
+      const DUR = 12;
+
+      // ---------- camada 2D: títulos presos às palavras da locução (tempos absolutos) ----------
+      const tl = gsap.timeline({ paused: true });
+      const show = (sel, t) => tl.set(sel, { opacity: 1 }, t);
+      const hide = (sel, t) => tl.set(sel, { opacity: 0 }, t);
+      const wipe = (sel, t) =>
+        tl.fromTo(sel, { opacity: 1, clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.38, ease: "expo.out" }, t);
+      const hit = (sel, t) => tl.fromTo(sel, { x: -16 }, { x: 0, duration: 0.4, ease: "elastic.out(1, 0.3)" }, t);
+
+      // 1 gancho: o título está pousado no quadro 0 (clipPath explícito) e volta idêntico no fim
+      tl.set("#t-line", { opacity: 1, clipPath: "inset(0 0% 0 0)" }, 0);
+      tl.set("#w-linha", { color: "var(--ink, #e6edf3)" }, 0);
+      tl.set("#w-linha", { color: "var(--alert, #ff3366)" }, 1.2);
+      hide("#t-line", 2.4);
+
+      // 2 mergulho
+      wipe("#tariane", 2.5);
+      wipe("#s-sri", 2.9);
+      hide("#tariane", 4.4);
+      hide("#s-sri", 4.4);
+
+      // 3 placa
+      wipe("#t16", 4.7);
+      wipe("#s-16", 5.1);
+      hide("#t16", 6.8);
+      hide("#s-16", 6.8);
+
+      // 4 alarme
+      show("#tover", 6.8);
+      hit("#tover", 6.8);
+      wipe("#s-over", 7.0);
+      hide("#tover", 9.2);
+      hide("#s-over", 9.2);
+
+      // 5 volta ao quadro 0
+      tl.set("#w-linha", { color: "var(--ink, #e6edf3)" }, 10.4);
+      wipe("#t-line", 10.5);
+      tl.set({}, {}, DUR);
+      window.__timelines["world"] = tl;
+
+      // ---------- mundo 3D: motor + kit + episódio (módulos locais em assets/) ----------
+      let api = null;
+      let lastT = 0;
+      const ready = import("./assets/motor/montar.js")
+        .then((m) => m.mount({ canvas: document.getElementById("gl"), episode: new URL("./assets/episode/scene.js", document.baseURI).href }))
+        .then((a) => {
+          api = a;
+          api.render(lastT);
+        });
+      window.__hf = window.__hf || {};
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      window.__hf.buildReady.world = ready;
+      window.addEventListener("hf-seek", (e) => {
+        lastT = e.detail.time;
+        if (api) api.render(lastT);
+        else e.detail.waitUntil(ready);
+      });
+    })();
+  </script>
+</template>

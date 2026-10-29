@@ -32,6 +32,10 @@ DEFAULT_NICHE = {
         "regras_texto": "",
     },
     "whisper": {"modelo": "base"},
+    "motor": None,          # motor compartilhado em shared/motor-<nome>/ (ex.: "3d"); None = nicho 2D
+    "trilha": False,
+    "audio_lufs": None,     # None = o render não normaliza o áudio
+    "mundos": None,
     "plataformas": ["youtube", "tiktok", "instagram", "facebook"],
     "claude_code": {
         "modelo": None,                       # None = o padrão do seu Claude Code
@@ -101,8 +105,9 @@ def node_bin():
 
 
 def sub_env(drop_anthropic_key=False):
-    """Ambiente dos subprocessos: Node 22 na frente do PATH; opcionalmente sem a chave da API do Claude."""
-    env = dict(os.environ)
+    """Ambiente dos subprocessos: Node 22 na frente do PATH, sem as chaves do Gemini (o CLI do HyperFrames as usaria
+    para descrever quadros, pago) e opcionalmente sem a chave da API do Claude. O Gemini do pipeline roda no processo."""
+    env = {k: v for k, v in os.environ.items() if k not in ("GEMINI_API_KEY", "GOOGLE_API_KEY")}
     nb = node_bin()
     if nb:
         env["PATH"] = f"{nb}:{env.get('PATH', '')}"

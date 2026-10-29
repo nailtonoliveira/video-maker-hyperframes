@@ -5,6 +5,9 @@ Uso:  python3 tools/new_video.py tech-lore therac25
 """
 import argparse, datetime, json, pathlib, re, shutil, sys
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from motor import instalar_do_nicho
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
@@ -44,11 +47,19 @@ pkg["name"] = vid
 
 rel = dest.relative_to(ROOT)
 print(f"Criado: {rel}")
+if versao := instalar_do_nicho(dest, args.nicho):
+    print(f"motor {json.loads((dest / 'meta.json').read_text(encoding='utf-8'))['motor']['tipo']} {versao}")
 print(f"""
 Próximos passos (a partir da raiz dark-channels/):
   1. Escreva o roteiro em {rel}/roteiro.md e gere a locução em {rel}/assets/voice.mp3
   2. tools/.venv/bin/python tools/transcribe.py {rel}/assets/voice.mp3
   3. python3 tools/set_duration.py {rel}
   4. Corrija erros da transcrição em {rel}/captions.json e rode:
-     python3 tools/build_captions.py {rel}
-  5. SPEC.md, cenas em compositions/, depois dentro da pasta: npm run check · npx hyperframes snapshot · npm run render""")
+     python3 tools/build_captions.py {rel}""")
+if versao:
+    print(f"""  5. SPEC.md, cena 3D em {rel}/assets/episode/scene.js (LOOP = duração da voz) e títulos em
+     {rel}/compositions/world.html (DUR igual); trilha em assets/episode/trilha.json
+  6. Antes do render: tools/.venv/bin/python shared/trilha/trilha.py {rel}
+  7. Dentro da pasta: npm run check · npx hyperframes snapshot --describe false · npm run render""")
+else:
+    print("  5. SPEC.md, cenas em compositions/, depois dentro da pasta: npm run check · npx hyperframes snapshot · npm run render")

@@ -1,0 +1,715 @@
+{
+  "idioma": "pt",
+  "probabilidade": 1,
+  "duracao": 48.2743125,
+  "segmentos": [
+    {
+      "id": 1,
+      "inicio": 0.0,
+      "fim": 7.32,
+      "texto": "Um erro de código de uma única linha custou 370 milhões de dólares, em apenas 37 segundos.",
+      "palavras": [
+        {
+          "palavra": "Um",
+          "inicio": 0.0,
+          "fim": 0.22,
+          "probabilidade": 0.779
+        },
+        {
+          "palavra": "erro",
+          "inicio": 0.22,
+          "fim": 0.4,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.4,
+          "fim": 0.6,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "código",
+          "inicio": 0.6,
+          "fim": 0.86,
+          "probabilidade": 0.954
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.86,
+          "fim": 1.14,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "uma",
+          "inicio": 1.14,
+          "fim": 1.3,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "única",
+          "inicio": 1.3,
+          "fim": 1.62,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "linha",
+          "inicio": 1.62,
+          "fim": 2.0,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "custou",
+          "inicio": 2.0,
+          "fim": 2.42,
+          "probabilidade": 0.96
+        },
+        {
+          "palavra": "370",
+          "inicio": 2.42,
+          "fim": 3.54,
+          "probabilidade": 0.673
+        },
+        {
+          "palavra": "milhões",
+          "inicio": 3.54,
+          "fim": 4.16,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.16,
+          "fim": 4.46,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "dólares,",
+          "inicio": 4.46,
+          "fim": 4.84,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "em",
+          "inicio": 5.34,
+          "fim": 5.58,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "apenas",
+          "inicio": 5.58,
+          "fim": 5.88,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "37",
+          "inicio": 5.88,
+          "fim": 6.7,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "segundos.",
+          "inicio": 6.7,
+          "fim": 7.32,
+          "probabilidade": 0.979
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "inicio": 8.28,
+      "fim": 17.38,
+      "texto": "Em 1996, a agência espacial europeia lançou o foguete Ariane 5, carregando quatro satélites científicos de ponta.",
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 8.28,
+          "fim": 8.56,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "1996,",
+          "inicio": 8.56,
+          "fim": 9.66,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "a",
+          "inicio": 10.72,
+          "fim": 10.78,
+          "probabilidade": 0.676
+        },
+        {
+          "palavra": "agência",
+          "inicio": 10.78,
+          "fim": 11.06,
+          "probabilidade": 0.852
+        },
+        {
+          "palavra": "espacial",
+          "inicio": 11.06,
+          "fim": 11.6,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "europeia",
+          "inicio": 11.6,
+          "fim": 12.18,
+          "probabilidade": 0.835
+        },
+        {
+          "palavra": "lançou",
+          "inicio": 12.18,
+          "fim": 12.58,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "o",
+          "inicio": 12.58,
+          "fim": 12.8,
+          "probabilidade": 0.948
+        },
+        {
+          "palavra": "foguete",
+          "inicio": 12.8,
+          "fim": 13.16,
+          "probabilidade": 0.913
+        },
+        {
+          "palavra": "Ariane",
+          "inicio": 13.16,
+          "fim": 13.68,
+          "probabilidade": 0.748
+        },
+        {
+          "palavra": "5,",
+          "inicio": 13.68,
+          "fim": 14.1,
+          "probabilidade": 0.747
+        },
+        {
+          "palavra": "carregando",
+          "inicio": 14.66,
+          "fim": 15.02,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "quatro",
+          "inicio": 15.02,
+          "fim": 15.46,
+          "probabilidade": 0.651
+        },
+        {
+          "palavra": "satélites",
+          "inicio": 15.46,
+          "fim": 16.1,
+          "probabilidade": 0.923
+        },
+        {
+          "palavra": "científicos",
+          "inicio": 16.1,
+          "fim": 16.86,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "de",
+          "inicio": 16.86,
+          "fim": 17.0,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "ponta.",
+          "inicio": 17.0,
+          "fim": 17.38,
+          "probabilidade": 0.981
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "inicio": 17.96,
+      "fim": 26.6,
+      "texto": "Ao 36 segundos de voo, o computador tentou converter um número de 64 bits em ponto flutuante para um inteiro de 16 bits.",
+      "palavras": [
+        {
+          "palavra": "Ao",
+          "inicio": 17.96,
+          "fim": 18.08,
+          "probabilidade": 0.416
+        },
+        {
+          "palavra": "36",
+          "inicio": 18.08,
+          "fim": 18.58,
+          "probabilidade": 0.884
+        },
+        {
+          "palavra": "segundos",
+          "inicio": 18.58,
+          "fim": 19.2,
+          "probabilidade": 0.973
+        },
+        {
+          "palavra": "de",
+          "inicio": 19.2,
+          "fim": 19.44,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "voo,",
+          "inicio": 19.44,
+          "fim": 19.78,
+          "probabilidade": 0.846
+        },
+        {
+          "palavra": "o",
+          "inicio": 20.16,
+          "fim": 20.24,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "computador",
+          "inicio": 20.24,
+          "fim": 20.7,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "tentou",
+          "inicio": 20.7,
+          "fim": 21.1,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "converter",
+          "inicio": 21.1,
+          "fim": 21.4,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "um",
+          "inicio": 21.4,
+          "fim": 21.76,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "número",
+          "inicio": 21.76,
+          "fim": 22.02,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "de",
+          "inicio": 22.02,
+          "fim": 22.22,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "64",
+          "inicio": 22.22,
+          "fim": 22.72,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "bits",
+          "inicio": 22.72,
+          "fim": 23.46,
+          "probabilidade": 0.83
+        },
+        {
+          "palavra": "em",
+          "inicio": 23.46,
+          "fim": 23.72,
+          "probabilidade": 0.963
+        },
+        {
+          "palavra": "ponto",
+          "inicio": 23.72,
+          "fim": 24.04,
+          "probabilidade": 0.954
+        },
+        {
+          "palavra": "flutuante",
+          "inicio": 24.04,
+          "fim": 24.66,
+          "probabilidade": 0.914
+        },
+        {
+          "palavra": "para",
+          "inicio": 24.66,
+          "fim": 24.9,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "um",
+          "inicio": 24.9,
+          "fim": 25.04,
+          "probabilidade": 0.953
+        },
+        {
+          "palavra": "inteiro",
+          "inicio": 25.04,
+          "fim": 25.36,
+          "probabilidade": 0.905
+        },
+        {
+          "palavra": "de",
+          "inicio": 25.36,
+          "fim": 25.64,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "16",
+          "inicio": 25.64,
+          "fim": 26.08,
+          "probabilidade": 0.953
+        },
+        {
+          "palavra": "bits.",
+          "inicio": 26.08,
+          "fim": 26.6,
+          "probabilidade": 0.985
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "inicio": 26.6,
+      "fim": 35.4,
+      "texto": "O número era grande demais para caber na memória, o processador primário travou, o de backup travou logo em seguida, pelo mesmo erro.",
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 26.6,
+          "fim": 27.36,
+          "probabilidade": 0.738
+        },
+        {
+          "palavra": "número",
+          "inicio": 27.36,
+          "fim": 27.6,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "era",
+          "inicio": 27.6,
+          "fim": 27.84,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "grande",
+          "inicio": 27.84,
+          "fim": 28.24,
+          "probabilidade": 0.952
+        },
+        {
+          "palavra": "demais",
+          "inicio": 28.24,
+          "fim": 28.6,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "para",
+          "inicio": 28.6,
+          "fim": 28.92,
+          "probabilidade": 0.961
+        },
+        {
+          "palavra": "caber",
+          "inicio": 28.92,
+          "fim": 29.22,
+          "probabilidade": 0.435
+        },
+        {
+          "palavra": "na",
+          "inicio": 29.22,
+          "fim": 29.38,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "memória,",
+          "inicio": 29.38,
+          "fim": 29.8,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "o",
+          "inicio": 30.22,
+          "fim": 30.44,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "processador",
+          "inicio": 30.44,
+          "fim": 30.98,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "primário",
+          "inicio": 30.98,
+          "fim": 31.42,
+          "probabilidade": 0.945
+        },
+        {
+          "palavra": "travou,",
+          "inicio": 31.42,
+          "fim": 31.88,
+          "probabilidade": 0.921
+        },
+        {
+          "palavra": "o",
+          "inicio": 32.26,
+          "fim": 32.54,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "de",
+          "inicio": 32.54,
+          "fim": 32.62,
+          "probabilidade": 0.532
+        },
+        {
+          "palavra": "backup",
+          "inicio": 32.62,
+          "fim": 32.82,
+          "probabilidade": 0.769
+        },
+        {
+          "palavra": "travou",
+          "inicio": 32.82,
+          "fim": 33.38,
+          "probabilidade": 0.962
+        },
+        {
+          "palavra": "logo",
+          "inicio": 33.38,
+          "fim": 33.64,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "em",
+          "inicio": 33.64,
+          "fim": 33.8,
+          "probabilidade": 0.936
+        },
+        {
+          "palavra": "seguida,",
+          "inicio": 33.8,
+          "fim": 34.26,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "pelo",
+          "inicio": 34.5,
+          "fim": 34.64,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "mesmo",
+          "inicio": 34.64,
+          "fim": 35.06,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "erro.",
+          "inicio": 35.06,
+          "fim": 35.4,
+          "probabilidade": 0.989
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "inicio": 35.94,
+      "fim": 40.44,
+      "texto": "Os motores viraram no ângulo máximo e o foguete se desintegrou no ar.",
+      "palavras": [
+        {
+          "palavra": "Os",
+          "inicio": 35.94,
+          "fim": 36.12,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "motores",
+          "inicio": 36.12,
+          "fim": 36.5,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "viraram",
+          "inicio": 36.5,
+          "fim": 36.96,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "no",
+          "inicio": 36.96,
+          "fim": 37.16,
+          "probabilidade": 0.966
+        },
+        {
+          "palavra": "ângulo",
+          "inicio": 37.16,
+          "fim": 37.38,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "máximo",
+          "inicio": 37.38,
+          "fim": 37.86,
+          "probabilidade": 0.963
+        },
+        {
+          "palavra": "e",
+          "inicio": 37.86,
+          "fim": 38.48,
+          "probabilidade": 0.728
+        },
+        {
+          "palavra": "o",
+          "inicio": 38.48,
+          "fim": 38.6,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "foguete",
+          "inicio": 38.6,
+          "fim": 39.0,
+          "probabilidade": 0.928
+        },
+        {
+          "palavra": "se",
+          "inicio": 39.0,
+          "fim": 39.22,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "desintegrou",
+          "inicio": 39.22,
+          "fim": 39.98,
+          "probabilidade": 0.925
+        },
+        {
+          "palavra": "no",
+          "inicio": 39.98,
+          "fim": 40.16,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "ar.",
+          "inicio": 40.16,
+          "fim": 40.44,
+          "probabilidade": 0.968
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "inicio": 40.86,
+      "fim": 48.24,
+      "texto": "O detalhe mais absurdo, aquela função nem precisava estar rodando após a decolagem. Foi exatamente assim que...",
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 40.86,
+          "fim": 41.06,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "detalhe",
+          "inicio": 41.06,
+          "fim": 41.44,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "mais",
+          "inicio": 41.44,
+          "fim": 41.68,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "absurdo,",
+          "inicio": 41.68,
+          "fim": 42.28,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "aquela",
+          "inicio": 42.76,
+          "fim": 43.02,
+          "probabilidade": 0.947
+        },
+        {
+          "palavra": "função",
+          "inicio": 43.02,
+          "fim": 43.4,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "nem",
+          "inicio": 43.4,
+          "fim": 43.72,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "precisava",
+          "inicio": 43.72,
+          "fim": 44.32,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "estar",
+          "inicio": 44.32,
+          "fim": 44.58,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "rodando",
+          "inicio": 44.58,
+          "fim": 44.98,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "após",
+          "inicio": 44.98,
+          "fim": 45.3,
+          "probabilidade": 0.903
+        },
+        {
+          "palavra": "a",
+          "inicio": 45.3,
+          "fim": 45.44,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "decolagem.",
+          "inicio": 45.44,
+          "fim": 45.98,
+          "probabilidade": 0.936
+        },
+        {
+          "palavra": "Foi",
+          "inicio": 46.5,
+          "fim": 46.66,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "exatamente",
+          "inicio": 46.66,
+          "fim": 47.2,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "assim",
+          "inicio": 47.2,
+          "fim": 47.68,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "que...",
+          "inicio": 47.68,
+          "fim": 48.24,
+          "probabilidade": 0.832
+        }
+      ]
+    }
+  ]
+}

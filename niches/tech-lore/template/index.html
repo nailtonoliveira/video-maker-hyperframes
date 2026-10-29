@@ -53,36 +53,22 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="10"
+      data-duration="12"
       data-width="1080"
       data-height="1920"
     >
-      <!-- Fundo: grade de terminal -->
+      <!-- Mundo 3D (motor + kit + assets/episode/scene.js) e títulos 2D -->
       <div
-        id="bg"
-        data-composition-id="bg"
-        data-composition-src="compositions/bg.html"
+        id="world"
+        data-composition-id="world"
+        data-composition-src="compositions/world.html"
         data-start="0"
-        data-duration="10"
+        data-duration="12"
         data-track-index="0"
         data-track-kind="graphics"
         data-width="1080"
         data-height="1920"
         style="z-index: 1"
-      ></div>
-
-      <!-- Cenas: uma por arquivo em compositions/ (s1, s2, ...), uma após a outra na faixa 1 -->
-      <div
-        id="s1"
-        data-composition-id="s1"
-        data-composition-src="compositions/s1.html"
-        data-start="0"
-        data-duration="10"
-        data-track-index="1"
-        data-track-kind="graphics"
-        data-width="1080"
-        data-height="1920"
-        style="z-index: 2"
       ></div>
 
       <!-- Legendas: geradas por tools/build_captions.py -->
@@ -91,7 +77,7 @@
         data-composition-id="captions"
         data-composition-src="compositions/captions.html"
         data-start="0"
-        data-duration="10"
+        data-duration="12"
         data-track-index="2"
         data-track-kind="captions"
         data-width="1080"
@@ -102,9 +88,13 @@
       <!-- Locução -->
       <audio id="voice" class="clip" src="assets/voice.mp3" data-start="0" data-track-index="10" data-volume="1.18"></audio>
 
-      <!-- SFX (assets/sfx/): cada início = momento da imagem + 1 frame − pico do arquivo. Exemplo:
-      <audio id="sfx-hit" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="4.8" data-duration="2.12" data-track-index="11" data-volume="0.22"></audio>
-      -->
+      <!-- Trilha procedural: tools/.venv/bin/python shared/trilha/trilha.py <vídeo> gera estes wavs de assets/episode/trilha.json -->
+      <audio id="ambiente" class="clip" src="assets/audio/ambiente.wav" data-start="0" data-duration="12" data-track-index="20" data-volume="0.32"></audio>
+      <audio id="music" class="clip" src="assets/audio/musica.wav" data-start="0" data-duration="12" data-track-index="21" data-volume="0.16"></audio>
+      <audio id="efeitos" class="clip" src="assets/audio/efeitos.wav" data-start="0" data-duration="12" data-track-index="22" data-volume="0.9"></audio>
+
+      <!-- SFX (assets/sfx/): cada início = momento da imagem + 1 quadro − pico do arquivo. Exemplo: corte do mergulho (4,4 s) -->
+      <audio id="sfx-dive" class="clip" src="assets/sfx/whoosh.mp3" data-start="4.27" data-duration="0.57" data-track-index="30" data-volume="0.45"></audio>
     </div>
     <script>
       window.__timelines = window.__timelines || {};
