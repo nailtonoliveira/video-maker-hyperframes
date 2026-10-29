@@ -76,6 +76,6 @@ export function build(canvas) {
 
 ## Fluxo
 1. Escreva `assets/episode/scene.js` e ajuste `LOOP` (duração da locução) e os tempos das âncoras.
-2. `npm run check`; depois `env -u GEMINI_API_KEY npx hyperframes snapshot --at <tempos>` e **olhe os PNGs** (enquadramento,
+2. `npm run check`; depois `npx hyperframes snapshot --describe false --at <tempos>` e **olhe os PNGs** (enquadramento,
    texto legível, nada cortado). Peça os quadros fora de ordem para conferir que saem iguais.
 3. Não renderize e não deixe preview rodando: o pipeline renderiza depois.

@@ -42,7 +42,8 @@ aqui guia temas, roteiro, metadados e cenas. Voz, modelos de IA e aprovações f
 - **Exteriores do kit:** foguete e base de lançamento (Ariane 5), data center, sala de pregão, sala de radioterapia,
   avião, carro, sonda espacial. Cada um tem que se ler pelo que é num enquadramento 9:16 aberto, sem rótulo. Quando o
   caso não tem um exterior próprio, use o lugar do kit mais próximo do que aconteceu.
-- **Mergulho contínuo:** do exterior para dentro da máquina por uma porta física, sem corte seco no meio; a placa por
+- **Mergulho contínuo:** do exterior para dentro da máquina por uma porta física, sem corte seco no meio (no kit, só o
+  Ariane 5 tem porta, a escotilha; nos outros exteriores a porta é montada no episódio com as peças do motor); a placa por
   dentro é viva (pulsos de dados, LEDs, facho de luz seguindo o foco).
 - **O bug** (besouro da série: corpo escuro, aresta vermelha, olhos menta) aparece **no ponto da falha**: anda pela
   linha de código e para exatamente na conversão, no campo ou na flag que quebrou. Não passeia pela tela à toa.

@@ -266,7 +266,7 @@ def _check_e_snapshot(v):
     tl_file = v.log_dir / "timeline.json"
     pontos = [0.0] + ([round((c["inicio"] + c["fim"]) / 2, 2) for c in json.loads(tl_file.read_text()) if c["inicio"] is not None]
                       if tl_file.exists() else []) + [round(dur - 0.05, 2)]
-    s = v.hf("snapshot", "--at", ",".join(f"{p:g}" for p in pontos))
+    s = v.hf("snapshot", "--describe", "false", "--at", ",".join(f"{p:g}" for p in pontos))
     sheet = next((ln.strip().split(" ")[0] for ln in s.stdout.splitlines() if "contact-sheet" in ln), "?")
     return d.get("ok", False) and erros == 0, f"check: {erros} erros, {avisos} avisos · quadros: {config.rel(sheet) if sheet != '?' else sheet}"
 
@@ -277,7 +277,7 @@ def etapa_cenas(v, ajustes=""):
     elif ajustes:
         info = _claude(v, f"/hyperframes Revise as cenas deste projeto HyperFrames (trabalhe só nesta pasta, modo sem paradas). "
                           f"Ajustes pedidos:\n{ajustes}\n\nDepois rode `npm run check`, corrija os erros, rode "
-                          f"`npx hyperframes snapshot --review`, confira e atualize REVIEW.md. Não renderize.", "cenas-ajuste")
+                          f"`npx hyperframes snapshot --review --describe false`, confira e atualize REVIEW.md. Não renderize.", "cenas-ajuste")
     else:
         info = _claude(v, (v.dir / "hyperframes-prompt.md").read_text(encoding="utf-8"), "cenas")
     ok, chk = _check_e_snapshot(v)
