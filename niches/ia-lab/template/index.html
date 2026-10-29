@@ -3,12 +3,12 @@
   lang="pt-BR"
   data-resolution="portrait"
   data-composition-variables='[
-    {"id":"ground","type":"color","label":"Fundo","default":"#0b0f1d"},
-    {"id":"paper","type":"color","label":"Papel","default":"#f4efe6"},
-    {"id":"ink","type":"color","label":"Tinta","default":"#18181b"},
-    {"id":"claude","type":"color","label":"Terracota","default":"#b84a24"},
-    {"id":"alert","type":"color","label":"Vermelho","default":"#c92a2a"},
-    {"id":"ok","type":"color","label":"Verde","default":"#18864b"},
+    {"id":"ground","type":"color","label":"Fundo","default":"#121214"},
+    {"id":"paper","type":"color","label":"Placa Metálica","default":"#1c1917"},
+    {"id":"ink","type":"color","label":"Texto","default":"#f8fafc"},
+    {"id":"claude","type":"color","label":"Âmbar Ouro","default":"#fbbf24"},
+    {"id":"alert","type":"color","label":"LED Vermelho","default":"#ff6b6b"},
+    {"id":"ok","type":"color","label":"LED Verde","default":"#4ade80"},
     {"id":"brand","type":"string","label":"Marca","default":"ia-lab.dev"}
   ]'
 >
@@ -18,12 +18,12 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
       :root {
-        --ground: #0b0f1d;
-        --paper: #f4efe6;
-        --ink: #18181b;
-        --claude: #b84a24;
-        --alert: #c92a2a;
-        --ok: #18864b;
+        --ground: #121214;
+        --paper: #1c1917;
+        --ink: #f8fafc;
+        --claude: #fbbf24;
+        --alert: #ff6b6b;
+        --ok: #4ade80;
         --font-sans: "Inter", sans-serif;
         --font-mono: "JetBrains Mono", monospace;
       }
@@ -45,7 +45,7 @@
         height: 100%;
         position: relative;
         font-family: var(--font-sans);
-        color: var(--paper);
+        color: var(--ink);
       }
     </style>
   </head>
@@ -59,7 +59,7 @@
       data-width="1080"
       data-height="1920"
     >
-      <!-- Mundo 3D (Three.js + kit3d.js) + HUD 2D Paper/Tape + Placar -->
+      <!-- Mundo 3D (Oficina Grafite & Âmbar + Droides Cápsula) + HUD Placa Metálica Industrial -->
       <div
         id="world"
         data-composition-id="world"
@@ -73,7 +73,7 @@
         style="z-index: 1"
       ></div>
 
-      <!-- Legendas: geradas por tools/build_captions.py (estilo label-tag) -->
+      <!-- Legendas: geradas por tools/build_captions.py (estilo dark-pill) -->
       <div
         id="captions"
         data-composition-id="captions"

@@ -84,7 +84,80 @@ for s in spans:
             ", ".join("[%s, %s]" % (w["start"], w["end"]) for w in s["words"]))
     )
 
-if cfg["style"] == "label-tag":
+if cfg["style"] == "dark-pill":
+    out = f"""<template>
+  <style>
+    #root {{
+      position: absolute;
+      inset: 0;
+      font-family: {cfg["font_family"]};
+    }}
+    .cap-g {{
+      position: absolute;
+      left: {cfg["left"]}px;
+      width: {cfg["width"]}px;
+      bottom: {cfg["bottom"]}px;
+      text-align: center;
+      overflow: visible;
+      visibility: hidden;
+      opacity: 0;
+    }}
+    .cap-t {{
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: {cfg["tag_bg"]};
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: 3px solid #475569;
+      box-shadow: 0 8px 0 #050a14, 0 14px 28px rgba(0, 0, 0, 0.55);
+    }}
+    .cap-w {{
+      display: inline-block;
+      font-size: {cfg["font_size"]}px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: {cfg["ink"]};
+      background: transparent;
+      padding: 6px 16px 8px;
+      border-radius: 999px;
+    }}
+  </style>
+  <!-- Gerado por tools/build_captions.py a partir de assets/voice.json; edite captions.json e rode de novo. -->
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+{chr(10).join(markup)}
+  </div>
+  <script>
+    (function () {{
+      const tl = gsap.timeline({{ paused: true }});
+      const INK = "{cfg["ink"]}";
+      const ACT_BG = "{cfg["tag_active_bg"]}", ACT_INK = "{cfg["tag_active_ink"]}";
+      function G(id, start, end, ws) {{
+        const g = "#" + id;
+        tl.set(g, {{ visibility: "visible" }}, start);
+        tl.fromTo(g, {{ opacity: 0, y: 12, scale: 0.96 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.12, ease: "back.out(1.8)" }}, start);
+        ws.forEach(([s, e], j) => {{
+          const w = g + "-w" + j;
+          const off = j + 1 < ws.length ? ws[j + 1][0] : end;
+          const tOn = Math.max(s, start);
+          const tOff = Math.min(off, end);
+          tl.set(w, {{ scale: 1, backgroundColor: "transparent", color: INK }}, start);
+          tl.set(w, {{ backgroundColor: ACT_BG, color: ACT_INK }}, tOn);
+          tl.fromTo(w, {{ scale: 1.12 }}, {{ scale: 1.04, duration: 0.14, ease: "back.out(2)" }}, tOn);
+          tl.set(w, {{ scale: 1, backgroundColor: "transparent", color: INK }}, tOff);
+        }});
+        tl.to(g, {{ opacity: 0, duration: 0.08, ease: "power2.in" }}, end - 0.08);
+        tl.set(g, {{ opacity: 0, visibility: "hidden" }}, end);
+      }}
+{chr(10).join(script)}
+      window.__timelines["captions"] = tl;
+    }})();
+  </script>
+</template>
+"""
+elif cfg["style"] == "label-tag":
     out = f"""<template>
   <style>
     #root {{

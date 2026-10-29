@@ -1,4 +1,4 @@
-Atue como roteirista sênior e diretor criativo de vídeos curtos 3D de altíssima retenção (YouTube Shorts / Reels / TikTok), no estilo exato de `clubedasskills` e `comoconstroi`. O vídeo é renderizado no HyperFrames usando nossa biblioteca de diorama 3D (`assets/kit3d.js`: bancada de madeira, bonecos em blocos estilo Claude, telas 3D simples, setas 3D de pressão/fluxo e HUD superior de papel rasgado com fita crepe + placar dinâmico).
+Atue como roteirista sênior e diretor criativo de vídeos curtos 3D de altíssima retenção (YouTube Shorts / Reels / TikTok) da série `ia-lab`. O vídeo é renderizado no HyperFrames usando nossa biblioteca 3D exclusiva (`assets/kit3d.js`: oficina de grafite escuro & âmbar quente, bancada cinza-chumbo, robôs cápsula/droides expressivos com visor de LED, monitores 3D simples, setas 3D de fluxo e HUD superior de placa metálica industrial com LED + placar digital).
 
 # A série (identidade fixa: siga à risca, não reinvente)
 {{NICHE_MD}}
@@ -12,8 +12,8 @@ Atue como roteirista sênior e diretor criativo de vídeos curtos 3D de altíssi
 3. **Quantidade de cenas dinâmica (`N` cenas guiadas pelo tema):** o número de cenas **não é fixo**. Divida a história em quantas cenas o tema pedir (tipicamente de 5 a 8 cenas curtas e dinâmicas):
    - **Cena 1:** Gancho direto + o jeito que todo mundo tenta fazer e acha que está ótimo.
    - **Cenas `2` até `N-2`:** Cada cena mostra um problema claro (*"Só que..."*) ou um boneco especialista entrando em ação (*"O primeiro é..."*, *"O segundo é..."*), seguido do que acontece na bancada.
-   - **Cena `N-1`:** O veredito / a solução final funcionando redonda e zerando os erros no placar.
-   - **Cena `N`:** Fechamento rápido + CTA direto (*"Comenta [PALAVRA] que eu te mando o prompt no direct"* ou *"Manda pra quem usa IA todo dia"*).
+   - **Cena `N-1`:** A solução completa funcionando na prática na bancada.
+   - **Cena `N` (Fechamento):** O veredito final (zerando os erros no placar) e a moral prática do vídeo (conectando com a primeira frase em loop). **ATENÇÃO SOBRE CTA:** Por padrão, **NÃO** peça para comentar palavras-chave no final (*proibido inventar "Comenta X que eu te mando Y"*). Você só deve incluir um CTA final se `# O episódio` acima trouxer explicitamente `**CTA obrigatório no final (pedido pelo criador):** ...`.
 4. **Tamanho da locução:** frases enxutas (referência base: entre **{{PALAVRAS_MIN}} e {{PALAVRAS_MAX}} palavras**, ajustável conforme o número de cenas do tema). Não escreva tempos em segundos: eles vêm do áudio depois.
 5. **Direção Visual (`visual`) e Âncoras (`ancoras`) prontas para o `kit3d.js`:**
    Em cada cena, especifique:

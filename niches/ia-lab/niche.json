@@ -1,6 +1,7 @@
 {
-  "nome": "IA Lab — Engenharia de IA & Bastidores de Código em 3D",
+  "nome": "IA Lab — Como a IA Funciona por Dentro (Em 3D, Sem Jargão)",
   "idioma": "pt-BR",
+  "marca_dagua": "ia-lab.dev",
   "duracao_alvo_s": 50,
   "palavras_por_segundo": 2.35,
   "llm": {

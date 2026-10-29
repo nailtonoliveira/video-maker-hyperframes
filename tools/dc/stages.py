@@ -123,12 +123,19 @@ def roteiro_md(d, pps):
 def etapa_roteiro(v, ajustes=""):
     t = v.state["tema"]
     dur, pps = v.cfg["duracao_alvo_s"], v.cfg["palavras_por_segundo"]
+    cta_txt = t.get("cta") or v.cfg.get("cta_padrao") or ""
+    regra_cta = (
+        f"**CTA obrigatório no final (pedido pelo criador):** {cta_txt}"
+        if cta_txt
+        else "**Sem CTA de comentário-chave:** NÃO invente palavras para o público comentar no final (proibido 'Comenta X que eu te mando Y'). Feche o vídeo direto na conclusão/moral prática ou num loop com a primeira frase."
+    )
     tema = "\n".join(filter(None, [
         f"**Tema:** {t['titulo']}",
         f"**Gancho sugerido:** {t['gancho']}" if t.get("gancho") else "",
         f"**Resumo:** {t['resumo']}" if t.get("resumo") else "",
         "**Fatos-chave:** " + "; ".join(t["fatos_chave"]) if t.get("fatos_chave") else "",
         "**Fontes:** " + "; ".join(t["fontes"]) if t.get("fontes") else "",
+        regra_cta,
     ]))
     p = v.prompt("roteiro", NICHE_MD=v.niche_md(), TEMA=tema, DURACAO=dur,
                  PALAVRAS_MIN=round(dur * pps * 0.9), PALAVRAS_MAX=round(dur * pps * 1.1), AJUSTES=ajustes_txt(ajustes))
@@ -172,8 +179,26 @@ def etapa_tempos(v, ajustes=""):
     return out.strip().splitlines()[-1]
 
 
+def aplicar_marca_dagua(v):
+    """Ativa/oculta #hud-watermark em compositions/world.html conforme v.state['tema'].get('marca')."""
+    wf = v.dir / "compositions" / "world.html"
+    if not wf.exists():
+        return
+    marca = v.state.get("tema", {}).get("marca", "")
+    txt = wf.read_text(encoding="utf-8")
+    show = "true" if marca else "false"
+    txt = re.sub(r"const SHOW_WATERMARK\s*=\s*(?:true|false);", f"const SHOW_WATERMARK = {show};", txt)
+    if marca:
+        txt = re.sub(r'const WATERMARK_TEXT\s*=\s*".*?";', f"const WATERMARK_TEXT = {json.dumps(marca, ensure_ascii=False)};", txt)
+        txt = re.sub(r'(<div id="hud-wm-text"[^>]*>).*?(</div>)', rf"\g<1>{marca}\g<2>", txt)
+    else:
+        txt = re.sub(r'(#hud-watermark\s*\{[^}]*?\bdisplay:\s*)flex(\s*;)', r"\g<1>none\g<2>", txt, flags=re.S)
+    wf.write_text(txt, encoding="utf-8")
+
+
 # ==== 5. duração + legendas ========================================================================
 def etapa_legendas(v, ajustes=""):
+    aplicar_marca_dagua(v)
     out = [v.py("set_duration.py", v.dir).strip().splitlines()[0]]
     fixes = align.caption_fixes(v.read_json("roteiro.json"), v.read_json("assets/voice.json"))
     cap_file = v.dir / "captions.json"
@@ -273,6 +298,7 @@ def etapa_cenas(v, ajustes=""):
                           f"`npx hyperframes snapshot --review`, confira e atualize REVIEW.md. Não renderize.", "cenas-ajuste")
     else:
         info = _claude(v, (v.dir / "hyperframes-prompt.md").read_text(encoding="utf-8"), "cenas")
+    aplicar_marca_dagua(v)
     ok, chk = _check_e_snapshot(v)
     if not ok:
         say(f"  ⚠ {chk}")
@@ -296,8 +322,11 @@ def etapa_render(v, ajustes=""):
 def etapa_metadados(v, ajustes=""):
     rot = v.read_json("roteiro.json")
     plats = v.cfg["plataformas"]
+    cta_txt = v.state["tema"].get("cta") or v.cfg.get("cta_padrao") or ""
+    cta_linha = f"CTA obrigatório: {cta_txt}" if cta_txt else "CTA de comentário: nenhum (NÃO peça para comentar palavras aleatórias nas legendas)."
     resumo = "\n".join([f"Título: {rot['titulo']}", f"Resumo: {rot.get('resumo', '')}",
                         "Locução: " + " ".join(c["locucao"] for c in rot["cenas"]),
+                        cta_linha,
                         "Fatos: " + "; ".join(f"{f['fato']} ({f.get('fonte', '')})" for f in rot.get("fatos", []))])
 
     def validar(d):
