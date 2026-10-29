@@ -1,11 +1,11 @@
 """As etapas de um vídeo, em ordem. Cada uma lê e escreve só dentro da pasta do vídeo; o estado fica em pipeline.json."""
 import json, math, os, pathlib, re, shutil, subprocess, sys
 
-from . import align, config, tts
+from . import align, audio, config, tts
 from .catalog import Catalogo, agora
 from .llm import LLM
 
-ETAPAS = ["roteiro", "tts", "voz", "tempos", "legendas", "prompt", "cenas", "render", "metadados", "publicar"]
+ETAPAS = ["roteiro", "tts", "voz", "tempos", "legendas", "prompt", "cenas", "trilha", "render", "metadados", "publicar"]
 COM_AJUSTES = {"roteiro", "tts", "cenas", "metadados"}  # etapas que aceitam "o que mudar" ao refazer
 
 
@@ -99,12 +99,14 @@ def ffprobe_dur(path):
 
 
 # ==== 1. roteiro ===================================================================================
-def _validar_roteiro(d):
+def _validar_roteiro(d, mundos=None):
     if not d.get("titulo") or not d.get("titulo_tela") or not d.get("cenas"):
         raise ValueError("faltam titulo, titulo_tela ou cenas")
     for c in d["cenas"]:
         if not c.get("locucao") or not isinstance(c.get("ancoras"), list):
             raise ValueError(f"cena {c.get('n')} sem locucao/ancoras")
+        if mundos and c.get("mundo") not in mundos:
+            raise ValueError(f"cena {c.get('n')}: mundo {c.get('mundo')!r} fora de {list(mundos)}")
 
 
 def roteiro_md(d, pps):
@@ -112,8 +114,9 @@ def roteiro_md(d, pps):
     out = [f"# {d['titulo']}", "", f"**Título na tela (frame 0):** {d['titulo_tela']}  ", f"**Resumo:** {d.get('resumo', '')}  ",
            f"**Palavras:** {n} (≈ {n / pps:.0f} s de narração)", ""]
     for c in d["cenas"]:
-        out += [f"## Cena {c['n']} — {c.get('nome', '')}", "", f"**Locução:** {c['locucao']}", "", f"**Visual:** {c.get('visual', '')}", "",
-                "**Âncoras:**"] + [f"- \"{a['gatilho']}\" → {a['visual']}" for a in c["ancoras"]] + [""]
+        out += [f"## Cena {c['n']} — {c.get('nome', '')}", "", f"**Locução:** {c['locucao']}", "", f"**Visual:** {c.get('visual', '')}", ""]
+        out += [f"**Mundo:** {c['mundo']}", ""] if c.get("mundo") else []
+        out += ["**Âncoras:**"] + [f"- \"{a['gatilho']}\" → {a['visual']}" for a in c["ancoras"]] + [""]
     lp = d.get("loop", {})
     out += ["## Loop", "", f"> {lp.get('leitura_continua', '')}", "", "## Fatos", ""]
     out += [f"- {f['fato']} — *{f.get('fonte', '?')}* ({f.get('confianca', '?')})" for f in d.get("fatos", [])]
@@ -132,7 +135,7 @@ def etapa_roteiro(v, ajustes=""):
     ]))
     p = v.prompt("roteiro", NICHE_MD=v.niche_md(), TEMA=tema, DURACAO=dur,
                  PALAVRAS_MIN=round(dur * pps * 0.9), PALAVRAS_MAX=round(dur * pps * 1.1), AJUSTES=ajustes_txt(ajustes))
-    d = v.llm.json("roteiro", p, criativo=True, pesquisa=True, validar=_validar_roteiro)
+    d = v.llm.json("roteiro", p, criativo=True, pesquisa=True, validar=lambda d: _validar_roteiro(d, v.cfg.get("mundos")))
     v.write_json("roteiro.json", d)
     md = roteiro_md(d, pps)
     (v.dir / "roteiro.md").write_text(md, encoding="utf-8")
@@ -199,12 +202,16 @@ def etapa_prompt(v, ajustes=""):
     for c, rc in zip(tl, rot["cenas"]):
         linhas += [f"**Cena {c['n']} — {c['nome']}** ({fmt(c['inicio'])} → {fmt(c['fim'])})",
                    f"- Locução: {rc['locucao']}", f"- Visual: {rc.get('visual', '')}"]
+        if rc.get("mundo"):
+            linhas.append(f"- Mundo: {rc['mundo']}")
         for a in c["ancoras"]:
             faltando += a["t"] is None
             linhas.append(f"  - {fmt(a['t'])} · \"{a['gatilho']}\" → {a['visual']}")
         linhas.append("")
     fatos = "\n".join(f"- {f['fato']} ({f.get('fonte', '')})" for f in rot.get("fatos", [])) or "- (nenhum)"
-    p = v.prompt("hyperframes", TITULO=rot["titulo"], TITULO_TELA=rot["titulo_tela"], DURACAO=f"{dur:g}",
+    lido = lambda rel: (v.dir / rel).read_text(encoding="utf-8") if (v.dir / rel).exists() else ""
+    motor, kit = (lido("assets/motor/PROMPT.md"), lido("assets/kit/KIT.md")) if v.cfg.get("motor") else ("", "")
+    p = v.prompt("hyperframes", MOTOR=motor, KIT=kit, TITULO=rot["titulo"], TITULO_TELA=rot["titulo_tela"], DURACAO=f"{dur:g}",
                  FRAMES=math.ceil(dur * 30), TIMELINE="\n".join(linhas).strip(), FATOS=fatos)
     (v.dir / "hyperframes-prompt.md").write_text(p, encoding="utf-8")
     total = sum(len(c["ancoras"]) for c in tl)
@@ -280,6 +287,17 @@ def etapa_cenas(v, ajustes=""):
                       "(pare com: npx hyperframes preview --stop)"])
 
 
+# ==== 7b. trilha sonora ============================================================================
+def etapa_trilha(v, ajustes=""):
+    if not (v.dir / "assets" / "episode" / "trilha.json").exists():
+        return "sem trilha.json: nada a gerar"
+    r = subprocess.run([str(config.VENV_PY), str(config.ROOT / "shared" / "trilha" / "trilha.py"), str(v.dir)],
+                       cwd=config.ROOT, text=True, capture_output=True)
+    if r.returncode:
+        raise SystemExit(f"trilha.py falhou:\n{r.stdout}\n{r.stderr}")
+    return r.stdout.strip()
+
+
 # ==== 8. render ====================================================================================
 def etapa_render(v, ajustes=""):
     say("  renderizando…")
@@ -289,7 +307,11 @@ def etapa_render(v, ajustes=""):
     mp4 = max((v.dir / "renders").glob("*.mp4"), key=lambda p: p.stat().st_mtime)
     v.state["render"] = config.rel(mp4)
     v.catalogo("produzido")
-    return f"{config.rel(mp4)} — {ffprobe_dur(mp4):.1f} s, {mp4.stat().st_size / 1e6:.1f} MB"
+    lufs = v.cfg.get("audio_lufs")
+    if lufs is not None:
+        antes, depois = audio.normalizar(mp4, lufs)
+    resumo = f"{config.rel(mp4)} — {ffprobe_dur(mp4):.1f} s, {mp4.stat().st_size / 1e6:.1f} MB"
+    return resumo + (f"\náudio: {antes:.1f} → {depois:.1f} LUFS" if lufs is not None else "")
 
 
 # ==== 9. metadados =================================================================================
