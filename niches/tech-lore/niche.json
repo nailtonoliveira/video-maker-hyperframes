@@ -23,6 +23,10 @@
     "regras_texto": "ElevenLabs Multilingual v2: não use marcações entre colchetes; o ritmo vem só da pontuação."
   },
   "whisper": { "modelo": "base" },
+  "motor": "3d",
+  "trilha": true,
+  "audio_lufs": -14,
+  "mundos": ["exterior", "mergulho", "placa"],
   "plataformas": ["youtube", "tiktok", "instagram", "facebook"],
   "aprovacoes": ["roteiro", "voz", "cenas", "metadados"]
 }

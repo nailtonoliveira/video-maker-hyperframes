@@ -150,5 +150,27 @@ class InstalarMotor(unittest.TestCase):
         self.assertIn("motor-2d", r.stderr)
 
 
+class InstalarDoNicho(InstalarMotor):
+    def _niche_json(self, d):
+        (self.raiz / "niches" / "n" / "niche.json").write_text(json.dumps(d), encoding="utf-8")
+
+    def test_nicho_sem_motor(self):
+        self._niche_json({"nome": "n"})
+        self.assertIsNone(motor.instalar_do_nicho(self.video, "n", raiz=self.raiz))
+        self.assertFalse((self.video / "assets" / "motor").exists())
+        self.assertFalse((self.video / "assets" / "tema.js").exists())
+
+    def test_nicho_sem_niche_json(self):
+        self.assertIsNone(motor.instalar_do_nicho(self.video, "n", raiz=self.raiz))
+        self.assertFalse((self.video / "assets" / "motor").exists())
+
+    def test_nicho_com_motor(self):
+        self._niche_json({"nome": "n", "motor": "3d"})
+        (self.video / "meta.json").write_text(json.dumps({"id": "n-001-v"}) + "\n", encoding="utf-8")
+        self.assertEqual(motor.instalar_do_nicho(self.video, "n", raiz=self.raiz), "0.1.0")
+        self.assertTrue((self.video / "assets" / "motor" / "util.js").is_file())
+        self.assertEqual(json.loads((self.video / "meta.json").read_text(encoding="utf-8"))["motor"]["versao"], "0.1.0")
+
+
 if __name__ == "__main__":
     unittest.main()

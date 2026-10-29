@@ -80,6 +80,16 @@ def instalar_motor(video: pathlib.Path, nicho: str, motor: str = "3d", *, raiz: 
     return versao
 
 
+def instalar_do_nicho(video: pathlib.Path, nicho: str, *, raiz: pathlib.Path = ROOT) -> "str | None":
+    """Instala o motor declarado em niches/<nicho>/niche.json ("motor"). Sem "motor", não faz nada e devolve None."""
+    arq = raiz / "niches" / nicho / "niche.json"
+    cfg = json.loads(arq.read_text(encoding="utf-8")) if arq.is_file() else {}
+    tipo = cfg.get("motor")
+    if not tipo:
+        return None
+    return instalar_motor(video, nicho, tipo, raiz=raiz)
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("video", help="pasta do vídeo (ex.: niches/tech-lore/videos/001-slug)")

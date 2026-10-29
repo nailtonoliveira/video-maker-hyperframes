@@ -32,6 +32,10 @@ DEFAULT_NICHE = {
         "regras_texto": "",
     },
     "whisper": {"modelo": "base"},
+    "motor": None,          # motor compartilhado em shared/motor-<nome>/ (ex.: "3d"); None = nicho 2D
+    "trilha": False,
+    "audio_lufs": None,     # None = o render não normaliza o áudio
+    "mundos": None,
     "plataformas": ["youtube", "tiktok", "instagram", "facebook"],
     "claude_code": {
         "modelo": None,                       # None = o padrão do seu Claude Code

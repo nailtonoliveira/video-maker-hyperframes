@@ -5,6 +5,9 @@ Uso:  python3 tools/new_video.py tech-lore therac25
 """
 import argparse, datetime, json, pathlib, re, shutil, sys
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from motor import instalar_do_nicho
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
@@ -44,6 +47,8 @@ pkg["name"] = vid
 
 rel = dest.relative_to(ROOT)
 print(f"Criado: {rel}")
+if versao := instalar_do_nicho(dest, args.nicho):
+    print(f"motor {json.loads((dest / 'meta.json').read_text(encoding='utf-8'))['motor']['tipo']} {versao}")
 print(f"""
 Próximos passos (a partir da raiz dark-channels/):
   1. Escreva o roteiro em {rel}/roteiro.md e gere a locução em {rel}/assets/voice.mp3
