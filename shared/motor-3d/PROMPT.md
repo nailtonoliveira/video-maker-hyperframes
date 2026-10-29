@@ -27,14 +27,14 @@ export function build(canvas) {
 - `skies`: `{ chave: { top, mid, bottom, fog, fogNear, fogFar } }`; cada plano escolhe por `env`. `SKIES.day` pronto.
 - `update(t, sh, c)`: põe a cena no tempo `t` (`sh` = plano atual, `c` = `{ pos, look, dist }` da câmera).
 - `post(t, sh, c)`: devolve campos de pós que sobrepõem o tema: `focus` (use `c.dist`), `aperture`, `exposure`, `ca`,
-  `vignette`, `shutter`, `grain`.
+  `vignette`, `shutter`, `grain` (manter 0).
 - Quem carrega o episódio é o `world.html` (bootstrap com `hf-seek`/`buildReady` + `montar.js`, que carrega a fonte do
   tema antes de `build`). Não mexa nele além da duração e dos tempos da timeline GSAP.
 
 ## Exports de `../motor/core.js`
 - `THREE`, `createStage(canvas, W, H)`, `createEpisode(S, opts)`: palco e laço do episódio.
 - util: `rng`, `hash`, `clamp`, `seg(t, a, b)` (0..1), `E` (easings: lin, expoOut, p2in, p2out, p2io, p3io, p3out,
-  backOut), `shake`, `blink`, `loopPeriod`, `pulses(t, tempos, amp, dur)` (decaem linearmente), `dip(t, t0, w, fundo)`.
+  backOut), `shake`, `blink`, `loopPeriod`, `pulses(t, tempos, amp, dur)` (decaem linearmente), `dip(t, t0, largura, profundidade)`.
 - câmera: `shotAt`, `cameraOf`, `v3`, `follow(alvo, { rotate })` (alvo(t) → `{ p, a }`).
 - materiais: `COL` (papéis de cor do tema), `color(papel)`, `fill`, `edge`, `glowless`, `solid(geom, fill, edge)`,
   `setLook`. Estilo único: maquete (sólido fosco + aresta de 1 px).
@@ -50,12 +50,14 @@ export function build(canvas) {
   ease: "p2io",                          // easing do plano (padrão p2io); "lin" para varreduras
   hand: 0.006,                           // câmera na mão, fração da distância (padrão 0.006)
   shake: [t0, amp, dur, f],              // tremor de impacto (só desloca y; não entra no desfoque)
-  ap: 3 }                                // abertura da profundidade de campo (0 = tudo nítido)
+  ap: 3 }                                // dado livre do episódio (aqui: abertura da DOF), lido pelo seu `post`
 ```
 - Em vez de `p0/p1/l0/l1`, `path(t, k, plano)` e `aim(t, k, plano)` devolvem Vector3 (k = progresso eased).
 - `follow(alvo)` espalhado no plano faz `base` seguir o alvo; `follow(alvo, { rotate: true })` gira `p0/p1/l0/l1`
   com o ângulo do alvo (câmera presa ao corpo).
-- Planos extras livres (ex.: `F` para relógio de voo) são permitidos: o motor só lê os campos acima.
+- O motor só lê `a, b, env, ease, hand, shake, base, path, aim, p0/p1/l0/l1`. Qualquer outro campo (`ap`, `F`...) é
+  dado livre que o **seu** código lê. O motor **não** lê `ap`: sem profundidade de campo no `post`, tudo fica nítido.
+  Para ter DOF, `post` deve devolver `{ focus: c.dist, aperture: sh.ap }` (ou equivalente).
 
 ## Ritmo e enquadramento
 - **Planos de 1,7 a 3 s**, sempre com a câmera em movimento (nunca parada); troque de plano na palavra-âncora da
