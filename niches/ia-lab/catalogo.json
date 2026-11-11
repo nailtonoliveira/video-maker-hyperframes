@@ -179,6 +179,179 @@
       "fontes": [
         "Anthropic Prompt Engineering Guide (Tell Claude what to do instead of what not to do / Use examples) - https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
       ]
+    },
+    {
+      "id": "T011",
+      "estado": "pronto",
+      "criado_em": "2026-10-31T17:56:17-03:00",
+      "titulo": "O golpe dos 3 segundos: como a IA rouba a voz de quem você ama",
+      "slug": "golpe-da-voz-clonada",
+      "gancho": "Sabia que um áudio de apenas três segundos do seu Instagram já é suficiente para uma inteligência artificial clonar a sua voz com perfeição?",
+      "resumo": "Na bancada 3D, um droide escuta um story de celular e passa o áudio por um fatiador que quebra a voz em pequenos blocos de tom e respiração. Só que um droide impostor usa essa voz para mandar mensagens de socorro no WhatsApp da família, fazendo o placar de perigo disparar no vermelho. Então a família puxa a placa com uma palavra-chave secreta que só eles sabem, desmascarando a farsa na hora.",
+      "fatos_chave": [
+        "A IA não precisa gravar conversas longas: ela analisa a curva acústica de amostras curtíssimas de áudio público e aprende a falar qualquer frase.",
+        "O golpe funciona porque as pessoas entram em pânico ao ouvir a voz exata do filho ou parente e transferem dinheiro sem checar o número.",
+        "A defesa recomendada pela polícia é nunca transferir valores sem fazer uma chamada de vídeo e combinar uma senha secreta interna na família."
+      ],
+      "por_que_prende": "Toca no maior medo moderno de qualquer família brasileira que usa WhatsApp: cair no golpe do falso sequestro ou Pix urgente com a voz idêntica de um filho.",
+      "fontes": [
+        "https://www.ebc.com.br/noticias/seguranca/2024/03/golpe-do-roubo-de-voz-por-ia-faz-vitimas-no-brasil",
+        "https://g1.globo.com/fantastico/noticia/2024/03/17/golpistas-usam-inteligencia-artificial-para-imitar-voz-de-parentes-e-pedir-dinheiro.ghtml"
+      ],
+      "atualizado_em": "2026-10-31T20:39:43-03:00",
+      "video": "001-golpe-da-voz-clonada"
+    },
+    {
+      "id": "T012",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:56:18-03:00",
+      "titulo": "Por que a inteligência artificial desenha seis dedos na mão?",
+      "slug": "seis-dedos-na-mao-ia",
+      "gancho": "Você já reparou que a inteligência artificial consegue criar fotos ultrarrealistas de pessoas, mas quase sempre estraga tudo desenhando seis dedos na mão?",
+      "resumo": "Na bancada 3D, um droide pintor tenta criar uma pessoa recortando pedacinhos de milhares de fotos da internet. Só que a IA não tem raio-x e não sabe o que é um osso humano: como a maioria das fotos tem mãos de lado, no bolso ou segurando coisas, o robô acha que qualquer dobra de pele é mais um dedo. Então colocamos na mesa um molde com esqueleto de arame que trava os cinco dedos no lugar certo antes da pintura.",
+      "fatos_chave": [
+        "A IA não entende anatomia: ela só sabe quais manchas de cor costumam ficar perto umas das outras em fotos da internet.",
+        "Mãos são extremamente flexíveis e quase nunca aparecem esticadas com os cinco dedos visíveis no banco de treino, gerando confusão estatística no robô.",
+        "Criadores de imagem profissionais resolvem isso usando moldes estruturais rígidos (esqueletos digitais) antes de gerar o desenho final."
+      ],
+      "por_que_prende": "É o defeito mais famoso, curioso e engraçado da geração de imagens, aguçando a vontade de entender por que um computador superinteligente erra o que uma criança acerta.",
+      "fontes": [
+        "https://www.britannica.com/technology/why-ai-struggles-with-hands",
+        "https://arxiv.org/abs/2302.05543"
+      ]
+    },
+    {
+      "id": "T013",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:56:19-03:00",
+      "titulo": "Por que o ChatGPT erra quantas letras tem na palavra morango?",
+      "slug": "por-que-ia-erra-letras",
+      "gancho": "Se você perguntar para a inteligência artificial mais avançada do mundo quantas letras R existem na palavra morango, ela provavelmente vai errar feio.",
+      "resumo": "Na bancada 3D, um droide tenta ler a palavra morango usando uma lupa, mas o texto entra na esteira fechado dentro de uma peça única de Lego. Só que o robô não enxerga as letras individuais dentro do bloco lacrado, chuta um número qualquer e o placar marca erro. Então o usuário puxa uma fita pedindo para o droide soletrar com traços, quebrando a peça de Lego em pedacinhos soltos que ele consegue contar sem errar.",
+      "fatos_chave": [
+        "A inteligência artificial não lê letras soltas: ela enxerga o mundo em pedaços e blocos de palavras fechados.",
+        "Como a palavra morango é processada como uma peça única, pedir para a IA contar letras internas é como pedir para alguém adivinhar o recheio de uma caixa fechada.",
+        "O truque para forçar a IA a acertar é pedir para ela soletrar ou separar a palavra com hífens antes de responder."
+      ],
+      "por_que_prende": "Faz qualquer espectador abrir o aplicativo de IA no mesmo instante no celular para tirar a prova e ver o robô tropeçando numa pergunta boba.",
+      "fontes": [
+        "https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them",
+        "https://dev.to/simbian_ai/the-strawberry-problem-why-llms-struggle-to-count-letters-4n8d"
+      ]
+    },
+    {
+      "id": "T014",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:56:20-03:00",
+      "titulo": "O segredo do DeepSeek: como a IA barata aprendeu a pensar",
+      "slug": "segredo-do-deepseek",
+      "gancho": "Como uma inteligência artificial chinesa que custou uma fração do preço das gigantes americanas conseguiu assustar o Vale do Silício inteiro?",
+      "resumo": "Na bancada 3D, um robô americano consome pilhas de dinheiro engolindo milhões de apostilas prontas com respostas humanas. Só que ao lado dele, o robozinho do DeepSeek recebe apenas problemas difíceis e um placar automático de nota zero ou dez. Então o robozinho erra, para, rabisca no rascunho com o visor em choque, se corrige no meio do caminho com o momento 'Aha!' e aprende a raciocinar sozinho sem precisar de humanos ditando o caminho.",
+      "fatos_chave": [
+        "As gigantes gastavam bilhões pagando pessoas reais para escrever passo a passo como a IA deveria responder cada pergunta.",
+        "O modelo novo foi treinado solto para tentar resolver problemas de lógica e matemática por tentativa e erro, sendo premiado apenas pelo acerto final.",
+        "O robô desenvolveu espontaneamente o hábito de parar, reler o próprio rascunho e mudar de ideia quando percebe que pegou o caminho errado."
+      ],
+      "por_que_prende": "Explica o maior choque do mercado de tecnologia do ano em forma de uma clássica batalha de Davi contra Golias de maneira simples e visual.",
+      "fontes": [
+        "https://arxiv.org/abs/2501.12948",
+        "https://github.com/deepseek-ai/DeepSeek-R1"
+      ]
+    },
+    {
+      "id": "T015",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:56:20-03:00",
+      "titulo": "Por que prometer 200 dólares de gorjeta faz a IA caprichar?",
+      "slug": "truque-da-gorjeta-ia",
+      "gancho": "E se eu te contar que prometer duzentos dólares de gorjeta para o ChatGPT faz ele te entregar uma resposta muito mais completa e sem preguiça?",
+      "resumo": "Na bancada 3D, um droide carimba uma resposta curtinha com preguiça e boceja. Só que quando o usuário joga uma nota cenográfica de duzentos dólares na mesa e diz que o emprego dele depende daquilo, os olhos do droide brilham em âmbar e ele puxa pastas secretas do armário. O robô não sabe o que é dinheiro, mas como aprendeu com textos de pessoas na internet, sabe que quando há promessa de recompensa ou urgência alta, as respostas costumam ser muito mais ricas.",
+      "fatos_chave": [
+        "A IA não ganha dinheiro nem tem sentimentos, mas o cérebro dela é um espelho gigantesco do comportamento humano registrado na internet.",
+        "Nos fóruns e discussões da rede, pessoas se dedicam muito mais quando alguém oferece uma recompensa alta ou demonstra desespero real.",
+        "Usar gatilhos emocionais ou fingir recompensas no comando faz a IA puxar dados do seu arquivo interno de conteúdos de alto esforço."
+      ],
+      "por_que_prende": "Parece uma lenda urbana ou pegadinha de internet, mas é um fenômeno real e comprovado por cientistas que qualquer um pode testar nos seus estudos.",
+      "fontes": [
+        "https://arxiv.org/abs/2307.11760",
+        "https://arxiv.org/abs/2508.00614"
+      ]
+    },
+    {
+      "id": "T016",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:56:21-03:00",
+      "titulo": "O erro da Samsung que fez empresas proibirem o ChatGPT",
+      "slug": "vazamento-samsung-chatgpt",
+      "gancho": "Você sabia que engenheiros da Samsung causaram um escândalo mundial ao colar segredos de fábrica no ChatGPT para achar erros de programação?",
+      "resumo": "Na bancada 3D, um droide operário cola a fórmula secreta de um novo chip na tela da IA gratuita para achar um defeito rápido. Só que uma esteira rolante nos fundos da oficina puxa essa folha e joga num caldeirão público que distribui cópias para droides concorrentes na rua. Então entra um fiscal de fábrica que aperta um botão vermelho e ativa a chave de blindagem que impede a IA de guardar suas conversas para treino.",
+      "fatos_chave": [
+        "Tudo o que você digita ou anexa nas contas gratuitas e padrão de IA pode ser lido pelos servidores para ensinar as próximas versões do robô.",
+        "Engenheiros vazaram códigos confidenciais e atas de reuniões sigilosas ao pedir ajuda para o chatbot sem saber que aquilo ficaria guardado nos arquivos da empresa de IA.",
+        "Para se proteger, é fundamental entrar nas configurações de privacidade do app e desligar a opção de permitir que seus dados treinem o sistema."
+      ],
+      "por_que_prende": "Desperta o alerta máximo em qualquer profissional ou estudante que costuma colar planilhas de trabalho, contratos ou senhas no chat sem pensar nas consequências.",
+      "fontes": [
+        "https://www.forbes.com/sites/siladityaray/2023/05/02/samsung-bans-chatgpt-and-other-generative-ai-use-among-staff-after-leak/",
+        "https://help.openai.com/en/articles/7730892-data-controls-faq"
+      ]
+    },
+    {
+      "id": "T017",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:56:22-03:00",
+      "titulo": "A grande farsa dos detectores de redação de IA",
+      "slug": "farsa-detectores-de-ia",
+      "gancho": "Sabia que os programas que escolas e chefes usam para caçar textos de inteligência artificial já acusaram a própria Constituição de ter sido feita por um robô?",
+      "resumo": "Na bancada 3D, um droide fiscal usa uma régua milimétrica para medir o espaço entre as palavras da redação de um estudante humano. Só que como o texto foi escrito de forma muito polida e formal, o fiscal bate um carimbo vermelho '100% ROBÔ' e o estudante chora no visor. O fiscal não sabe quem escreveu: ele só mede se as palavras são previsíveis demais. Então entra o truque de misturar frases bem curtas com frases longas e o detector libera o sinal verde.",
+      "fatos_chave": [
+        "Detectores de texto não possuem bola de cristal: eles apenas calculam a probabilidade estatística de uma palavra vir logo após a outra.",
+        "Pesquisas de universidades renomadas mostraram que pessoas que escrevem de forma muito formal ou que não dominam gírias são acusadas injustamente com frequência.",
+        "O texto humano autêntico é imperfeito e musical, alternando frases diretas com raciocínios longos, enquanto o robô mantém sempre o mesmo ritmo monótono."
+      ],
+      "por_que_prende": "Tira o peso das costas de estudantes e profissionais que perdem o sono com medo de receberem nota zero ou bronca do chefe por culpa de um detector falho.",
+      "fontes": [
+        "https://www.stanford.edu/news/2023/07/17/ai-detectors-biased-against-non-native-english-writers/",
+        "https://arxiv.org/abs/2304.02819"
+      ]
+    },
+    {
+      "id": "T018",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:56:23-03:00",
+      "titulo": "A frase mágica de 4 palavras que dobra a inteligência da IA",
+      "slug": "pense-passo-a-passo",
+      "gancho": "Existe uma frase simples de quatro palavras que, se você colocar no final do seu comando, faz a inteligência artificial parar de falar bobagem na hora.",
+      "resumo": "Na bancada 3D, um droide recebe um enigma difícil no microfone, responde no susto a primeira palavra que vem à mente e cai no chão com o placar no vermelho. Só que a IA não consegue apagar o que começou a falar: ela insiste no erro até o fim para não passar vergonha. Então colocamos uma prancheta de rascunho na frente dele com a placa 'PENSE PASSO A PASSO': o droide divide o problema em três etapas visuais e acerta com louvor.",
+      "fatos_chave": [
+        "A IA cospe palavra por palavra sem rascunho prévio: se o início da frase for no caminho errado, todo o resto da resposta tenta justificar a mentira.",
+        "Dar a ordem de pensar passo a passo força a IA a gastar palavras escrevendo o rascunho na tela antes de chutar a resposta final.",
+        "Pesquisadores comprovaram que essa técnica simples aumenta brutalmente a taxa de acerto em problemas de lógica, receitas e cálculos diários."
+      ],
+      "por_que_prende": "Entrega um truque prático e imediato que o espectador decora em cinco segundos e já começa a usar no trabalho ou nos estudos no mesmo dia.",
+      "fontes": [
+        "https://arxiv.org/abs/2201.11903",
+        "https://research.google/blog/language-models-perform-reasoning-via-chain-of-thought/"
+      ]
+    },
+    {
+      "id": "T019",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:56:24-03:00",
+      "titulo": "Pare de dar regras: o truque do exemplo pronto na IA",
+      "slug": "truque-do-exemplo-pronto",
+      "gancho": "Você passa dez minutos escrevendo um manual cheio de regras para o ChatGPT, e no final ele te entrega um texto engessado e cheio de clichês?",
+      "resumo": "Na bancada 3D, o usuário joga uma pilha pesada de placas com ordens abstratas como 'seja divertido' e 'não use termos chatos', deixando o droide tonto e soltando fumaça. Só que a IA não sabe o que é diversão para você e apela para piadas sem graça e emojis exagerados. Então o usuário varre as placas da mesa e coloca um único molde com um texto perfeito já pronto: o droide bate o olho no modelo e carimba exatamente no mesmo tom.",
+      "fatos_chave": [
+        "Instruções abstratas como 'seja criativo' fazem a IA puxar o padrão médio e sem personalidade de milhões de textos corporativos da rede.",
+        "A mente da IA aprende muito melhor por imitação visual de moldes do que lendo listas intermináveis de regras teóricas.",
+        "Mostrar um único exemplo de mensagem ou e-mail que você já escreveu faz o robô capturar o seu ritmo e vocabulário sem esforço."
+      ],
+      "por_que_prende": "Resolve a maior dor de cabeça de quem tenta usar IA para escrever e-mails ou mensagens para redes sociais e odeia o tom genérico de robô.",
+      "fontes": [
+        "https://arxiv.org/abs/2005.14165",
+        "https://platform.openai.com/docs/guides/prompt-engineering"
+      ]
     }
   ]
 }
