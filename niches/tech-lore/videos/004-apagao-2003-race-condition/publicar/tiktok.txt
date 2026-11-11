@@ -1,0 +1,2 @@
+LEGENDA
+Um bug de milissegundos na memória travou os alarmes e apagou 50 milhões de pessoas em 2003. #tecnologia #programacao #curiosidades #dev #bug

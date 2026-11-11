@@ -1,0 +1,45 @@
+// Kit 3D do business-forensics — paleta semântica C (mapeada de COL do tema) e materiais compartilhados.
+import { COL, fill, edge, glowless } from "../motor/core.js";
+
+export const C = {
+  ouro: COL.mint,
+  fraude: COL.alert,
+  uv: COL.cyan,
+  papel: COL.ink,
+  taupe: COL.gray,
+  chao: COL.ground,
+  mogno: COL.slate,
+  morto: COL.dead,
+  lacre: 0xb3261e,
+  nanquim: 0x1c1214,
+  creme: 0xfff4e0,
+  sepia: 0x6b5b52,
+  cera: 0xd9c4a0,
+  bege: 0xcbbd9f,
+  violetaTinta: 0x4c35b8,
+  vinho: 0x5c1f1f,
+};
+
+export const MBF = {
+  ouro: fill(C.ouro, 0.65),
+  papel: fill(C.papel, 0.9),
+  mogno: fill(C.mogno, 0.85),
+  nanquim: fill(C.nanquim, 0.85),
+  taupe: fill(C.taupe, 0.8),
+  sepia: fill(C.sepia, 0.9),
+  lacre: fill(C.lacre, 0.75),
+  fraude: fill(C.fraude, 0.75),
+  uv: fill(C.uv, 0.7),
+  morto: fill(C.morto, 0.9),
+  cera: fill(C.cera, 0.8),
+  bege: fill(C.bege, 0.85),
+  vinho: fill(C.vinho, 0.85),
+  eNanquim: edge(C.nanquim, 0.9),
+  eOuro: edge(C.ouro, 0.95),
+  eFraude: edge(C.fraude, 0.95),
+  eUv: edge(C.uv, 0.95),
+  eTaupe: edge(C.taupe, 0.65),
+  ledOuro: glowless(C.ouro),
+  ledFraude: glowless(C.fraude),
+  ledUv: glowless(C.uv),
+};

@@ -1,0 +1,9 @@
+{
+  "id": "business-forensics-002-123milhas",
+  "name": "business-forensics-002-123milhas",
+  "createdAt": "2026-10-31T20:38:29.568Z",
+  "motor": {
+    "tipo": "3d",
+    "versao": "0.1.0"
+  }
+}

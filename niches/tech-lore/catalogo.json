@@ -203,6 +203,198 @@
         "https://www.atsb.gov.au/investigations/ao-2008-070",
         "https://www.atsb.gov.au/statements/2008/qantas-airbus-a330-accident-media-conference"
       ]
+    },
+    {
+      "id": "T012",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:46:59-03:00",
+      "titulo": "Multidata RTP/2: O polígono invertido que duplicou a radiação letal em 28 pacientes",
+      "slug": "multidata-panama-radiacao",
+      "gancho": "Em agosto de 2000, 28 pacientes de câncer começaram a receber até o dobro da dose letal de radiação por causa de um polígono desenhado ao contrário.",
+      "resumo": "No Instituto Oncológico Nacional do Panamá, 28 pacientes receberam doses letais de radiação em tratamentos de câncer entre 2000 e 2001. O software de planejamento Multidata RTP/2 duplicou o tempo de exposição da máquina ao interpretar incorretamente múltiplos blocos de blindagem desenhados em um único contorno contínuo.",
+      "fatos_chave": [
+        "28 pacientes superdosados entre agosto de 2000 e fevereiro de 2001 no Instituto Oncológico Nacional (ION), na Cidade do Panamá.",
+        "O software Multidata RTP/2 calculou tempos de exposição até 100% acima do correto para a unidade de teleterapia Theratron 780-C (Cobalto-60).",
+        "Investigação oficial da Agência Internacional de Energia Atômica (AIEA) confirmou pelo menos 18 mortes causadas diretamente pela radiação em excesso."
+      ],
+      "por_que_prende": "Mostra como um mero atalho de mouse de um médico virou uma arma invisível contra dezenas de pacientes indefesos dentro de uma sala de radioterapia.",
+      "fontes": [
+        "Relatório Oficial da Agência Internacional de Energia Atômica (IAEA): Investigation of an accidental overdosing of radiotherapy patients in Panama (2001)",
+        "US Food and Drug Administration (FDA) Public Health Advisory on Multidata Systems International RTP/2 Software (2001)"
+      ]
+    },
+    {
+      "id": "T013",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:47:00-03:00",
+      "titulo": "Boeing 787: O contador de 248 dias que desliga os geradores em pleno voo",
+      "slug": "boeing-787-248-dias",
+      "gancho": "A cada 248 dias contínuos ligado, um Boeing 787 desliga simultaneamente todos os seus quatro geradores elétricos em pleno voo.",
+      "resumo": "Em 2015, a FAA emitiu uma diretriz emergencial de segurança obrigando companhias aéreas a reiniciarem os aviões Boeing 787 antes de completarem 248 dias com energia contínua. Um contador interno de 32 bits das unidades de controle de geradores estourava em centésimos de segundo, forçando o corte total e simultâneo de energia alternada da aeronave.",
+      "fatos_chave": [
+        "Diretriz de Aeronavegabilidade emergencial FAA AD 2015-09-07 emitida em 1 de maio de 2015 para todos os operadores mundiais do Boeing 787.",
+        "O contador interno de 32 bits com sinal media centésimos de segundo e estourava após exatamente 248 dias e 13 horas (2.147.483.647 centissegundos).",
+        "O transbordamento numérico colocava simultaneamente as 4 Unidades de Controle de Geradores (GCUs) em modo de proteção, cortando toda a energia AC em voo."
+      ],
+      "por_que_prende": "O absurdo de um avião comercial ultramoderno exigir ser 'reiniciado na tomada' a cada oito meses para não apagar completamente no céu prende qualquer espectador.",
+      "fontes": [
+        "Federal Aviation Administration (FAA) Airworthiness Directive AD 2015-09-07",
+        "Federal Register / Vol. 80, No. 84: Airworthiness Directives; The Boeing Company Airplanes"
+      ]
+    },
+    {
+      "id": "T014",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:47:01-03:00",
+      "titulo": "Mariner 1: O travessão esquecido que explodiu um foguete de US$ 18 milhões",
+      "slug": "mariner-1-traco-perdido",
+      "gancho": "Em julho de 1962, um foguete de 18 milhões de dólares foi detonado aos 293 segundos de voo por causa de um traço esquecido no papel.",
+      "resumo": "Apenas quatro minutos após o lançamento da primeira missão americana a Vênus em 1962, o foguete Atlas-Agena perdeu o controle de rota e precisou ser destruído por segurança. Os programadores omitiram o travessão superior de uma variável manuscrita, fazendo o computador confundir ruídos normais de radar com desvios bruscos de curso.",
+      "fatos_chave": [
+        "Lançamento em 22 de julho de 1962 em Cabo Canaveral com destino a Vênus a bordo de um lançador Atlas-Agena.",
+        "Autodestruição remota ordenada pelo oficial de segurança de voo aos 293 segundos (4 minutos e 53 segundos) da missão.",
+        "A omissão do travessão (mácron) sobre a variável de suavização R fez o algoritmo tratar flutuações randômicas de sinal de antena como manobras de emergência."
+      ],
+      "por_que_prende": "Uma simples linha horizontal esquecida numa especificação matemática virou o hífen mais caro da história espacial e pulverizou a missão antes de sair da Terra.",
+      "fontes": [
+        "NASA Historical Reference: Mariner 1 Post-Flight Trajectory Analysis and Launch Failure Report (1962)",
+        "Arthur C. Clarke: The Promise of Space & NASA History Series"
+      ]
+    },
+    {
+      "id": "T015",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:47:02-03:00",
+      "titulo": "Hitomi: O sinal de mais que fez um telescópio de US$ 273 milhões se despedaçar",
+      "slug": "hitomi-giro-fatal",
+      "gancho": "Em março de 2016, um telescópio espacial de 273 milhões de dólares girou tão rápido que arrancou as próprias asas solares no espaço.",
+      "resumo": "Poucas semanas após o lançamento em 2016, o telescópio espacial japonês Hitomi entrou em um giro descontrolado e se despedaçou em órbita baixa. Um parâmetro de calibração enviado pela equipe continha o sinal matemático invertido, fazendo os propulsores acelerarem o giro em vez de frear o satélite.",
+      "fatos_chave": [
+        "Lançado pela agência espacial japonesa (JAXA) em 17 de fevereiro de 2016 como o observatório ASTRO-H, avaliado em US$ 273 milhões (31 bilhões de ienes).",
+        "Perda catastrófica de telemetria em 26 de março de 2016 após o telescópio entrar em rotação crítica e dispersar fragmentos no espaço.",
+        "Um erro de digitação inverteu o sinal da matriz de ganhos de controle dos propulsores a hidrazina, amplificando o giro em vez de estabilizá-lo."
+      ],
+      "por_que_prende": "O contraste surreal de um dos mais caros instrumentos astronômicos do mundo se autofagocitar porque o software confundiu um freio com um acelerador.",
+      "fontes": [
+        "Japan Aerospace Exploration Agency (JAXA): Investigation Report on the ASTRO-H (Hitomi) Anomalies (2016)",
+        "Spaceflight Now: Japanese X-ray satellite lost after tumbling out of control"
+      ]
+    },
+    {
+      "id": "T016",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:47:03-03:00",
+      "titulo": "Bolsa de Vancouver: O truncamento que sumiu com metade do mercado sem ninguém perder dinheiro",
+      "slug": "vancouver-truncamento-524",
+      "gancho": "Em novembro de 1983, a Bolsa de Vancouver perdeu metade de todo o seu valor acumulado sem que uma única ação caísse de preço.",
+      "resumo": "Entre janeiro de 1982 e novembro de 1983, o índice oficial da Bolsa de Valores de Vancouver despencou silenciosamente de 1.000 para 524 pontos, criando a ilusão de um colapso financeiro prolongado. O software recalculava o índice milhares de vezes ao dia e truncava as casas decimais em vez de arredondá-las, acumulando uma perda artificial de 25 pontos por mês.",
+      "fatos_chave": [
+        "Índice eletrônico inicializado em 1.000,000 pontos em janeiro de 1982 pela Vancouver Stock Exchange (VSE).",
+        "O índice era recalculado a cada negociação individual (cerca de 3.000 vezes por dia) descartando os dígitos além da terceira casa decimal.",
+        "Em 25 de novembro de 1983 o índice fechou a 524,811 pontos; após a correção da fórmula no fim de semana, abriu na segunda-feira em 1.098,892 pontos sem novas ordens."
+      ],
+      "por_que_prende": "O mistério fascinante de um mercado financeiro inteiro parecer estar arruinado durante quase dois anos enquanto, na prática, os computadores só jogavam frações de centavos no lixo.",
+      "fontes": [
+        "The Wall Street Journal: Stock Index Sinks Due to Computer Rounding Error (1983)",
+        "ACM SIGSOFT Software Engineering Notes: The Vancouver Stock Exchange Index Calculation (Vol. 8, No. 5, 1983)"
+      ]
+    },
+    {
+      "id": "T017",
+      "estado": "pronto",
+      "criado_em": "2026-10-31T16:47:04-03:00",
+      "titulo": "Apagão de 2003: A condição de corrida de milissegundos que deixou 50 milhões no escuro",
+      "slug": "apagao-2003-race-condition",
+      "gancho": "No dia 14 de agosto de 2003, um conflito de milissegundos na memória de um servidor apagou a energia de 50 milhões de pessoas.",
+      "resumo": "Em agosto de 2003, o maior apagão da história da América do Norte deixou 50 milhões de pessoas sem luz e causou prejuízos de bilhões de dólares nos Estados Unidos e Canadá. Uma condição de corrida no subsistema C++ de alarmes do software GE XA/21 travou em loop infinito, impedindo que os operadores recebessem alertas sobre a queda em cadeia das linhas de alta tensão.",
+      "fatos_chave": [
+        "Blecaute de 14 de agosto de 2003 atingiu 50 milhões de habitantes em 8 estados americanos e na província canadense de Ontário.",
+        "Danos econômicos totais estimados entre US$ 6 bilhões e US$ 10 bilhões segundo o relatório da comissão binacional de energia.",
+        "Condição de corrida (race condition) no software GE Energy XA/21 corrompeu a estrutura de dados de alarmes às 14h14, congelando a fila de avisos da FirstEnergy por mais de uma hora."
+      ],
+      "por_que_prende": "Revela que o maior blecaute da história moderna não começou com tempestades severas, mas com duas rotinas de código disputando a mesma variável em milissegundos.",
+      "fontes": [
+        "U.S.-Canada Power System Outage Task Force: Final Report on the August 14, 2003 Blackout in the United States and Canada (2004)",
+        "SecurityFocus: Software bug contributed to 2003 blackout"
+      ],
+      "atualizado_em": "2026-10-31T17:29:56-03:00",
+      "video": "004-apagao-2003-race-condition"
+    },
+    {
+      "id": "T018",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:47:05-03:00",
+      "titulo": "Debian OpenSSL: As duas linhas apagadas que deixaram milhões de servidores vulneráveis",
+      "slug": "debian-openssl-32767",
+      "gancho": "Em maio de 2008, o projeto Debian descobriu que duas linhas de código apagadas reduziram a criptografia de milhões de servidores a apenas 32.767 chaves possíveis.",
+      "resumo": "Em maio de 2008, pesquisadores revelaram que chaves criptográficas geradas em sistemas Debian e Ubuntu por dois anos podiam ser quebradas em poucos segundos. Um mantenedor apagou duas linhas do código do OpenSSL para eliminar avisos da ferramenta Valgrind, destruindo o gerador de entropia e limitando todas as chaves ao número de processos do sistema.",
+      "fatos_chave": [
+        "Boletim de segurança global Debian DSA-1571-1 (CVE-2008-0166) emitido com urgência crítica em 13 de maio de 2008.",
+        "Todas as versões 0.9.8c-1 a 0.9.8g-9 do OpenSSL empacotadas no Debian e Ubuntu entre setembro de 2006 e maio de 2008 continham a falha.",
+        "Sem as linhas de mistura de entropia em md_rand.c, o gerador de números pseudoaleatórios dependia unicamente do Process ID (PID), limitado a 32.767 valores no Linux."
+      ],
+      "por_que_prende": "Desvenda o perigo real de tentar silenciar avisos de ferramentas de desenvolvimento sem compreender que aquelas linhas descartadas garantiam o sigilo da internet inteira.",
+      "fontes": [
+        "Debian Security Advisory DSA-1571-1: OpenSSL predictable random number generator (CVE-2008-0166)",
+        "Bruce Schneier: Random Number Bug in Debian Linux (Schneier on Security, 2008)"
+      ]
+    },
+    {
+      "id": "T019",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:47:06-03:00",
+      "titulo": "Toyota Camry: O transbordamento de pilha na Task X que travou o acelerador no chão",
+      "slug": "toyota-camry-task-x",
+      "gancho": "Em outubro de 2013, a perícia judicial provou que um transbordamento de memória no módulo do Toyota Camry podia abrir o acelerador sozinho a 100%.",
+      "resumo": "Durante o processo judicial Bookout v. Toyota em 2013, engenheiros de segurança provaram que falhas graves no software da montadora provocavam acelerações repentinas e incontroláveis nos veículos. Um transbordamento de pilha de memória corrompia variáveis do sistema e derrubava a tarefa principal de aceleração, contornando o mecanismo de segurança e travando o acelerador aberto.",
+      "fatos_chave": [
+        "Veredito do júri de Oklahoma no caso Bookout v. Toyota Motor Corp. em outubro de 2013 envolvendo um Camry ano 2005.",
+        "A auditoria de código-fonte realizada pela equipe de Michael Barr (Barr Group) identificou mais de 11 mil variáveis globais e ausência de proteção de memória no RTOS.",
+        "A morte da 'Task X' por estouro de pilha deixava o acelerador aberto sem registrar códigos de erro e sem ser detectada pelo temporizador watchdog."
+      ],
+      "por_que_prende": "Aterroriza qualquer motorista ao demonstrar visualmente que o acelerador do carro pode simplesmente ignorar o pedal por causa de uma colisão de memória invisível na placa.",
+      "fontes": [
+        "Oklahoma State Court Record: Bookout v. Toyota Motor Corp., Case No. CJ-2008-7969 (2013)",
+        "Michael Barr (Barr Group): Expert Testimony and Source Code Analysis of Toyota ETCS-i (2013)"
+      ]
+    },
+    {
+      "id": "T020",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:47:07-03:00",
+      "titulo": "Bitcoin Bloco 74.638: O overflow de 64 bits que criou 184 bilhões de moedas do nada",
+      "slug": "bitcoin-overflow-184-bi",
+      "gancho": "No dia 15 de agosto de 2010, uma única transação no bloco 74.638 gerou 184 bilhões de bitcoins do nada em uma moeda programada para ter apenas 21 milhões.",
+      "resumo": "Em agosto de 2010, uma vulnerabilidade crítica quase destruiu a credibilidade econômica da rede Bitcoin ao criar bilhões de moedas fictícias em um único bloco. O código em C++ não verificava o limite de soma de números inteiros de 64 bits, permitindo que uma adição astronômica sofresse overflow para um valor pequeno e burlasse o teto de 21 milhões.",
+      "fatos_chave": [
+        "Vulnerabilidade crítica documentada como CVE-2010-5139 e explorada no bloco 74.638 em 15 de agosto de 2010.",
+        "A transação gerou exatamente 184.467.440.737,09551616 bitcoins divididos entre dois endereços na rede.",
+        "Satoshi Nakamoto e desenvolvedores publicaram o patch de correção (versão 0.3.10) em 5 horas, executando uma reorganização de blocos que anulou a transação no bloco 74.691."
+      ],
+      "por_que_prende": "Apresenta o momento exato em que a maior regra de escassez da história do dinheiro digital foi implodida por uma simples soma aritmética que passou do limite do processador.",
+      "fontes": [
+        "National Vulnerability Database (NVD): CVE-2010-5139 Detail (Integer Overflow in Bitcoin 0.3.10)",
+        "Bitcoin Wiki: Value overflow incident & Satoshi Nakamoto BitcoinTalk release 0.3.10"
+      ]
+    },
+    {
+      "id": "T021",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:47:07-03:00",
+      "titulo": "F-22 Raptor: O meridiano 180 que cegou 12 caças de US$ 140 milhões sobre o oceano",
+      "slug": "f22-linha-de-data",
+      "gancho": "Em fevereiro de 2007, 12 caças stealth de 140 milhões de dólares cada perderam todas as telas e instrumentos de voo no meio do Oceano Pacífico ao cruzarem o meridiano 180.",
+      "resumo": "Em fevereiro de 2007, uma esquadrilha de 12 caças furtivos F-22 perdeu completamente a navegação, as telas digitais e a medição de combustível durante um voo do Havaí para o Japão. O software de aviônica sofreu uma pane geral ao cruzar a Linha Internacional de Data, entrando em um loop sem fim de reinicialização por não conseguir processar a mudança de coordenadas e fusos.",
+      "fatos_chave": [
+        "Em 11 de fevereiro de 2007, 12 caças F-22A da 27ª Esquadrilha realizavam seu primeiro desdobramento internacional de Hickam (Havaí) para Kadena (Japão).",
+        "Ao cruzarem a Linha Internacional de Data (meridiano 180°), os processadores centrais de bordo travaram simultaneamente em múltiplos caças.",
+        "Sem telas de navegação, horizonte artificial ou medidores de combustível, os pilotos precisaram voar em formação visual colados aos aviões-tanque KC-10 para retornar ao Havaí."
+      ],
+      "por_que_prende": "Desmistifica a invencibilidade do caça de combate mais avançado do planeta, que ficou cego e indefeso no ar simplesmente porque o relógio mudou de dia.",
+      "fontes": [
+        "Air Force Magazine / Defense Industry Daily: F-22 Squadron Overcomes Dateline Glitch (2007)",
+        "Maj. Gen. Don Shepperd (Ret.), CNN Analysis: F-22 software malfunction crossing the International Date Line"
+      ]
     }
   ]
 }

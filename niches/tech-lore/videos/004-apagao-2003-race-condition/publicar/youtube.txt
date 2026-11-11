@@ -1,0 +1,11 @@
+TÍTULO
+O bug de milissegundos que apagou 50 milhões de pessoas #shorts
+
+DESCRIÇÃO
+Em 14 de agosto de 2003, uma condição de corrida no software GE XA/21 travou o sistema de alarmes da FirstEnergy em silêncio absoluto. Sem aviso aos operadores, a sobrecarga derrubou mais de 100 usinas e provocou US$ 6 bilhões em prejuízo. Fonte: U.S.-Canada Power System Outage Task Force: Final Report (2004).
+
+HASHTAGS
+#shorts #tecnologia #programacao
+
+TAGS
+apagão 2003, condição de corrida, race condition, bug de software, engenharia de software, desastres da tecnologia, firstenergy, programação

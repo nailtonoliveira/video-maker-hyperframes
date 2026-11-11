@@ -1,0 +1,781 @@
+{
+  "idioma": "pt",
+  "probabilidade": 1,
+  "duracao": 44.721625,
+  "segmentos": [
+    {
+      "id": 1,
+      "inicio": 0.0,
+      "fim": 4.56,
+      "texto": "Um conflito de milissegundos na memória de um servidor apagou a energia de 50 milhões",
+      "palavras": [
+        {
+          "palavra": "Um",
+          "inicio": 0.0,
+          "fim": 0.12,
+          "probabilidade": 0.547
+        },
+        {
+          "palavra": "conflito",
+          "inicio": 0.12,
+          "fim": 0.54,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.54,
+          "fim": 0.68,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "milissegundos",
+          "inicio": 0.68,
+          "fim": 1.3,
+          "probabilidade": 0.849
+        },
+        {
+          "palavra": "na",
+          "inicio": 1.3,
+          "fim": 1.46,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "memória",
+          "inicio": 1.46,
+          "fim": 1.82,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.82,
+          "fim": 1.96,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "um",
+          "inicio": 1.96,
+          "fim": 2.04,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "servidor",
+          "inicio": 2.04,
+          "fim": 2.52,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "apagou",
+          "inicio": 2.52,
+          "fim": 3.22,
+          "probabilidade": 0.901
+        },
+        {
+          "palavra": "a",
+          "inicio": 3.22,
+          "fim": 3.34,
+          "probabilidade": 0.929
+        },
+        {
+          "palavra": "energia",
+          "inicio": 3.34,
+          "fim": 3.62,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.62,
+          "fim": 3.84,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "50",
+          "inicio": 3.84,
+          "fim": 4.26,
+          "probabilidade": 0.948
+        },
+        {
+          "palavra": "milhões",
+          "inicio": 4.26,
+          "fim": 4.56,
+          "probabilidade": 0.978
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "inicio": 4.56,
+      "fim": 5.28,
+      "texto": "de pessoas.",
+      "palavras": [
+        {
+          "palavra": "de",
+          "inicio": 4.56,
+          "fim": 4.78,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "pessoas.",
+          "inicio": 4.78,
+          "fim": 5.28,
+          "probabilidade": 0.997
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "inicio": 5.64,
+      "fim": 12.72,
+      "texto": "Em 14 de agosto de 2003, no centro de controle da First Energy, o software, G, X, A,",
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 5.64,
+          "fim": 5.74,
+          "probabilidade": 0.965
+        },
+        {
+          "palavra": "14",
+          "inicio": 5.74,
+          "fim": 6.04,
+          "probabilidade": 0.813
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.04,
+          "fim": 6.34,
+          "probabilidade": 0.96
+        },
+        {
+          "palavra": "agosto",
+          "inicio": 6.34,
+          "fim": 6.66,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.66,
+          "fim": 6.84,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "2003,",
+          "inicio": 6.84,
+          "fim": 7.62,
+          "probabilidade": 0.837
+        },
+        {
+          "palavra": "no",
+          "inicio": 8.04,
+          "fim": 8.1,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "centro",
+          "inicio": 8.1,
+          "fim": 8.42,
+          "probabilidade": 0.678
+        },
+        {
+          "palavra": "de",
+          "inicio": 8.42,
+          "fim": 8.58,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "controle",
+          "inicio": 8.58,
+          "fim": 8.94,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "da",
+          "inicio": 8.94,
+          "fim": 9.2,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "First",
+          "inicio": 9.2,
+          "fim": 9.44,
+          "probabilidade": 0.412
+        },
+        {
+          "palavra": "Energy,",
+          "inicio": 9.44,
+          "fim": 9.74,
+          "probabilidade": 0.482
+        },
+        {
+          "palavra": "o",
+          "inicio": 10.14,
+          "fim": 10.22,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "software,",
+          "inicio": 10.22,
+          "fim": 10.72,
+          "probabilidade": 0.869
+        },
+        {
+          "palavra": "G,",
+          "inicio": 11.18,
+          "fim": 11.38,
+          "probabilidade": 0.864
+        },
+        {
+          "palavra": "X,",
+          "inicio": 11.84,
+          "fim": 12.08,
+          "probabilidade": 0.508
+        },
+        {
+          "palavra": "A,",
+          "inicio": 12.62,
+          "fim": 12.72,
+          "probabilidade": 0.9
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "inicio": 13.12,
+      "fim": 15.64,
+      "texto": "barra 21, gerenciava a rede elétrica.",
+      "palavras": [
+        {
+          "palavra": "barra",
+          "inicio": 13.12,
+          "fim": 13.28,
+          "probabilidade": 0.59
+        },
+        {
+          "palavra": "21,",
+          "inicio": 13.28,
+          "fim": 13.64,
+          "probabilidade": 0.418
+        },
+        {
+          "palavra": "gerenciava",
+          "inicio": 14.18,
+          "fim": 14.66,
+          "probabilidade": 0.92
+        },
+        {
+          "palavra": "a",
+          "inicio": 14.66,
+          "fim": 14.88,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "rede",
+          "inicio": 14.88,
+          "fim": 15.0,
+          "probabilidade": 0.438
+        },
+        {
+          "palavra": "elétrica.",
+          "inicio": 15.0,
+          "fim": 15.64,
+          "probabilidade": 0.973
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "inicio": 15.92,
+      "fim": 22.1,
+      "texto": "As 14 horas e 14 minutos, duas tarefas tentaram gravar no mesmo bâfer de alarmes ao mesmo tempo.",
+      "palavras": [
+        {
+          "palavra": "As",
+          "inicio": 15.92,
+          "fim": 16.06,
+          "probabilidade": 0.949
+        },
+        {
+          "palavra": "14",
+          "inicio": 16.06,
+          "fim": 16.36,
+          "probabilidade": 0.954
+        },
+        {
+          "palavra": "horas",
+          "inicio": 16.36,
+          "fim": 16.78,
+          "probabilidade": 0.963
+        },
+        {
+          "palavra": "e",
+          "inicio": 16.78,
+          "fim": 16.96,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "14",
+          "inicio": 16.96,
+          "fim": 17.26,
+          "probabilidade": 0.973
+        },
+        {
+          "palavra": "minutos,",
+          "inicio": 17.26,
+          "fim": 17.7,
+          "probabilidade": 0.948
+        },
+        {
+          "palavra": "duas",
+          "inicio": 18.16,
+          "fim": 18.3,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "tarefas",
+          "inicio": 18.3,
+          "fim": 18.86,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "tentaram",
+          "inicio": 18.86,
+          "fim": 19.26,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "gravar",
+          "inicio": 19.26,
+          "fim": 19.66,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "no",
+          "inicio": 19.66,
+          "fim": 19.82,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "mesmo",
+          "inicio": 19.82,
+          "fim": 20.2,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "bâfer",
+          "inicio": 20.2,
+          "fim": 20.54,
+          "probabilidade": 0.683
+        },
+        {
+          "palavra": "de",
+          "inicio": 20.54,
+          "fim": 20.74,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "alarmes",
+          "inicio": 20.74,
+          "fim": 21.26,
+          "probabilidade": 0.804
+        },
+        {
+          "palavra": "ao",
+          "inicio": 21.26,
+          "fim": 21.36,
+          "probabilidade": 0.97
+        },
+        {
+          "palavra": "mesmo",
+          "inicio": 21.36,
+          "fim": 21.64,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "tempo.",
+          "inicio": 21.64,
+          "fim": 22.1,
+          "probabilidade": 0.999
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "inicio": 22.5,
+      "fim": 27.12,
+      "texto": "Sem bloqueio muto, a fila corrompeu e o processo entrou em loop infinito.",
+      "palavras": [
+        {
+          "palavra": "Sem",
+          "inicio": 22.5,
+          "fim": 22.76,
+          "probabilidade": 0.965
+        },
+        {
+          "palavra": "bloqueio",
+          "inicio": 22.76,
+          "fim": 23.2,
+          "probabilidade": 0.958
+        },
+        {
+          "palavra": "muto,",
+          "inicio": 23.2,
+          "fim": 23.54,
+          "probabilidade": 0.801
+        },
+        {
+          "palavra": "a",
+          "inicio": 23.82,
+          "fim": 23.9,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "fila",
+          "inicio": 23.9,
+          "fim": 24.2,
+          "probabilidade": 0.944
+        },
+        {
+          "palavra": "corrompeu",
+          "inicio": 24.2,
+          "fim": 24.8,
+          "probabilidade": 0.894
+        },
+        {
+          "palavra": "e",
+          "inicio": 24.8,
+          "fim": 25.18,
+          "probabilidade": 0.284
+        },
+        {
+          "palavra": "o",
+          "inicio": 25.18,
+          "fim": 25.26,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "processo",
+          "inicio": 25.26,
+          "fim": 25.6,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "entrou",
+          "inicio": 25.6,
+          "fim": 26.06,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "em",
+          "inicio": 26.06,
+          "fim": 26.24,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "loop",
+          "inicio": 26.24,
+          "fim": 26.38,
+          "probabilidade": 0.603
+        },
+        {
+          "palavra": "infinito.",
+          "inicio": 26.38,
+          "fim": 27.12,
+          "probabilidade": 0.891
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "inicio": 27.12,
+      "fim": 31.94,
+      "texto": "Quando cabos de alta tensão caíram no horário, os alarmes não dispararam.",
+      "palavras": [
+        {
+          "palavra": "Quando",
+          "inicio": 27.12,
+          "fim": 27.8,
+          "probabilidade": 0.241
+        },
+        {
+          "palavra": "cabos",
+          "inicio": 27.8,
+          "fim": 28.28,
+          "probabilidade": 0.932
+        },
+        {
+          "palavra": "de",
+          "inicio": 28.28,
+          "fim": 28.42,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "alta",
+          "inicio": 28.42,
+          "fim": 28.62,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "tensão",
+          "inicio": 28.62,
+          "fim": 29.12,
+          "probabilidade": 0.955
+        },
+        {
+          "palavra": "caíram",
+          "inicio": 29.12,
+          "fim": 29.54,
+          "probabilidade": 0.915
+        },
+        {
+          "palavra": "no",
+          "inicio": 29.54,
+          "fim": 29.72,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "horário,",
+          "inicio": 29.72,
+          "fim": 30.18,
+          "probabilidade": 0.445
+        },
+        {
+          "palavra": "os",
+          "inicio": 30.5,
+          "fim": 30.66,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "alarmes",
+          "inicio": 30.66,
+          "fim": 31.16,
+          "probabilidade": 0.72
+        },
+        {
+          "palavra": "não",
+          "inicio": 31.16,
+          "fim": 31.3,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "dispararam.",
+          "inicio": 31.3,
+          "fim": 31.94,
+          "probabilidade": 0.928
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "inicio": 32.3,
+      "fim": 38.4,
+      "texto": "Sem aviso, a sobrecarga derrubou sem usinas e gerou seis bilhões de dólares em prejuízo.",
+      "palavras": [
+        {
+          "palavra": "Sem",
+          "inicio": 32.3,
+          "fim": 32.58,
+          "probabilidade": 0.866
+        },
+        {
+          "palavra": "aviso,",
+          "inicio": 32.58,
+          "fim": 33.04,
+          "probabilidade": 0.904
+        },
+        {
+          "palavra": "a",
+          "inicio": 33.26,
+          "fim": 33.42,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "sobrecarga",
+          "inicio": 33.42,
+          "fim": 34.04,
+          "probabilidade": 0.896
+        },
+        {
+          "palavra": "derrubou",
+          "inicio": 34.04,
+          "fim": 34.42,
+          "probabilidade": 0.94
+        },
+        {
+          "palavra": "sem",
+          "inicio": 34.42,
+          "fim": 34.7,
+          "probabilidade": 0.376
+        },
+        {
+          "palavra": "usinas",
+          "inicio": 34.7,
+          "fim": 35.18,
+          "probabilidade": 0.819
+        },
+        {
+          "palavra": "e",
+          "inicio": 35.18,
+          "fim": 35.9,
+          "probabilidade": 0.723
+        },
+        {
+          "palavra": "gerou",
+          "inicio": 35.9,
+          "fim": 36.16,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "seis",
+          "inicio": 36.16,
+          "fim": 36.5,
+          "probabilidade": 0.556
+        },
+        {
+          "palavra": "bilhões",
+          "inicio": 36.5,
+          "fim": 36.9,
+          "probabilidade": 0.975
+        },
+        {
+          "palavra": "de",
+          "inicio": 36.9,
+          "fim": 37.12,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "dólares",
+          "inicio": 37.12,
+          "fim": 37.44,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "em",
+          "inicio": 37.44,
+          "fim": 37.72,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "prejuízo.",
+          "inicio": 37.72,
+          "fim": 38.4,
+          "probabilidade": 0.963
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "inicio": 38.76,
+      "fim": 44.12,
+      "texto": "A tela dos operadores continuou estática e muda por mais de uma hora e foi exatamente assim que...",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 38.76,
+          "fim": 38.9,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "tela",
+          "inicio": 38.9,
+          "fim": 39.14,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "dos",
+          "inicio": 39.14,
+          "fim": 39.36,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "operadores",
+          "inicio": 39.36,
+          "fim": 39.88,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "continuou",
+          "inicio": 39.88,
+          "fim": 40.52,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "estática",
+          "inicio": 40.52,
+          "fim": 41.16,
+          "probabilidade": 0.912
+        },
+        {
+          "palavra": "e",
+          "inicio": 41.16,
+          "fim": 41.26,
+          "probabilidade": 0.69
+        },
+        {
+          "palavra": "muda",
+          "inicio": 41.26,
+          "fim": 41.58,
+          "probabilidade": 0.965
+        },
+        {
+          "palavra": "por",
+          "inicio": 41.58,
+          "fim": 41.72,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "mais",
+          "inicio": 41.72,
+          "fim": 41.94,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "de",
+          "inicio": 41.94,
+          "fim": 42.1,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "uma",
+          "inicio": 42.1,
+          "fim": 42.24,
+          "probabilidade": 0.966
+        },
+        {
+          "palavra": "hora",
+          "inicio": 42.24,
+          "fim": 42.54,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "e",
+          "inicio": 42.54,
+          "fim": 42.94,
+          "probabilidade": 0.669
+        },
+        {
+          "palavra": "foi",
+          "inicio": 42.94,
+          "fim": 43.08,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "exatamente",
+          "inicio": 43.08,
+          "fim": 43.6,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "assim",
+          "inicio": 43.6,
+          "fim": 44.02,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "que...",
+          "inicio": 44.02,
+          "fim": 44.34,
+          "probabilidade": 0.839
+        }
+      ]
+    }
+  ]
+}

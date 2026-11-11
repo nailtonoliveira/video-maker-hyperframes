@@ -5,7 +5,7 @@
   "palavras_por_segundo": 2.3,
   "llm": {
     "provedor": "antigravity",
-    "modelo_criativo": "gemini-4-argon-high",
+    "modelo_criativo": "gemini-3.8-flash-high",
     "modelo_rapido": "gemini-3.8-flash-medium",
     "modelo_embeddings": "gemini-embedding-001",
     "pesquisa": true

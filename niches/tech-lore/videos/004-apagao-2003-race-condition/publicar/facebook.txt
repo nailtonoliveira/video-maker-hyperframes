@@ -1,0 +1,2 @@
+LEGENDA
+Uma condição de corrida em um servidor congelou os alarmes e gerou um blecaute em 50 milhões de pessoas em 2003. Qual foi o pior bug que você já viu passar despercebido para a produção?

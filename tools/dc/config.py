@@ -4,6 +4,8 @@ import copy, json, os, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 TOOLS = ROOT / "tools"
 NICHES = ROOT / "niches"
+BIBLES = ROOT / "docs" / "design-bibles"
+DESIGN_BIBLE_PROMPT = TOOLS / "prompts" / "design-bible.md"
 VENV_PY = TOOLS / ".venv" / "bin" / "python"
 FIXTURES = TOOLS / "fixtures" / "ensaio"
 

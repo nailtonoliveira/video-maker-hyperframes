@@ -33,7 +33,7 @@ index, n = pat.subn(lambda mm: mm.group(1) + new_s + '"', index)
 index_file.write_text(index, encoding="utf-8")
 print(f"index.html: {old_s} → {new_s} s ({n} elementos)")
 
-for cname in ("bg.html", "world.html"):
+for cname in ("bg.html", "world.html", "hud.html"):
     cfile = VIDEO / "compositions" / cname
     if cfile.exists():
         txt, k = re.subn(r"const DUR = [\d.]+;", f"const DUR = {new_s};", cfile.read_text(encoding="utf-8"))

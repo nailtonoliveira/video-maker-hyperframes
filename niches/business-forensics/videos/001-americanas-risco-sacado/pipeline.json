@@ -1,0 +1,82 @@
+{
+  "id": "business-forensics-001-americanas-risco-sacado",
+  "nicho": "business-forensics",
+  "tema_id": "T004",
+  "tema": {
+    "id": "T004",
+    "titulo": "Lojas Americanas — O rombo de R$ 25 bilhões camuflado em compras do varejo",
+    "slug": "americanas-risco-sacado",
+    "gancho": "Vinte e cinco bilhões de reais viraram pó quando o novo presidente das Americanas descobriu, com apenas dez dias de trabalho, que a dívida bancária da maior varejista do país estava escondida na gaveta de fornecedores.",
+    "resumo": "A tradicional rede brasileira mantinha a imagem de eficiência e crescimento acelerado enquanto pagava bônus milionários para a diretoria. Para ocultar despesas financeiras galopantes, a gestão contratava operações de risco sacado com bancos e as registrava como dívidas simples com fabricantes, maquiando balanços por anos até a renúncia do novo CEO detonar a crise.",
+    "fatos_chave": [
+      "Fato relevante de janeiro de 2023 anunciando 'inconsistências contábeis' de R$ 20 bilhões que evoluíram para um passivo total superior a R$ 40 bilhões.",
+      "Uso de operações de antecipação de recebíveis ('risco sacado' ou forfaiting) com grandes bancos, omitidas como dívida financeira onerosa e camufladas no passivo de fornecedores.",
+      "Desfecho jurídico: O ex-CEO Miguel Gutierrez e ex-diretores foram ACUSADOS formalmente pela CVM e indiciados pela Polícia Federal na Operação Disclosure; processo penal em andamento sob recuperação judicial."
+    ],
+    "por_que_prende": "A velocidade espantosa com que uma das marcas mais onipresentes do Brasil implodiu em um único anúncio de duas páginas.",
+    "fontes": [
+      "https://www.gov.br/cvm/pt-br",
+      "https://www.gov.br/pf/pt-br/assuntos/noticias/2024/06/pf-deflagra-operacao-disclosure-para-investigar-fraude-contabil-nas-lojas-americanas"
+    ]
+  },
+  "ensaio": false,
+  "criado_em": "2026-10-30T14:39:20-03:00",
+  "etapas": {
+    "roteiro": {
+      "status": "aprovado",
+      "em": "2026-10-30T14:41:37-03:00",
+      "resumo": "# Lojas Americanas: O Rombo do Risco Sacado\n\n**Título na tela (frame 0):** ROMBO DE R$ 25 BI  \n**Resumo:** A maior rede varejista do país escondia dívidas bancárias bilionárias na gaveta de fornecedores para inflar lucros e pagar bônus executivos. O colapso detonado em 2023 culminou na recuperação judicial da empresa e na acusação formal de sua antiga diretoria.  \n**Palavras:** 130 (≈ 54 s de narração)\n\n## Cena 1 — O Gancho\n\n**Locução:** R$ 25 bilhões viraram pó em apenas 10 dias quando a maior varejista do Brasil desabou.\n\n**Visual:** Plano ABERTO_IMPERIO. Torre de blocos de ouro intacta sobre a mesa de mogno com uma rachadura em vermelho-fraude pulsando na base. Magnata no topo com visor confiante e auréola de ouro em pose celebrate. No HUD, #hud-ficha exibe 'ROMBO DE R$ 25 BI', #hud-valor trava no pico com indicador de queda e #hud-data marca 'JAN/2023'.\n\n**Mundo:** imperio\n\n**Âncoras:**\n- \"R$ 25 bilhões viraram\" → Corte para PLONGEE_MESA; a rachadura vermelha pisca na base da torre e o medidor oscila.\n- \"maior varejista do Brasil\" → Câmera aproxima no Magnata no topo comemorando sobre os blocos dourados.\n\n## Cena 2 — A Ascensão\n\n**Locução:** Durante anos, a empresa exibia lucros recordes e crescimento acelerado, atraindo a manada de investidores para o topo.\n\n**Visual:** Plano CONTRA_PLONGEE. Novos andares de ouro nascem com efeito backOut empilhando a maquete. Peões marfim da Manada avançam em estado de euforia ao redor da base. Setas douradas de fluxo financeiro entram na estrutura enquanto #hud-valor sobe em degraus e #hud-data recua para '2019-2022'.\n\n**Mundo:** imperio\n\n**Âncoras:**\n- \"exibia lucros recordes\" → Três andares de ouro sobem em degraus consecutivos e o hodômetro dispara.\n- \"atraindo a manada\" → Onda de peões marfim cerca a mesa comprando ações em celebração.\n\n## Cena 3 — A Manobra\n\n**Locução:** Por trás dos panos, dívidas bancárias bilionárias em risco sacado eram jogadas em caixas de fornecedores para camuflar o rombo.\n\n**Visual:** Plano MACRO_LIVRO dentro das páginas do livro-caixa. O Contador rabisca nervoso com lápis e cabeça calculadora. Pilhas de moedas representando empréstimos bancários são engolidas por caixas aninhadas rotuladas como 'FORNECEDORES' (truque caixas), sumindo da coluna de passivo financeiro sob o som de travas.\n\n**Mundo:** livro\n\n**Âncoras:**\n- \"em risco sacado\" → Caixas de papelão aninhadas se abrem sobre os lançamentos contábeis.\n- \"caixas de fornecedores\" → Pilhas de empréstimos bancários deslizam para o interior das caixas e desaparecem.\n\n## Cena 4 — As Rachaduras\n\n**Locução:** Com 10 dias de cargo, o novo comando acendeu o alerta e a perícia revelou contratos forjados para maquiar o balanço.\n\n**Visual:** Plano PERFIL_PERITA sob a lâmpada de interrogatório. A Perita varre a mesa com lanterna UV violeta: as caixas de fornecedores revelam andares ocos e notas fiscais fictícias em tom fluorescente. Fios vermelhos são esticados no quadro de cortiça ligando cartas bancárias a contratos maquiados.\n\n**Mundo:** sala\n\n**Âncoras:**\n- \"novo comando acendeu\" → A Perita entra em cena e acende a lanterna UV projetando luz violeta sobre a maquete.\n- \"revelou contratos forjados\" → Fio vermelho dispara no mural ligando as cartas de circularização às gavetas ocultas.\n\n## Cena 5 — O Colapso\n\n**Locução:** Em janeiro de 2023, o fiscal desceu o carimbo: a dívida passava de R$ 40 bilhões e a torre desmoronou.\n\n**Visual:** Plano ABERTO_IMPERIO. O Fiscal ergue o braço mecânico e desce o carimbo com baque seco e 0,6 s de silêncio na trilha. Na tela, #hud-carimbo estampa 'ACUSADO' em vermelho-lacre. A torre de ouro desaba em blocos partidos, moedas explodem pela mesa e #hud-valor despenca imediatamente a zero.\n\n**Mundo:** imperio\n\n**Âncoras:**\n- \"fiscal desceu o carimbo\" → Braço do Fiscal bate na mesa com tremor na câmera e carimbo 2D estampa 'ACUSADO'.\n- \"a torre desmoronou\" → Andares de ouro se quebram em escombros escuros e o medidor zera com alarme sonoro.\n\n## Cena 6 — O Estrago\n\n**Locução:** As ações viraram pó, os peões da manada amargaram prejuízo histórico e a diretoria foi acusada na Justiça.\n\n**Visual:** Plano RASANTE_MANADA no piso do pregão abandonado. Linhas de cotação despencam em 90 graus. Peões marfim da Manada tombam em efeito dominó no estado de ruína. Magnata em CLOSE_ROSTO com visor em expressão derrotado e auréola de ouro apagada diante da derrocada.\n\n**Mundo:** pregao\n\n**Âncoras:**\n- \"ações viraram pó\" → Gráfico de cotação desaba em linha reta e os peões tombam espalhados no chão.\n- \"diretoria foi acusada\" → Magnata assume expressão de derrota enquanto selos do inquérito cobrem seu terno.\n\n## Cena 7 — O Detalhe Absurdo + Loop\n\n**Locução:** O detalhe mais absurdo: a cúpula embolsou bônus milionários por metas batidas sobre números falsos, até que...\n\n**Visual:** Plano MACRO_LIVRO na planilha de bônus executivos com carimbos de metas atingidas. Em seguida, transição rápida para ABERTO_IMPERIO com rebobinagem de queda: os blocos da torre voltam a subir, o medidor remonta ao pico e a ficha do gancho recompõe em wipe até coincidir milimetricamente com o quadro 0.\n\n**Mundo:** sala\n\n**Âncoras:**\n- \"embolsou bônus milionários\" → Lente fecha em macro documental na folha de pagamento destacando cifras milionárias.\n- \"até que...\" → Rebobinagem veloz reergue a torre de ouro e reconecta o plano exatamente ao início do vídeo.\n\n## Loop\n\n> O detalhe mais absurdo: a cúpula embolsou bônus milionários por metas batidas sobre números falsos, até que R$ 25 bilhões viraram pó em apenas 10 dias quando a maior varejista do Brasil desabou.\n\n## Fatos\n\n- Fato relevante de janeiro de 2023 revelou inconsistências contábeis estimadas inicialmente em R$ 20 bilhões, com passivo total consolidado superando R$ 40 bilhões na recuperação judicial. — *https://www.gov.br/cvm/pt-br* (alta)\n- Operações de forfaiting (risco sacado) estruturadas com instituições financeiras eram ocultadas da dívida bancária líquida e registradas como obrigações comuns com fornecedores, além de contratos forjados de VPC. — *https://www.gov.br/cvm/pt-br* (alta)\n- A Polícia Federal deflagrou a Operação Disclosure em junho de 2024 e o Ministério Público Federal/CVM formularam acusações contra o ex-CEO Miguel Gutierrez e ex-diretores por fraude contábil e manipulação de mercado. — *https://www.gov.br/pf/pt-br/assuntos/noticias/2024/06/pf-deflagra-operacao-disclosure-para-investigar-fraude-contabil-nas-lojas-americanas* (alta)\n"
+    },
+    "tts": {
+      "status": "feito",
+      "em": "2026-10-30T14:41:57-03:00",
+      "resumo": "Vinte e cinco bilhões de reais viraram pó em apenas dez dias... quando a maior varejista do Brasil desabou.\nDurante anos, a empresa exibia lucros recordes e crescimento acelerado... atraindo a manada de investidores para o topo.\nPor trás dos panos, dívidas bancárias bilionárias em risco sacado eram jogadas em caixas de fornecedores... para camuflar o rombo.\nCom dez dias de cargo, o novo comando acendeu o alerta... e a perícia revelou contratos forjados para maquiar o balanço.\nEm janeiro de dois mil e vinte e três, o fiscal desceu o carimbo: a dívida passava de quarenta bilhões de reais... e a torre desmoronou.\nAs ações viraram pó, os peões da manada amargaram prejuízo histórico... e a diretoria foi acusada na Justiça.\nO detalhe mais absurdo: a cúpula embolsou bônus milionários por metas batidas sobre números falsos, até que..."
+    },
+    "voz": {
+      "status": "aprovado",
+      "em": "2026-10-30T14:42:15-03:00",
+      "resumo": "niches/business-forensics/videos/001-americanas-risco-sacado/assets/voice.mp3 — 55.6 s\nOuça antes de aprovar: xdg-open niches/business-forensics/videos/001-americanas-risco-sacado/assets/voice.mp3"
+    },
+    "tempos": {
+      "status": "feito",
+      "em": "2026-10-30T14:42:20-03:00",
+      "resumo": "Duração: 55.54 s  (use como data-duration no index.html)"
+    },
+    "legendas": {
+      "status": "feito",
+      "em": "2026-10-30T14:42:20-03:00",
+      "resumo": "index.html: 52 → 55.55 s (7 elementos)\n54 grupos · duração 55.55s\ncorreções da transcrição: récordes → recordes, Pra → para, rombu, → rombo, com → Com, ascendeu → acendeu, A → a, amagaram → amargaram, justiça. → Justiça, A → a, embolçou → embolsou, bonos → bônus"
+    },
+    "prompt": {
+      "status": "feito",
+      "em": "2026-10-30T14:42:20-03:00",
+      "resumo": "hyperframes-prompt.md — 7 cenas, 13/14 âncoras localizadas no áudio"
+    },
+    "cenas": {
+      "status": "aprovado",
+      "em": "2026-10-30T15:12:38-03:00",
+      "resumo": "105 turnos\ncheck: 0 erros, 10 avisos · quadros: niches/business-forensics/videos/001-americanas-risco-sacado/.hyperframes/artifacts/snapshots/cf858fe0-2225-4baf-8128-55fa8d39d328/contact-sheet-1.jpg\nPreview para revisar: cd niches/business-forensics/videos/001-americanas-risco-sacado && npx hyperframes preview --background\n(pare com: npx hyperframes preview --stop)"
+    },
+    "trilha": {
+      "status": "feito",
+      "em": "2026-10-30T15:12:40-03:00",
+      "resumo": "ambiente.wav: pico 0.70, rms -27.7 dBFS\nmusica.wav: pico 0.70, rms -17.4 dBFS\nefeitos.wav: pico 0.85, rms -34.9 dBFS"
+    },
+    "render": {
+      "status": "feito",
+      "em": "2026-10-30T15:25:01-03:00",
+      "resumo": "niches/business-forensics/videos/001-americanas-risco-sacado/renders/001-americanas-risco-sacado_2026-10-30_15-12-41.mp4 — 55.6 s, 31.7 MB\náudio: -17.1 → -14.1 LUFS"
+    },
+    "metadados": {
+      "status": "aprovado",
+      "em": "2026-10-30T15:25:36-03:00",
+      "resumo": "── youtube ──\nTÍTULO\nR$ 25 BI viraram pó em 10 dias: a queda da Americanas #shorts\n\nDESCRIÇÃO\nDurante anos, a maior rede varejista do Brasil camuflou dívidas bancárias bilionárias na gaveta de fornecedores para inflar lucros e pagar bônus executivos. Em janeiro de 2023, o rombo superior a R$ 40 bilhões veio à tona, derrubando a torre e levando a antiga diretoria a ser acusada formalmente de fraude contábil. Fonte: CVM (https://www.gov.br/cvm/pt-br).\n\nHASHTAGS\n#shorts #americanas #financas\n\nTAGS\nlojas americanas, americanas, risco sacado, fraude contabil, recuperacao judicial, mercado financeiro, investimentos, cvm\n\n── tiktok ──\nLEGENDA\nComo R$ 25 bilhões viraram pó em 10 dias nas Lojas Americanas? Entenda o golpe. #americanas #financas #investimentos #fraude\n\n── instagram ──\nLEGENDA\nA maior varejista do país escondia mais de R$ 40 bilhões em dívidas bancárias para pagar bônus milionários sobre metas falsas. Você acredita que a Justiça conseguirá punir todos os responsáveis?\n\nHASHTAGS\n#americanas #financas #mercadofinanceiro #investimentos #negocios\n\n── facebook ──\nLEGENDA\nMais de R$ 40 bilhões em dívidas escondidas enquanto executivos batiam metas sobre balanços maquiados. Na sua visão, quem deveria pagar essa conta: os bancos ou os acionistas?\n"
+    },
+    "publicar": {
+      "status": "feito",
+      "em": "2026-10-30T15:25:36-03:00",
+      "resumo": "niches/business-forensics/videos/001-americanas-risco-sacado/publicar/ pronto: business-forensics-001-americanas-risco-sacado.mp4, textos por plataforma e CHECKLIST.md"
+    }
+  },
+  "render": "niches/business-forensics/videos/001-americanas-risco-sacado/renders/001-americanas-risco-sacado_2026-10-30_15-12-41.mp4"
+}

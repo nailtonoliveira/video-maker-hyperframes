@@ -1,0 +1,349 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      font-family: var(--font-mono);
+    }
+    #hud-ficha {
+      position: absolute;
+      left: 64px;
+      top: 236px;
+      width: 840px;
+      min-height: 184px;
+      padding: 20px 28px 20px 56px;
+      background: #f2e8d5;
+      border: 3px solid #1c1214;
+      box-shadow: 0 8px 0 #0a0506;
+      transform: rotate(-1.2deg);
+      transform-origin: center center;
+    }
+    #ficha-clipe {
+      position: absolute;
+      left: 16px;
+      top: -18px;
+      width: 28px;
+      height: 72px;
+    }
+    #ficha-furo {
+      position: absolute;
+      left: 20px;
+      top: 84px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(28, 18, 20, 0.4);
+    }
+    #ficha-sub {
+      font-family: var(--font-mono);
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6b5b52;
+      line-height: 1.15;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+    #ficha-tit {
+      font-family: var(--font-display);
+      font-size: 82px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: #1c1214;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+    #hud-valor {
+      position: absolute;
+      left: 64px;
+      top: 456px;
+      width: 536px;
+      height: 126px;
+      padding: 10px 20px 12px;
+      background: #1c1214;
+      border: 3px solid #e9b949;
+      border-radius: 6px;
+      box-shadow: 0 6px 0 #0a0506;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    #valor-rot {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #a3958a;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    #valor-linha {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      max-width: 100%;
+      height: 72px;
+      overflow: hidden;
+    }
+    #valor-num {
+      font-family: var(--font-mono);
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #e9b949;
+      line-height: 1;
+      transform-origin: left center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    #valor-delta {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 700;
+      color: #ff5a3c;
+      line-height: 1.4;
+      min-height: 38px;
+      white-space: nowrap;
+      overflow: visible;
+    }
+    #valor-barra {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 8px;
+      width: 100%;
+      background: #e9b949;
+      transform-origin: left center;
+    }
+    #hud-data {
+      position: absolute;
+      left: 640px;
+      top: 456px;
+      width: 264px;
+      height: 116px;
+      background: #1c1214;
+      border: 3px dashed #a3958a;
+      border-radius: 6px;
+      box-shadow: 0 6px 0 #0a0506;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+      overflow: hidden;
+    }
+    #data-txt {
+      font-family: var(--font-mono);
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #f2e8d5;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    #hud-carimbo {
+      position: absolute;
+      left: 152px;
+      top: 810px;
+      width: 680px;
+      padding: 16px 28px;
+      background: #b3261e;
+      border: 4px solid #1c1214;
+      outline: 6px solid #fff4e0;
+      outline-offset: -14px;
+      box-shadow: 0 10px 0 rgba(10, 5, 6, 0.85);
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 128px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff4e0;
+      line-height: 1;
+      transform: rotate(-8deg);
+      transform-origin: center center;
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="hud" data-width="1080" data-height="1920">
+    <div id="hud-ficha">
+      <svg id="ficha-clipe" viewBox="0 0 28 72" fill="none">
+        <path d="M8 18V54C8 60.6 13.4 66 20 66C24.4 66 26 62.4 26 56V14C26 7.4 20.6 2 14 2C7.4 2 2 7.4 2 14V48" stroke="#a3958a" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+      <div id="ficha-furo"></div>
+      <div id="ficha-sub">CASO Nº 001 · AMERICANAS</div>
+      <div id="ficha-tit">ROMBO DE R$ 25 BI</div>
+    </div>
+
+    <div id="hud-valor">
+      <div id="valor-rot">VIROU PÓ EM 10 DIAS</div>
+      <div id="valor-linha">
+        <div id="valor-num">R$ 25 BI</div>
+        <div id="valor-delta">▼</div>
+      </div>
+      <div id="valor-barra"></div>
+    </div>
+
+    <div id="hud-data">
+      <div id="data-txt">JAN/2023</div>
+    </div>
+
+    <div id="hud-carimbo" data-layout-allow-occlusion>ACUSADO</div>
+  </div>
+  <script>
+    (function () {
+      const DUR = 55.55;
+      const tl = gsap.timeline({ paused: true });
+
+      function fmtBi(v, prefix = "R$ ", sufix = " BI") {
+        const n = Math.round(v);
+        return `${prefix}${n}${sufix}`;
+      }
+
+      // Troca o texto da ficha com wipe determinístico; o cartão nunca sai da tela.
+      function ficha(t0, sub, tit) {
+        if (t0 <= 0) {
+          tl.set("#ficha-sub", { textContent: sub, clipPath: "inset(0 0% 0 0)" }, 0);
+          tl.set("#ficha-tit", { textContent: tit, clipPath: "inset(0 0% 0 0)" }, 0);
+          return;
+        }
+        tl.to(["#ficha-sub", "#ficha-tit"], { clipPath: "inset(0 0% 0 100%)", duration: 0.16, ease: "power2.in" }, t0);
+        tl.fromTo("#hud-ficha", { scaleY: 1 }, { scaleY: 0.94, duration: 0.06, yoyo: true, repeat: 1 }, t0 + 0.12);
+        tl.set("#ficha-sub", { textContent: sub, clipPath: "inset(0 100% 0 0)" }, t0 + 0.165);
+        tl.set("#ficha-tit", { textContent: tit, clipPath: "inset(0 100% 0 0)" }, t0 + 0.165);
+        tl.to(["#ficha-sub", "#ficha-tit"], { clipPath: "inset(0 0% 0 0)", duration: 0.38, ease: "expo.out" }, t0 + 0.17);
+      }
+
+      // Pulso do número: escala 1 → 1,16 → 1 numa só curva que começa e termina em 1. Um fromTo({ scale: 1.16 })
+      // deixaria o número em 1,16 quando o render volta no tempo para antes do tween (quadros fora de ordem).
+      const PULSO = (p) => (p < 0.2 ? p / 0.2 : Math.pow(1 - (p - 0.2) / 0.8, 2));
+      function pulsa(t0) {
+        tl.fromTo("#valor-num", { scale: 1 }, { scale: 1.16, duration: 0.18, ease: PULSO, immediateRender: false }, t0);
+      }
+
+      // Hodômetro em degraus via tl.set (determinístico e seekável).
+      function valor(t0, t1, de, ate, { rotulo, delta = "", cor = "#e9b949", pico = 74, passos = 7 } = {}) {
+        if (rotulo) tl.set("#valor-rot", { textContent: rotulo }, t0);
+        tl.set("#hud-valor", { borderColor: cor }, t0);
+        tl.set("#valor-num", { color: cor }, t0);
+        tl.set("#valor-barra", { backgroundColor: cor }, t0);
+        tl.set("#valor-delta", { textContent: delta, color: cor === "#ff5a3c" ? "#ff5a3c" : "#e9b949" }, t0);
+        for (let i = 0; i <= passos; i++) {
+          const u = i / passos;
+          const k = ate >= de ? 1 - Math.pow(1 - u, 2) : Math.pow(u, 3);
+          const v = de + (ate - de) * k;
+          const ti = t0 + (t1 - t0) * u;
+          tl.set("#valor-num", { textContent: fmtBi(v) }, ti);
+          tl.set("#valor-barra", { scaleX: Math.max(0.02, Math.min(1, v / pico)) }, ti);
+          if (i > 0) pulsa(ti);
+        }
+      }
+
+      function data(t0, txt) {
+        if (t0 <= 0) {
+          tl.set("#data-txt", { textContent: txt, rotationX: 0 }, 0);
+          return;
+        }
+        tl.to("#data-txt", { rotationX: 90, duration: 0.09, ease: "power2.in" }, t0);
+        tl.set("#data-txt", { textContent: txt }, t0 + 0.095);
+        tl.fromTo("#data-txt", { rotationX: -90 }, { rotationX: 0, duration: 0.14, ease: "back.out(2)" }, t0 + 0.1);
+      }
+
+      function carimbo(t0, txt, tRewind) {
+        tl.set("#hud-carimbo", { textContent: txt, x: 0, y: 0, rotation: -8, scale: 2.2, opacity: 0 }, 0);
+        tl.to("#hud-carimbo", { scale: 1, opacity: 1, duration: 0.14, ease: "power4.in" }, t0 - 0.14);
+        tl.to("#hud-carimbo", { scale: 1.04, duration: 0.06, yoyo: true, repeat: 1 }, t0);
+        // vira selo no canto superior direito da ficha (fora do título e da sobrelinha)
+        tl.to("#hud-carimbo", { x: 298, y: -628, scale: 0.28, duration: 0.32, ease: "power3.inOut" }, t0 + 1.4);
+        tl.to("#hud-carimbo", { opacity: 0, duration: 0.2, ease: "power2.in" }, tRewind);
+      }
+
+      // Medidor "oscila" sem inventar número: a barra treme e o valor estremece no lugar.
+      function oscila(t0) {
+        tl.fromTo("#valor-barra", { scaleX: 1 }, { scaleX: 0.84, duration: 0.09, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, t0);
+        tl.fromTo("#valor-num", { x: 0 }, { x: -6, duration: 0.05, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, t0);
+      }
+
+      // Valor fixo (texto livre) no medidor, para o que não é cifra exata.
+      function fixa(t0, num, { rotulo, delta = "", cor = "#e9b949", barra = 1 } = {}) {
+        if (rotulo) tl.set("#valor-rot", { textContent: rotulo }, t0);
+        tl.set("#hud-valor", { borderColor: cor }, t0);
+        tl.set("#valor-num", { textContent: num, color: cor }, t0);
+        tl.set("#valor-barra", { backgroundColor: cor, scaleX: barra }, t0);
+        tl.set("#valor-delta", { textContent: delta, color: cor === "#ff5a3c" ? "#ff5a3c" : "#e9b949" }, t0);
+        pulsa(t0);
+      }
+
+      const OURO = "#e9b949";
+      const FRAUDE = "#ff5a3c";
+      const R0 = DUR - 2.4; // 53.15: rebobinagem (scene.js usa o mesmo instante)
+
+      // ==================== Cronograma do episódio 001 (55,55 s) ====================
+      // Só três cifras na tela, todas dos fatos: R$ 25 BI (título), R$ 20 BI (inconsistências), R$ 40 BI (passivo).
+      // Quadro 0: ficha pousada, medidor em R$ 25 BI com ▼ e data JAN/2023
+      ficha(0, "CASO Nº 001 · AMERICANAS", "ROMBO DE R$ 25 BI");
+      tl.set("#hud-valor", { borderColor: OURO }, 0);
+      tl.set("#valor-rot", { textContent: "VIROU PÓ EM 10 DIAS" }, 0);
+      tl.set("#valor-num", { textContent: "R$ 25 BI", color: OURO, scale: 1, x: 0 }, 0);
+      tl.set("#valor-delta", { textContent: "▼", color: FRAUDE }, 0);
+      tl.set("#valor-barra", { scaleX: 1, backgroundColor: OURO }, 0);
+      data(0, "JAN/2023");
+
+      // 2,16 s "apenas 10 dias": corte para a rachadura, medidor oscila, selo 10 DIAS
+      oscila(2.16);
+      data(2.52, "10 DIAS");
+      // 4,04 s "maior varejista": medidor estremece de novo
+      oscila(4.04);
+
+      // 6,42 s "Durante anos": ascensão; 8,14 s "exibia lucros recordes": o rombo escondido cresce com a torre
+      ficha(6.42, "ATO I · A ASCENSÃO", "LUCROS RECORDES");
+      data(6.42, "2019-2022");
+      fixa(6.42, "R$ 0 BI", { rotulo: "ROMBO ESCONDIDO", delta: "▲ OCULTO", cor: OURO, barra: 0.02 });
+      valor(8.14, 13.6, 0, 20, { rotulo: "ROMBO ESCONDIDO", delta: "▲ OCULTO", cor: OURO, pico: 40, passos: 7 });
+
+      // 14,58 s: a manobra no livro-caixa (risco sacado → fornecedores)
+      ficha(14.58, "ATO II · A MANOBRA", "RISCO SACADO");
+      valor(16.2, 17.6, 0, 20, { rotulo: "DÍVIDA COM BANCOS", delta: "▲ BANCOS", cor: FRAUDE, pico: 20, passos: 5 });
+      valor(20.04, 22.4, 20, 0, { rotulo: "DÍVIDA NO BALANÇO", delta: "▼ SUMIU", cor: FRAUDE, pico: 20, passos: 6 });
+
+      // 23,04 s: as rachaduras (novo comando com 10 dias de cargo, Perita + luz UV, contratos forjados)
+      ficha(23.04, "ATO III · A PERÍCIA", "CONTRATOS FORJADOS");
+      data(23.46, "10 DIAS");
+      valor(27.7, 29.4, 0, 20, { rotulo: "INCONSISTÊNCIA", delta: "▲ REVELADA", cor: FRAUDE, pico: 40, passos: 6 });
+
+      // 31,24 s "Em janeiro de 2023": clímax; carimbo em 34,64 s ("carimbo")
+      ficha(31.24, "ATO IV · O COLAPSO", "FATO RELEVANTE");
+      data(31.56, "JAN/2023");
+      carimbo(34.64, "ACUSADO", R0);
+      valor(35.72, 37.0, 20, 40, { rotulo: "PASSIVO TOTAL", delta: "▲ 2×", cor: FRAUDE, pico: 40, passos: 5 });
+      // 38,68 s "a torre desmoronou": o medidor zera
+      valor(38.68, 39.9, 25, 0, { rotulo: "VIROU PÓ EM 10 DIAS", delta: "▼ 100%", cor: FRAUDE, pico: 25, passos: 6 });
+
+      // 40,62 s: o estrago; 45,84 s "a diretoria foi acusada" (Operação Disclosure, JUN/2024)
+      ficha(40.62, "ATO V · O ESTRAGO", "AÇÕES VIRARAM PÓ");
+      ficha(45.84, "OPERAÇÃO DISCLOSURE · PF", "DIRETORIA ACUSADA");
+      data(45.84, "JUN/2024");
+      valor(46.0, 47.4, 0, 40, { rotulo: "PASSIVO NA REC. JUDICIAL", delta: "▲", cor: FRAUDE, pico: 40, passos: 5 });
+
+      // 48,40 s "O detalhe mais absurdo"; 50,66 s "embolsou bônus milionários"
+      ficha(48.4, "O DETALHE ABSURDO", "METAS BATIDAS");
+      data(48.4, "PRÉ-2023");
+      fixa(50.66, "R$ MILHÕES", { rotulo: "BÔNUS DA CÚPULA", delta: "▲ PAGO", cor: OURO, barra: 1 });
+
+      // 53,15 s: rebobinagem até casar com o quadro 0 em t = 55,55 s
+      valor(R0, 55.0, 0, 25, { rotulo: "VIROU PÓ EM 10 DIAS", delta: "▼", cor: OURO, pico: 25, passos: 6 });
+      tl.set("#valor-delta", { color: FRAUDE }, R0);
+      data(53.3, "JAN/2023");
+      ficha(DUR - 0.6, "CASO Nº 001 · AMERICANAS", "ROMBO DE R$ 25 BI");
+
+      tl.set({}, {}, DUR);
+      window.__timelines["hud"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,903 @@
+{
+  "idioma": "pt",
+  "probabilidade": 1,
+  "duracao": 55.542125,
+  "segmentos": [
+    {
+      "id": 1,
+      "inicio": 0.0,
+      "fim": 5.46,
+      "texto": "25 bilhões de reais viraram pó em apenas 10 dias, quando a maior varejista do Brasil",
+      "palavras": [
+        {
+          "palavra": "25",
+          "inicio": 0.0,
+          "fim": 0.48,
+          "probabilidade": 0.224
+        },
+        {
+          "palavra": "bilhões",
+          "inicio": 0.48,
+          "fim": 0.9,
+          "probabilidade": 0.962
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.9,
+          "fim": 1.08,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "reais",
+          "inicio": 1.08,
+          "fim": 1.3,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "viraram",
+          "inicio": 1.3,
+          "fim": 1.76,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "pó",
+          "inicio": 1.76,
+          "fim": 2.0,
+          "probabilidade": 0.176
+        },
+        {
+          "palavra": "em",
+          "inicio": 2.0,
+          "fim": 2.16,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "apenas",
+          "inicio": 2.16,
+          "fim": 2.52,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "10",
+          "inicio": 2.52,
+          "fim": 2.84,
+          "probabilidade": 0.881
+        },
+        {
+          "palavra": "dias,",
+          "inicio": 2.84,
+          "fim": 3.26,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "quando",
+          "inicio": 3.66,
+          "fim": 3.92,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "a",
+          "inicio": 3.92,
+          "fim": 4.04,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "maior",
+          "inicio": 4.04,
+          "fim": 4.34,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "varejista",
+          "inicio": 4.34,
+          "fim": 5.04,
+          "probabilidade": 0.776
+        },
+        {
+          "palavra": "do",
+          "inicio": 5.04,
+          "fim": 5.16,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "Brasil",
+          "inicio": 5.16,
+          "fim": 5.46,
+          "probabilidade": 0.987
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "inicio": 5.46,
+      "fim": 5.96,
+      "texto": "desabou.",
+      "palavras": [
+        {
+          "palavra": "desabou.",
+          "inicio": 5.46,
+          "fim": 5.96,
+          "probabilidade": 0.836
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "inicio": 6.46,
+      "fim": 12.46,
+      "texto": "Durante anos, a empresa exibia lucros récordes e crescimento acelerado, atraindo a manada",
+      "palavras": [
+        {
+          "palavra": "Durante",
+          "inicio": 6.46,
+          "fim": 7.02,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "anos,",
+          "inicio": 7.02,
+          "fim": 7.44,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "a",
+          "inicio": 7.84,
+          "fim": 7.9,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "empresa",
+          "inicio": 7.9,
+          "fim": 8.14,
+          "probabilidade": 0.958
+        },
+        {
+          "palavra": "exibia",
+          "inicio": 8.14,
+          "fim": 8.66,
+          "probabilidade": 0.957
+        },
+        {
+          "palavra": "lucros",
+          "inicio": 8.66,
+          "fim": 9.08,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "récordes",
+          "inicio": 9.08,
+          "fim": 9.72,
+          "probabilidade": 0.787
+        },
+        {
+          "palavra": "e",
+          "inicio": 9.72,
+          "fim": 9.84,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "crescimento",
+          "inicio": 9.84,
+          "fim": 10.32,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "acelerado,",
+          "inicio": 10.32,
+          "fim": 11.12,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "atraindo",
+          "inicio": 11.58,
+          "fim": 11.96,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "a",
+          "inicio": 11.96,
+          "fim": 12.1,
+          "probabilidade": 0.947
+        },
+        {
+          "palavra": "manada",
+          "inicio": 12.1,
+          "fim": 12.46,
+          "probabilidade": 0.956
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "inicio": 12.46,
+      "fim": 14.1,
+      "texto": "de investidores para o topo.",
+      "palavras": [
+        {
+          "palavra": "de",
+          "inicio": 12.46,
+          "fim": 12.64,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "investidores",
+          "inicio": 12.64,
+          "fim": 13.2,
+          "probabilidade": 0.974
+        },
+        {
+          "palavra": "para",
+          "inicio": 13.2,
+          "fim": 13.52,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "o",
+          "inicio": 13.52,
+          "fim": 13.7,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "topo.",
+          "inicio": 13.7,
+          "fim": 14.1,
+          "probabilidade": 0.977
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "inicio": 14.64,
+      "fim": 21.32,
+      "texto": "Por trás dos panos, dívidas bancárias bilionárias em risco sacado eram jogadas em caixas de fornecedores.",
+      "palavras": [
+        {
+          "palavra": "Por",
+          "inicio": 14.64,
+          "fim": 14.8,
+          "probabilidade": 0.779
+        },
+        {
+          "palavra": "trás",
+          "inicio": 14.8,
+          "fim": 15.06,
+          "probabilidade": 0.931
+        },
+        {
+          "palavra": "dos",
+          "inicio": 15.06,
+          "fim": 15.26,
+          "probabilidade": 0.984
+        },
+        {
+          "palavra": "panos,",
+          "inicio": 15.26,
+          "fim": 15.8,
+          "probabilidade": 0.831
+        },
+        {
+          "palavra": "dívidas",
+          "inicio": 16.2,
+          "fim": 16.5,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "bancárias",
+          "inicio": 16.5,
+          "fim": 16.96,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "bilionárias",
+          "inicio": 16.96,
+          "fim": 17.64,
+          "probabilidade": 0.914
+        },
+        {
+          "palavra": "em",
+          "inicio": 17.64,
+          "fim": 17.9,
+          "probabilidade": 0.978
+        },
+        {
+          "palavra": "risco",
+          "inicio": 17.9,
+          "fim": 18.22,
+          "probabilidade": 0.792
+        },
+        {
+          "palavra": "sacado",
+          "inicio": 18.22,
+          "fim": 18.84,
+          "probabilidade": 0.964
+        },
+        {
+          "palavra": "eram",
+          "inicio": 18.84,
+          "fim": 19.28,
+          "probabilidade": 0.954
+        },
+        {
+          "palavra": "jogadas",
+          "inicio": 19.28,
+          "fim": 19.78,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "em",
+          "inicio": 19.78,
+          "fim": 20.04,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "caixas",
+          "inicio": 20.04,
+          "fim": 20.42,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "de",
+          "inicio": 20.42,
+          "fim": 20.56,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "fornecedores.",
+          "inicio": 20.56,
+          "fim": 21.32,
+          "probabilidade": 0.978
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "inicio": 21.8,
+      "fim": 27.7,
+      "texto": "Pra camuflar o rombu, com 10 dias de cargo, o novo comando ascendeu o alerta e a perícia",
+      "palavras": [
+        {
+          "palavra": "Pra",
+          "inicio": 21.8,
+          "fim": 21.98,
+          "probabilidade": 0.652
+        },
+        {
+          "palavra": "camuflar",
+          "inicio": 21.98,
+          "fim": 22.42,
+          "probabilidade": 0.832
+        },
+        {
+          "palavra": "o",
+          "inicio": 22.42,
+          "fim": 22.58,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "rombu,",
+          "inicio": 22.58,
+          "fim": 22.92,
+          "probabilidade": 0.392
+        },
+        {
+          "palavra": "com",
+          "inicio": 23.36,
+          "fim": 23.46,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "10",
+          "inicio": 23.46,
+          "fim": 23.74,
+          "probabilidade": 0.961
+        },
+        {
+          "palavra": "dias",
+          "inicio": 23.74,
+          "fim": 23.98,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "de",
+          "inicio": 23.98,
+          "fim": 24.14,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "cargo,",
+          "inicio": 24.14,
+          "fim": 24.46,
+          "probabilidade": 0.917
+        },
+        {
+          "palavra": "o",
+          "inicio": 24.86,
+          "fim": 24.94,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "novo",
+          "inicio": 24.94,
+          "fim": 25.16,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "comando",
+          "inicio": 25.16,
+          "fim": 25.56,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "ascendeu",
+          "inicio": 25.56,
+          "fim": 26.04,
+          "probabilidade": 0.621
+        },
+        {
+          "palavra": "o",
+          "inicio": 26.04,
+          "fim": 26.2,
+          "probabilidade": 0.242
+        },
+        {
+          "palavra": "alerta",
+          "inicio": 26.2,
+          "fim": 26.64,
+          "probabilidade": 0.958
+        },
+        {
+          "palavra": "e",
+          "inicio": 26.64,
+          "fim": 27.16,
+          "probabilidade": 0.312
+        },
+        {
+          "palavra": "a",
+          "inicio": 27.16,
+          "fim": 27.3,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "perícia",
+          "inicio": 27.3,
+          "fim": 27.7,
+          "probabilidade": 0.901
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "inicio": 27.7,
+      "fim": 30.76,
+      "texto": "revelou contratos forjados para maquiar o balanço.",
+      "palavras": [
+        {
+          "palavra": "revelou",
+          "inicio": 27.7,
+          "fim": 28.14,
+          "probabilidade": 0.89
+        },
+        {
+          "palavra": "contratos",
+          "inicio": 28.14,
+          "fim": 28.72,
+          "probabilidade": 0.755
+        },
+        {
+          "palavra": "forjados",
+          "inicio": 28.72,
+          "fim": 29.4,
+          "probabilidade": 0.973
+        },
+        {
+          "palavra": "para",
+          "inicio": 29.4,
+          "fim": 29.72,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "maquiar",
+          "inicio": 29.72,
+          "fim": 30.16,
+          "probabilidade": 0.715
+        },
+        {
+          "palavra": "o",
+          "inicio": 30.16,
+          "fim": 30.28,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "balanço.",
+          "inicio": 30.28,
+          "fim": 30.76,
+          "probabilidade": 0.939
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "inicio": 31.24,
+      "fim": 35.02,
+      "texto": "Em janeiro de 2023, o fiscal desceu o carimbo.",
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 31.24,
+          "fim": 31.56,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "janeiro",
+          "inicio": 31.56,
+          "fim": 31.98,
+          "probabilidade": 0.888
+        },
+        {
+          "palavra": "de",
+          "inicio": 31.98,
+          "fim": 32.12,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "2023,",
+          "inicio": 32.12,
+          "fim": 32.88,
+          "probabilidade": 0.808
+        },
+        {
+          "palavra": "o",
+          "inicio": 33.44,
+          "fim": 33.74,
+          "probabilidade": 0.966
+        },
+        {
+          "palavra": "fiscal",
+          "inicio": 33.74,
+          "fim": 34.02,
+          "probabilidade": 0.94
+        },
+        {
+          "palavra": "desceu",
+          "inicio": 34.02,
+          "fim": 34.48,
+          "probabilidade": 0.793
+        },
+        {
+          "palavra": "o",
+          "inicio": 34.48,
+          "fim": 34.64,
+          "probabilidade": 0.821
+        },
+        {
+          "palavra": "carimbo.",
+          "inicio": 34.64,
+          "fim": 35.02,
+          "probabilidade": 0.905
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "inicio": 35.5,
+      "fim": 39.8,
+      "texto": "A dívida passava de 40 bilhões de reais e a torre desmoronou.",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 35.5,
+          "fim": 35.72,
+          "probabilidade": 0.945
+        },
+        {
+          "palavra": "dívida",
+          "inicio": 35.72,
+          "fim": 36.02,
+          "probabilidade": 0.949
+        },
+        {
+          "palavra": "passava",
+          "inicio": 36.02,
+          "fim": 36.52,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "de",
+          "inicio": 36.52,
+          "fim": 36.64,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "40",
+          "inicio": 36.64,
+          "fim": 37.0,
+          "probabilidade": 0.845
+        },
+        {
+          "palavra": "bilhões",
+          "inicio": 37.0,
+          "fim": 37.36,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "de",
+          "inicio": 37.36,
+          "fim": 37.56,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "reais",
+          "inicio": 37.56,
+          "fim": 37.82,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "e",
+          "inicio": 37.82,
+          "fim": 38.68,
+          "probabilidade": 0.573
+        },
+        {
+          "palavra": "a",
+          "inicio": 38.68,
+          "fim": 38.78,
+          "probabilidade": 0.978
+        },
+        {
+          "palavra": "torre",
+          "inicio": 38.78,
+          "fim": 39.14,
+          "probabilidade": 0.945
+        },
+        {
+          "palavra": "desmoronou.",
+          "inicio": 39.14,
+          "fim": 39.8,
+          "probabilidade": 0.853
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "inicio": 40.62,
+      "fim": 47.02,
+      "texto": "As ações viraram pó, os peões da manada amagaram prejuízo histórico e a diretoria foi acusada",
+      "palavras": [
+        {
+          "palavra": "As",
+          "inicio": 40.62,
+          "fim": 40.82,
+          "probabilidade": 0.94
+        },
+        {
+          "palavra": "ações",
+          "inicio": 40.82,
+          "fim": 41.2,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "viraram",
+          "inicio": 41.2,
+          "fim": 41.6,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "pó,",
+          "inicio": 41.6,
+          "fim": 41.86,
+          "probabilidade": 0.807
+        },
+        {
+          "palavra": "os",
+          "inicio": 42.32,
+          "fim": 42.46,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "peões",
+          "inicio": 42.46,
+          "fim": 42.7,
+          "probabilidade": 0.887
+        },
+        {
+          "palavra": "da",
+          "inicio": 42.7,
+          "fim": 42.88,
+          "probabilidade": 0.854
+        },
+        {
+          "palavra": "manada",
+          "inicio": 42.88,
+          "fim": 43.28,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "amagaram",
+          "inicio": 43.28,
+          "fim": 43.9,
+          "probabilidade": 0.705
+        },
+        {
+          "palavra": "prejuízo",
+          "inicio": 43.9,
+          "fim": 44.44,
+          "probabilidade": 0.922
+        },
+        {
+          "palavra": "histórico",
+          "inicio": 44.44,
+          "fim": 45.02,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "e",
+          "inicio": 45.02,
+          "fim": 45.76,
+          "probabilidade": 0.567
+        },
+        {
+          "palavra": "a",
+          "inicio": 45.76,
+          "fim": 45.84,
+          "probabilidade": 0.96
+        },
+        {
+          "palavra": "diretoria",
+          "inicio": 45.84,
+          "fim": 46.26,
+          "probabilidade": 0.933
+        },
+        {
+          "palavra": "foi",
+          "inicio": 46.26,
+          "fim": 46.58,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "acusada",
+          "inicio": 46.58,
+          "fim": 47.02,
+          "probabilidade": 0.969
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "inicio": 47.02,
+      "fim": 47.82,
+      "texto": "na justiça.",
+      "palavras": [
+        {
+          "palavra": "na",
+          "inicio": 47.02,
+          "fim": 47.26,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "justiça.",
+          "inicio": 47.26,
+          "fim": 47.82,
+          "probabilidade": 0.955
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "inicio": 48.4,
+      "fim": 49.68,
+      "texto": "O detalhe mais absurdo.",
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 48.4,
+          "fim": 48.58,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "detalhe",
+          "inicio": 48.58,
+          "fim": 48.94,
+          "probabilidade": 0.956
+        },
+        {
+          "palavra": "mais",
+          "inicio": 48.94,
+          "fim": 49.12,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "absurdo.",
+          "inicio": 49.12,
+          "fim": 49.68,
+          "probabilidade": 0.966
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "inicio": 50.16,
+      "fim": 54.9,
+      "texto": "A cúpula embolçou bonos milionários por metas batidas sobre números falsos, até que.",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 50.16,
+          "fim": 50.26,
+          "probabilidade": 0.962
+        },
+        {
+          "palavra": "cúpula",
+          "inicio": 50.26,
+          "fim": 50.66,
+          "probabilidade": 0.721
+        },
+        {
+          "palavra": "embolçou",
+          "inicio": 50.66,
+          "fim": 51.14,
+          "probabilidade": 0.763
+        },
+        {
+          "palavra": "bonos",
+          "inicio": 51.14,
+          "fim": 51.54,
+          "probabilidade": 0.768
+        },
+        {
+          "palavra": "milionários",
+          "inicio": 51.54,
+          "fim": 52.0,
+          "probabilidade": 0.975
+        },
+        {
+          "palavra": "por",
+          "inicio": 52.0,
+          "fim": 52.28,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "metas",
+          "inicio": 52.28,
+          "fim": 52.6,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "batidas",
+          "inicio": 52.6,
+          "fim": 53.02,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "sobre",
+          "inicio": 53.02,
+          "fim": 53.34,
+          "probabilidade": 0.896
+        },
+        {
+          "palavra": "números",
+          "inicio": 53.34,
+          "fim": 53.6,
+          "probabilidade": 0.974
+        },
+        {
+          "palavra": "falsos,",
+          "inicio": 53.6,
+          "fim": 54.24,
+          "probabilidade": 0.956
+        },
+        {
+          "palavra": "até",
+          "inicio": 54.46,
+          "fim": 54.68,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "que.",
+          "inicio": 54.68,
+          "fim": 54.9,
+          "probabilidade": 0.852
+        }
+      ]
+    }
+  ]
+}

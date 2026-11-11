@@ -1,0 +1,308 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      font-family: var(--font-mono);
+    }
+    #hud-ficha {
+      position: absolute;
+      left: 64px;
+      top: 236px;
+      width: 840px;
+      min-height: 184px;
+      padding: 20px 28px 20px 56px;
+      background: #f2e8d5;
+      border: 3px solid #1c1214;
+      box-shadow: 0 8px 0 #0a0506;
+      transform: rotate(-1.2deg);
+      transform-origin: center center;
+    }
+    #ficha-clipe {
+      position: absolute;
+      left: 16px;
+      top: -18px;
+      width: 28px;
+      height: 72px;
+    }
+    #ficha-furo {
+      position: absolute;
+      left: 20px;
+      top: 84px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(28, 18, 20, 0.4);
+    }
+    #ficha-sub {
+      font-family: var(--font-mono);
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6b5b52;
+      line-height: 1.15;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+    #ficha-tit {
+      font-family: var(--font-display);
+      font-size: 82px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: #1c1214;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+    #hud-valor {
+      position: absolute;
+      left: 64px;
+      top: 456px;
+      width: 536px;
+      height: 126px;
+      padding: 10px 20px 12px;
+      background: #1c1214;
+      border: 3px solid #e9b949;
+      border-radius: 6px;
+      box-shadow: 0 6px 0 #0a0506;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    #valor-rot {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #a3958a;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    #valor-linha {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      max-width: 100%;
+      height: 72px;
+      overflow: hidden;
+    }
+    #valor-num {
+      font-family: var(--font-mono);
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #e9b949;
+      line-height: 1;
+      transform-origin: left center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    #valor-delta {
+      font-family: var(--font-mono);
+      font-size: 26px;
+      font-weight: 700;
+      color: #ff5a3c;
+      line-height: 1.4;
+      min-height: 38px;
+      white-space: nowrap;
+      overflow: visible;
+    }
+    #valor-barra {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 8px;
+      width: 100%;
+      background: #e9b949;
+      transform-origin: left center;
+    }
+    #hud-data {
+      position: absolute;
+      left: 640px;
+      top: 456px;
+      width: 264px;
+      height: 116px;
+      background: #1c1214;
+      border: 3px dashed #a3958a;
+      border-radius: 6px;
+      box-shadow: 0 6px 0 #0a0506;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+      overflow: hidden;
+    }
+    #data-txt {
+      font-family: var(--font-mono);
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #f2e8d5;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    #hud-carimbo {
+      position: absolute;
+      left: 152px;
+      top: 810px;
+      width: 680px;
+      padding: 16px 28px;
+      background: #b3261e;
+      border: 4px solid #1c1214;
+      outline: 6px solid #fff4e0;
+      outline-offset: -14px;
+      box-shadow: 0 10px 0 rgba(10, 5, 6, 0.85);
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 128px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff4e0;
+      line-height: 1;
+      transform: rotate(-8deg);
+      transform-origin: center center;
+      opacity: 0;
+    }
+  </style>
+  <div id="root" data-composition-id="hud" data-width="1080" data-height="1920">
+    <div id="hud-ficha">
+      <svg id="ficha-clipe" viewBox="0 0 28 72" fill="none">
+        <path d="M8 18V54C8 60.6 13.4 66 20 66C24.4 66 26 62.4 26 56V14C26 7.4 20.6 2 14 2C7.4 2 2 7.4 2 14V48" stroke="#a3958a" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+      <div id="ficha-furo"></div>
+      <div id="ficha-sub">CASO Nº 001 · MONARCA S.A.</div>
+      <div id="ficha-tit">US$ 74 BI → ZERO</div>
+    </div>
+
+    <div id="hud-valor">
+      <div id="valor-rot">VALOR DE MERCADO</div>
+      <div id="valor-linha">
+        <div id="valor-num">US$ 74 BI</div>
+        <div id="valor-delta">▼</div>
+      </div>
+      <div id="valor-barra"></div>
+    </div>
+
+    <div id="hud-data">
+      <div id="data-txt">OUT 2001</div>
+    </div>
+
+    <div id="hud-carimbo" data-layout-allow-occlusion>FRAUDE</div>
+  </div>
+  <script>
+    (function () {
+      const DUR = 52;
+      const tl = gsap.timeline({ paused: true });
+
+      function fmtBi(v, prefix = "US$ ", sufix = " BI") {
+        const n = Math.round(v);
+        return `${prefix}${n}${sufix}`;
+      }
+
+      // Troca o texto da ficha com wipe determinístico; o cartão nunca sai da tela.
+      function ficha(t0, sub, tit) {
+        if (t0 <= 0) {
+          tl.set("#ficha-sub", { textContent: sub, clipPath: "inset(0 0% 0 0)" }, 0);
+          tl.set("#ficha-tit", { textContent: tit, clipPath: "inset(0 0% 0 0)" }, 0);
+          return;
+        }
+        tl.to(["#ficha-sub", "#ficha-tit"], { clipPath: "inset(0 0% 0 100%)", duration: 0.16, ease: "power2.in" }, t0);
+        tl.fromTo("#hud-ficha", { scaleY: 1 }, { scaleY: 0.94, duration: 0.06, yoyo: true, repeat: 1 }, t0 + 0.12);
+        tl.set("#ficha-sub", { textContent: sub, clipPath: "inset(0 100% 0 0)" }, t0 + 0.165);
+        tl.set("#ficha-tit", { textContent: tit, clipPath: "inset(0 100% 0 0)" }, t0 + 0.165);
+        tl.to(["#ficha-sub", "#ficha-tit"], { clipPath: "inset(0 0% 0 0)", duration: 0.38, ease: "expo.out" }, t0 + 0.17);
+      }
+
+      // Hodômetro em degraus via tl.set (determinístico e seekável).
+      function valor(t0, t1, de, ate, { rotulo, delta = "", cor = "#e9b949", pico = 74, passos = 7 } = {}) {
+        if (rotulo) tl.set("#valor-rot", { textContent: rotulo }, t0);
+        tl.set("#hud-valor", { borderColor: cor }, t0);
+        tl.set("#valor-num", { color: cor }, t0);
+        tl.set("#valor-barra", { backgroundColor: cor }, t0);
+        tl.set("#valor-delta", { textContent: delta, color: cor === "#ff5a3c" ? "#ff5a3c" : "#e9b949" }, t0);
+        for (let i = 0; i <= passos; i++) {
+          const u = i / passos;
+          const k = ate >= de ? 1 - Math.pow(1 - u, 2) : Math.pow(u, 3);
+          const v = de + (ate - de) * k;
+          const ti = t0 + (t1 - t0) * u;
+          tl.set("#valor-num", { textContent: fmtBi(v) }, ti);
+          tl.set("#valor-barra", { scaleX: Math.max(0.02, Math.min(1, v / pico)) }, ti);
+          if (i > 0) {
+            tl.fromTo("#valor-num", { scale: 1.16 }, { scale: 1, duration: 0.16, ease: "back.out(2.4)" }, ti);
+          }
+        }
+      }
+
+      function data(t0, txt) {
+        if (t0 <= 0) {
+          tl.set("#data-txt", { textContent: txt, rotationX: 0 }, 0);
+          return;
+        }
+        tl.to("#data-txt", { rotationX: 90, duration: 0.09, ease: "power2.in" }, t0);
+        tl.set("#data-txt", { textContent: txt }, t0 + 0.095);
+        tl.fromTo("#data-txt", { rotationX: -90 }, { rotationX: 0, duration: 0.14, ease: "back.out(2)" }, t0 + 0.1);
+      }
+
+      function carimbo(t0, txt, tRewind) {
+        tl.set("#hud-carimbo", { textContent: txt, x: 0, y: 0, rotation: -8, scale: 2.2, opacity: 0 }, 0);
+        tl.to("#hud-carimbo", { scale: 1, opacity: 1, duration: 0.14, ease: "power4.in" }, t0 - 0.14);
+        tl.to("#hud-carimbo", { scale: 1.04, duration: 0.06, yoyo: true, repeat: 1 }, t0);
+        tl.to("#hud-carimbo", { x: 280, y: -520, scale: 0.28, duration: 0.32, ease: "power3.inOut" }, t0 + 1.4);
+        tl.to("#hud-carimbo", { opacity: 0, duration: 0.2, ease: "power2.in" }, tRewind);
+      }
+
+      // ==================== Cronograma do episódio-modelo (52 s) ====================
+      // Quadro 0: ficha pousada, medidor em US$ 74 BI com ▼ e data OUT 2001
+      ficha(0, "CASO Nº 001 · MONARCA S.A.", "US$ 74 BI → ZERO");
+      tl.set("#hud-valor", { borderColor: "#e9b949" }, 0);
+      tl.set("#valor-rot", { textContent: "VALOR DE MERCADO" }, 0);
+      tl.set("#valor-num", { textContent: "US$ 74 BI", color: "#e9b949", scale: 1 }, 0);
+      tl.set("#valor-delta", { textContent: "▼", color: "#ff5a3c" }, 0);
+      tl.set("#valor-barra", { scaleX: 1, backgroundColor: "#e9b949" }, 0);
+      data(0, "OUT 2001");
+
+      // 2,20 s: corte para rachadura + selo 24 DIAS
+      data(2.2, "24 DIAS");
+
+      // 4,10 s: ascensão (de US$ 2 BI a US$ 74 BI)
+      ficha(4.1, "ATO I · A ASCENSÃO", "IMPÉRIO DE OURO");
+      data(4.1, "1997 → 2000");
+      valor(4.2, 9.8, 2, 74, { rotulo: "VALOR DE MERCADO", delta: "▲ 37×", cor: "#e9b949", passos: 6 });
+
+      // 11,60 s: a manobra no livro-caixa
+      ficha(11.6, "ATO II · A MANOBRA", "DÍVIDA ESCONDIDA");
+      data(11.6, "BALANÇO 00");
+      valor(12.2, 18.0, 5, 30, { rotulo: "DÍVIDA OCULTA", delta: "3 CAIXAS", cor: "#ff5a3c", pico: 30, passos: 6 });
+
+      // 22,40 s: as rachaduras na sala (Perita + luz UV)
+      ficha(22.4, "ATO III · A PERÍCIA", "4 ANDARES OCOS");
+      data(22.4, "OUT 2001");
+      valor(23.0, 29.0, 74, 44, { rotulo: "RECEITA FICTÍCIA", delta: "▼ UV", cor: "#ff5a3c", passos: 6 });
+
+      // 31,00 s: clímax e carimbo em 33,40 s
+      ficha(31.0, "ATO IV · O COLAPSO", "A QUEDA EM 24 DIAS");
+      data(31.0, "DEZ 2001");
+      carimbo(33.4, "FRAUDE", 49.6);
+      valor(35.0, 38.2, 44, 0, { rotulo: "VALOR DE MERCADO", delta: "▼ 100%", cor: "#ff5a3c", passos: 8 });
+
+      // 41,00 s: estrago e detalhe absurdo
+      ficha(41.0, "ATO V · O ESTRAGO", "AUDITORIA APROVADA");
+      data(44.8, "3 MESES ANTES");
+
+      // 49,60 s: rebobinagem até casar com o quadro 0 em t = 52 s
+      valor(49.6, 51.6, 0, 74, { rotulo: "VALOR DE MERCADO", delta: "▼", cor: "#e9b949", passos: 6 });
+      data(51.2, "OUT 2001");
+      ficha(51.4, "CASO Nº 001 · MONARCA S.A.", "US$ 74 BI → ZERO");
+
+      tl.set({}, {}, DUR);
+      window.__timelines["hud"] = tl;
+    })();
+  </script>
+</template>

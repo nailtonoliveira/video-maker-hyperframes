@@ -19,3 +19,6 @@ node_modules/
 niches/*/.embeddings.json
 **/.pipeline/
 **/publicar/*.mp4
+
+# Design Bibles: transcrições brutas do agente (novo-nicho)
+docs/design-bibles/.logs/

@@ -89,6 +89,18 @@ resposta) ficam em `<vídeo>/.pipeline/`.
 
 ## Criar um nicho novo
 
+Você pode gerar uma **Design Bible** completa (Mode A para nicho novo ou Mode B para expandir um nicho existente)
+em `docs/design-bibles/` usando o prompt `tools/prompts/design-bible.md`:
+
+```bash
+./pipeline novo-nicho historia-sombria "Mistérios históricos em dioramas 3D" --criar   # gera a Design Bible + cria niches/historia-sombria
+./pipeline novo-nicho historia-sombria "Mistérios históricos em dioramas 3D"           # só gera docs/design-bibles/historia-sombria-design-bible.md
+./pipeline novo-nicho tech-lore --pedido "novo personagem para episódios de rede"      # Mode B: expande um nicho existente
+./pipeline novo-nicho historia-sombria "Descrição..." --so-prompt                      # apenas imprime o prompt preenchido
+```
+
+Ou criar direto a estrutura da pasta:
+
 ```bash
 python3 tools/new_niche.py historia-sombria                 # parte do tech-lore
 python3 tools/new_niche.py misterios --from historia-sombria

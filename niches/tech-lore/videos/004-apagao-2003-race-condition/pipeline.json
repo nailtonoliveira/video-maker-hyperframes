@@ -1,0 +1,82 @@
+{
+  "id": "tech-lore-004-apagao-2003-race-condition",
+  "nicho": "tech-lore",
+  "tema_id": "T017",
+  "tema": {
+    "id": "T017",
+    "titulo": "Apagão de 2003: A condição de corrida de milissegundos que deixou 50 milhões no escuro",
+    "slug": "apagao-2003-race-condition",
+    "gancho": "No dia 14 de agosto de 2003, um conflito de milissegundos na memória de um servidor apagou a energia de 50 milhões de pessoas.",
+    "resumo": "Em agosto de 2003, o maior apagão da história da América do Norte deixou 50 milhões de pessoas sem luz e causou prejuízos de bilhões de dólares nos Estados Unidos e Canadá. Uma condição de corrida no subsistema C++ de alarmes do software GE XA/21 travou em loop infinito, impedindo que os operadores recebessem alertas sobre a queda em cadeia das linhas de alta tensão.",
+    "fatos_chave": [
+      "Blecaute de 14 de agosto de 2003 atingiu 50 milhões de habitantes em 8 estados americanos e na província canadense de Ontário.",
+      "Danos econômicos totais estimados entre US$ 6 bilhões e US$ 10 bilhões segundo o relatório da comissão binacional de energia.",
+      "Condição de corrida (race condition) no software GE Energy XA/21 corrompeu a estrutura de dados de alarmes às 14h14, congelando a fila de avisos da FirstEnergy por mais de uma hora."
+    ],
+    "por_que_prende": "Revela que o maior blecaute da história moderna não começou com tempestades severas, mas com duas rotinas de código disputando a mesma variável em milissegundos.",
+    "fontes": [
+      "U.S.-Canada Power System Outage Task Force: Final Report on the August 14, 2003 Blackout in the United States and Canada (2004)",
+      "SecurityFocus: Software bug contributed to 2003 blackout"
+    ]
+  },
+  "ensaio": false,
+  "criado_em": "2026-10-31T16:54:07-03:00",
+  "etapas": {
+    "roteiro": {
+      "status": "aprovado",
+      "em": "2026-10-31T16:55:49-03:00",
+      "resumo": "# Apagão de 2003: A Condição de Corrida de Milissegundos\n\n**Título na tela (frame 0):** 50 MILHÕES SEM LUZ  \n**Resumo:** Em 14 de agosto de 2003, uma condição de corrida no subsistema de alarmes do software GE XA/21 travou em loop silencioso no centro de controle da FirstEnergy. Sem alertas para os operadores, linhas de transmissão caíram em efeito dominó, gerando o maior blecaute da história norte-americana.  \n**Palavras:** 109 (≈ 47 s de narração)\n\n## Cena 1 — O Gancho\n\n**Locução:** Um conflito de milissegundos na memória de um servidor apagou a energia de 50 milhões de pessoas.\n\n**Visual:** Maquete técnica 3D do exterior de um data center industrial da FirstEnergy com arestas finas em ciano e piso técnico escuro. Título do gancho '50 MILHÕES SEM LUZ' pousado no quadro 0 em JetBrains Mono sobre placa escura. Câmera em deslocamento lento orbitando os blocos de servidores e subestações sob céu em domo dessaturado.\n\n**Mundo:** exterior\n\n**Âncoras:**\n- \"Um conflito de milissegundos\" → Título em wipe horizontal expo.out pousado no quadro 0 com subtítulo técnico // RACE CONDITION DETECTED.\n- \"na memória de um servidor\" → Aproximação de câmera focando a fachada do bloco central de processamento com pulsos de dados em verde-menta.\n- \"50 milhões de pessoas\" → Corte de plano rasante mostrando barramentos elétricos massivos convergindo para o data center com profundidade de campo rasa.\n\n## Cena 2 — O Contexto\n\n**Locução:** Em 14 de agosto de 2003, no centro de controle da FirstEnergy, o software GE XA/21 gerenciava a rede elétrica.\n\n**Visual:** A câmera foca o gabinete do servidor SCADA da FirstEnergy e executa um mergulho contínuo através da porta física da gaveta do rack. A abertura técnica revela barramentos luminosos e feixes de cabos até pousar na superfície de uma placa de circuito com o chip GE XA/21.\n\n**Mundo:** mergulho\n\n**Âncoras:**\n- \"Em 14 de agosto de 2003\" → Plano médio do rack com carimbo de tempo '2003-08-14 14:14:00 EDT' gravado na lateral do chassi em cinza #7d8590.\n- \"no centro de controle\" → A gaveta frontal do rack destrava mecanicamente e desliza para a frente, revelando o interior da máquina.\n- \"software GE XA/21\" → Mergulho contínuo para o interior escuro, iluminando o chip principal gravado em ciano com 'GE XA/21 EMS'.\n- \"a rede elétrica\" → Câmera nivela sobre a placa; trilhas de dados e LEDs de barramento pulsam em sincronia verde-menta.\n\n## Cena 3 — A Falha Técnica\n\n**Locução:** Às 14h14, duas tarefas tentaram gravar no mesmo buffer de alarmes ao mesmo tempo. Sem bloqueio mútuo, a fila corrompeu e o processo entrou em loop infinito.\n\n**Visual:** Plano plongée técnico da placa de circuito. No solo técnico, a linha de código: 'alarm_queue.push(event); // race condition'. O bug da série (besouro escuro com arestas vermelhas e olhos menta) percorre a trilha de dados e trava exatamente sobre a chamada push desprotegida por mutex.\n\n**Mundo:** placa\n\n**Âncoras:**\n- \"Às 14h14, duas tarefas\" → Dois pulsos de dados em ciano colidem no mesmo registrador de fila simultaneamente sem sincronização.\n- \"gravar no mesmo buffer\" → O besouro rasteja com precisão pelas trilhas de cobre em direção ao buffer de eventos de alarme.\n- \"Sem bloqueio mútuo\" → O bug estanca com as patas sobre a instrução 'push(event)', onde a flag 'MUTEX_LOCK' exibe 0x00.\n- \"a fila corrompeu\" → A estrutura de dados quebra com tremor determinístico e o registrador vira vermelho #ff3366 exibindo QUEUE_CORRUPT.\n- \"loop infinito\" → Um anel de luz vermelha passa a girar eternamente sobre o chip de alarmes sem despachar nenhum sinal.\n\n## Cena 4 — O Colapso\n\n**Locução:** Quando cabos de alta tensão caíram no Ohio, os alarmes não dispararam. Sem aviso, a sobrecarga derrubou 100 usinas e gerou 6 bilhões de dólares em prejuízo.\n\n**Visual:** O subsistema de alarmes na placa queima em vermelho escuro e a câmera transita em corte rápido para o exterior. Linhas de transmissão em Ohio tocam vegetação e sofrem arcos elétricos sem alerta no console; em cascata, módulos do data center e a malha regional apagam as luzes em efeito dominó.\n\n**Mundo:** exterior\n\n**Âncoras:**\n- \"Quando cabos de alta tensão\" → Corte de plano para o exterior: cabos de 345 kV vergam e entram em curto com árvores geométricas.\n- \"os alarmes não dispararam\" → Plano rasante do console de monitoramento do data center totalmente mudo e estático, sem luzes de alarme.\n- \"Sem aviso, a sobrecarga\" → Pulso elétrico vermelho percorre as linhas de transmissão no horizonte provocando desligamentos sucessivos.\n- \"derrubou 100 usinas\" → Corte aberto: centenas de geradores e módulos da maquete têm seus LEDs de operação desligados instantaneamente.\n- \"gerou 6 bilhões de dólares\" → Letreiro técnico '-US$ 6 BILHÕES' surge em vermelho de alerta com aberração cromática contida.\n\n## Cena 5 — O Loop\n\n**Locução:** A tela dos operadores continuou estática e muda por mais de uma hora, e foi exatamente assim que...\n\n**Visual:** A câmera recua completando a órbita no exterior do data center apagado, voltando à mesma posição, ângulo e escala do quadro 0. O céu em domo retorna à iluminação inicial e o título '50 MILHÕES SEM LUZ' remonta exatamente nas coordenadas do início, fechando o loop contínuo.\n\n**Mundo:** exterior\n\n**Âncoras:**\n- \"A tela dos operadores\" → Visão técnica através da vidraça da sala de controle mostrando monitores estáticos em contraste com o exterior.\n- \"por mais de uma hora\" → Contador de terminal avança em timelapse de 14:14 para 15:45 sem gerar uma única notificação.\n- \"e foi exatamente assim que\" → A câmera trava na posição inicial do quadro 0 e o título 2D de abertura remonta perfeitamente no centro.\n\n## Loop\n\n> A tela dos operadores continuou estática e muda por mais de uma hora, e foi exatamente assim que um conflito de milissegundos na memória de um servidor apagou a energia de 50 milhões de pessoas.\n\n## Fatos\n\n- O blecaute de 14 de agosto de 2003 atingiu cerca de 50 milhões de pessoas em oito estados dos EUA e na província de Ontário, no Canadá. — *U.S.-Canada Power System Outage Task Force: Final Report on the August 14, 2003 Blackout in the United States and Canada (2004)* (alta)\n- Uma condição de corrida (race condition) de milissegundos no subsistema C/C++ de alarmes do software GE Energy XA/21 corrompeu a estrutura de dados compartilhada às 14h14, travando o processo em loop infinito. — *SecurityFocus / KEMA Inc. Software Audit: Tracking the Blackout Bug (2004)* (alta)\n- A falha silenciosa congelou as telas e alertas sonoros da FirstEnergy por mais de uma hora, impedindo os operadores de isolar a queda das linhas de 345 kV de Ohio antes do efeito cascata. — *U.S.-Canada Power System Outage Task Force: Final Report (2004)* (alta)\n- A cascata desligou mais de 100 usinas elétricas (261 unidades geradoras) e gerou prejuízos econômicos estimados entre US$ 6 bilhões e US$ 10 bilhões. — *U.S.-Canada Power System Outage Task Force: Final Report (2004)* (alta)\n"
+    },
+    "tts": {
+      "status": "feito",
+      "em": "2026-10-31T16:56:02-03:00",
+      "resumo": "Um conflito de milissegundos na memória de um servidor... apagou a energia de cinquenta milhões de pessoas.\nEm quatorze de agosto de dois mil e três, no centro de controle da FirstEnergy, o software gê-é xis-á barra vinte e um gerenciava a rede elétrica.\nÀs quatorze horas e quatorze minutos, duas tarefas tentaram gravar no mesmo buffer de alarmes ao mesmo tempo. Sem bloqueio mútuo, a fila corrompeu... e o processo entrou em loop infinito.\nQuando cabos de alta tensão caíram no Ohio, os alarmes não dispararam. Sem aviso, a sobrecarga derrubou cem usinas... e gerou seis bilhões de dólares em prejuízo.\nA tela dos operadores continuou estática e muda por mais de uma hora, e foi exatamente assim que..."
+    },
+    "voz": {
+      "status": "aprovado",
+      "em": "2026-10-31T16:56:06-03:00",
+      "resumo": "niches/tech-lore/videos/004-apagao-2003-race-condition/assets/voice.mp3 — 44.7 s\nOuça antes de aprovar: xdg-open niches/tech-lore/videos/004-apagao-2003-race-condition/assets/voice.mp3"
+    },
+    "tempos": {
+      "status": "feito",
+      "em": "2026-10-31T16:56:10-03:00",
+      "resumo": "Duração: 44.72 s  (use como data-duration no index.html)"
+    },
+    "legendas": {
+      "status": "feito",
+      "em": "2026-10-31T16:56:10-03:00",
+      "resumo": "index.html: 12 → 44.73 s (6 elementos)\n47 grupos · duração 44.73s\ncorreções da transcrição: As → Às, bâfer → buffer, muto, → mútuo"
+    },
+    "prompt": {
+      "status": "feito",
+      "em": "2026-10-31T16:56:10-03:00",
+      "resumo": "hyperframes-prompt.md — 5 cenas, 18/20 âncoras localizadas no áudio"
+    },
+    "cenas": {
+      "status": "aprovado",
+      "em": "2026-10-31T17:19:00-03:00",
+      "resumo": "57 turnos\ncheck: 0 erros, 10 avisos · quadros: niches/tech-lore/videos/004-apagao-2003-race-condition/.hyperframes/artifacts/snapshots/957684f4-f4d7-4392-bb09-20522071e80a/contact-sheet.jpg\nPreview para revisar: cd niches/tech-lore/videos/004-apagao-2003-race-condition && npx hyperframes preview --background\n(pare com: npx hyperframes preview --stop)"
+    },
+    "trilha": {
+      "status": "feito",
+      "em": "2026-10-31T17:19:02-03:00",
+      "resumo": "ambiente.wav: pico 0.70, rms -23.2 dBFS\nmusica.wav: pico 0.70, rms -16.0 dBFS\nefeitos.wav: pico 0.85, rms -33.8 dBFS"
+    },
+    "render": {
+      "status": "feito",
+      "em": "2026-10-31T17:29:42-03:00",
+      "resumo": "niches/tech-lore/videos/004-apagao-2003-race-condition/renders/004-apagao-2003-race-condition_2026-10-31_17-19-02.mp4 — 44.8 s, 29.7 MB\náudio: -17.7 → -14.1 LUFS"
+    },
+    "metadados": {
+      "status": "aprovado",
+      "em": "2026-10-31T17:29:56-03:00",
+      "resumo": "── youtube ──\nTÍTULO\nO bug de milissegundos que apagou 50 milhões de pessoas #shorts\n\nDESCRIÇÃO\nEm 14 de agosto de 2003, uma condição de corrida no software GE XA/21 travou o sistema de alarmes da FirstEnergy em silêncio absoluto. Sem aviso aos operadores, a sobrecarga derrubou mais de 100 usinas e provocou US$ 6 bilhões em prejuízo. Fonte: U.S.-Canada Power System Outage Task Force: Final Report (2004).\n\nHASHTAGS\n#shorts #tecnologia #programacao\n\nTAGS\napagão 2003, condição de corrida, race condition, bug de software, engenharia de software, desastres da tecnologia, firstenergy, programação\n\n── tiktok ──\nLEGENDA\nUm bug de milissegundos na memória travou os alarmes e apagou 50 milhões de pessoas em 2003. #tecnologia #programacao #curiosidades #dev #bug\n\n── instagram ──\nLEGENDA\nEm 2003, duas tarefas acessaram a mesma memória ao mesmo tempo e apagaram a energia de 50 milhões de pessoas. O software de alarmes travou em silêncio por mais de uma hora enquanto o país colapsava. Você já viu um bug de concorrência causar tanto estrago?\n\nHASHTAGS\n#tecnologia #programacao #engenharia #curiosidades #dev\n\n── facebook ──\nLEGENDA\nUma condição de corrida em um servidor congelou os alarmes e gerou um blecaute em 50 milhões de pessoas em 2003. Qual foi o pior bug que você já viu passar despercebido para a produção?\n"
+    },
+    "publicar": {
+      "status": "feito",
+      "em": "2026-10-31T17:29:56-03:00",
+      "resumo": "niches/tech-lore/videos/004-apagao-2003-race-condition/publicar/ pronto: tech-lore-004-apagao-2003-race-condition.mp4, textos por plataforma e CHECKLIST.md"
+    }
+  },
+  "render": "niches/tech-lore/videos/004-apagao-2003-race-condition/renders/004-apagao-2003-race-condition_2026-10-31_17-19-02.mp4"
+}
