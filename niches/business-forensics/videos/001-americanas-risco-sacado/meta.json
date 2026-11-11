@@ -1,0 +1,9 @@
+{
+  "id": "business-forensics-001-americanas-risco-sacado",
+  "name": "business-forensics-001-americanas-risco-sacado",
+  "createdAt": "2026-10-30T17:39:20.913Z",
+  "motor": {
+    "tipo": "3d",
+    "versao": "0.1.0"
+  }
+}
