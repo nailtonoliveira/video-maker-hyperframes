@@ -90,6 +90,112 @@ def cmd_descartar(a):
     cat.salvar()
 
 
+# ---- novo nicho / design bible ----------------------------------------------------------------
+def montar_prompt_biblia(nicho, descricao="", pedido=""):
+    tpl = config.DESIGN_BIBLE_PROMPT.read_text(encoding="utf-8")
+    return (tpl.replace("{{NICHE_NAME}}", nicho)
+               .replace("{{SHORT_DESCRIPTION}}", descricao.strip() or "(use existing NICHE.md context)")
+               .replace("{{SPECIFIC_REQUEST}}", pedido.strip() or "empty"))
+
+
+def _destino_biblia(nicho, pedido=""):
+    if (config.NICHES / nicho).exists() and pedido.strip():
+        return config.BIBLES / f"{nicho}-{slugify(pedido, maxlen=24)}.md"
+    return config.BIBLES / f"{nicho}-design-bible.md"
+
+
+def _biblia_claude(prompt, log_path, modelo=None):
+    ferramentas = ["Read", "Write", "Edit", "Glob", "Grep", "Bash(ls:*)", "Bash(mkdir:*)"]
+    cmd = ["claude", "-p", prompt, "--output-format", "stream-json", "--verbose",
+           "--permission-mode", "acceptEdits", "--allowedTools", *ferramentas]
+    if modelo:
+        cmd += ["--model", modelo]
+    usa_api = os.environ.get("CLAUDE_CODE_USA_API_KEY", "0") == "1"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    say(f"  Claude Code desenhando a Design Bible (log: {config.rel(log_path)})…")
+    final = {}
+    with open(log_path, "w", encoding="utf-8") as fh, subprocess.Popen(
+            cmd, cwd=config.ROOT, env=config.sub_env(drop_anthropic_key=not usa_api),
+            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True) as proc:
+        for line in proc.stdout:
+            fh.write(line)
+            try:
+                ev = json.loads(line)
+            except ValueError:
+                continue
+            if ev.get("type") == "assistant":
+                for b in ev.get("message", {}).get("content", []):
+                    if b.get("type") == "tool_use":
+                        inp = b.get("input", {})
+                        alvo = inp.get("file_path") or inp.get("pattern") or inp.get("command") or ""
+                        say(f"    · {b['name']} {str(alvo).splitlines()[0][:90] if alvo else ''}")
+            elif ev.get("type") == "result":
+                final = ev
+    if proc.returncode or final.get("is_error"):
+        raise SystemExit(f"Claude Code terminou com erro (veja {config.rel(log_path)}): {str(final.get('result', ''))[:300]}")
+    return (final.get("result") or "").strip()
+
+
+def _biblia_agy(prompt, dest, modelo=None):
+    exe = shutil.which("agy")
+    if not exe:
+        raise SystemExit("Antigravity CLI (agy) não encontrado no PATH")
+    modelo = modelo or "gemini-3.8-flash-high"
+    say(f"  Antigravity ({modelo}) desenhando a Design Bible…")
+    env = {k: v for k, v in os.environ.items() if k not in ("GEMINI_API_KEY", "GOOGLE_API_KEY")}
+    r = subprocess.run(
+        [exe, "-p", prompt, "--model", modelo, "--output-format", "json",
+         "--disable-slash-commands", "--print-timeout", "900s"],
+        cwd=config.ROOT, env=env, capture_output=True, text=True, timeout=960)
+    try:
+        out = json.loads(r.stdout.strip().splitlines()[-1])
+    except (ValueError, IndexError):
+        raise SystemExit(f"Antigravity saiu com código {r.returncode}: {(r.stderr or r.stdout).strip()[:400]}")
+    if out.get("status") != "SUCCESS":
+        raise SystemExit(f"Antigravity terminou com status {out.get('status')}: {str(out)[:300]}")
+    return (out.get("response") or "").strip()
+
+
+def cmd_novo_nicho(a):
+    if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", a.nicho):
+        raise SystemExit(f"nome de nicho inválido: {a.nicho!r} (use minúsculas, números e hífens)")
+    existe = (config.NICHES / a.nicho).exists()
+    if not a.descricao and not a.pedido and not existe:
+        raise SystemExit("informe uma descrição para o nicho novo (ex.: ./pipeline novo-nicho meu-nicho \"Descrição curta\")")
+    prompt = montar_prompt_biblia(a.nicho, a.descricao or "", a.pedido or "")
+    if a.so_prompt:
+        say(prompt.rstrip())
+        return
+    dest = _destino_biblia(a.nicho, a.pedido or "")
+    config.BIBLES.mkdir(parents=True, exist_ok=True)
+    if a.ensaio:
+        modo = "Mode B (Expansion)" if existe else "Mode A (New Identity)"
+        dest.write_text(f"**Mode:** {modo} (ensaio)\n\n# Design Bible — {a.nicho}\n\n"
+                        f"- Descrição: {a.descricao or '(existente)'}\n- Pedido: {a.pedido or 'empty'}\n", encoding="utf-8")
+        say(f"Design Bible de ensaio salva em {config.rel(dest)}  [ENSAIO]")
+    else:
+        agente = a.agente or ("claude" if shutil.which("claude") else "agy")
+        log_path = config.BIBLES / ".logs" / f"{dest.stem}.jsonl"
+        resp = _biblia_claude(prompt, log_path, a.modelo) if agente == "claude" else _biblia_agy(prompt, dest, a.modelo)
+        # Se o agente devolveu a bíblia inteira na resposta sem gravar o arquivo, salva em dest.
+        arquivos = sorted(config.BIBLES.glob(f"{a.nicho}-*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+        if not dest.exists() and not arquivos and resp:
+            dest.write_text(resp + "\n", encoding="utf-8")
+        alvo = dest if dest.exists() else (arquivos[0] if arquivos else dest)
+        if resp:
+            say("\n" + resp)
+        say(f"\n✔ Design Bible: {config.rel(alvo)}")
+    if a.criar:
+        if existe:
+            say(f"Pasta niches/{a.nicho} já existe; pulando new_niche.py.")
+        else:
+            r = subprocess.run([sys.executable, str(config.TOOLS / "new_niche.py"), a.nicho, "--from", a.base],
+                               capture_output=True, text=True)
+            if r.returncode:
+                raise SystemExit(r.stderr or r.stdout)
+            say(r.stdout.strip())
+
+
 # ---- vídeo novo -------------------------------------------------------------------------------
 def escolher_tema(a, cfg, cat):
     if a.tema:
@@ -217,6 +323,7 @@ def cmd_doctor(a):
     say(f"  {ok(nb)} Node {nb.parent.name if nb else '22 não encontrado (nvm install 22)'}")
     for exe in ("ffmpeg", "ffprobe", "claude", "agy"):
         say(f"  {ok(shutil.which(exe))} {exe}")
+    say(f"  {ok(config.DESIGN_BIBLE_PROMPT.exists())} {config.rel(config.DESIGN_BIBLE_PROMPT)}")
     try:
         import faster_whisper  # noqa: F401
         say("  ✔ faster-whisper")
@@ -270,6 +377,19 @@ def main():
     p.add_argument("nicho")
     p.add_argument("ids", nargs="+")
     p.set_defaults(fn=cmd_descartar)
+
+    p = sp.add_parser("novo-nicho", aliases=["biblia", "design-bible"],
+                      help="gera a Design Bible de um nicho novo (Mode A) ou expande um existente (Mode B), podendo criar a pasta do nicho")
+    p.add_argument("nicho", help="nome do nicho (minúsculas, números e hífens)")
+    p.add_argument("descricao", nargs="?", default="", help="descrição curta do nicho")
+    p.add_argument("-p", "--pedido", default="", help="pedido específico opcional (ex.: 'novo personagem para o tema X')")
+    p.add_argument("--criar", action="store_true", help="também cria a pasta niches/<nicho> com tools/new_niche.py após gerar a bíblia")
+    p.add_argument("--from", dest="base", default="tech-lore", help="nicho de partida para --criar (padrão: tech-lore)")
+    p.add_argument("--agente", choices=["claude", "agy"], help="agente para gerar a bíblia (padrão: claude se instalado, senão agy)")
+    p.add_argument("--modelo", help="modelo opcional do agente")
+    p.add_argument("--so-prompt", action="store_true", help="apenas imprime o prompt preenchido na saída padrão, sem rodar o agente")
+    p.add_argument("--ensaio", action="store_true", help="gera uma Design Bible de exemplo sem chamar agentes/APIs")
+    p.set_defaults(fn=cmd_novo_nicho)
 
     p = sp.add_parser("novo", help="cria um vídeo a partir de um tema e roda o pipeline")
     p.add_argument("nicho")
