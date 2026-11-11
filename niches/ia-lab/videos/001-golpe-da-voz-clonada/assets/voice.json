@@ -1,0 +1,853 @@
+{
+  "idioma": "pt",
+  "probabilidade": 1,
+  "duracao": 39.6596875,
+  "segmentos": [
+    {
+      "id": 1,
+      "inicio": 0.0,
+      "fim": 3.68,
+      "texto": "Três segundos de áudio do seu Instagram já bastam pra clonar a sua voz.",
+      "palavras": [
+        {
+          "palavra": "Três",
+          "inicio": 0.0,
+          "fim": 0.3,
+          "probabilidade": 0.56
+        },
+        {
+          "palavra": "segundos",
+          "inicio": 0.3,
+          "fim": 0.54,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.54,
+          "fim": 0.86,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "áudio",
+          "inicio": 0.86,
+          "fim": 1.16,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "do",
+          "inicio": 1.16,
+          "fim": 1.28,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "seu",
+          "inicio": 1.28,
+          "fim": 1.44,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "Instagram",
+          "inicio": 1.44,
+          "fim": 1.84,
+          "probabilidade": 0.915
+        },
+        {
+          "palavra": "já",
+          "inicio": 1.84,
+          "fim": 2.2,
+          "probabilidade": 0.695
+        },
+        {
+          "palavra": "bastam",
+          "inicio": 2.2,
+          "fim": 2.68,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "pra",
+          "inicio": 2.68,
+          "fim": 2.82,
+          "probabilidade": 0.892
+        },
+        {
+          "palavra": "clonar",
+          "inicio": 2.82,
+          "fim": 3.14,
+          "probabilidade": 0.957
+        },
+        {
+          "palavra": "a",
+          "inicio": 3.14,
+          "fim": 3.24,
+          "probabilidade": 0.844
+        },
+        {
+          "palavra": "sua",
+          "inicio": 3.24,
+          "fim": 3.36,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "voz.",
+          "inicio": 3.36,
+          "fim": 3.68,
+          "probabilidade": 0.997
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "inicio": 3.88,
+      "fim": 6.6,
+      "texto": "Você posta um story inocente sem imaginar o risco.",
+      "palavras": [
+        {
+          "palavra": "Você",
+          "inicio": 3.88,
+          "fim": 4.04,
+          "probabilidade": 0.956
+        },
+        {
+          "palavra": "posta",
+          "inicio": 4.04,
+          "fim": 4.42,
+          "probabilidade": 0.922
+        },
+        {
+          "palavra": "um",
+          "inicio": 4.42,
+          "fim": 4.5,
+          "probabilidade": 0.96
+        },
+        {
+          "palavra": "story",
+          "inicio": 4.5,
+          "fim": 4.84,
+          "probabilidade": 0.287
+        },
+        {
+          "palavra": "inocente",
+          "inicio": 4.84,
+          "fim": 5.38,
+          "probabilidade": 0.915
+        },
+        {
+          "palavra": "sem",
+          "inicio": 5.38,
+          "fim": 5.66,
+          "probabilidade": 0.917
+        },
+        {
+          "palavra": "imaginar",
+          "inicio": 5.66,
+          "fim": 6.08,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "o",
+          "inicio": 6.08,
+          "fim": 6.22,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "risco.",
+          "inicio": 6.22,
+          "fim": 6.6,
+          "probabilidade": 0.995
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "inicio": 6.76,
+      "fim": 11.52,
+      "texto": "A inteligência artificial pega esse trechinho, fatia seu tom e respiração em blocos",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 6.76,
+          "fim": 6.86,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "inteligência",
+          "inicio": 6.86,
+          "fim": 7.28,
+          "probabilidade": 0.935
+        },
+        {
+          "palavra": "artificial",
+          "inicio": 7.28,
+          "fim": 7.98,
+          "probabilidade": 0.945
+        },
+        {
+          "palavra": "pega",
+          "inicio": 7.98,
+          "fim": 8.32,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "esse",
+          "inicio": 8.32,
+          "fim": 8.56,
+          "probabilidade": 0.973
+        },
+        {
+          "palavra": "trechinho,",
+          "inicio": 8.56,
+          "fim": 9.12,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "fatia",
+          "inicio": 9.32,
+          "fim": 9.64,
+          "probabilidade": 0.939
+        },
+        {
+          "palavra": "seu",
+          "inicio": 9.64,
+          "fim": 9.82,
+          "probabilidade": 0.911
+        },
+        {
+          "palavra": "tom",
+          "inicio": 9.82,
+          "fim": 10.06,
+          "probabilidade": 0.72
+        },
+        {
+          "palavra": "e",
+          "inicio": 10.06,
+          "fim": 10.4,
+          "probabilidade": 0.661
+        },
+        {
+          "palavra": "respiração",
+          "inicio": 10.4,
+          "fim": 10.96,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "em",
+          "inicio": 10.96,
+          "fim": 11.06,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "blocos",
+          "inicio": 11.06,
+          "fim": 11.52,
+          "probabilidade": 0.992
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "inicio": 11.52,
+      "fim": 13.14,
+      "texto": "e aprende a falar com qualquer frase.",
+      "palavras": [
+        {
+          "palavra": "e",
+          "inicio": 11.52,
+          "fim": 11.74,
+          "probabilidade": 0.643
+        },
+        {
+          "palavra": "aprende",
+          "inicio": 11.74,
+          "fim": 12.12,
+          "probabilidade": 0.964
+        },
+        {
+          "palavra": "a",
+          "inicio": 12.12,
+          "fim": 12.16,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "falar",
+          "inicio": 12.16,
+          "fim": 12.38,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "com",
+          "inicio": 12.38,
+          "fim": 12.52,
+          "probabilidade": 0.605
+        },
+        {
+          "palavra": "qualquer",
+          "inicio": 12.52,
+          "fim": 12.76,
+          "probabilidade": 0.975
+        },
+        {
+          "palavra": "frase.",
+          "inicio": 12.76,
+          "fim": 13.14,
+          "probabilidade": 0.983
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "inicio": 13.42,
+      "fim": 15.16,
+      "texto": "Só que aí entra o golpista.",
+      "palavras": [
+        {
+          "palavra": "Só",
+          "inicio": 13.42,
+          "fim": 13.56,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "que",
+          "inicio": 13.56,
+          "fim": 13.76,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "aí",
+          "inicio": 13.76,
+          "fim": 14.2,
+          "probabilidade": 0.526
+        },
+        {
+          "palavra": "entra",
+          "inicio": 14.2,
+          "fim": 14.5,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "o",
+          "inicio": 14.5,
+          "fim": 14.62,
+          "probabilidade": 0.915
+        },
+        {
+          "palavra": "golpista.",
+          "inicio": 14.62,
+          "fim": 15.16,
+          "probabilidade": 0.915
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "inicio": 15.36,
+      "fim": 19.94,
+      "texto": "Ele usa essa voz idêntica no WhatsApp da sua família, fingindo um sequestro e pedindo",
+      "palavras": [
+        {
+          "palavra": "Ele",
+          "inicio": 15.36,
+          "fim": 15.5,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "usa",
+          "inicio": 15.5,
+          "fim": 15.74,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "essa",
+          "inicio": 15.74,
+          "fim": 15.94,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "voz",
+          "inicio": 15.94,
+          "fim": 16.22,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "idêntica",
+          "inicio": 16.22,
+          "fim": 16.84,
+          "probabilidade": 0.91
+        },
+        {
+          "palavra": "no",
+          "inicio": 16.84,
+          "fim": 16.98,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "WhatsApp",
+          "inicio": 16.98,
+          "fim": 17.3,
+          "probabilidade": 0.607
+        },
+        {
+          "palavra": "da",
+          "inicio": 17.3,
+          "fim": 17.52,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "sua",
+          "inicio": 17.52,
+          "fim": 17.68,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "família,",
+          "inicio": 17.68,
+          "fim": 18.06,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "fingindo",
+          "inicio": 18.3,
+          "fim": 18.62,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "um",
+          "inicio": 18.62,
+          "fim": 18.76,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "sequestro",
+          "inicio": 18.76,
+          "fim": 19.36,
+          "probabilidade": 0.921
+        },
+        {
+          "palavra": "e",
+          "inicio": 19.36,
+          "fim": 19.6,
+          "probabilidade": 0.916
+        },
+        {
+          "palavra": "pedindo",
+          "inicio": 19.6,
+          "fim": 19.94,
+          "probabilidade": 0.971
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "inicio": 19.94,
+      "fim": 20.98,
+      "texto": "PIX Urgente.",
+      "palavras": [
+        {
+          "palavra": "PIX",
+          "inicio": 19.94,
+          "fim": 20.38,
+          "probabilidade": 0.438
+        },
+        {
+          "palavra": "Urgente.",
+          "inicio": 20.38,
+          "fim": 20.98,
+          "probabilidade": 0.716
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "inicio": 21.18,
+      "fim": 26.24,
+      "texto": "No pânico de ouvir o parente chorando, ninguém confere o número e todo mundo transfere sem pensar.",
+      "palavras": [
+        {
+          "palavra": "No",
+          "inicio": 21.18,
+          "fim": 21.26,
+          "probabilidade": 0.951
+        },
+        {
+          "palavra": "pânico",
+          "inicio": 21.26,
+          "fim": 21.7,
+          "probabilidade": 0.939
+        },
+        {
+          "palavra": "de",
+          "inicio": 21.7,
+          "fim": 21.84,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "ouvir",
+          "inicio": 21.84,
+          "fim": 22.06,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "o",
+          "inicio": 22.06,
+          "fim": 22.16,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "parente",
+          "inicio": 22.16,
+          "fim": 22.56,
+          "probabilidade": 0.894
+        },
+        {
+          "palavra": "chorando,",
+          "inicio": 22.56,
+          "fim": 23.0,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "ninguém",
+          "inicio": 23.16,
+          "fim": 23.32,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "confere",
+          "inicio": 23.32,
+          "fim": 23.9,
+          "probabilidade": 0.93
+        },
+        {
+          "palavra": "o",
+          "inicio": 23.9,
+          "fim": 23.98,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "número",
+          "inicio": 23.98,
+          "fim": 24.28,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "e",
+          "inicio": 24.28,
+          "fim": 24.54,
+          "probabilidade": 0.501
+        },
+        {
+          "palavra": "todo",
+          "inicio": 24.54,
+          "fim": 24.7,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "mundo",
+          "inicio": 24.7,
+          "fim": 24.96,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "transfere",
+          "inicio": 24.96,
+          "fim": 25.56,
+          "probabilidade": 0.879
+        },
+        {
+          "palavra": "sem",
+          "inicio": 25.56,
+          "fim": 25.86,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "pensar.",
+          "inicio": 25.86,
+          "fim": 26.24,
+          "probabilidade": 0.999
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "inicio": 26.56,
+      "fim": 28.08,
+      "texto": "Então, a proteção é simples.",
+      "palavras": [
+        {
+          "palavra": "Então,",
+          "inicio": 26.56,
+          "fim": 26.9,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "a",
+          "inicio": 27.1,
+          "fim": 27.18,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "proteção",
+          "inicio": 27.18,
+          "fim": 27.58,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "é",
+          "inicio": 27.58,
+          "fim": 27.72,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "simples.",
+          "inicio": 27.72,
+          "fim": 28.08,
+          "probabilidade": 0.997
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "inicio": 28.08,
+      "fim": 32.84,
+      "texto": "Combine hoje mesmo uma palavra secreta com a sua família, que só vocês conhecem.",
+      "palavras": [
+        {
+          "palavra": "Combine",
+          "inicio": 28.08,
+          "fim": 28.72,
+          "probabilidade": 0.676
+        },
+        {
+          "palavra": "hoje",
+          "inicio": 28.72,
+          "fim": 29.0,
+          "probabilidade": 0.89
+        },
+        {
+          "palavra": "mesmo",
+          "inicio": 29.0,
+          "fim": 29.4,
+          "probabilidade": 0.974
+        },
+        {
+          "palavra": "uma",
+          "inicio": 29.4,
+          "fim": 29.68,
+          "probabilidade": 0.978
+        },
+        {
+          "palavra": "palavra",
+          "inicio": 29.68,
+          "fim": 30.04,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "secreta",
+          "inicio": 30.04,
+          "fim": 30.68,
+          "probabilidade": 0.918
+        },
+        {
+          "palavra": "com",
+          "inicio": 30.68,
+          "fim": 30.84,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "a",
+          "inicio": 30.84,
+          "fim": 30.92,
+          "probabilidade": 0.872
+        },
+        {
+          "palavra": "sua",
+          "inicio": 30.92,
+          "fim": 31.06,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "família,",
+          "inicio": 31.06,
+          "fim": 31.44,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "que",
+          "inicio": 31.68,
+          "fim": 31.76,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "só",
+          "inicio": 31.76,
+          "fim": 32.0,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "vocês",
+          "inicio": 32.0,
+          "fim": 32.24,
+          "probabilidade": 0.908
+        },
+        {
+          "palavra": "conhecem.",
+          "inicio": 32.24,
+          "fim": 32.84,
+          "probabilidade": 0.994
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "inicio": 33.04,
+      "fim": 35.62,
+      "texto": "Se quem ligou não souber a palavra, desliga na hora.",
+      "palavras": [
+        {
+          "palavra": "Se",
+          "inicio": 33.04,
+          "fim": 33.18,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "quem",
+          "inicio": 33.18,
+          "fim": 33.32,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "ligou",
+          "inicio": 33.32,
+          "fim": 33.62,
+          "probabilidade": 0.973
+        },
+        {
+          "palavra": "não",
+          "inicio": 33.62,
+          "fim": 33.8,
+          "probabilidade": 0.926
+        },
+        {
+          "palavra": "souber",
+          "inicio": 33.8,
+          "fim": 34.1,
+          "probabilidade": 0.919
+        },
+        {
+          "palavra": "a",
+          "inicio": 34.1,
+          "fim": 34.22,
+          "probabilidade": 0.965
+        },
+        {
+          "palavra": "palavra,",
+          "inicio": 34.22,
+          "fim": 34.68,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "desliga",
+          "inicio": 34.9,
+          "fim": 35.24,
+          "probabilidade": 0.832
+        },
+        {
+          "palavra": "na",
+          "inicio": 35.24,
+          "fim": 35.38,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "hora.",
+          "inicio": 35.38,
+          "fim": 35.62,
+          "probabilidade": 0.978
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "inicio": 35.78,
+      "fim": 39.54,
+      "texto": "Com esse escudo na mesa, o gol pizera e você nunca esquece que...",
+      "palavras": [
+        {
+          "palavra": "Com",
+          "inicio": 35.78,
+          "fim": 35.88,
+          "probabilidade": 0.947
+        },
+        {
+          "palavra": "esse",
+          "inicio": 35.88,
+          "fim": 36.08,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "escudo",
+          "inicio": 36.08,
+          "fim": 36.46,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "na",
+          "inicio": 36.46,
+          "fim": 36.6,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "mesa,",
+          "inicio": 36.6,
+          "fim": 36.94,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "o",
+          "inicio": 37.14,
+          "fim": 37.24,
+          "probabilidade": 0.96
+        },
+        {
+          "palavra": "gol",
+          "inicio": 37.24,
+          "fim": 37.38,
+          "probabilidade": 0.195
+        },
+        {
+          "palavra": "pizera",
+          "inicio": 37.38,
+          "fim": 37.86,
+          "probabilidade": 0.482
+        },
+        {
+          "palavra": "e",
+          "inicio": 37.86,
+          "fim": 38.1,
+          "probabilidade": 0.338
+        },
+        {
+          "palavra": "você",
+          "inicio": 38.1,
+          "fim": 38.32,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "nunca",
+          "inicio": 38.32,
+          "fim": 38.52,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "esquece",
+          "inicio": 38.52,
+          "fim": 39.06,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "que...",
+          "inicio": 39.06,
+          "fim": 39.54,
+          "probabilidade": 0.779
+        }
+      ]
+    }
+  ]
+}

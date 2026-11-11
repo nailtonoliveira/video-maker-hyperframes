@@ -1,0 +1,82 @@
+{
+  "id": "ia-lab-001-golpe-da-voz-clonada",
+  "nicho": "ia-lab",
+  "tema_id": "T011",
+  "tema": {
+    "id": "T011",
+    "titulo": "O golpe dos 3 segundos: como a IA rouba a voz de quem você ama",
+    "slug": "golpe-da-voz-clonada",
+    "gancho": "Sabia que um áudio de apenas três segundos do seu Instagram já é suficiente para uma inteligência artificial clonar a sua voz com perfeição?",
+    "resumo": "Na bancada 3D, um droide escuta um story de celular e passa o áudio por um fatiador que quebra a voz em pequenos blocos de tom e respiração. Só que um droide impostor usa essa voz para mandar mensagens de socorro no WhatsApp da família, fazendo o placar de perigo disparar no vermelho. Então a família puxa a placa com uma palavra-chave secreta que só eles sabem, desmascarando a farsa na hora.",
+    "fatos_chave": [
+      "A IA não precisa gravar conversas longas: ela analisa a curva acústica de amostras curtíssimas de áudio público e aprende a falar qualquer frase.",
+      "O golpe funciona porque as pessoas entram em pânico ao ouvir a voz exata do filho ou parente e transferem dinheiro sem checar o número.",
+      "A defesa recomendada pela polícia é nunca transferir valores sem fazer uma chamada de vídeo e combinar uma senha secreta interna na família."
+    ],
+    "por_que_prende": "Toca no maior medo moderno de qualquer família brasileira que usa WhatsApp: cair no golpe do falso sequestro ou Pix urgente com a voz idêntica de um filho.",
+    "fontes": [
+      "https://www.ebc.com.br/noticias/seguranca/2024/03/golpe-do-roubo-de-voz-por-ia-faz-vitimas-no-brasil",
+      "https://g1.globo.com/fantastico/noticia/2024/03/17/golpistas-usam-inteligencia-artificial-para-imitar-voz-de-parentes-e-pedir-dinheiro.ghtml"
+    ]
+  },
+  "ensaio": false,
+  "criado_em": "2026-10-31T20:21:44-03:00",
+  "etapas": {
+    "roteiro": {
+      "status": "aprovado",
+      "em": "2026-10-31T20:22:52-03:00",
+      "resumo": "# O Golpe dos 3 Segundos: Como a IA Rouba a Voz de Quem Você Ama\n\n**Título na tela (frame 0):** O GOLPE DOS 3 SEGUNDOS  \n**Resumo:** Uma amostra de 3 segundos em redes sociais basta para a IA clonar sua voz e aplicar golpes na sua família. Descubra como funciona a clonagem e a regra simples da palavra secreta para zerar esse perigo.  \n**Palavras:** 124 (≈ 53 s de narração)\n\n## Cena 1 — O Gancho e o Story Comum\n\n**Locução:** 3 segundos de áudio do seu Instagram já bastam pra clonar a sua voz. Você posta um story inocente, sem imaginar o risco.\n\n**Visual:** Faixa: 'O GOLPE DOS 3 SEGUNDOS' | Placar: 'AMOSTRA: 3s' | 3D: Bancada grafite com linhas âmbar. Droide usuário (user, ciano) grava stories no smartphone com visor focado '●_●'. Monitor 3D exibe onda sonora verde curta com a legenda 'AUDIO_STORY.wav'.\n\n**Âncoras:**\n- \"3 segundos de áudio\" → setBanner('O GOLPE DOS 3 SEGUNDOS') e setScore('AMOSTRA', '3s', 'amber')\n- \"posta um story inocente\" → user.act(t, 'point') e tela 3D acende onda sonora verde AUDIO_STORY.wav\n\n## Cena 2 — O Fatiador de Voz\n\n**Locução:** A inteligência artificial pega esse trechinho, fatia seu tom e respiração em blocos e aprende a falar qualquer frase.\n\n**Visual:** Faixa: 'FATIANDO SUA VOZ' | Placar: 'CLONE: 100%' | 3D: Entra o droide técnico (coder, amarelo) operando um módulo fatiador 3D. A onda de som é cortada em três blocos luminosos e uma seta 3D âmbar transfere os dados para o sintetizador.\n\n**Âncoras:**\n- \"fatia seu tom\" → setBanner('FATIANDO SUA VOZ') e fatiador 3D divide o áudio em blocos luminosos\n- \"aprende a falar qualquer\" → coder.act(t, 'type') e setScore('CLONE', '100%', 'cyan')\n\n## Cena 3 — O Droide Impostor\n\n**Locução:** Só que aí entra o golpista. Ele usa essa voz idêntica no WhatsApp da sua família, fingindo um sequestro e pedindo Pix urgente.\n\n**Visual:** Faixa: 'O IMPOSTOR NO WHATSAPP' | Placar: 'PERIGO: 90%' | 3D: Câmera treme com shake(0.14). Surge o droide impostor (hacker, vermelho) com capuz e visor em pânico '>_<'. Seta 3D vermelha pulsante aponta direto para a bancada da família.\n\n**Âncoras:**\n- \"entra o golpista\" → setBanner('O IMPOSTOR NO WHATSAPP') e hacker entra na bancada com visor '>_<'\n- \"pedindo Pix urgente\" → setScore('PERIGO', '90%', 'red') e createFlowArrow vermelha pulsa em direção à família\n\n## Cena 4 — O Desespero Humano\n\n**Locução:** No pânico de ouvir o parente chorando, ninguém confere o número e todo mundo transfere sem pensar.\n\n**Visual:** Faixa: 'PÂNICO E PIX FALSO' | Placar: 'ERROS: 1' | 3D: Câmera aproxima no droide familiar (boss, laranja) tremendo com visor '>_<'. Monitor 3D pisca em vermelho com as mensagens 'SOCORRO!' e 'PIX: R$ 3.000 ENVIADO'.\n\n**Âncoras:**\n- \"ouvir o parente chorando\" → setBanner('PÂNICO E PIX FALSO') e boss.act(t, 'panic')\n- \"transfere sem pensar\" → tela 3D pisca em vermelho com PIX ENVIADO e setScore('ERROS', '1', 'red')\n\n## Cena 5 — O Filtro da Senha Secreta\n\n**Locução:** Então a proteção é simples: combine hoje mesmo uma palavra secreta com a sua família que só vocês conhecem.\n\n**Visual:** Faixa: 'A PALAVRA SECRETA' | Placar: 'SENHA: ATIVA' | 3D: Grande cadeado metálico 3D pousa com backOut no meio da bancada. O droide familiar acalma o visor para '●_●' e levanta uma placa dourada com a chave. Tela 3D fica verde.\n\n**Âncoras:**\n- \"a proteção é simples\" → setBanner('A PALAVRA SECRETA') e cadeado metálico 3D entra no centro da bancada\n- \"uma palavra secreta\" → boss.act(t, 'point'), erguendo placa dourada e setScore('SENHA', 'ATIVA', 'green')\n\n## Cena 6 — O Veredito e Loop\n\n**Locução:** Se quem ligou não souber a palavra, desliga na hora. Com esse escudo na mesa, o golpe zera. E você nunca esquece que...\n\n**Visual:** Faixa: 'GOLPE ANULADO' | Placar: 'ERROS: 0' | 3D: Droide familiar dá uma carimbada firme na mesa. O droide impostor é ejetado da bancada. Tela 3D exibe 'AMEAÇA: ZERO' e os droides comemoram com visor '^_^'.\n\n**Âncoras:**\n- \"desliga na hora\" → boss.act(t, 'stamp') e hacker é empurrado para fora da mesa\n- \"o golpe zera\" → setBanner('GOLPE ANULADO'), setScore('ERROS', '0', 'green') e droides mudam visor para '^_^'\n\n## Loop\n\n> E você nunca esquece que 3 segundos de áudio do seu Instagram já bastam pra clonar a sua voz.\n\n## Fatos\n\n- Modelos modernos de inteligência artificial generativa de voz precisam de apenas 3 segundos de áudio público para mapear timbre, modulação e cadência de uma pessoa e gerar qualquer fala nova. — *https://g1.globo.com/fantastico/noticia/2024/03/17/golpistas-usam-inteligencia-artificial-para-imitar-voz-de-parentes-e-pedir-dinheiro.ghtml* (alta)\n- Criminosos usam amostras curtas gravadas de stories ou ligações para simular falsos sequestros e acidentes graves via WhatsApp, explorando o pânico dos familiares para arrancar transferências via Pix. — *https://www.ebc.com.br/noticias/seguranca/2024/03/golpe-do-roubo-de-voz-por-ia-faz-vitimas-no-brasil* (alta)\n- A principal orientação oficial de segurança e das polícias civis contra o golpe da voz clonada é instituir uma palavra-código ou senha combinada internamente entre os membros da família. — *https://g1.globo.com/fantastico/noticia/2024/03/17/golpistas-usam-inteligencia-artificial-para-imitar-voz-de-parentes-e-pedir-dinheiro.ghtml* (alta)\n"
+    },
+    "tts": {
+      "status": "feito",
+      "em": "2026-10-31T20:23:20-03:00",
+      "resumo": "Três segundos de áudio do seu Instagram já bastam pra clonar a sua voz. Você posta um story inocente, sem imaginar o risco.\nA inteligência artificial pega esse trechinho, fatia seu tom e respiração em blocos, e aprende a falar qualquer frase.\nSó que, aí entra o golpista. Ele usa essa voz idêntica no WhatsApp da sua família, fingindo um sequestro e pedindo Pix urgente.\nNo pânico de ouvir o parente chorando, ninguém confere o número, e todo mundo transfere sem pensar.\nEntão, a proteção é simples: combine hoje mesmo uma palavra secreta com a sua família, que só vocês conhecem.\nSe quem ligou não souber a palavra, desliga na hora. Com esse escudo na mesa, o golpe zera. E você nunca esquece que..."
+    },
+    "voz": {
+      "status": "aprovado",
+      "em": "2026-10-31T20:23:23-03:00",
+      "resumo": "niches/ia-lab/videos/001-golpe-da-voz-clonada/assets/voice.mp3 — 39.7 s\nOuça antes de aprovar: xdg-open niches/ia-lab/videos/001-golpe-da-voz-clonada/assets/voice.mp3"
+    },
+    "tempos": {
+      "status": "feito",
+      "em": "2026-10-31T20:23:27-03:00",
+      "resumo": "Duração: 39.66 s  (use como data-duration no index.html)"
+    },
+    "legendas": {
+      "status": "feito",
+      "em": "2026-10-31T20:23:27-03:00",
+      "resumo": "index.html: 12 → 39.66 s (3 elementos)\n50 grupos · duração 39.66s\ncorreções da transcrição: PIX → Pix, Urgente. → urgente, Combine → combine, gol → golpe, pizera → zera, e → E"
+    },
+    "prompt": {
+      "status": "feito",
+      "em": "2026-10-31T20:23:27-03:00",
+      "resumo": "hyperframes-prompt.md — 6 cenas, 11/12 âncoras localizadas no áudio"
+    },
+    "cenas": {
+      "status": "aprovado",
+      "em": "2026-10-31T20:35:35-03:00",
+      "resumo": "58 turnos\ncheck: 0 erros, 8 avisos · quadros: niches/ia-lab/videos/001-golpe-da-voz-clonada/.hyperframes/artifacts/snapshots/737b7d40-6402-40b6-ba04-982f80eb0f4d/contact-sheet.jpg\nPreview para revisar: cd niches/ia-lab/videos/001-golpe-da-voz-clonada && npx hyperframes preview --background\n(pare com: npx hyperframes preview --stop)"
+    },
+    "trilha": {
+      "status": "feito",
+      "em": "2026-10-31T20:35:35-03:00",
+      "resumo": "trilha desligada no niche.json: nada a gerar"
+    },
+    "render": {
+      "status": "feito",
+      "em": "2026-10-31T20:39:27-03:00",
+      "resumo": "niches/ia-lab/videos/001-golpe-da-voz-clonada/renders/001-golpe-da-voz-clonada_2026-10-31_20-35-35.mp4 — 39.7 s, 33.4 MB\náudio: -15.6 → -14.1 LUFS"
+    },
+    "metadados": {
+      "status": "aprovado",
+      "em": "2026-10-31T20:39:42-03:00",
+      "resumo": "── youtube ──\nTÍTULO\nA IA clona sua voz em 3 segundos: como se proteger #shorts\n\nDESCRIÇÃO\nApenas 3 segundos de áudio nas redes sociais já bastam para a inteligência artificial clonar a sua voz com perfeição. Golpistas usam essa cópia no WhatsApp para fingir falsos sequestros e arrancar Pix de quem você ama. A proteção mais eficaz é simples: combine hoje mesmo uma palavra secreta entre a sua família.\n\nHASHTAGS\n#shorts #inteligenciaartificial #seguranca\n\nTAGS\nclonagem de voz, inteligencia artificial, golpe do pix, seguranca digital, ia, golpe do whatsapp, deepfake de voz, tecnologia\n\n── tiktok ──\nLEGENDA\n3s de áudio bastam pra clonar sua voz e aplicar golpes. Combine uma palavra secreta com a família! #ia #seguranca #golpe #tecnologia\n\n── instagram ──\nLEGENDA\nApenas 3 segundos de áudio público são suficientes para a IA clonar o seu tom de voz e enganar quem você ama. A melhor defesa contra esse golpe não é tecnológica: é combinar uma palavra secreta com a sua família hoje mesmo. Se quem ligar pedindo dinheiro não souber o código, desligue na hora.\n\nHASHTAGS\n#inteligenciaartificial #segurancadigital #golpe #tecnologia #ciberseguranca\n\n── facebook ──\nLEGENDA\nBastam 3 segundos de áudio para a inteligência artificial clonar a sua voz e aplicar golpes urgentes no WhatsApp. Compartilhe este alerta com os seus parentes para combinarem uma palavra secreta de proteção hoje mesmo!\n"
+    },
+    "publicar": {
+      "status": "feito",
+      "em": "2026-10-31T20:39:43-03:00",
+      "resumo": "niches/ia-lab/videos/001-golpe-da-voz-clonada/publicar/ pronto: ia-lab-001-golpe-da-voz-clonada.mp4, textos por plataforma e CHECKLIST.md"
+    }
+  },
+  "render": "niches/ia-lab/videos/001-golpe-da-voz-clonada/renders/001-golpe-da-voz-clonada_2026-10-31_20-35-35.mp4"
+}

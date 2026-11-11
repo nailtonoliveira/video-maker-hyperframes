@@ -1,0 +1,28 @@
+{
+  "cenas": [
+    {
+      "n": 1,
+      "texto": "Três segundos de áudio do seu Instagram já bastam pra clonar a sua voz. Você posta um story inocente, sem imaginar o risco."
+    },
+    {
+      "n": 2,
+      "texto": "A inteligência artificial pega esse trechinho, fatia seu tom e respiração em blocos, e aprende a falar qualquer frase."
+    },
+    {
+      "n": 3,
+      "texto": "Só que, aí entra o golpista. Ele usa essa voz idêntica no WhatsApp da sua família, fingindo um sequestro e pedindo Pix urgente."
+    },
+    {
+      "n": 4,
+      "texto": "No pânico de ouvir o parente chorando, ninguém confere o número, e todo mundo transfere sem pensar."
+    },
+    {
+      "n": 5,
+      "texto": "Então, a proteção é simples: combine hoje mesmo uma palavra secreta com a sua família, que só vocês conhecem."
+    },
+    {
+      "n": 6,
+      "texto": "Se quem ligou não souber a palavra, desliga na hora. Com esse escudo na mesa, o golpe zera. E você nunca esquece que..."
+    }
+  ]
+}
