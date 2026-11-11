@@ -1,0 +1,32 @@
+{
+  "nome": "Business Forensics: Impérios, Golpes e Falências Bilionárias",
+  "idioma": "pt-BR",
+  "duracao_alvo_s": 52,
+  "palavras_por_segundo": 2.4,
+  "llm": {
+    "provedor": "antigravity",
+    "modelo_criativo": "gemini-3.8-flash-high",
+    "modelo_rapido": "gemini-3.8-flash-medium",
+    "modelo_embeddings": "gemini-embedding-001",
+    "pesquisa": true
+  },
+  "voz": {
+    "motor": "elevenlabs",
+    "voice_id": "zVnC4vbX94VWMFVkf2qm",
+    "model_id": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128",
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.0,
+    "speed": 1.0,
+    "use_speaker_boost": true,
+    "regras_texto": "ElevenLabs Multilingual v2: não use marcações entre colchetes; o ritmo vem só da pontuação."
+  },
+  "whisper": { "modelo": "base" },
+  "motor": "3d",
+  "trilha": true,
+  "audio_lufs": -14,
+  "mundos": ["imperio", "sala", "livro", "pregao"],
+  "plataformas": ["youtube", "tiktok", "instagram", "facebook"],
+  "aprovacoes": ["roteiro", "voz", "cenas", "metadados"]
+}

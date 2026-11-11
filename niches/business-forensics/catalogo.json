@@ -1,0 +1,599 @@
+{
+  "proximo_id": 1,
+  "temas": [
+    {
+      "id": "T001",
+      "estado": "sugerido",
+      "criado_em": "2026-10-30T14:37:27-03:00",
+      "titulo": "WorldCom — US$ 185 bilhões pulverizados pelo maior truque de despesas da história",
+      "slug": "worldcom-truque-do-capex",
+      "gancho": "Cento e oitenta e cinco bilhões de dólares de valor de mercado sumiram em poucas semanas quando a auditoria descobriu que os lucros bilionários da WorldCom eram apenas despesas comuns varridas para debaixo do tapete.",
+      "resumo": "A gigante de telecomunicações comprou dezenas de rivais na bolha da internet prometendo margens recordes aos investidores de Wall Street. Para esconder que os custos operacionais de rede estavam devorando os lucros, a diretoria transferiu onze bilhões de dólares em despesas correntes para contas de investimento de longo prazo até uma auditora interna descobrir a fraude e derrubar o império.",
+      "fatos_chave": [
+        "Pico de valor de mercado de US$ 185 bilhões em 1999 e colapso na maior recuperação judicial dos EUA até então em julho de 2002.",
+        "Mecanismo de fraude de US$ 11 bilhões que contabilizou despesas operacionais correntes de aluguel de linhas ('line costs') como investimentos em bens de capital (Capex) no balanço.",
+        "Desfecho jurídico: FALÊNCIA decretada em 2002; o ex-CEO Bernard Ebbers foi CONDENADO em 2005 por fraude de valores mobiliários e conspiração a 25 anos de prisão."
+      ],
+      "por_que_prende": "Mostra como uma única alteração de categoria contábil no livro-caixa transformou um prejuízo devastador no maior lucro falso de Wall Street.",
+      "fontes": [
+        "https://www.sec.gov/litigation/litreleases/lr17829.htm",
+        "https://www.justice.gov"
+      ]
+    },
+    {
+      "id": "T002",
+      "estado": "sugerido",
+      "criado_em": "2026-10-30T14:37:29-03:00",
+      "titulo": "Parmalat — O rombo de 14 bilhões de euros escondido com corretivo e scanner",
+      "slug": "parmalat-extrato-falso",
+      "gancho": "Catorze bilhões de euros desapareceram do mapa quando uma única folha de papel com carimbo falso revelou que o maior império de laticínios da Europa fabricava seu caixa no scanner.",
+      "resumo": "A multinacional italiana construiu um império global comprando laticínios e patrocinando times de futebol enquanto acumulava prejuízos monumentais não declarados. Para cobrir o buraco, a cúpula criou uma subsidiária nas Ilhas Cayman e forjou uma conta bancária de quatro bilhões de euros no Bank of America até o banco desmentir a existência do dinheiro.",
+      "fatos_chave": [
+        "Rombo contábil superior a 14 bilhões de euros descoberto em dezembro de 2003, dizimando o valor das ações e poupanças de milhares de investidores.",
+        "Falsificação artesanal de documentos bancários e extratos da subsidiária Bonlat nas Ilhas Cayman atestando falsamente 3,95 bilhões de euros no Bank of America.",
+        "Desfecho jurídico: O fundador e CEO Calisto Tanzi foi CONDENADO a 18 anos de prisão pela Justiça italiana por falência fraudulenta e associação criminosa."
+      ],
+      "por_que_prende": "O contraste entre um império multinacional multibilionário e uma fraude desmascarada por uma folha de papel passada repetidamente no aparelho de fax para disfarçar montagens.",
+      "fontes": [
+        "https://www.theguardian.com/business/2003/dec/20/italy.parmalat",
+        "https://jurist.org"
+      ]
+    },
+    {
+      "id": "T003",
+      "estado": "sugerido",
+      "criado_em": "2026-10-30T14:37:30-03:00",
+      "titulo": "Satyam — US$ 1 bilhão em caixa fantasma e 7.500 funcionários de mentira",
+      "slug": "satyam-caixa-fantasma",
+      "gancho": "Mais de um bilhão de dólares em dinheiro vivo e sete mil e quinhentos funcionários evaporaram no instante em que o fundador da quarta maior gigante de tecnologia da Índia confessou que pilotava um tigre e não sabia como descer.",
+      "resumo": "A gigante de outsourcing exibia margens de lucro invejáveis na Bolsa de Nova York e contratava milhares de programadores a cada trimestre. Nos bastidores, mais de noventa por cento do caixa declarado era fictício, sustentado por faturas forjadas e salários pagos a milhares de funcionários fantasmas para desviar recursos até a confissão pública do fundador.",
+      "fatos_chave": [
+        "Confissão em janeiro de 2009 de que mais de US$ 1 bilhão em caixa (mais de 94% das reservas informadas no balanço) inexistia.",
+        "Criação de milhares de faturas comerciais forjadas, extratos bancários adulterados e 7.500 contas-salário para empregados fantasmas usadas para desviar capital.",
+        "Desfecho jurídico: B. Ramalinga Raju e executivos foram CONDENADOS em 2015 a 7 anos de prisão em regime fechado com trabalhos forçados pela Justiça indiana."
+      ],
+      "por_que_prende": "A carta de confissão aberta do próprio fundador admitindo o desespero de sustentar uma empresa inteira de mentira por anos a fio.",
+      "fontes": [
+        "https://www.sec.gov/news/press/2011/2011-82.htm",
+        "https://cbi.gov.in"
+      ]
+    },
+    {
+      "id": "T004",
+      "estado": "pronto",
+      "criado_em": "2026-10-30T14:37:31-03:00",
+      "titulo": "Lojas Americanas — O rombo de R$ 25 bilhões camuflado em compras do varejo",
+      "slug": "americanas-risco-sacado",
+      "gancho": "Vinte e cinco bilhões de reais viraram pó quando o novo presidente das Americanas descobriu, com apenas dez dias de trabalho, que a dívida bancária da maior varejista do país estava escondida na gaveta de fornecedores.",
+      "resumo": "A tradicional rede brasileira mantinha a imagem de eficiência e crescimento acelerado enquanto pagava bônus milionários para a diretoria. Para ocultar despesas financeiras galopantes, a gestão contratava operações de risco sacado com bancos e as registrava como dívidas simples com fabricantes, maquiando balanços por anos até a renúncia do novo CEO detonar a crise.",
+      "fatos_chave": [
+        "Fato relevante de janeiro de 2023 anunciando 'inconsistências contábeis' de R$ 20 bilhões que evoluíram para um passivo total superior a R$ 40 bilhões.",
+        "Uso de operações de antecipação de recebíveis ('risco sacado' ou forfaiting) com grandes bancos, omitidas como dívida financeira onerosa e camufladas no passivo de fornecedores.",
+        "Desfecho jurídico: O ex-CEO Miguel Gutierrez e ex-diretores foram ACUSADOS formalmente pela CVM e indiciados pela Polícia Federal na Operação Disclosure; processo penal em andamento sob recuperação judicial."
+      ],
+      "por_que_prende": "A velocidade espantosa com que uma das marcas mais onipresentes do Brasil implodiu em um único anúncio de duas páginas.",
+      "fontes": [
+        "https://www.gov.br/cvm/pt-br",
+        "https://www.gov.br/pf/pt-br/assuntos/noticias/2024/06/pf-deflagra-operacao-disclosure-para-investigar-fraude-contabil-nas-lojas-americanas"
+      ],
+      "atualizado_em": "2026-10-30T15:25:36-03:00",
+      "video": "001-americanas-risco-sacado"
+    },
+    {
+      "id": "T005",
+      "estado": "sugerido",
+      "criado_em": "2026-10-30T14:37:32-03:00",
+      "titulo": "Luckin Coffee — US$ 310 milhões em cafés fantasmas para inflar a Nasdaq",
+      "slug": "luckin-coffee-vendas-fake",
+      "gancho": "Doze bilhões de dólares de avaliação despencaram mais de oitenta por cento em poucas horas quando detetives particulares gravaram mil horas de vídeo para provar que a maior rival da Starbucks vendia cafés imaginários.",
+      "resumo": "A startup de tecnologia chinesa abriu mais de quatro mil lojas em ritmo alucinante e estreou na Bolsa de Nova York prometendo destronar redes tradicionais com cupons digitais e pedidos por app. Pressionada por metas de crescimento, a cúpula gerou transações falsificadas com cupons em lote comprados por empresas de fachada ligadas aos próprios fundadores até um fundo ativista expor a encenação.",
+      "fatos_chave": [
+        "Pico de valor de mercado de US$ 12 bilhões no início de 2020 antes da queda catastrófica de mais de 80% e subsequente deslistagem da Nasdaq.",
+        "Fabricação sistemática de mais de US$ 310 milhões em vendas fictícias de café e itens de varejo entre o segundo e o quarto trimestre de 2019.",
+        "Desfecho jurídico: A empresa teve status de ACUSADO pela SEC, concordando em pagar uma multa de US$ 180 milhões para encerrar as ações civis de fraude contábil."
+      ],
+      "por_que_prende": "A investigação de espionagem corporativa no chão de fábrica, com centenas de investigadores contando copos de café para derrubar uma fraude de Wall Street.",
+      "fontes": [
+        "https://www.sec.gov/news/press-release/2020-319",
+        "https://muddywatersresearch.com"
+      ]
+    },
+    {
+      "id": "T006",
+      "estado": "sugerido",
+      "criado_em": "2026-10-30T14:37:33-03:00",
+      "titulo": "Olympus — US$ 1,7 bilhão em prejuízos escondidos no exterior por 20 anos",
+      "slug": "olympus-tobashi-cayman",
+      "gancho": "Um bilhão e setecentos milhões de dólares em prejuízos ficaram escondidos no Japão por duas décadas até o primeiro presidente ocidental da empresa perguntar por que a Olympus havia pago uma fortuna a consultorias desconhecidas.",
+      "resumo": "A fabricante centenária de equipamentos ópticos e endoscópios acumulou perdas bilionárias em apostas especulativas na década de oitenta. Para evitar declarar os prejuízos ao mercado, os executivos usaram a técnica 'tobashi' para transferir os ativos podres para fundos offshore nas Ilhas Cayman e pagar taxas milionárias de consultoria para cobrir o rombo.",
+      "fatos_chave": [
+        "Ocultação de perdas de US$ 1,7 bilhão acumuladas desde a explosão da bolha financeira japonesa nos anos 1980 até outubro de 2011.",
+        "Manobra 'tobashi' de transferência de perdas contábeis para empresas de fachada e pagamento de US$ 687 milhões em falsas taxas de consultoria financeira.",
+        "Desfecho jurídico: O ex-presidente Tsuyoshi Kikukawa e outros dois executivos foram CONDENADOS pelo Tribunal de Tóquio por fraude contábil e violação das leis do mercado de capitais."
+      ],
+      "por_que_prende": "O choque cultural de governança corporativa quando o conselho demitiu sumariamente o novo CEO no mesmo dia em que ele apontou o desvio bilionário.",
+      "fontes": [
+        "https://www.theguardian.com/business/2011/nov/08/olympus-scandal-shares-losses",
+        "https://globalnews.ca/news/706240/former-olympus-chairman-pleads-guilty-in-massive-accounting-fraud"
+      ]
+    },
+    {
+      "id": "T007",
+      "estado": "sugerido",
+      "criado_em": "2026-10-30T14:37:34-03:00",
+      "titulo": "China Evergrande — A pirâmide de US$ 300 bilhões em obras e receitas antecipadas",
+      "slug": "evergrande-dividas-obras",
+      "gancho": "Trezentos bilhões de dólares em passivos explodiram na cara da maior construtora da China quando os fiscais constataram que ela já havia computado o lucro de setenta e oito bilhões de dólares em apartamentos que sequer existiam.",
+      "resumo": "A gigante imobiliária surfou o boom habitacional chinês construindo megacidades financiadas pela pré-venda de apartamentos e emissão descontrolada de títulos no exterior. Quando o governo impôs limites de alavancagem, a farsa ruiu: a construtora adiantava o reconhecimento de faturamento de imóveis não construídos para aparentar solvência e continuar pegando dinheiro emprestado.",
+      "fatos_chave": [
+        "Acúmulo de mais de US$ 300 bilhões em passivos e inflação de US$ 78,4 bilhões em receitas fictícias entre 2019 e 2020 revelada pela autoridade reguladora chinesa.",
+        "Reconhecimento contábil prematuro de receitas de imóveis não concluídos e desvio de fundos de adiantamento de compradores residenciais.",
+        "Desfecho jurídico: A Suprema Corte de Hong Kong decretou a FALÊNCIA (liquidação compulsória) em janeiro de 2024; o fundador Hui Ka Yan foi banido dos mercados e CONDENADO pela Justiça chinesa."
+      ],
+      "por_que_prende": "A escala colossal de um colapso imobiliário cujas dívidas superaram o PIB de países inteiros e ameaçaram a economia global.",
+      "fontes": [
+        "https://www.forbes.com/sites/siladityaray/2024/03/19/china-accuses-evergrandes-founder-of-78-billion-fraud-bans-him-from-markets-for-life",
+        "https://www.theguardian.com/business/2024/jan/29/china-evergrande-liquidation-hong-kong-court-order"
+      ]
+    },
+    {
+      "id": "T008",
+      "estado": "sugerido",
+      "criado_em": "2026-10-30T14:37:34-03:00",
+      "titulo": "Archegos — US$ 35 bilhões evaporados em 72 horas por apostas secretas",
+      "slug": "archegos-swaps-alavancados",
+      "gancho": "Trinta e cinco bilhões de dólares de patrimônio e mais de cem bilhões em ações foram incinerados em apenas três dias quando os maiores bancos do planeta descobriram que financiavam a mesma aposta oculta.",
+      "resumo": "O investidor Bill Hwang transformou um escritório familiar particular em um gigante financeiro com posições trilionárias nas bolsas de valores americanas. Usando contratos derivativos firmados com vários bancos simultaneamente, ele alavancou a carteira em mais de cinco vezes sem ter que reportar a posse das ações à SEC até uma das empresas despencar e gerar chamadas de margem em efeito dominó.",
+      "fatos_chave": [
+        "Perda de US$ 35 bilhões em capital próprio e mais de US$ 10 bilhões em perdas diretas causadas a bancos internacionais em março de 2021.",
+        "Uso massivo de Swaps de Retorno Total (Total Return Swaps) de balcão para camuflar participações acima de 5% e inflar artificialmente o preço de papéis selecionados.",
+        "Desfecho jurídico: Bill Hwang foi CONDENADO por júri federal em 2024 por conspiração criminosa (RICO), fraude de valores mobiliários e manipulação de mercado, recebendo pena de 18 anos de prisão."
+      ],
+      "por_que_prende": "O choque de um investidor solitário operando de seu escritório em Nova York que colocou os maiores bancos do mundo de joelhos em 72 horas.",
+      "fontes": [
+        "https://www.justice.gov/usao-sdny/pr/bill-hwang-sentenced-18-years-prison-archegos-racketeering-and-fraud-scheme",
+        "https://www.sec.gov/litigation/litreleases/2022/lr25379.htm"
+      ]
+    },
+    {
+      "id": "T009",
+      "estado": "sugerido",
+      "criado_em": "2026-10-30T14:37:35-03:00",
+      "titulo": "Greensill Capital — US$ 10 bilhões congelados em notas lastreadas no futuro",
+      "slug": "greensill-notas-futuras",
+      "gancho": "Dez bilhões de dólares aplicados por investidores de alta renda viraram fumaça quando se descobriu que os papéis do Credit Suisse eram garantidos por faturas de vendas que ainda nem tinham acontecido.",
+      "resumo": "A fintech britânica ganhou destaque internacional oferecendo tecnologia para antecipação de pagamentos a fornecedores em cadeias industriais globais. Conforme a sede por lucros aumentava, a companhia passou a empacotar empréstimos lastreados em vendas puramente hipotéticas projetadas para anos futuros até a seguradora das apólices cancelar a cobertura e paralisar as operações.",
+      "fatos_chave": [
+        "Congelamento de US$ 10 bilhões em fundos de investimento do Credit Suisse em março de 2021 e colapso imediato da fintech.",
+        "Emissão de títulos lastreados em 'recebíveis futuros prospectivos' (faturas de vendas imaginadas e não concretizadas), concedidos massivamente ao conglomerado industrial GFG Alliance.",
+        "Desfecho jurídico: A empresa entrou em FALÊNCIA no Reino Unido; o fundador Lex Greensill passou à condição de INVESTIGADO por autoridades criminais e comissões parlamentares britânicas."
+      ],
+      "por_que_prende": "A audácia inacreditável de inventar títulos financeiros lastreados em transações futuras totalmente imaginárias chanceladas por gigantes bancários.",
+      "fontes": [
+        "https://www.finma.ch/en/news/2023/02/20230228-mm-greensill",
+        "https://committees.parliament.uk/committee/158/treasury-committee/news/156707/lessons-from-greensill-capital-report-published"
+      ]
+    },
+    {
+      "id": "T010",
+      "estado": "sugerido",
+      "criado_em": "2026-10-30T14:37:36-03:00",
+      "titulo": "Nikola — US$ 30 bilhões de valor erguidos com um caminhão solto na ladeira",
+      "slug": "nikola-caminhao-ladeira",
+      "gancho": "Trinta bilhões de dólares foi quanto uma montadora que nunca vendeu um único caminhão chegou a valer na bolsa de valores, até um relatório provar que seu veículo do futuro só andava porque foi solto numa ladeira deserta.",
+      "resumo": "A montadora tech prometia desbancar as fabricantes tradicionais com caminhões pesados movidos a hidrogênio verde e tecnologias de bateria proprietárias. O fundador inflou o preço das ações no mercado com discursos agressivos e vídeos simulados na internet até uma empresa de pesquisa revelar que o protótipo funcional era apenas uma carcaça vazia empurrada montanha abaixo.",
+      "fatos_chave": [
+        "Pico de capitalização de mercado superior a US$ 30 bilhões em junho de 2020 (superando montadoras tradicionais como a Ford) antes de derreter mais de 90%.",
+        "Gravação de um vídeo de demonstração onde o caminhão Nikola One foi rebocado até o topo de uma colina inclinada em Utah e solto em ponto morto para simular propulsão própria.",
+        "Desfecho jurídico: O fundador Trevor Milton foi CONDENADO por um júri federal por fraude de valores mobiliários e fraude eletrônica, recebendo pena de 4 anos de prisão em dezembro de 2023."
+      ],
+      "por_que_prende": "A desfaçatez sem limites de criar uma montadora de US$ 30 bilhões usando truques de câmera e a força da gravidade.",
+      "fontes": [
+        "https://www.justice.gov/usao-sdny/pr/trevor-milton-sentenced-four-years-prison-securities-and-wire-fraud",
+        "https://hindenburgresearch.com/nikola"
+      ]
+    },
+    {
+      "id": "T011",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:19-03:00",
+      "titulo": "Steinhoff — € 6,5 bilhões em ativos inflados no maior colapso do varejo africano",
+      "slug": "steinhoff",
+      "gancho": "Mais de 12 bilhões de dólares evaporaram em 48 horas quando o maior império do varejo da África do Sul confessou uma fraude contábil de 6,5 bilhões de euros.",
+      "resumo": "A Steinhoff expandiu-se globalmente comprando redes de móveis e manufatura com recursos gerados por vendas fictícias e transações circulares entre empresas de fachada. Quando os auditores da Deloitte recusaram-se a assinar o balanço em dezembro de 2017, as ações despencaram mais de 90% e arrastaram o conglomerado para a liquidação compulsória.",
+      "fatos_chave": [
+        "Fraude contábil de € 6,5 bilhões revelada por auditoria forense da PwC em 2019, que destruiu mais de US$ 12 bilhões em valor de mercado em 2017.",
+        "Mecanismo da manobra: inflação sistemática de lucros e ativos em empresas de fachada não consolidadas controladas pela cúpula executiva (metáfora física: caixas).",
+        "Desfecho jurídico: CONDENADO — o ex-CFO Andries la Grange foi condenado a 10 anos de prisão em 2024 na África do Sul; o ex-CEO Markus Jooste tirou a própria vida antes de se entregar e o grupo foi liquidado (FALÊNCIA)."
+      ],
+      "por_que_prende": "O choque de um império multinacional de móveis maior que a Enron no hemisfério sul culminando no suicídio do CEO horas antes da prisão prende a atenção pelo absurdo da escala.",
+      "fontes": [
+        "https://www.saps.gov.za",
+        "https://www.fsca.co.za",
+        "https://www.pwc.com"
+      ]
+    },
+    {
+      "id": "T012",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:20-03:00",
+      "titulo": "Folli Follie — € 1,4 bilhão pulverizado por 589 lojas de luxo que só existiam no papel",
+      "slug": "folli-follie",
+      "gancho": "1,4 bilhão de euros desapareceram do pregão de Atenas quando fiscais descobriram que 589 lojas de luxo da joalheria na Ásia eram feitas puramente de papel.",
+      "resumo": "A joalheria grega Folli Follie conquistou investidores globais declarando uma rede de mais de 630 lojas ativas e centenas de milhões de euros em lucros na China. Em maio de 2018, uma perícia ativista provou que quase 90% das lojas asiáticas eram fantasmas e os saldos bancários haviam sido forjados com formulários e carimbos caseiros.",
+      "fatos_chave": [
+        "Avaliação de mercado de pico superior a € 1,4 bilhão desabou para zero após auditoria ativista da Quintessential Capital Management em maio de 2018.",
+        "Mecanismo da manobra: fabricação de 90% do faturamento asiático e forja de extratos bancários de € 255 milhões em caixa quando a empresa detinha apenas € 10 milhões (metáfora física: andar_oco).",
+        "Desfecho jurídico: CONDENADO — em julho de 2024, o Tribunal de Apelações de Atenas condenou o fundador Dimitris Koutsolioutsos a 17 anos de prisão e o ex-CEO George Koutsolioutsos a 11 anos por fraude contábil continuada e falsificação."
+      ],
+      "por_que_prende": "A audácia surreal de inventar centenas de lojas físicas e extratos bancários inteiros de uma marca de grife de shopping em plena era digital gera fascínio instantâneo.",
+      "fontes": [
+        "https://www.thenationalherald.com",
+        "https://qcmfunds.com",
+        "https://www.tovima.com"
+      ]
+    },
+    {
+      "id": "T013",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:21-03:00",
+      "titulo": "Bre-X — C$ 6 bilhões evaporados no golpe do pó de ouro raspado de alianças",
+      "slug": "bre-x",
+      "gancho": "6 bilhões de dólares canadenses foram reduzidos a zero em poucos dias quando a maior descoberta de ouro do planeta revelou ter apenas alianças de casamento raladas.",
+      "resumo": "A mineradora júnior canadense Bre-X viu suas ações explodirem na Bolsa de Toronto ao anunciar a descoberta de dezenas de milhões de onças de ouro na selva de Busang, na Indonésia. O castelo desabou em março de 1997 quando perfurações independentes comprovaram que as amostras de rocha haviam sido salgadas manualmente com pó de ouro e raspas de joias.",
+      "fatos_chave": [
+        "Valorização vertiginosa de centavos para C$ 286 por ação, atingindo C$ 6 bilhões de capitalização em 1996 antes de colapsar para zero em 1997.",
+        "Mecanismo da manobra: 'salting' sistemático em que o geólogo-chefe injetava pó de ouro comprado de comerciantes locais dentro dos testemunhos de rocha minerada (metáfora física: bolha / andar_oco).",
+        "Desfecho jurídico: FALÊNCIA — a companhia faliu em novembro de 1997; o geólogo Michael de Guzman morreu misteriosamente ao cair de um helicóptero e os demais executivos foram absolvidos no tribunal por falta de provas de dolo formal."
+      ],
+      "por_que_prende": "A morte enigmática do geólogo jogado de um helicóptero na selva somada à física absurda de ralar joias para fabricar uma montanha de ouro virtual entrega suspense absoluto.",
+      "fontes": [
+        "https://www.osc.ca",
+        "https://www.sedarplus.ca",
+        "https://www.freeportmcmoran.com"
+      ]
+    },
+    {
+      "id": "T014",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:22-03:00",
+      "titulo": "OGX — R$ 75 bilhões afundados na promessa de petróleo em poços secos",
+      "slug": "ogx-eike",
+      "gancho": "30 bilhões de dólares desapareceram do mercado quando os 10 bilhões de barris de petróleo do homem que prometia ser o mais rico do mundo viraram poços secos no mar do Rio.",
+      "resumo": "A OGX levantou dezenas de bilhões de reais na Balsa brasileira anunciando descobertas estratosféricas de petróleo na Bacia de Campos e elevando Eike Batista ao oitavo lugar na lista de bilionários mundiais da Forbes. A derrocada aconteceu em 2013 quando os testes de fluxo comprovaram que os poços eram inviáveis economicamente, desencadeando a maior recuperação judicial da história corporativa brasileira da época.",
+      "fatos_chave": [
+        "A empresa alcançou valor de mercado de R$ 75 bilhões em 2010 e o patrimônio do fundador bateu US$ 34,5 bilhões em 2012, caindo para centavos em 2013.",
+        "Mecanismo da manobra: omissão deliberada da inviabilidade geológica dos campos em fatos relevantes para manter as ações infladas enquanto controladores vendiam papéis (metáfora física: bolha).",
+        "Desfecho jurídico: CONDENADO — a Justiça Federal condenou Eike Batista a 8 anos e a 11 anos e 8 meses de reclusão por manipulação de mercado e insider trading; a OGX pediu recuperação judicial com dívidas de R$ 11,2 bilhões (FALÊNCIA)."
+      ],
+      "por_que_prende": "A montanha-russa do bilionário midiático que prometia passar Bill Gates e ostentava carros de luxo na sala de casa antes de ver seu império afundar na lama prende pelo contraste extremo de ostentação e fracasso.",
+      "fontes": [
+        "https://www.mpf.mp.br",
+        "https://www.gov.br/cvm/pt-br",
+        "https://www.jfrio.jus.br"
+      ]
+    },
+    {
+      "id": "T015",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:23-03:00",
+      "titulo": "Adelphia — US$ 18 bilhões em dívidas e o caixa público usado como cofre de família",
+      "slug": "adelphia",
+      "gancho": "18 bilhões de dólares de dívida soterraram a sexta maior operadora de TV a cabo dos Estados Unidos por causa de 2,3 bilhões escondidos em contas secretas da família fundadora.",
+      "resumo": "A Adelphia Communications construiu um gigante das telecomunicações nos Estados Unidos enquanto a família controladora utilizava as contas da empresa de capital aberto como linha de crédito pessoal para comprar campos de golfe e ações. Em 2002, a revelação de acordos de empréstimos ocultos provocou a deslistagem do papel, a falência bilionária e a prisão federal de seus líderes.",
+      "fatos_chave": [
+        "A Adelphia omitiu US$ 2,3 bilhões em passivos de co-empréstimo de seus balanços e pediu recuperação judicial sob o Chapter 11 com US$ 18,6 bilhões em dívidas em junho de 2002.",
+        "Mecanismo da manobra: uso de empresas privadas de fachada da família Rigas fora do balanço para contratar dívidas garantidas pelas subsidiárias públicas da Adelphia (metáfora física: caixas).",
+        "Desfecho jurídico: CONDENADO — em 2005, o fundador John Rigas foi sentenciado a 15 anos de prisão e seu filho e CFO Timothy Rigas a 20 anos de reclusão por conspiração e fraude bancária e de valores mobiliários (FALÊNCIA)."
+      ],
+      "por_que_prende": "A audácia descarada de uma dinastia familiar usando uma das maiores redes de TV por assinatura do país como caixa eletrônico pessoal para comprar campos de golfe provoca imediata indignação.",
+      "fontes": [
+        "https://www.sec.gov",
+        "https://www.justice.gov",
+        "https://www.govinfo.gov"
+      ]
+    },
+    {
+      "id": "T016",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:24-03:00",
+      "titulo": "HealthSouth — US$ 2,7 bilhões forjados em fatias microscópicas de 5 mil dólares",
+      "slug": "healthsouth",
+      "gancho": "2,7 bilhões de dólares em lucros mágicos foram inventados pelo maior império de hospitais dos Estados Unidos dividindo o rombo em milhares de lançamentos de 5 mil dólares.",
+      "resumo": "A HealthSouth tornou-se a maior rede de clínicas de reabilitação e hospitais cirúrgicos dos Estados Unidos batendo consistentemente as estimativas de lucros de Wall Street. Nos bastidores contábeis, uma diretoria que se autodenominava 'A Família' fabricava centenas de milhares de lançamentos fictícios abaixo de 5 mil dólares em contas de ajustes para ludibriar os auditores externos.",
+      "fatos_chave": [
+        "Fraude contábil acumulada de US$ 2,7 bilhões entre 1996 e 2002 para bater metas trimestrais projetadas de analistas de Wall Street.",
+        "Mecanismo da manobra: pulverização de lucros fictícios através de centenas de milhares de lançamentos contábeis fraudulentos inferiores a US$ 5.000 na conta de reserva apelidada de 'the hole' para escapar da fiscalização amostral (metáfora física: andar_oco).",
+        "Desfecho jurídico: CONDENADO — cinco ex-CFOs da companhia confessaram formalmente o esquema de fraude contábil e foram sentenciados a penas de prisão federal; a SEC multou o ex-CEO em US$ 81 milhões."
+      ],
+      "por_que_prende": "O truque cirúrgico e metódico de quebrar um rombo de bilhões em pequenas fatias de 5 mil dólares para passar por baixo do radar dos maiores auditores do mundo é uma aula de física forense.",
+      "fontes": [
+        "https://www.sec.gov",
+        "https://www.justice.gov",
+        "https://encompasshealth.com"
+      ]
+    },
+    {
+      "id": "T017",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:25-03:00",
+      "titulo": "Tyco — US$ 100 bilhões derretidos pelo magnata que comprou estátuas com o caixa",
+      "slug": "tyco",
+      "gancho": "100 bilhões de dólares de valor de mercado derreteram em Wall Street quando o império Tyco revelou ter sido transformado no cofre particular de seus dois maiores executivos.",
+      "resumo": "A Tyco International cresceu até se tornar um conglomerado industrial de US$ 100 bilhões comprando centenas de empresas e turbinando balanços com reservas pré-aquisição. A derrocada aconteceu em 2002 quando a Promotoria de Manhattan descobriu que o CEO e o CFO haviam saqueado mais de US$ 600 milhões em bônus não autorizados, empréstimos perdoados e festas extravagantes com dinheiro da empresa.",
+      "fatos_chave": [
+        "A companhia viu seu valor de mercado tombar cerca de US$ 80 bilhões em poucos meses após a abertura dos processos criminais em 2002.",
+        "Mecanismo da manobra: desvio de mais de US$ 600 milhões por programas secretos de anistia de dívidas pessoais corporativas e reservas contábeis artificiais em aquisições em cadeia (metáfora física: caixas).",
+        "Desfecho jurídico: CONDENADO — em setembro de 2005, o CEO Dennis Kozlowski e o CFO Mark Swartz foram condenados pela Suprema Corte de Nova York a penas de 8 a 25 anos de prisão e a ressarcir US$ 134 milhões à empresa."
+      ],
+      "por_que_prende": "O ápice da ostentação corporativa retratado em festas de 2 milhões de dólares na Europa com estátuas jorrando vodca e cortinas de banheiro de 6 mil dólares pagas pelo acionista gera apelo visual absoluto.",
+      "fontes": [
+        "https://www.sec.gov",
+        "https://www.nycourts.gov",
+        "https://www.cbsnews.com"
+      ]
+    },
+    {
+      "id": "T018",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:26-03:00",
+      "titulo": "Carillion — £ 7 bilhões em dívidas escondidas no truque da conta de fornecedor",
+      "slug": "carillion",
+      "gancho": "7 bilhões de libras em dívidas acumuladas contra míseros 29 milhões em caixa derrubaram a segunda maior construtora do Reino Unido em uma única manhã.",
+      "resumo": "A Carillion ergueu hospitais, prisões e ferrovias cruciais para a infraestrutura britânica enquanto operava como uma gigante insolvente que jogava prazos de pagamento de fornecedores para 120 dias. Em janeiro de 2018, sem novos limites bancários para sustentar seu esquema de financiamento de cadeia de suprimentos, o império foi obrigado a decretar liquidação imediata.",
+      "fatos_chave": [
+        "A empresa entrou em liquidação compulsória em 15 de janeiro de 2018 acumulando quase £ 7 bilhões em passivos totais com apenas £ 29 milhões de saldo em caixa.",
+        "Mecanismo da manobra: ocultação de cerca de £ 500 milhões em dívidas financeiras usando 'reverse factoring' disfarçado como crédito operacional rotineiro de fornecedores e antecipação irreal de lucros futuros em obras deficitárias (metáfora física: caixas / andar_oco).",
+        "Desfecho jurídico: FALÊNCIA — colapso com liquidação judicial compulsória; diretores inabilitados por até 11 anos pelo Insolvency Service britânico e a auditora KPMG multada em recorde de £ 21 milhões pelo FRC."
+      ],
+      "por_que_prende": "A disparidade abissal entre construir obras bilionárias de ponta do Estado britânico e amanhecer com apenas 29 milhões de libras no cofre revela como o castelo de cartas desaba instantaneamente.",
+      "fontes": [
+        "https://www.parliament.uk",
+        "https://www.frc.org.uk",
+        "https://www.gov.uk/government/organisations/insolvency-service"
+      ]
+    },
+    {
+      "id": "T019",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:27-03:00",
+      "titulo": "Pescanova — € 3,6 bilhões em dívidas secretas navegadas por peixes fantasmas",
+      "slug": "pescanova",
+      "gancho": "3,6 bilhões de euros em dívidas ocultas naufragaram o maior império pesqueiro da Europa quando a fiscalização descobriu que as cargas de peixe eram notas fiscais fantasmas.",
+      "resumo": "Comandando uma das maiores frotas navais do globo, a espanhola Pescanova anunciava balanços sólidos e lucros milionários em dezenas de portos mundiais. O esquema naufragou em 2013 quando investigações da Comissão de Valores da Espanha desvendaram uma teia de 80 empresas de fachada emitindo faturas de compra e venda fictícias de frutos do mar para captar empréstimos bancários.",
+      "fatos_chave": [
+        "A Pescanova quebrou em 2013 revelando dívida real de € 3,65 bilhões, quase o quádruplo do passivo de € 1 bilhão declarado oficialmente ao mercado.",
+        "Mecanismo da manobra: faturamento circular entre dezenas de empresas instrumentais sem funcionários que emitiam faturas falsas de peixes inexistentes para descontar duplicatas bancárias (metáfora física: caixas).",
+        "Desfecho jurídico: CONDENADO — em fevereiro de 2023, o Tribunal Supremo da Espanha confirmou a condenação do ex-presidente Manuel Fernández de Sousa a 6 anos de prisão por falsidade continuada em contas anuais e falseamento financeiro (FALÊNCIA)."
+      ],
+      "por_que_prende": "A ideia de navios pesqueiros reais nos mares enquanto frotas fantasmas de papel movimentavam bilhões em peixes que nunca saíram da água é uma metáfora visualmente fascinante.",
+      "fontes": [
+        "https://www.poderjudicial.es",
+        "https://www.cnmv.es",
+        "https://kpmg.com"
+      ]
+    },
+    {
+      "id": "T020",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T16:59:28-03:00",
+      "titulo": "BCCI — US$ 20 bilhões do banco de cartéis e ditadores fechado em um dia",
+      "slug": "bcci",
+      "gancho": "20 bilhões de dólares em ativos em 73 países foram lacrados em um único dia quando o império bancário global se revelou um buraco negro de 13 bilhões.",
+      "resumo": "O Bank of Credit and Commerce International apresentou-se como a instituição financeira dos países em desenvolvimento, atraindo capitais bilionários de magnatas, serviços secretos e cartéis da droga. O castelo desmoronou em 5 de julho de 1991 quando reguladores de sete nações invadiram simultaneamente suas sedes e descobriram um banco paralelo nas Ilhas Cayman cobrindo rombos com dinheiro de novos clientes.",
+      "fatos_chave": [
+        "Operação internacional simultânea em julho de 1991 lacrou US$ 20 bilhões em ativos e expôs um rombo contábil estimado entre US$ 10 bilhões e US$ 13 bilhões.",
+        "Mecanismo da manobra: manutenção de contabilidade paralela não auditada no Caribe, empréstimos secretos sem garantia e utilização de fundos de novos correntistas para cobrir saques e perdas não declaradas (metáfora física: piramide / caixas).",
+        "Desfecho jurídico: CONDENADO — o CEO operacional Swaleh Naqvi declarou-se culpado na Justiça Federal dos EUA em 1994, sendo sentenciado a mais de 11 anos de prisão e ao pagamento de US$ 255 milhões em restituição; a instituição foi dissolvida mundialmente (FALÊNCIA)."
+      ],
+      "por_que_prende": "A megaoperação coordenada que fechou um banco global com presença em 73 países em questão de horas entrega o arquétipo definitivo do carimbo e da queda da torre da perícia.",
+      "fontes": [
+        "https://www.foreign.senate.gov",
+        "https://www.justice.gov",
+        "https://www.bankofengland.co.uk"
+      ]
+    },
+    {
+      "id": "T021",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:34:43-03:00",
+      "titulo": "Banco Panamericano — O rombo de R$ 4,3 bilhões em carteiras fantasmas que quase tomou o SBT",
+      "slug": "banco-panamericano",
+      "gancho": "R$ 4,3 bilhões de patrimônio que evaporaram em um dia — e quase custaram o SBT e as maiores empresas de Silvio Santos.",
+      "resumo": "O Banco Panamericano cresceu como a máquina de crédito popular do Grupo Silvio Santos, inflando seus lucros ao revender carteiras de empréstimos para outros bancos. A manobra consistia em não dar baixa contábil nas operações vendidas, mantendo os mesmos ativos duplicados nos balanços até o Banco Central descobrir o buraco bilionário coberto pelo FGC e com a venda forçada da instituição ao BTG Pactual.",
+      "fatos_chave": [
+        "Fraude contábil de R$ 4,3 bilhões descoberta pelo Banco Central do Brasil em novembro de 2010.",
+        "Mecanismo contábil: Cessão de carteiras de crédito para terceiros sem baixa contábil no livro-caixa, duplicando ativos fictícios no balanço patrimonial.",
+        "Desfecho jurídico: CONDENADO — Sete ex-diretores do banco foram condenados à prisão pela Justiça Federal em 2018 por gestão fraudulenta, e a CVM aplicou R$ 53 milhões em multas administrativas."
+      ],
+      "por_que_prende": "O público brasileiro é fascinado pela figura de Silvio Santos e pela história real de como o apresentador mais famoso do país teve que colocar o SBT e a Jequiti como garantia pessoal para salvar seu império.",
+      "fontes": [
+        "https://g1.globo.com/sp/sao-paulo/noticia/justica-condena-ex-diretores-do-panamericano-a-prisao.ghtml",
+        "https://www.infomoney.com.br/negocios/cvm-aplica-multas-de-r-53-milhoes-a-ex-administradores-do-banco-panamericano/",
+        "https://www12.senado.leg.br/noticias/materias/2010/11/17/rombo-do-banco-panamericano-e-motivo-de-preocupacao-no-senado"
+      ]
+    },
+    {
+      "id": "T022",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:34:44-03:00",
+      "titulo": "WeWork — A bolha de US$ 47 bilhões de aluguel de mesas inflada como startup de tecnologia",
+      "slug": "wework",
+      "gancho": "US$ 47 bilhões de valor de mercado reduzidos a zero: como a empresa que só alugava mesas de escritório fingiu ser de tecnologia e faliu.",
+      "resumo": "Impulsionada pelo carisma de Adam Neumann e pelos bilhões do SoftBank, a WeWork abriu centenas de coworkings prometendo revolucionar o futuro do trabalho global. O modelo alugava andares corporativos com contratos rígidos de 15 anos e os sublocava mês a mês a autônomos, maquiando US$ 1,6 bilhão de prejuízo anual com a métrica inventada Community-Adjusted EBITDA até o fracasso do IPO em 2019 e a decretação de falência em 2023.",
+      "fatos_chave": [
+        "Valuation de pico de US$ 47 bilhões em janeiro de 2019 que ruiu até o pedido de falência com passivo superior a US$ 18 bilhões em novembro de 2023.",
+        "Mecanismo contábil: Criação da métrica artificial Community-Adjusted EBITDA para esconder custos operacionais essenciais de aluguel e reformas e simular rentabilidade fictícia.",
+        "Desfecho jurídico: FALÊNCIA — Entrada em recuperação/falência sob o Chapter 11 deferida pela Justiça dos EUA em 2023, com prejuízos superiores a US$ 16 bilhões suportados pelo SoftBank."
+      ],
+      "por_que_prende": "A ascensão e o colapso extravagante de Adam Neumann viraram série de streaming ('WeCrashed') e simbolizam o auge da loucura especulativa das startups do Vale do Silício.",
+      "fontes": [
+        "https://www.bloomberglinea.com.br/startups/wework-pede-falencia-nos-estados-unidos-e-tenta-reestruturar-divida/",
+        "https://www.theguardian.com/business/2023/nov/07/wework-files-for-bankruptcy-adam-neumann",
+        "https://www.sec.gov/Archives/edgar/data/1533523/000119312519220499/d775101ds1.htm"
+      ]
+    },
+    {
+      "id": "T023",
+      "estado": "pronto",
+      "criado_em": "2026-10-31T17:34:45-03:00",
+      "titulo": "123Milhas — O colapso de R$ 2,3 bilhões na pirâmide de passagens aéreas que nunca decolaram",
+      "slug": "123milhas",
+      "gancho": "R$ 2,3 bilhões em dívidas e mais de 700 mil passageiros abandonados no aeroporto no maior calote da história do turismo brasileiro.",
+      "resumo": "A 123Milhas conquistou o Brasil com campanhas massivas na televisão vendendo pacotes da linha Promo com datas flexíveis por metade do preço de mercado. A operação funcionava a descoberto sem emitir os bilhetes com antecedência, utilizando a arrecadação de novas compras para bancar as viagens antigas com passagens em alta, até que o fluxo secou em agosto de 2023 e paralisou todas as emissões.",
+      "fatos_chave": [
+        "Dívida total declarada de R$ 2,3 bilhões atingindo mais de 700 mil credores e consumidores em todo o território nacional.",
+        "Mecanismo operacional: Venda a descoberto de passagens futuras sem bilhete reservado, operando com fluxo de caixa futuro para custear viagens correntes mais caras.",
+        "Desfecho jurídico: INVESTIGADO / CALOTE — Pedido de recuperação judicial deferido na 1ª Vara Empresarial de Belo Horizonte e indiciamento dos sócios por estelionato e fraude no relatório da CPI das Pirâmides Financeiras."
+      ],
+      "por_que_prende": "Praticamente todo brasileiro conhece alguém que comprou ou teve as férias dos sonhos frustradas pelo cancelamento repentino dos pacotes da 123Milhas.",
+      "fontes": [
+        "https://g1.globo.com/economia/noticia/2023/08/29/123-milhas-entra-com-pedido-de-recuperacao-judicial.ghtml",
+        "https://www.infomoney.com.br/negocios/123milhas-apresenta-lista-com-mais-de-700-mil-credores-e-divida-de-r-23-bi/",
+        "https://www.camara.leg.br/noticias/1009121-relatorio-final-da-cpi-das-piramides-pede-indiciamento-de-socios-da-123milhas/"
+      ],
+      "atualizado_em": "2026-10-31T18:16:48-03:00",
+      "video": "002-123milhas"
+    },
+    {
+      "id": "T024",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:34:46-03:00",
+      "titulo": "Volkswagen Dieselgate — O software secreto de US$ 35 bilhões que enganou testes de poluição em 11 milhões de carros",
+      "slug": "volkswagen-dieselgate",
+      "gancho": "Mais de US$ 35 bilhões em multas por causa de um algoritmo invisível instalado no motor de 11 milhões de carros a diesel.",
+      "resumo": "Para vender seus automóveis nos Estados Unidos sob a marca de diesel limpo, a Volkswagen programou um código secreto na central eletrônica dos motores. O software detectava pelos sensores de volante e dinamômetro quando o carro estava sob fiscalização para ativar os filtros antipoluição, desligando o sistema nas ruas para rodar emitindo até 40 vezes o limite de óxido de nitrogênio.",
+      "fatos_chave": [
+        "Custo superior a 33 bilhões de euros (mais de US$ 35 bilhões) em multas civis, acordos criminais e recompras de veículos em escala global.",
+        "Mecanismo de fraude: Código defeat device na ECU que identificava parâmetros de testes laboratoriais para forjar emissões reduzidas exclusivamente na esteira da EPA.",
+        "Desfecho jurídico: CONDENADO — A Volkswagen declarou-se culpada de conspiração e fraude perante o Departamento de Justiça dos EUA (DOJ) em 2017, e o executivo Oliver Schmidt foi condenado a 7 anos de prisão."
+      ],
+      "por_que_prende": "É a maior trapaça de engenharia da indústria automobilística mundial, afetando modelos icônicos e veículos muito comuns no Brasil, como as picapes Amarok.",
+      "fontes": [
+        "https://www.justice.gov/opa/pr/volkswagen-ag-agrees-plead-guilty-and-pay-43-billion-criminal-and-civil-penalties",
+        "https://www.justice.gov/opa/pr/volkswagen-senior-manager-sentenced-60-months-prison-role-diesel-emissions-fraud",
+        "https://g1.globo.com/carros/noticia/entenda-o-escandalo-da-volkswagen.ghtml"
+      ]
+    },
+    {
+      "id": "T025",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:34:47-03:00",
+      "titulo": "Telexfree — Os R$ 3 bilhões da maior pirâmide multinível disfarçada de telefonia da história do Brasil",
+      "slug": "telexfree",
+      "gancho": "R$ 3 bilhões arrecadados de 1 milhão de brasileiros que acreditaram na promessa de enriquecer postando anúncios de dois minutos por dia.",
+      "resumo": "Disfarçada de empresa de marketing multinível para venda de tecnologia VoIP, a Ympactus Comercial cobrava taxas de adesão para que os membros atuassem como divulgadores de links na internet. Como quase ninguém usava o serviço telefônico, as bonificações astronômicas eram pagas unicamente com a entrada de novos participantes na base, até o Ministério Público do Acre bloquear as contas e implodir o esquema em 2013.",
+      "fatos_chave": [
+        "Movimentação estimada em mais de R$ 3 bilhões e adesão de cerca de 1 milhão de brasileiros antes do bloqueio judicial em junho de 2013.",
+        "Mecanismo: Pirâmide financeira clássica (Ponzi) travestida de telecomunicação, sustentada por taxas de kits AdCentral sem lastro de consumo real.",
+        "Desfecho jurídico: CONDENADO / PIRÂMIDE — Sentença definitiva da Justiça do Acre extinguindo o esquema como pirâmide ilícita e condenação criminal dos sócios Carlos Costa e Carlos Wanzeler pela Justiça Federal por instituição financeira clandestina."
+      ],
+      "por_que_prende": "Foi o primeiro grande esquema viral das redes sociais brasileiras, paralisando famílias inteiras com reuniões de recrutamento e virando debate em todos os jornais do país.",
+      "fontes": [
+        "https://www.tjac.jus.br/noticias/caso-telexfree-justica-do-acre-confirma-sentenca-que-declarou-empresa-como-piramide-financeira/",
+        "https://g1.globo.com/es/espirito-santo/noticia/2020/09/01/socios-da-telexfree-sao-condenados-por-crime-contra-o-sistema-financeiro-no-es.ghtml",
+        "https://www.mpf.mp.br/es/sala-de-imprensa/noticias-es/justica-condena-socios-da-telexfree-por-piramide-financeira"
+      ]
+    },
+    {
+      "id": "T026",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:34:48-03:00",
+      "titulo": "Blockbuster — Do império de 9.000 lojas à falência após zombar da compra da Netflix por US$ 50 milhões",
+      "slug": "blockbuster",
+      "gancho": "US$ 8 bilhões de império e 9.000 lojas físicas destruídos após a diretoria dar risada de uma proposta de US$ 50 milhões da Netflix.",
+      "resumo": "A Blockbuster reinou absoluta no entretenimento doméstico operando milhares de locadoras físicas e lucrando centenas de milhões de dólares com multas aplicadas a clientes que atrasavam a devolução de fitas. No ano 2000, rejeitou com arrogância a oferta de compra da iniciante Netflix, tornando-se incapaz de sustentar os custos bilionários de suas lojas físicas quando o streaming e a entrega digital engoliram o mercado.",
+      "fatos_chave": [
+        "Pico de 9.094 lojas físicas e valuation de US$ 8,4 bilhões em 2004, colapsando no pedido de falência em 2010 com dívidas de quase US$ 1 bilhão.",
+        "Mecanismo: Dependência operacional de taxas punitivas por atraso (US$ 800 milhões/ano) associada a custos fixos imobiliários gigantescos que inviabilizaram a migração digital.",
+        "Desfecho jurídico: FALÊNCIA — Entrada em recuperação e liquidação sob o Chapter 11 deferida pelo Tribunal de Falências de Nova York em 23 de setembro de 2010, restando apenas uma loja turística isolada no mundo."
+      ],
+      "por_que_prende": "É o maior case mundial de arrogância corporativa e nostalgia pop, ilustrando perfeitamente a virada de era do VHS/DVD para os serviços de streaming.",
+      "fontes": [
+        "https://www.reuters.com/article/us-blockbuster-idUSTRE68M1N920100923",
+        "https://exame.com/negocios/o-dia-em-que-a-blockbuster-rejeitou-comprar-a-netflix-por-us-50-milhoes/",
+        "https://www.sec.gov/Archives/edgar/data/1085734/000119312510215707/d8k.htm"
+      ]
+    },
+    {
+      "id": "T027",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:34:49-03:00",
+      "titulo": "G.A.S. Consultoria — Os R$ 9 bilhões do Faraó dos Bitcoins que prometia 10% de lucro garantido ao mês",
+      "slug": "farao-dos-bitcoins",
+      "gancho": "De ex-garçom a dono de um império de R$ 9 bilhões: como o Faraó dos Bitcoins atraiu multidões com a promessa de 10% de lucro todo mês.",
+      "resumo": "Em Cabo Frio, o ex-garçom Glaidson Acácio montou a G.A.S. Consultoria prometendo pagar juros garantidos de 10% ao mês com supostas operações de arbitragem no mercado de criptomoedas. A firma não possuía robôs nem carteiras de criptoativos compatíveis com o volume prometido, pagando os rendimentos dos primeiros clientes com os depósitos dos novos adeptos até ser desmantelada pela Polícia Federal na Operação Kryptos.",
+      "fatos_chave": [
+        "Movimentação estimada em cerca de R$ 38 bilhões e prejuízo acumulado de R$ 9,3 bilhões aos investidores da empresa.",
+        "Mecanismo: Promessa de rentabilidade fixa surreal de 10% ao mês em cripto sem lastro de operações reais em exchanges, configurando pirâmide de liquidez.",
+        "Desfecho jurídico: CONDENADO / PIRÂMIDE — Glaidson Acácio foi preso em 2021 e condenado a 19 anos e 2 meses de prisão por corrupção ativa e organização criminosa, além de sofrer falência judicial e multa de R$ 34 milhões na CVM."
+      ],
+      "por_que_prende": "O personagem folclórico do Faraó dos Bitcoins, que transformou a Região dos Lagos na capital das pirâmides financeiras, foi pauta constante do Fantástico e do noticiário nacional.",
+      "fontes": [
+        "https://g1.globo.com/rj/rio-de-janeiro/noticia/2024/04/18/farao-dos-bitcoins-e-condenado-a-19-anos-de-prisao.ghtml",
+        "https://www.infomoney.com.br/mercados/farao-dos-bitcoins-gas-consultoria-movimentou-r-38-bi-e-deve-r-93-bi-a-investidores/",
+        "https://www.gov.br/cvm/pt-br/assuntos/noticias/cvm-julga-processo-administrativo-sancionador-envolvendo-g-a-s-consultoria-e-glaidson-santos"
+      ]
+    },
+    {
+      "id": "T028",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:34:50-03:00",
+      "titulo": "Wells Fargo — Os US$ 3 bilhões em multas pelo escândalo das 3,5 milhões de contas bancárias falsas",
+      "slug": "wells-fargo",
+      "gancho": "3,5 milhões de contas e cartões criados em segredo: como um dos maiores bancos de Wall Street fraudou os próprios clientes por metas absurdas.",
+      "resumo": "Aclamado no mercado pela alta taxa de adesão a múltiplos serviços, o banco Wells Fargo impôs metas desumanas de vendas cruzadas exigindo que cada cliente tivesse até oito produtos contratados. Apavorados com ameaças diárias de demissão, milhares de funcionários passaram a forjar assinaturas e abrir secretamente milhões de contas bancárias e cartões falsos, transferindo fundos sem autorização para cobrar tarifas indevidas.",
+      "fatos_chave": [
+        "Criação forjada de 3,5 milhões de contas e linhas de crédito falsas sem ciência ou autorização dos clientes correntistas.",
+        "Mecanismo: Simulação fraudulenta de cross-selling com desvio interno de pequenas quantias para inflar métricas de expansão corporativa perante o mercado financeiro.",
+        "Desfecho jurídico: CONDENADO / ACORDO CRIMINAL — Pagamento de US$ 3 bilhões em acordo criminal e cível com o Departamento de Justiça (DOJ) e a SEC em 2020, além de congelamento punitivo do crescimento de ativos pelo Federal Reserve."
+      ],
+      "por_que_prende": "Expõe de forma visceral o lado sombrio e predatório dos grandes bancos que usam metas inatingíveis para enganar clientes e inflar balanços para Wall Street.",
+      "fontes": [
+        "https://www.justice.gov/opa/pr/wells-fargo-agrees-pay-3-billion-resolve-criminal-and-civil-liability",
+        "https://www.sec.gov/news/press-release/2020-38",
+        "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20180202a.htm"
+      ]
+    },
+    {
+      "id": "T029",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:34:51-03:00",
+      "titulo": "Encol — R$ 2,5 bilhões em dívidas e 40 mil famílias sem teto na maior falência da construção civil",
+      "slug": "encol",
+      "gancho": "R$ 2,5 bilhões de rombo e 710 prédios inacabados: o colapso da maior construtora da América Latina que deixou 40 mil famílias sem teto.",
+      "resumo": "A Encol tornou-se uma gigante nacional erguendo edifícios residenciais em dezenas de cidades com estratégias agressivas de vendas parceladas na planta. Sem separação patrimonial por obra, a diretoria desviava a receita de lançamentos recentes para bancar o prejuízo de prédios atrasados; com a elevação dos juros no fim dos anos 90, o fluxo estancou e paralisou centenas de canteiros simultaneamente.",
+      "fatos_chave": [
+        "Falência decretada em março de 1999 com passivo total de R$ 2,5 bilhões, paralisando 710 obras e lesando entre 40 mil e 42 mil famílias de compradores.",
+        "Mecanismo: Ciranda financeira imobiliária sem patrimônio de afetação, utilizando recursos dos novos compradores para subsidiar canteiros de obras antigos deficitários.",
+        "Desfecho jurídico: FALÊNCIA / CONDENADO — Falência oficializada pelo TJ-GO em 1999 e condenação criminal do fundador Pedro Paulo de Souza pela Justiça Federal por crimes contra o sistema financeiro e apropriação indébita."
+      ],
+      "por_que_prende": "É a maior tragédia imobiliária da história brasileira, marcando gerações de famílias e motivando a criação da Lei do Patrimônio de Afetação para proteger compradores.",
+      "fontes": [
+        "https://g1.globo.com/go/goias/noticia/2021/08/04/falencia-da-encol-mudou-mercado-imobiliario-apos-deixar-42-mil-familias-sem-apartamentos.ghtml",
+        "https://www.istoedinheiro.com.br/o-fim-da-era-encol/",
+        "https://www12.senado.leg.br/noticias/materias/1999/03/17/falencia-da-encol-provoca-debates-no-plenario"
+      ]
+    },
+    {
+      "id": "T030",
+      "estado": "sugerido",
+      "criado_em": "2026-10-31T17:34:52-03:00",
+      "titulo": "Kodak — A falência de US$ 6,7 bilhões da pioneira que inventou a câmera digital e engavetou a própria criação",
+      "slug": "kodak",
+      "gancho": "Um império de US$ 30 bilhões destruído por US$ 6,7 bilhões em dívidas porque os executivos trancaram a câmera digital no fundo de uma gaveta.",
+      "resumo": "Sinônimo universal de fotografia por mais de um século, a Eastman Kodak ergueu sua fortuna com margens de até 70% na venda de rolos de filmes e papéis fotográficos. Embora seu próprio engenheiro tenha inventado o primeiro protótipo de câmera digital em 1975, a alta cúpula censurou o projeto por medo de matar o negócio analógico, sendo atropelada pela concorrência digital até declarar falência em 2012.",
+      "fatos_chave": [
+        "Passagem de líder absoluta com 90% do mercado norte-americano para um pedido de falência com passivo de US$ 6,75 bilhões em janeiro de 2012.",
+        "Mecanismo: Censura e engavetamento deliberado da patente da câmera digital (criada em 1975 por Steven Sasson) para preservar artificialmente o lucro do filme químico.",
+        "Desfecho jurídico: FALÊNCIA — Entrada em recuperação/falência sob o Chapter 11 aprovada pelo Tribunal de Falências de Nova York em 2012, com liquidação de milhares de patentes e saída do varejo de consumo."
+      ],
+      "por_que_prende": "O conceito do Momento Kodak faz parte da memória de qualquer brasileiro, e a ironia de a empresa ter inventado a tecnologia que a destruiu choca qualquer espectador.",
+      "fontes": [
+        "https://www.cnnbrasil.com.br/economia/ha-10-anos-kodak-pedia-falencia-e-se-tornava-simbolo-de-empresa-ultrapassada/",
+        "https://exame.com/tecnologia/conheca-o-homem-que-inventou-a-camera-digital-na-kodak/",
+        "https://www.reuters.com/article/us-kodak-bankruptcy-idUSTRE80I0CM20120119/"
+      ]
+    }
+  ]
+}

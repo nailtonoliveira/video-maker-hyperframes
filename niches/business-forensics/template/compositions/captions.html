@@ -1,0 +1,10 @@
+<template>
+  <!-- Vazio até a locução existir: tools/build_captions.py <pasta do vídeo> sobrescreve este arquivo. -->
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920"></div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["captions"] = tl;
+    })();
+  </script>
+</template>
