@@ -1,0 +1,955 @@
+{
+  "idioma": "pt",
+  "probabilidade": 1,
+  "duracao": 59.7681875,
+  "segmentos": [
+    {
+      "id": 1,
+      "inicio": 0.0,
+      "fim": 5.22,
+      "texto": "dois vírgula três bilhões de reais em dívidas e setecentos mil passageiros no chão",
+      "palavras": [
+        {
+          "palavra": "dois",
+          "inicio": 0.0,
+          "fim": 0.28,
+          "probabilidade": 0.238
+        },
+        {
+          "palavra": "vírgula",
+          "inicio": 0.28,
+          "fim": 0.7,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "três",
+          "inicio": 0.7,
+          "fim": 1.04,
+          "probabilidade": 0.807
+        },
+        {
+          "palavra": "bilhões",
+          "inicio": 1.04,
+          "fim": 1.36,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.36,
+          "fim": 1.58,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "reais",
+          "inicio": 1.58,
+          "fim": 1.82,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "em",
+          "inicio": 1.82,
+          "fim": 2.06,
+          "probabilidade": 0.962
+        },
+        {
+          "palavra": "dívidas",
+          "inicio": 2.06,
+          "fim": 2.62,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.62,
+          "fim": 3.22,
+          "probabilidade": 0.334
+        },
+        {
+          "palavra": "setecentos",
+          "inicio": 3.22,
+          "fim": 3.98,
+          "probabilidade": 0.946
+        },
+        {
+          "palavra": "mil",
+          "inicio": 3.98,
+          "fim": 4.1,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "passageiros",
+          "inicio": 4.1,
+          "fim": 4.7,
+          "probabilidade": 0.975
+        },
+        {
+          "palavra": "no",
+          "inicio": 4.7,
+          "fim": 4.9,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "chão",
+          "inicio": 4.9,
+          "fim": 5.22,
+          "probabilidade": 0.983
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "inicio": 5.22,
+      "fim": 8.58,
+      "texto": "derrubaram a um dois três milhas em apenas onze dias.",
+      "palavras": [
+        {
+          "palavra": "derrubaram",
+          "inicio": 5.22,
+          "fim": 5.98,
+          "probabilidade": 0.884
+        },
+        {
+          "palavra": "a",
+          "inicio": 5.98,
+          "fim": 6.18,
+          "probabilidade": 0.742
+        },
+        {
+          "palavra": "um",
+          "inicio": 6.18,
+          "fim": 6.34,
+          "probabilidade": 0.868
+        },
+        {
+          "palavra": "dois",
+          "inicio": 6.34,
+          "fim": 6.6,
+          "probabilidade": 0.97
+        },
+        {
+          "palavra": "três",
+          "inicio": 6.6,
+          "fim": 6.9,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "milhas",
+          "inicio": 6.9,
+          "fim": 7.28,
+          "probabilidade": 0.943
+        },
+        {
+          "palavra": "em",
+          "inicio": 7.28,
+          "fim": 7.42,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "apenas",
+          "inicio": 7.42,
+          "fim": 7.8,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "onze",
+          "inicio": 7.8,
+          "fim": 8.16,
+          "probabilidade": 0.525
+        },
+        {
+          "palavra": "dias.",
+          "inicio": 8.16,
+          "fim": 8.58,
+          "probabilidade": 0.993
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "inicio": 9.1,
+      "fim": 13.66,
+      "texto": "Em dois mil e vinte e três a empresa dominava a televisão e a internet,",
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 9.1,
+          "fim": 9.58,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "dois",
+          "inicio": 9.58,
+          "fim": 9.8,
+          "probabilidade": 0.885
+        },
+        {
+          "palavra": "mil",
+          "inicio": 9.8,
+          "fim": 10.06,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "e",
+          "inicio": 10.06,
+          "fim": 10.22,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "vinte",
+          "inicio": 10.22,
+          "fim": 10.38,
+          "probabilidade": 0.948
+        },
+        {
+          "palavra": "e",
+          "inicio": 10.38,
+          "fim": 10.52,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "três",
+          "inicio": 10.52,
+          "fim": 10.86,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "a",
+          "inicio": 10.86,
+          "fim": 11.18,
+          "probabilidade": 0.93
+        },
+        {
+          "palavra": "empresa",
+          "inicio": 11.18,
+          "fim": 11.5,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "dominava",
+          "inicio": 11.5,
+          "fim": 12.06,
+          "probabilidade": 0.844
+        },
+        {
+          "palavra": "a",
+          "inicio": 12.06,
+          "fim": 12.28,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "televisão",
+          "inicio": 12.28,
+          "fim": 12.82,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "e",
+          "inicio": 12.82,
+          "fim": 13.1,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "a",
+          "inicio": 13.1,
+          "fim": 13.18,
+          "probabilidade": 0.978
+        },
+        {
+          "palavra": "internet,",
+          "inicio": 13.18,
+          "fim": 13.66,
+          "probabilidade": 0.896
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "inicio": 14.12,
+      "fim": 18.1,
+      "texto": "vendendo pacotes promos com datas flexíveis pela metade do preço.",
+      "palavras": [
+        {
+          "palavra": "vendendo",
+          "inicio": 14.12,
+          "fim": 14.62,
+          "probabilidade": 0.947
+        },
+        {
+          "palavra": "pacotes",
+          "inicio": 14.62,
+          "fim": 15.08,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "promos",
+          "inicio": 15.08,
+          "fim": 15.6,
+          "probabilidade": 0.646
+        },
+        {
+          "palavra": "com",
+          "inicio": 15.6,
+          "fim": 15.86,
+          "probabilidade": 0.78
+        },
+        {
+          "palavra": "datas",
+          "inicio": 15.86,
+          "fim": 16.12,
+          "probabilidade": 0.794
+        },
+        {
+          "palavra": "flexíveis",
+          "inicio": 16.12,
+          "fim": 16.84,
+          "probabilidade": 0.975
+        },
+        {
+          "palavra": "pela",
+          "inicio": 16.84,
+          "fim": 17.16,
+          "probabilidade": 0.959
+        },
+        {
+          "palavra": "metade",
+          "inicio": 17.16,
+          "fim": 17.56,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "do",
+          "inicio": 17.56,
+          "fim": 17.78,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "preço.",
+          "inicio": 17.78,
+          "fim": 18.1,
+          "probabilidade": 0.969
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "inicio": 18.56,
+      "fim": 20.7,
+      "texto": "Mas os bilhetes não existiam.",
+      "palavras": [
+        {
+          "palavra": "Mas",
+          "inicio": 18.56,
+          "fim": 18.7,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "os",
+          "inicio": 18.7,
+          "fim": 18.86,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "bilhetes",
+          "inicio": 18.86,
+          "fim": 19.56,
+          "probabilidade": 0.799
+        },
+        {
+          "palavra": "não",
+          "inicio": 19.56,
+          "fim": 20.1,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "existiam.",
+          "inicio": 20.1,
+          "fim": 20.7,
+          "probabilidade": 0.98
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "inicio": 21.2,
+      "fim": 26.04,
+      "texto": "A agência vendia a descoberto, usando clientes novos para bancar passageiros antigos.",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 21.2,
+          "fim": 21.34,
+          "probabilidade": 0.955
+        },
+        {
+          "palavra": "agência",
+          "inicio": 21.34,
+          "fim": 21.68,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "vendia",
+          "inicio": 21.68,
+          "fim": 22.14,
+          "probabilidade": 0.915
+        },
+        {
+          "palavra": "a",
+          "inicio": 22.14,
+          "fim": 22.26,
+          "probabilidade": 0.794
+        },
+        {
+          "palavra": "descoberto,",
+          "inicio": 22.26,
+          "fim": 22.88,
+          "probabilidade": 0.925
+        },
+        {
+          "palavra": "usando",
+          "inicio": 23.14,
+          "fim": 23.34,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "clientes",
+          "inicio": 23.34,
+          "fim": 23.92,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "novos",
+          "inicio": 23.92,
+          "fim": 24.28,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "para",
+          "inicio": 24.28,
+          "fim": 24.48,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "bancar",
+          "inicio": 24.48,
+          "fim": 24.9,
+          "probabilidade": 0.924
+        },
+        {
+          "palavra": "passageiros",
+          "inicio": 24.9,
+          "fim": 25.46,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "antigos.",
+          "inicio": 25.46,
+          "fim": 26.04,
+          "probabilidade": 0.964
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "inicio": 26.76,
+      "fim": 29.7,
+      "texto": "Sobe a luz ou vê da perícia, o truque aparece.",
+      "palavras": [
+        {
+          "palavra": "Sobe",
+          "inicio": 26.72,
+          "fim": 27.08,
+          "probabilidade": 0.258
+        },
+        {
+          "palavra": "a",
+          "inicio": 27.08,
+          "fim": 27.16,
+          "probabilidade": 0.755
+        },
+        {
+          "palavra": "luz",
+          "inicio": 27.16,
+          "fim": 27.38,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "ou",
+          "inicio": 27.38,
+          "fim": 27.7,
+          "probabilidade": 0.286
+        },
+        {
+          "palavra": "vê",
+          "inicio": 27.7,
+          "fim": 27.94,
+          "probabilidade": 0.855
+        },
+        {
+          "palavra": "da",
+          "inicio": 27.94,
+          "fim": 28.12,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "perícia,",
+          "inicio": 28.12,
+          "fim": 28.66,
+          "probabilidade": 0.928
+        },
+        {
+          "palavra": "o",
+          "inicio": 28.84,
+          "fim": 28.98,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "truque",
+          "inicio": 28.98,
+          "fim": 29.26,
+          "probabilidade": 0.892
+        },
+        {
+          "palavra": "aparece.",
+          "inicio": 29.26,
+          "fim": 29.7,
+          "probabilidade": 0.987
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "inicio": 30.42,
+      "fim": 34.58,
+      "texto": "Quando as tarifas subiram, a pirâmide sem lastro perdeu o chão.",
+      "palavras": [
+        {
+          "palavra": "Quando",
+          "inicio": 30.42,
+          "fim": 30.5,
+          "probabilidade": 0.858
+        },
+        {
+          "palavra": "as",
+          "inicio": 30.5,
+          "fim": 30.68,
+          "probabilidade": 0.79
+        },
+        {
+          "palavra": "tarifas",
+          "inicio": 30.68,
+          "fim": 31.08,
+          "probabilidade": 0.945
+        },
+        {
+          "palavra": "subiram,",
+          "inicio": 31.08,
+          "fim": 31.64,
+          "probabilidade": 0.935
+        },
+        {
+          "palavra": "a",
+          "inicio": 32.2,
+          "fim": 32.48,
+          "probabilidade": 0.85
+        },
+        {
+          "palavra": "pirâmide",
+          "inicio": 32.48,
+          "fim": 32.9,
+          "probabilidade": 0.938
+        },
+        {
+          "palavra": "sem",
+          "inicio": 32.9,
+          "fim": 33.2,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "lastro",
+          "inicio": 33.2,
+          "fim": 33.72,
+          "probabilidade": 0.648
+        },
+        {
+          "palavra": "perdeu",
+          "inicio": 33.72,
+          "fim": 34.16,
+          "probabilidade": 0.953
+        },
+        {
+          "palavra": "o",
+          "inicio": 34.16,
+          "fim": 34.36,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "chão.",
+          "inicio": 34.36,
+          "fim": 34.58,
+          "probabilidade": 0.985
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "inicio": 35.14,
+      "fim": 37.24,
+      "texto": "Em agosto os voos travaram.",
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 35.14,
+          "fim": 35.38,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "agosto",
+          "inicio": 35.38,
+          "fim": 35.86,
+          "probabilidade": 0.962
+        },
+        {
+          "palavra": "os",
+          "inicio": 35.86,
+          "fim": 36.32,
+          "probabilidade": 0.522
+        },
+        {
+          "palavra": "voos",
+          "inicio": 36.32,
+          "fim": 36.68,
+          "probabilidade": 0.783
+        },
+        {
+          "palavra": "travaram.",
+          "inicio": 36.68,
+          "fim": 37.24,
+          "probabilidade": 0.845
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "inicio": 37.72,
+      "fim": 42.04,
+      "texto": "O fiscal desceu o carimbo de calote e a torre bilionária desabou.",
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 37.72,
+          "fim": 37.84,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "fiscal",
+          "inicio": 37.84,
+          "fim": 38.14,
+          "probabilidade": 0.882
+        },
+        {
+          "palavra": "desceu",
+          "inicio": 38.14,
+          "fim": 38.56,
+          "probabilidade": 0.713
+        },
+        {
+          "palavra": "o",
+          "inicio": 38.56,
+          "fim": 38.74,
+          "probabilidade": 0.954
+        },
+        {
+          "palavra": "carimbo",
+          "inicio": 38.74,
+          "fim": 39.04,
+          "probabilidade": 0.91
+        },
+        {
+          "palavra": "de",
+          "inicio": 39.04,
+          "fim": 39.18,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "calote",
+          "inicio": 39.18,
+          "fim": 39.68,
+          "probabilidade": 0.87
+        },
+        {
+          "palavra": "e",
+          "inicio": 39.68,
+          "fim": 40.38,
+          "probabilidade": 0.77
+        },
+        {
+          "palavra": "a",
+          "inicio": 40.38,
+          "fim": 40.46,
+          "probabilidade": 0.92
+        },
+        {
+          "palavra": "torre",
+          "inicio": 40.46,
+          "fim": 40.8,
+          "probabilidade": 0.89
+        },
+        {
+          "palavra": "bilionária",
+          "inicio": 40.8,
+          "fim": 41.36,
+          "probabilidade": 0.929
+        },
+        {
+          "palavra": "desabou.",
+          "inicio": 41.36,
+          "fim": 42.04,
+          "probabilidade": 0.838
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "inicio": 42.78,
+      "fim": 45.84,
+      "texto": "Restaram setecentos mil credores a ver navios.",
+      "palavras": [
+        {
+          "palavra": "Restaram",
+          "inicio": 42.78,
+          "fim": 43.22,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "setecentos",
+          "inicio": 43.22,
+          "fim": 44.12,
+          "probabilidade": 0.728
+        },
+        {
+          "palavra": "mil",
+          "inicio": 44.12,
+          "fim": 44.26,
+          "probabilidade": 0.924
+        },
+        {
+          "palavra": "credores",
+          "inicio": 44.26,
+          "fim": 44.84,
+          "probabilidade": 0.926
+        },
+        {
+          "palavra": "a",
+          "inicio": 44.84,
+          "fim": 45.12,
+          "probabilidade": 0.661
+        },
+        {
+          "palavra": "ver",
+          "inicio": 45.12,
+          "fim": 45.32,
+          "probabilidade": 0.808
+        },
+        {
+          "palavra": "navios.",
+          "inicio": 45.32,
+          "fim": 45.84,
+          "probabilidade": 0.944
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "inicio": 46.44,
+      "fim": 51.62,
+      "texto": "Enquanto os sócios foram indiciados na CPI, por estelionato e fraude.",
+      "palavras": [
+        {
+          "palavra": "Enquanto",
+          "inicio": 46.44,
+          "fim": 47.0,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "os",
+          "inicio": 47.0,
+          "fim": 47.22,
+          "probabilidade": 0.453
+        },
+        {
+          "palavra": "sócios",
+          "inicio": 47.22,
+          "fim": 47.54,
+          "probabilidade": 0.943
+        },
+        {
+          "palavra": "foram",
+          "inicio": 47.54,
+          "fim": 47.86,
+          "probabilidade": 0.963
+        },
+        {
+          "palavra": "indiciados",
+          "inicio": 47.86,
+          "fim": 48.66,
+          "probabilidade": 0.826
+        },
+        {
+          "palavra": "na",
+          "inicio": 48.66,
+          "fim": 48.92,
+          "probabilidade": 0.942
+        },
+        {
+          "palavra": "CPI,",
+          "inicio": 48.92,
+          "fim": 49.6,
+          "probabilidade": 0.876
+        },
+        {
+          "palavra": "por",
+          "inicio": 50.12,
+          "fim": 50.24,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "estelionato",
+          "inicio": 50.24,
+          "fim": 51.0,
+          "probabilidade": 0.886
+        },
+        {
+          "palavra": "e",
+          "inicio": 51.0,
+          "fim": 51.2,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "fraude.",
+          "inicio": 51.2,
+          "fim": 51.62,
+          "probabilidade": 0.95
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "inicio": 52.06,
+      "fim": 53.72,
+      "texto": "Na mesa, a ironia final.",
+      "palavras": [
+        {
+          "palavra": "Na",
+          "inicio": 52.06,
+          "fim": 52.1,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "mesa,",
+          "inicio": 52.1,
+          "fim": 52.46,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "a",
+          "inicio": 52.7,
+          "fim": 52.96,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "ironia",
+          "inicio": 52.96,
+          "fim": 53.32,
+          "probabilidade": 0.925
+        },
+        {
+          "palavra": "final.",
+          "inicio": 53.32,
+          "fim": 53.72,
+          "probabilidade": 0.888
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "inicio": 54.28,
+      "fim": 57.98,
+      "texto": "As vítimas receberam apenas vouchers da própria agência quebrada.",
+      "palavras": [
+        {
+          "palavra": "As",
+          "inicio": 53.99,
+          "fim": 54.48,
+          "probabilidade": 0.794
+        },
+        {
+          "palavra": "vítimas",
+          "inicio": 54.48,
+          "fim": 54.88,
+          "probabilidade": 0.974
+        },
+        {
+          "palavra": "receberam",
+          "inicio": 54.88,
+          "fim": 55.52,
+          "probabilidade": 0.899
+        },
+        {
+          "palavra": "apenas",
+          "inicio": 55.52,
+          "fim": 55.86,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "vouchers",
+          "inicio": 55.86,
+          "fim": 56.54,
+          "probabilidade": 0.945
+        },
+        {
+          "palavra": "da",
+          "inicio": 56.54,
+          "fim": 56.68,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "própria",
+          "inicio": 56.68,
+          "fim": 57.0,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "agência",
+          "inicio": 57.0,
+          "fim": 57.48,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "quebrada.",
+          "inicio": 57.48,
+          "fim": 57.98,
+          "probabilidade": 0.986
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "inicio": 58.5,
+      "fim": 59.74,
+      "texto": "Até que...",
+      "palavras": [
+        {
+          "palavra": "Até",
+          "inicio": 58.5,
+          "fim": 58.98,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "que...",
+          "inicio": 58.98,
+          "fim": 59.74,
+          "probabilidade": 0.833
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "fixes": {},
+  "style": "label-tag",
+  "font_family": "var(--font-display)",
+  "max_words": 3,
+  "max_chars": 20,
+  "pause": 0.14,
+  "left": 96,
+  "width": 800,
+  "bottom": 470,
+  "font_size": 58,
+  "ink": "#1c1214",
+  "tag_bg": "#f2e8d5",
+  "tag_active_bg": "#b3261e",
+  "tag_active_ink": "#fff4e0",
+  "fixes_idx": {
+    "41": "Promo",
+    "66": "Sob",
+    "69": "U",
+    "70": "V",
+    "76": "quando",
+    "111": "enquanto",
+    "127": "as",
+    "136": "até"
+  }
+}
