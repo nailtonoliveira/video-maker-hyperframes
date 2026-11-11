@@ -1,0 +1,168 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--ground);
+      overflow: hidden;
+      font-family: var(--font-mono);
+      color: var(--ink);
+    }
+    #gl {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    /* Texto só em x 96–948 (trilho de ações do Shorts à direita) e y 200–1130.
+       Placa escura atrás de todo texto de cena: contraste garantido sobre céu claro ou placa. */
+    .title,
+    .sub {
+      background: rgba(8, 10, 15, 0.8);
+      padding: 6px 18px 10px;
+      margin-left: -18px;
+    }
+    .title {
+      position: absolute;
+      left: 96px;
+      top: 200px;
+      font-size: 128px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      white-space: nowrap;
+      opacity: 0;
+    }
+    .sub {
+      position: absolute;
+      left: 96px;
+      top: 362px;
+      font-size: 40px;
+      font-weight: 700;
+      white-space: nowrap;
+      color: var(--ink);
+      opacity: 0;
+    }
+    .sub .k {
+      color: var(--gray);
+    }
+    .sub.low {
+      top: 490px;
+    }
+    .two {
+      line-height: 1.02;
+    }
+    .cy {
+      color: var(--cyan);
+    }
+    .al {
+      color: var(--alert);
+    }
+  </style>
+  <div id="root" data-composition-id="world" data-width="1080" data-height="1920">
+    <canvas id="gl" width="1080" height="1920" data-layout-ignore></canvas>
+
+    <div id="t-hook" class="title two">50 MILHÕES<br />SEM LUZ</div>
+    <div id="s-hook" class="sub low"><span class="k">// </span>RACE CONDITION DETECTED</div>
+    <div id="t-date" class="title">14/08/2003</div>
+    <div id="s-date" class="sub"><span class="k">// </span>FirstEnergy · sala de controle</div>
+    <div id="t-xa" class="title cy">GE XA/21</div>
+    <div id="s-xa" class="sub"><span class="k">// </span>alarmes em C/C++</div>
+    <div id="t-1414" class="title cy">14:14</div>
+    <div id="s-1414" class="sub"><span class="k">// </span>2 tarefas · 1 buffer</div>
+    <div id="t-mutex" class="title al">SEM MUTEX</div>
+    <div id="s-mutex" class="sub"><span class="k">// </span>MUTEX_LOCK = 0x00</div>
+    <div id="t-loop" class="title al">LOOP</div>
+    <div id="s-loop" class="sub"><span class="k">// </span>infinito · alarmes mudos</div>
+    <div id="t-kv" class="title">345 kV</div>
+    <div id="s-kv" class="sub"><span class="k">// </span>linhas de Ohio caem</div>
+    <div id="t-zero" class="title al">0 ALARMES</div>
+    <div id="s-zero" class="sub"><span class="k">// </span>telas e sons congelados</div>
+    <div id="t-usinas" class="title al">100+ USINAS</div>
+    <div id="s-usinas" class="sub"><span class="k">// </span>261 unidades geradoras</div>
+    <div id="t-money" class="title two al">-US$ 6<br />BILHÕES</div>
+    <div id="s-money" class="sub low"><span class="k">// </span>estimativa: US$ 6–10 bi</div>
+    <div id="t-hora" class="title">+1 HORA</div>
+    <div id="s-hora" class="sub"><span class="k">// </span>telas estáticas, sem aviso</div>
+  </div>
+  <script>
+    (function () {
+      // = data-duration do index.html e LOOP do assets/episode/scene.js (duração da locução).
+      const DUR = 44.73;
+
+      // ---------- camada 2D: títulos presos às palavras da locução (tempos absolutos) ----------
+      const tl = gsap.timeline({ paused: true });
+      const show = (sel, t) => tl.set(sel, { opacity: 1 }, t);
+      const hide = (sel, t) => tl.set(sel, { opacity: 0 }, t);
+      const wipe = (sel, t) =>
+        tl.fromTo(sel, { opacity: 1, clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.38, ease: "expo.out" }, t);
+      const hit = (sel, t) => tl.fromTo(sel, { x: -16 }, { x: 0, duration: 0.4, ease: "elastic.out(1, 0.3)" }, t);
+
+      // 1 gancho: título e subtítulo pousados no quadro 0 (clipPath explícito) e remontados idênticos no fim
+      tl.set(["#t-hook", "#s-hook"], { opacity: 1, clipPath: "inset(0 0% 0 0)" }, 0);
+      hide(["#t-hook", "#s-hook"], 2.04);
+
+      // 2 contexto
+      wipe("#t-date", 5.64);
+      wipe("#s-date", 6.04);
+      hide(["#t-date", "#s-date"], 8.04);
+      wipe("#t-xa", 11.18);
+      wipe("#s-xa", 11.84);
+      hide(["#t-xa", "#s-xa"], 14.66);
+      wipe("#t-1414", 15.92);
+
+      // 3 a falha
+      wipe("#s-1414", 18.16);
+      hide(["#t-1414", "#s-1414"], 19.26);
+      show("#t-mutex", 22.5);
+      wipe("#s-mutex", 22.76);
+      hide(["#t-mutex", "#s-mutex"], 23.82);
+      show("#t-loop", 26.24);
+      hit("#t-loop", 26.24);
+      wipe("#s-loop", 26.38);
+      hide(["#t-loop", "#s-loop"], 27.12);
+
+      // 4 colapso
+      wipe("#t-kv", 27.12);
+      wipe("#s-kv", 27.8);
+      hide(["#t-kv", "#s-kv"], 29.54);
+      show("#t-zero", 30.5);
+      wipe("#s-zero", 30.66);
+      hide(["#t-zero", "#s-zero"], 32.3);
+      show("#t-usinas", 34.04);
+      wipe("#s-usinas", 34.42);
+      hide(["#t-usinas", "#s-usinas"], 35.9);
+      show("#t-money", 35.9);
+      hit("#t-money", 35.9);
+      wipe("#s-money", 36.16);
+      hide(["#t-money", "#s-money"], 38.76);
+
+      // 5 loop: a hora passa sem aviso; o gancho remonta antes do fim
+      wipe("#t-hora", 41.58);
+      wipe("#s-hora", 41.94);
+      hide(["#t-hora", "#s-hora"], 42.54);
+      wipe("#t-hook", 42.6);
+      wipe("#s-hook", 42.94);
+      tl.set({}, {}, DUR);
+      window.__timelines["world"] = tl;
+
+      // ---------- mundo 3D: motor + kit + episódio (módulos locais em assets/) ----------
+      let api = null;
+      let lastT = 0;
+      const ready = import("./assets/motor/montar.js")
+        .then((m) => m.mount({ canvas: document.getElementById("gl"), episode: new URL("./assets/episode/scene.js", document.baseURI).href }))
+        .then((a) => {
+          api = a;
+          api.render(lastT);
+        });
+      window.__hf = window.__hf || {};
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      window.__hf.buildReady.world = ready;
+      window.addEventListener("hf-seek", (e) => {
+        lastT = e.detail.time;
+        if (api) api.render(lastT);
+        else e.detail.waitUntil(ready);
+      });
+    })();
+  </script>
+</template>

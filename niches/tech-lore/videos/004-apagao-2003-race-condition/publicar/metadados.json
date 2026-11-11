@@ -1,0 +1,37 @@
+{
+  "youtube": {
+    "titulo": "O bug de milissegundos que apagou 50 milhões de pessoas #shorts",
+    "descricao": "Em 14 de agosto de 2003, uma condição de corrida no software GE XA/21 travou o sistema de alarmes da FirstEnergy em silêncio absoluto. Sem aviso aos operadores, a sobrecarga derrubou mais de 100 usinas e provocou US$ 6 bilhões em prejuízo. Fonte: U.S.-Canada Power System Outage Task Force: Final Report (2004).",
+    "tags": [
+      "apagão 2003",
+      "condição de corrida",
+      "race condition",
+      "bug de software",
+      "engenharia de software",
+      "desastres da tecnologia",
+      "firstenergy",
+      "programação"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#tecnologia",
+      "#programacao"
+    ]
+  },
+  "tiktok": {
+    "legenda": "Um bug de milissegundos na memória travou os alarmes e apagou 50 milhões de pessoas em 2003. #tecnologia #programacao #curiosidades #dev #bug"
+  },
+  "instagram": {
+    "legenda": "Em 2003, duas tarefas acessaram a mesma memória ao mesmo tempo e apagaram a energia de 50 milhões de pessoas. O software de alarmes travou em silêncio por mais de uma hora enquanto o país colapsava. Você já viu um bug de concorrência causar tanto estrago?",
+    "hashtags": [
+      "#tecnologia",
+      "#programacao",
+      "#engenharia",
+      "#curiosidades",
+      "#dev"
+    ]
+  },
+  "facebook": {
+    "legenda": "Uma condição de corrida em um servidor congelou os alarmes e gerou um blecaute em 50 milhões de pessoas em 2003. Qual foi o pior bug que você já viu passar despercebido para a produção?"
+  }
+}

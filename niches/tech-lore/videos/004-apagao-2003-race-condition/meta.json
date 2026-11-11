@@ -1,0 +1,9 @@
+{
+  "id": "tech-lore-004-apagao-2003-race-condition",
+  "name": "tech-lore-004-apagao-2003-race-condition",
+  "createdAt": "2026-10-31T19:54:07.876Z",
+  "motor": {
+    "tipo": "3d",
+    "versao": "0.1.0"
+  }
+}

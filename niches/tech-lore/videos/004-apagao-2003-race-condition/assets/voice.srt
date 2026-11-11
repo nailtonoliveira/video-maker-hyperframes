@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:04,560
+Um conflito de milissegundos na memória de um servidor apagou a energia de 50 milhões
+
+2
+00:00:04,560 --> 00:00:05,280
+de pessoas.
+
+3
+00:00:05,640 --> 00:00:12,720
+Em 14 de agosto de 2003, no centro de controle da First Energy, o software, G, X, A,
+
+4
+00:00:13,120 --> 00:00:15,640
+barra 21, gerenciava a rede elétrica.
+
+5
+00:00:15,920 --> 00:00:22,100
+As 14 horas e 14 minutos, duas tarefas tentaram gravar no mesmo bâfer de alarmes ao mesmo tempo.
+
+6
+00:00:22,500 --> 00:00:27,120
+Sem bloqueio muto, a fila corrompeu e o processo entrou em loop infinito.
+
+7
+00:00:27,120 --> 00:00:31,940
+Quando cabos de alta tensão caíram no horário, os alarmes não dispararam.
+
+8
+00:00:32,300 --> 00:00:38,400
+Sem aviso, a sobrecarga derrubou sem usinas e gerou seis bilhões de dólares em prejuízo.
+
+9
+00:00:38,760 --> 00:00:44,120
+A tela dos operadores continuou estática e muda por mais de uma hora e foi exatamente assim que...

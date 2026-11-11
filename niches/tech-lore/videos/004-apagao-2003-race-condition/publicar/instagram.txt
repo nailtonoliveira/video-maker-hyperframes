@@ -1,0 +1,5 @@
+LEGENDA
+Em 2003, duas tarefas acessaram a mesma memória ao mesmo tempo e apagaram a energia de 50 milhões de pessoas. O software de alarmes travou em silêncio por mais de uma hora enquanto o país colapsava. Você já viu um bug de concorrência causar tanto estrago?
+
+HASHTAGS
+#tecnologia #programacao #engenharia #curiosidades #dev

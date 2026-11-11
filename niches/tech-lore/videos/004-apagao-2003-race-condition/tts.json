@@ -1,0 +1,24 @@
+{
+  "cenas": [
+    {
+      "n": 1,
+      "texto": "Um conflito de milissegundos na memória de um servidor... apagou a energia de cinquenta milhões de pessoas."
+    },
+    {
+      "n": 2,
+      "texto": "Em quatorze de agosto de dois mil e três, no centro de controle da FirstEnergy, o software gê-é xis-á barra vinte e um gerenciava a rede elétrica."
+    },
+    {
+      "n": 3,
+      "texto": "Às quatorze horas e quatorze minutos, duas tarefas tentaram gravar no mesmo buffer de alarmes ao mesmo tempo. Sem bloqueio mútuo, a fila corrompeu... e o processo entrou em loop infinito."
+    },
+    {
+      "n": 4,
+      "texto": "Quando cabos de alta tensão caíram no Ohio, os alarmes não dispararam. Sem aviso, a sobrecarga derrubou cem usinas... e gerou seis bilhões de dólares em prejuízo."
+    },
+    {
+      "n": 5,
+      "texto": "A tela dos operadores continuou estática e muda por mais de uma hora, e foi exatamente assim que..."
+    }
+  ]
+}
