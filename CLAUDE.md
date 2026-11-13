@@ -21,7 +21,7 @@ seekable GSAP animations that the `hyperframes` CLI previews and renders to MP4)
   `niches/<niche>/template/`. Changing the template affects only videos created afterwards; finished
   videos are frozen on purpose. Add each new episode to the niche's NICHE.md episode table.
 - **Node ≥ 22** is required by the CLI (`.nvmrc`): `source ~/.nvm/nvm.sh && nvm use` first.
-- **Automated pipeline:** `./pipeline` (code in `tools/pipeline.py` + `tools/dc/`) runs topic → script → TTS →
+- **Automated pipeline:** `./pipeline` (code in `tools/pipeline.py` + `tools/dc/`) runs topic → data (niches with "dados": Banco Central series + `shared/calculo`) → script → TTS →
   Whisper → captions → `claude -p` scenes → render → metadata → `publicar/`. Per-video state is
   `pipeline.json`; per-niche config is `niches/<niche>/niche.json`, prompts in `niches/<niche>/prompts/`,
   topic catalog in `niches/<niche>/catalogo.json`. Test changes with `--ensaio` (no paid APIs) and delete the

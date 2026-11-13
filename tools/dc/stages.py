@@ -1,11 +1,11 @@
 """As etapas de um vídeo, em ordem. Cada uma lê e escreve só dentro da pasta do vídeo; o estado fica em pipeline.json."""
 import json, math, os, pathlib, re, shutil, subprocess, sys
 
-from . import align, audio, config, tts
+from . import align, audio, config, dados, tts
 from .catalog import Catalogo, agora
 from .llm import LLM
 
-ETAPAS = ["roteiro", "tts", "voz", "tempos", "legendas", "prompt", "cenas", "trilha", "render", "metadados", "publicar"]
+ETAPAS = ["dados", "roteiro", "tts", "voz", "tempos", "legendas", "prompt", "cenas", "trilha", "render", "metadados", "publicar"]
 COM_AJUSTES = {"roteiro", "tts", "cenas", "metadados"}  # etapas que aceitam "o que mudar" ao refazer
 
 
@@ -140,13 +140,66 @@ def etapa_roteiro(v, ajustes=""):
         "**Fontes:** " + "; ".join(t["fontes"]) if t.get("fontes") else "",
         regra_cta,
     ]))
+    formatos = v.cfg.get("formatos") or []
+    anterior = formato_anterior(v) if formatos else ""
+    if formatos and t.get("formato"):
+        tema += f"\n**Formato sugerido:** {t['formato']}"
     p = v.prompt("roteiro", NICHE_MD=v.niche_md(), TEMA=tema, DURACAO=dur,
-                 PALAVRAS_MIN=round(dur * pps * 0.9), PALAVRAS_MAX=round(dur * pps * 1.1), AJUSTES=ajustes_txt(ajustes))
-    d = v.llm.json("roteiro", p, criativo=True, pesquisa=True, validar=lambda d: _validar_roteiro(d, v.cfg.get("mundos")))
+                 PALAVRAS_MIN=round(dur * pps * 0.9), PALAVRAS_MAX=round(dur * pps * 1.1), AJUSTES=ajustes_txt(ajustes),
+                 DADOS=dados.fatos_para_prompt(v.dir) or "(sem dados calculados)",
+                 FORMATOS="\n".join(f"- {f}" for f in formatos), FORMATO_ANTERIOR=anterior or "(nenhum)")
+
+    def validar(d):
+        _validar_roteiro(d, v.cfg.get("mundos"))
+        if formatos:
+            if d.get("formato") not in formatos:
+                raise ValueError(f"'formato' tem que ser um destes: {formatos}")
+            if d["formato"] == anterior:
+                raise ValueError(f"formato '{anterior}' foi o do episódio anterior: escolha outro")
+        if not v.ensaio:
+            erros = dados.conferir_numeros(d, v.dir)
+            if erros:
+                raise ValueError("números fora de dados/fatos.json: " + "; ".join(erros[:6]))
+
+    d = v.llm.json("roteiro", p, criativo=True, pesquisa=True, validar=validar)
     v.write_json("roteiro.json", d)
     md = roteiro_md(d, pps)
+    if d.get("formato"):
+        md = md.replace("\n", f"\n**Formato:** {d['formato']}  \n", 1)
+    if d.get("numeros"):
+        md += "\n## Números ditos (conferidos com dados/fatos.json)\n\n" + "\n".join(
+            f"- \"{n.get('dito', '')}\" = {n.get('valor')} ({n.get('origem', '')})" for n in d["numeros"]) + "\n"
     (v.dir / "roteiro.md").write_text(md, encoding="utf-8")
     return md
+
+
+def formato_anterior(v):
+    """Formato do episódio mais recente do nicho (antes deste): roteiro.json dos vídeos do pipeline ou a tabela do NICHE.md."""
+    outros = sorted((p for p in (v.cfg["_dir"] / "videos").glob("[0-9][0-9][0-9]-*") if p.is_dir() and p != v.dir
+                     and p.name < v.dir.name), key=lambda p: p.name)
+    if outros:
+        rj = outros[-1] / "roteiro.json"
+        if rj.exists():
+            f = json.loads(rj.read_text(encoding="utf-8")).get("formato")
+            if f:
+                return f
+        num = outros[-1].name[:3]
+        for linha in v.niche_md().splitlines():
+            cols = [c.strip() for c in linha.strip().strip("|").split("|")]
+            if len(cols) >= 4 and cols[0] == num:
+                return cols[3]
+    return ""
+
+
+# ==== 0. dados reais (Banco Central) ===============================================================
+def etapa_dados(v, ajustes=""):
+    rev = v.dir / "REVISAO.md"
+    modelo = v.cfg["_dir"] / "REVISAO.md"
+    if v.cfg.get("revisao_obrigatoria") and modelo.exists() and not rev.exists():
+        rev.write_text("Revisado por: ____ em ____\n\n" + modelo.read_text(encoding="utf-8"), encoding="utf-8")
+    if not v.cfg.get("dados"):
+        return "nicho sem dados externos: nada a buscar"
+    return dados.preparar(v.dir, v.state["tema"].get("calculo"), ensaio=v.ensaio)
 
 
 # ==== 2. texto para TTS ============================================================================
@@ -157,6 +210,9 @@ def etapa_tts(v, ajustes=""):
     def validar(d):
         if [c.get("n") for c in d.get("cenas", [])] != [c["n"] for c in rot["cenas"]] or not all(c.get("texto") for c in d["cenas"]):
             raise ValueError("número de cenas diferente do roteiro ou texto vazio")
+        erros = tts.validar_tags("\n".join(c["texto"] for c in d["cenas"]), v.cfg["voz"])
+        if erros:
+            raise ValueError("; ".join(erros))
 
     p = v.prompt("tts", CENAS=cenas, REGRAS_MOTOR=v.cfg["voz"].get("regras_texto") or "sem regras extras", AJUSTES=ajustes_txt(ajustes))
     d = v.llm.json("tts", p, criativo=False, validar=validar)
@@ -179,6 +235,12 @@ def etapa_voz(v, ajustes=""):
 # ==== 4. tempos por palavra ========================================================================
 def etapa_tempos(v, ajustes=""):
     out = v.py("transcribe.py", v.dir / "assets" / "voice.mp3", "--modelo", v.cfg["whisper"]["modelo"])
+    tts_txt, voice_json = v.dir / "tts.txt", v.dir / "assets" / "voice.json"
+    if tts_txt.exists() and voice_json.exists():
+        palavras = [w["text"] for w in align.words_from_voice(v.read_json("assets/voice.json"))[0]]
+        vazadas = tts.tags_vazadas(tts_txt.read_text(encoding="utf-8"), palavras)
+        if vazadas:
+            raise SystemExit(f"a voz LEU estas tags em voz alta: {vazadas}. Refaça a etapa tts sem elas.")
     return out.strip().splitlines()[-1]
 
 
@@ -420,7 +482,26 @@ Lembretes:
 """
 
 
+def revisao_pendente(v):
+    """Trava de publicação: REVISAO.md do vídeo assinado e sem nenhum item desmarcado. → lista do que falta."""
+    rev = v.dir / "REVISAO.md"
+    if not rev.exists():
+        return ["REVISAO.md não existe no vídeo"]
+    txt = rev.read_text(encoding="utf-8")
+    falta = []
+    m = re.search(r"^Revisado por:\s*(.+?)\s+em\s+(.+?)\s*$", txt, re.M)
+    if not m or "_" in m.group(1) or "_" in m.group(2):
+        falta.append("assinar a primeira linha: 'Revisado por: <nome> em <data>'")
+    falta += [ln.strip()[6:] for ln in txt.splitlines() if ln.strip().startswith("- [ ]")]
+    return falta
+
+
 def etapa_publicar(v, ajustes=""):
+    if v.cfg.get("revisao_obrigatoria") and not v.ensaio:
+        falta = revisao_pendente(v)
+        if falta:
+            raise SystemExit("revisão humana incompleta em " + config.rel(v.dir / "REVISAO.md") + ":\n  - "
+                             + "\n  - ".join(falta[:12]) + "\nMarque cada item depois de conferir e rode de novo.")
     src = config.ROOT / v.state["render"]
     pub = v.dir / "publicar"
     pub.mkdir(exist_ok=True)

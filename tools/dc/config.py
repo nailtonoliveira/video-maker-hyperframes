@@ -31,6 +31,8 @@ DEFAULT_NICHE = {
         "style": 0.0,
         "speed": 1.0,
         "use_speaker_boost": True,
+        "acelerar": 1.0,      # pós-processo ffmpeg atempo (tom preservado), aplicado antes do Whisper
+        "seed": None,         # semente fixa da ElevenLabs: entonação mais parecida entre episódios
         "regras_texto": "",
     },
     "whisper": {"modelo": "base"},
