@@ -1,0 +1,63 @@
+{
+  "nome": "Contos do Dinheiro: fábulas de finanças com números reais",
+  "idioma": "pt-BR",
+  "duracao_alvo_s": 90,
+  "palavras_por_segundo": 2.85,
+  "llm": {
+    "provedor": "antigravity",
+    "modelo_criativo": "gemini-3.8-flash-high",
+    "modelo_rapido": "gemini-3.8-flash-medium",
+    "modelo_embeddings": "gemini-embedding-001",
+    "pesquisa": true
+  },
+  "voz": {
+    "motor": "elevenlabs",
+    "voice_id": "Ivi89YTIeFmV6NfDzICt",
+    "model_id": "eleven_v3",
+    "output_format": "mp3_44100_128",
+    "stability": 0.5,
+    "similarity_boost": 0.8,
+    "style": 0.0,
+    "speed": 1.0,
+    "use_speaker_boost": true,
+    "acelerar": 1.2,
+    "seed": 1717,
+    "regras_texto": "Eleven v3: aceita audio tags em inglês entre colchetes ([sighs], [whispers], [curious]...) e NÃO aceita <break>; pausas com reticências, travessão ou [pause]. A fala é acelerada depois (acelerar), então não escreva tags de velocidade como [fast] ou [rushed].",
+    "nota": "Voz da série (marca), exclusiva deste nicho: Voice Design próprio (desde o 002). Não trocar entre episódios. Piloto 001 usou Victor Power (YNOujSUmHtgN6anjqXPf, Multilingual v2), que é de biblioteca e já usada em outro nicho. stability 0.5 = modo Natural do v3 (0 = Creative, 1 = Robust; Robust ignora as tags)."
+  },
+  "whisper": {
+    "modelo": "small"
+  },
+  "motor": null,
+  "trilha": true,
+  "audio_lufs": -14,
+  "plataformas": [
+    "youtube",
+    "tiktok",
+    "instagram",
+    "facebook"
+  ],
+  "aprovacoes": [
+    "dados",
+    "roteiro",
+    "voz",
+    "cenas",
+    "metadados"
+  ],
+  "dados": {
+    "fonte": "Banco Central SGS",
+    "series": [
+      "ipca",
+      "cdi",
+      "selic"
+    ]
+  },
+  "formatos": [
+    "Fábula com regra do mundo",
+    "Duas vidas, uma escolha",
+    "Carta do futuro",
+    "O julgamento",
+    "O objeto que conta"
+  ],
+  "revisao_obrigatoria": true
+}

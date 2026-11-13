@@ -1,0 +1,27 @@
+{
+  "fixes": {},
+  "fixes_idx": {},
+  "style": "story-pop",
+  "font_family": "'Nunito', sans-serif",
+  "max_words": 3,
+  "max_chars": 14,
+  "pause": 0.14,
+  "left": 60,
+  "width": 960,
+  "bottom": 640,
+  "font_size": 96,
+  "stroke": 16,
+  "ink": "#ffffff",
+  "active": "#ffd23f",
+  "destaques": [
+    "reais",
+    "juro",
+    "tempo",
+    "dinheiro",
+    "parado",
+    "metade",
+    "Ana",
+    "Bruno",
+    "Lia"
+  ]
+}

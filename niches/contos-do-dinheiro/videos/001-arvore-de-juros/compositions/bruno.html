@@ -1,0 +1,92 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #br-svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <!-- 48,75–66 s · O Bruno vê a árvore da Ana e começa: R$ 200/mês de jan/2016 a dez/2025, 120 meses sem falhar (R$ 24.000). -->
+  <div id="root" data-composition-id="bruno" data-width="1080" data-height="1920">
+    <svg id="br-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+      <g id="br-cam"><g id="br-mundo"></g></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const K = window.KIT, C = K.C, T0 = 48.75;
+      const t = (abs) => abs - T0;
+      const ANOS = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+      const PAG = [["JAN", "2016"]].concat(ANOS.map((a) => ["DEZ", String(a)]));
+      // Grade de 120 meses (10 anos × 12): cada mês plantado acende
+      const CELL = 36, GX = 350, GY = 430;
+      let grade = "";
+      ANOS.forEach((a, r) => {
+        grade += `<text x="${GX - 16}" y="${GY + r * CELL + 30}" text-anchor="end" font-family="Nunito" font-weight="900" font-size="28" fill="${C.ink}">${a}</text>`;
+        for (let m = 0; m < 12; m++) {
+          const i = r * 12 + m;
+          grade += `<rect x="${GX + m * CELL}" y="${GY + r * CELL}" width="${CELL - 6}" height="${CELL - 6}" rx="6" fill="${C.paper}" stroke="${C.ink}" stroke-width="3"/>
+            <rect id="br-m${i}" x="${GX + m * CELL}" y="${GY + r * CELL}" width="${CELL - 6}" height="${CELL - 6}" rx="6" fill="${C.gold}" stroke="${C.ink}" stroke-width="3" opacity="0"/>`;
+        }
+      });
+      document.getElementById("br-mundo").innerHTML = `${K.sky("br-sky", "skyDay")}
+        ${K.cloud("br-n1", 160, 260, 0.8)}
+        ${K.hills("br-hills", 1000)}
+        ${K.ground("br-chao", 1150)}
+        <g transform="translate(600,1150)">${K.house("br-casa", { w: 520, h: 420, wall: "#a8c5e2", roof: "#3d5a80" })}</g>
+        <g transform="translate(980,800)">${K.calendar("br-cal", PAG)}</g>
+        <g transform="translate(190,1150)">${K.tree("br-ana-tree", 8)}</g>
+        ${K.fence("br-cerca", 360, 470, 1150)}
+        <g transform="translate(800,1150)">${K.tree("br-tree", 6)}</g>
+        <g transform="translate(580,1150)">${K.person("br-bruno", K.ELENCO.bruno)}</g>
+        <g id="br-moeda" transform="translate(688,990)">${K.coin("br-moeda-in", 22)}</g>
+        <g id="br-grade"><g id="br-grade-in">
+          <rect x="${GX - 120}" y="${GY - 90}" width="${12 * CELL + 150}" height="${10 * CELL + 120}" rx="20" fill="#fff" stroke="${C.ink}" stroke-width="5"/>
+          <text id="br-grade-tit" x="${GX + 6 * CELL - 50}" y="${GY - 34}" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="40" fill="${C.ink}">10 ANOS · 120 MESES</text>
+          ${grade}</g></g>
+        <g transform="translate(540,240)">${K.sign("br-placa", [["BRUNO JÁ PLANTOU", 36], ["R$ 0", 72, C.ink, "br-valor"]], { w: 500 })}</g>
+        <g transform="translate(330,640)">${K.bubble("br-pensa", [], { w: 300, h: 220, pensamento: true, tx: 300 })}<g transform="translate(0,70) scale(0.3)" id="br-pensa-arv">${K.tree("br-pensa-t", 8)}</g></g>`;
+
+      const tl = gsap.timeline({ paused: true });
+      tl.set(["#br-moeda", "#br-grade", "#br-placa", "#br-pensa", "#br-pensa-arv", "#br-tree"], { opacity: 0 }, 0);
+      tl.fromTo("#br-ana-tree-grow", { scale: 0.62, transformOrigin: "50% 100%" }, { scale: 0.66, duration: 5, ease: "sine.inOut" }, 0);
+      tl.fromTo("#br-cam", { scale: 1.1, svgOrigin: "400 1000" }, { scale: 1, duration: 1.4, ease: "power2.out" }, 0);
+      // O Bruno olha para a árvore da Ana
+      tl.fromTo("#br-bruno-body", { scaleX: -1, transformOrigin: "50% 100%" }, { scaleX: -1, duration: 0.01 }, 0);
+      K.mouth(tl, "br-bruno", "flat", 0);
+      K.idle(tl, "br-bruno", 0.1, t(51.5), 0.4);
+      tl.fromTo("#br-bruno-head", { rotation: 0, transformOrigin: "50% 100%" }, { rotation: -10, duration: 0.3, ease: "power2.out" }, t(51.65));
+      K.mouth(tl, "br-bruno", "open", t(51.75));
+      tl.set(["#br-pensa", "#br-pensa-arv"], { opacity: 1 }, t(53.85));
+      K.pop(tl, "#br-pensa-t-grow", t(54.0), { origin: "50% 100%" });
+      K.pop(tl, "#br-pensa-in", t(53.85), { dur: 0.35 });
+      K.mouth(tl, "br-bruno", "smile", t(54.3));
+      tl.to(["#br-pensa", "#br-pensa-arv"], { opacity: 0, duration: 0.2 }, t(55.35));
+
+      // 2016–2025: ele vira para o próprio quintal e planta todo mês; a grade enche, a placa soma
+      tl.to("#br-bruno-head", { rotation: 0, duration: 0.2 }, t(55.4));
+      tl.fromTo("#br-bruno-body", { scaleX: -1, transformOrigin: "50% 100%" }, { scaleX: 1, duration: 0.18, immediateRender: false }, t(55.45));
+      tl.set(["#br-tree", "#br-grade", "#br-placa"], { opacity: 1 }, t(55.6));
+      K.pop(tl, "#br-grade-in", t(55.6), { dur: 0.35 });
+      K.pop(tl, "#br-placa-in", t(55.6), { dur: 0.35 });
+      tl.fromTo("#br-tree-grow", { scale: 0.08, transformOrigin: "50% 100%" }, { scale: 0.5, duration: 8.2, ease: "power1.in", immediateRender: false }, t(55.65));
+      for (let i = 0; i < 6; i++) tl.fromTo(`#br-tree-f${i}`, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1.4, duration: 0.25, ease: "back.out(3)" }, t(60.2) + i * 0.5);
+      const A = t(55.65), B = t(63.5);
+      for (let i = 0; i < 120; i++) tl.set(`#br-m${i}`, { opacity: 1 }, A + (B - A) * (i / 119));
+      ANOS.forEach((a, i) => K.page(tl, "br-cal", PAG.length, i + 1, A + (B - A) * ((i * 12 + 11) / 119)));
+      K.counter(tl, "#br-valor", 0, 24000, A, B - A + 0.02);
+      for (let k = 0; k < 10; k++) {
+        const s = A + k * 0.8;
+        tl.fromTo("#br-bruno-armR", { rotation: 0, transformOrigin: "50% 0%" }, { rotation: -62, duration: 0.2, ease: "power2.out", immediateRender: false }, s);
+        tl.to("#br-bruno-armR", { rotation: 0, duration: 0.25, ease: "power2.inOut" }, s + 0.35);
+        tl.set("#br-moeda", { opacity: 1 }, s + 0.2);
+        tl.fromTo("#br-moeda-in", { x: 0, y: 0 }, { x: 40, y: 150, duration: 0.25, ease: "power2.in", immediateRender: false }, s + 0.2);
+        tl.set("#br-moeda", { opacity: 0 }, s + 0.46);
+      }
+      // "Dez anos. Nunca falhou." → a grade cheia pulsa; "24 mil reais" → a placa bate
+      tl.fromTo("#br-grade-tit", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.18, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, t(62.15));
+      tl.fromTo("#br-grade-in", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, t(63.6));
+      tl.fromTo("#br-cam", { scale: 1, svgOrigin: "540 240" }, { scale: 1.2, duration: 1.4, ease: "power2.inOut", immediateRender: false }, t(64.0));
+      tl.fromTo("#br-placa-in", { scale: 1 }, { scale: 1.15, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, t(64.2));
+
+      window.__timelines["bruno"] = tl;
+    })();
+  </script>
+</template>

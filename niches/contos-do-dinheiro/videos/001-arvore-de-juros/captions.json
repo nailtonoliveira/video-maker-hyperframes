@@ -1,0 +1,17 @@
+{
+  "fixes": { "Pergunda": "Pergunta", "CDI": "CDI" },
+  "fixes_idx": { "29": "", "31": "dá", "56": "100%", "57": "", "112": "14.400", "113": "" },
+  "style": "story-pop",
+  "font_family": "'Nunito', sans-serif",
+  "max_words": 3,
+  "max_chars": 14,
+  "pause": 0.14,
+  "left": 60,
+  "width": 960,
+  "bottom": 640,
+  "font_size": 96,
+  "stroke": 16,
+  "ink": "#ffffff",
+  "active": "#ffd23f",
+  "destaques": ["juro", "fruto", "semente", "tempo", "dinheiro", "quando", "Ana", "Bruno", "CDI", "maior"]
+}
