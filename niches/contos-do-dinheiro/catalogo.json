@@ -1,0 +1,227 @@
+{
+  "temas": [
+    {
+      "id": "T001",
+      "estado": "sugerido",
+      "criado_em": "2026-11-12T22:47:50-03:00",
+      "titulo": "O aumento invisível",
+      "slug": "o-aumento-invisivel",
+      "formato": "Duas vidas, uma escolha",
+      "gancho": "Os dois ganharam o mesmo aumento no mesmo dia. Anos depois, só um deles sabia onde ele estava.",
+      "resumo": "Ana e Bruno recebem o mesmo aumento de trezentos reais por mês em 2018. Bruno deixa o aumento virar padrão de vida e ele some sem deixar rastro; Ana separa o aumento todo mês, rendendo a Selic, e seis anos depois ele virou uma reserva maior do que tudo o que ela separou.",
+      "ideia": "Aumento de salário que vira gasto fixo some; separado assim que chega, vira reserva.",
+      "calculo": {
+        "inicio": "2018-01",
+        "fim": "2023-12",
+        "cenarios": [
+          {
+            "nome": "Ana",
+            "tipo": "aporte",
+            "valor": 300,
+            "de": "2018-01",
+            "ate": "2023-12",
+            "rende": "selic"
+          }
+        ]
+      },
+      "por_que_prende": "Expõe a armadilha universal de ver o aumento de salário desaparecer no orçamento sem que a pessoa perceba onde gastou."
+    },
+    {
+      "id": "T002",
+      "estado": "produzido",
+      "criado_em": "2026-11-12T22:47:51-03:00",
+      "titulo": "O réu: O cafezinho da tarde",
+      "slug": "o-reu-o-cafezinho",
+      "formato": "O julgamento",
+      "gancho": "O réu foi acusado de ser só uma mixaria inofensiva, até a perícia somar dez anos de cafezinhos.",
+      "resumo": "O tribunal das pequenas despesas julga o hábito de gastar duzentos reais por mês com o lanche da tarde, sob a alegação de que dinheiro trocado não faz falta. A perícia mostra quanto esse valor teria virado em dez anos rendendo o CDI, e quanto ele vale guardado na gaveta.",
+      "ideia": "Troco que vira hábito: o impacto acumulado no longo prazo de pequenas despesas automáticas frente a uma aplicação constante",
+      "calculo": {
+        "inicio": "2014-01",
+        "fim": "2023-12",
+        "cenarios": [
+          {
+            "nome": "No CDI",
+            "tipo": "aporte",
+            "valor": 200,
+            "de": "2014-01",
+            "ate": "2023-12",
+            "rende": "cdi"
+          },
+          {
+            "nome": "No balcão",
+            "tipo": "aporte",
+            "valor": 200,
+            "de": "2014-01",
+            "ate": "2023-12",
+            "rende": "nada"
+          }
+        ]
+      },
+      "por_que_prende": "Transforma a clássica desculpa de que pequenas despesas não afetam o bolso em um embate bem-humorado de tribunal com reviravolta matemática.",
+      "atualizado_em": "2026-11-12T23:43:34-03:00",
+      "video": "003-o-reu-o-cafezinho"
+    },
+    {
+      "id": "T003",
+      "estado": "sugerido",
+      "criado_em": "2026-11-12T22:47:52-03:00",
+      "titulo": "Querida eu de vinte e cinco",
+      "slug": "querida-eu-de-25",
+      "formato": "Carta do futuro",
+      "gancho": "A carta que chegou do futuro implorava para ela não desprezar aquele valor modesto que parecia inútil guardar no mês.",
+      "resumo": "A Ana de 2024 envia uma carta para si mesma em 2019, época em que relutava em separar quatrocentos reais por mês para emergências por achar que era pouco demais. Ela descobre que esses aportes disciplinados na Selic durante três anos formaram o colchão de segurança que evitou o endividamento na crise seguinte.",
+      "ideia": "Reserva de emergência: a tranquilidade e os juros gerados por um colchão temporário de segurança na Selic",
+      "calculo": {
+        "inicio": "2019-01",
+        "fim": "2023-12",
+        "cenarios": [
+          {
+            "nome": "Reserva na Selic",
+            "tipo": "aporte",
+            "valor": 400,
+            "de": "2019-01",
+            "ate": "2021-12",
+            "rende": "selic"
+          },
+          {
+            "nome": "Sem rendimento",
+            "tipo": "aporte",
+            "valor": 400,
+            "de": "2019-01",
+            "ate": "2021-12",
+            "rende": "nada"
+          }
+        ]
+      },
+      "por_que_prende": "Provoca alívio e identificação ao mostrar que uma reserva de emergência não exige sacrifício eterno, mas sim foco temporário para comprar anos de paz."
+    },
+    {
+      "id": "T004",
+      "estado": "descartado",
+      "criado_em": "2026-11-12T22:47:53-03:00",
+      "titulo": "O poço das gotas diárias",
+      "slug": "o-poco-das-gotas",
+      "formato": "Fábula com regra do mundo",
+      "gancho": "Naquela vila, quem esperou a grande bolada terminou de mãos vazias, mas quem guardou uma nota modesta todo mês acumulou quase o dobro do que colocou.",
+      "resumo": "Num vilarejo onde economias ganham vida, Bruno zomba de Ana por colocar apenas cem reais todo mês no poço do vilarejo, preferindo esperar por uma grande bolada para começar a agir. Dez anos depois, os juros do poço multiplicaram o esforço silencioso de Ana, enquanto o pote de Bruno permaneceu vazio à espera do momento ideal.",
+      "ideia": "Poupar pouco por muito tempo: a constância de quantias pequenas supera a ansiedade paralisante de esperar juntar muito dinheiro para começar",
+      "calculo": {
+        "inicio": "2014-01",
+        "fim": "2023-12",
+        "cenarios": [
+          {
+            "nome": "Ana",
+            "tipo": "aporte",
+            "valor": 100,
+            "de": "2014-01",
+            "ate": "2023-12",
+            "rende": "cdi"
+          },
+          {
+            "nome": "Bruno",
+            "tipo": "aporte",
+            "valor": 100,
+            "de": "2014-01",
+            "ate": "2023-12",
+            "rende": "nada"
+          }
+        ]
+      },
+      "por_que_prende": "Desmonta a desculpa paralisante de esperar ter muito dinheiro para começar a investir, provando a força do hábito acessível.",
+      "atualizado_em": "2026-11-12T23:13:35-03:00"
+    },
+    {
+      "id": "T005",
+      "estado": "produzido",
+      "criado_em": "2026-11-13T00:42:24-03:00",
+      "titulo": "O salto e os passos",
+      "slug": "o-salto-e-os-passos",
+      "formato": "Duas vidas, uma escolha",
+      "gancho": "Ele começou com anos de vantagem, mas terminou vendo a vizinha passar na frente.",
+      "resumo": "Bruno recebeu uma rescisão de uma vez e deixou a quantia rendendo na Selic, confiante de que a folga inicial garantia o futuro. Ana começou sem nada e guardou uma quantia modesta todo mês até a disciplina dos passos regulares ultrapassar o salto inicial.",
+      "ideia": "A constância de pequenos aportes mensais supera uma quantia inicial única deixada sem novos reforços.",
+      "calculo": {
+        "inicio": "2013-01",
+        "cenarios": [
+          {
+            "nome": "Bruno",
+            "tipo": "parado",
+            "valor": 8000,
+            "de": "2013-01",
+            "rende": "selic"
+          },
+          {
+            "nome": "Ana",
+            "tipo": "aporte",
+            "valor": 200,
+            "de": "2013-01",
+            "ate": "2024-12",
+            "rende": "selic"
+          }
+        ]
+      },
+      "por_que_prende": "Derruba a ilusão comum de quem espera juntar uma bolada para começar a poupar.",
+      "atualizado_em": "2026-11-13T12:07:32-03:00",
+      "video": "004-o-salto-e-os-passos"
+    },
+    {
+      "id": "T006",
+      "estado": "sugerido",
+      "criado_em": "2026-11-13T00:42:25-03:00",
+      "titulo": "O réu: O cofre de ferro",
+      "slug": "o-reu-o-cofre-de-ferro",
+      "formato": "O julgamento",
+      "gancho": "Ele jurou proteger as economias da família em segurança absoluta, mas foi parar no banco dos réus por prejuízo silencioso.",
+      "resumo": "O cofre da sala foi levado a julgamento pelos moradores por prometer blindar o dinheiro guardando uma quantia fixa todo mês trancada na gaveta. A vizinha guardou o mesmo valor mensal rendendo a Selic e o juiz provou qual das duas escolhas causou um rombo irreparável.",
+      "ideia": "Guardar dinheiro parado sem render taxa básica corrói o patrimônio e custa caro pela perda de oportunidade.",
+      "calculo": {
+        "inicio": "2016-01",
+        "cenarios": [
+          {
+            "nome": "Cofre",
+            "tipo": "aporte",
+            "valor": 300,
+            "de": "2016-01",
+            "ate": "2024-12",
+            "rende": "nada"
+          },
+          {
+            "nome": "Vizinha",
+            "tipo": "aporte",
+            "valor": 300,
+            "de": "2016-01",
+            "ate": "2024-12",
+            "rende": "selic"
+          }
+        ]
+      },
+      "por_que_prende": "Confronta quem tem pavor de risco mostrando que a opção considerada mais segura é a que garante perda."
+    },
+    {
+      "id": "T007",
+      "estado": "sugerido",
+      "criado_em": "2026-11-13T00:42:27-03:00",
+      "titulo": "O bilhete da varanda",
+      "slug": "o-bilhete-da-varanda",
+      "formato": "Carta do futuro",
+      "gancho": "O aposentado do futuro agradeceu pelo esforço da juventude, mas revelou que o maior salto veio depois que ela parou.",
+      "resumo": "Um morador experiente escreve para o seu eu do passado relembrando a fase em que precisou interromper os aportes mensais para equilibrar as contas da casa. Mesmo sem receber nenhum centavo novo dali em diante, o dinheiro acumulado continuou gerando rendimentos até ultrapassar o valor colocado do próprio bolso.",
+      "ideia": "Quando a vida exige pausar os aportes, o dinheiro já acumulado continua crescendo sozinho pelos juros compostos.",
+      "calculo": {
+        "inicio": "2010-01",
+        "cenarios": [
+          {
+            "nome": "Ana",
+            "tipo": "aporte",
+            "valor": 300,
+            "de": "2010-01",
+            "ate": "2016-12",
+            "rende": "cdi"
+          }
+        ]
+      },
+      "por_que_prende": "Traz alívio e esperança real para quem teme não conseguir poupar todos os meses da vida inteira."
+    }
+  ]
+}

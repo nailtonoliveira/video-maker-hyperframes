@@ -3,7 +3,8 @@
     #root { position: absolute; inset: 0; overflow: hidden; }
     #ab-svg { position: absolute; left: 0; top: 0; }
   </style>
-  <!-- 0–5,55 s · Gancho: a nota de R$ 100 na lata encolhe para o que vale hoje (R$ 41). Quadro 0 = último quadro do vídeo. -->
+  <!-- EXEMPLO DO TEMPLATE (apague e escreva as cenas do episódio). 0–12 s · Gancho na rua: palco pronto (K.palco.rua),
+       dois atores na câmera perto, placa com número na faixa LIVRE, contador, empurrão de câmera e ambiente rodando. -->
   <div id="root" data-composition-id="abertura" data-width="1080" data-height="1920">
     <svg id="ab-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
       <g id="ab-cam"><g id="ab-mundo"></g></g>
@@ -11,45 +12,39 @@
   </div>
   <script>
     (function () {
-      const K = window.KIT, C = K.C;
-      // Mesmo quadro do fim do vídeo (final.html): mesa, lata aberta, nota grande, placa R$ 100.
-      document.getElementById("ab-mundo").innerHTML = `
-        <rect x="0" y="0" width="1080" height="1920" fill="#fbe8c8"/>
-        <rect x="0" y="1060" width="1080" height="140" fill="#f1d3a1"/>
-        <rect x="-20" y="1180" width="1120" height="780" fill="#c08552" stroke="${C.ink}" stroke-width="5"/>
-        <rect x="-20" y="1180" width="1120" height="30" fill="#a86f42"/>
-        <g transform="translate(540,1180) scale(1.5)">${K.tin("ab-lata")}</g>
-        <rect id="ab-fant" x="210" y="655" width="660" height="330" rx="27" fill="none" stroke="${C.ink}" stroke-width="5" stroke-dasharray="18 14" opacity="0"/>
-        <g transform="translate(540,820)"><g id="ab-nota-wrap">${K.note("ab-nota")}</g></g>
-        <g transform="translate(540,330)">${K.sign("ab-placa", [["R$ 100", 104, C.ink, "ab-valor"]], { w: 560 })}</g>
-        <g transform="translate(540,470)">${K.sign("ab-tag", [["PODER DE COMPRA HOJE", 34, "#fff"]], { w: 500, bg: C.red, nails: false })}</g>
-        <g transform="translate(540,1080) rotate(-6)">${K.sign("ab-selo", [["GUARDADA DESDE 2010", 40, "#fff"]], { w: 560, bg: "#3d5a80", nails: false })}</g>`;
+      const K = window.KIT, C = K.C, T0 = 0;
+      const t = (abs) => abs - T0; // agende tudo no tempo ABSOLUTO da narração (assets/voice.json)
+      const DUR = 12;
+
+      // 1) Palco pronto: fundo + móveis + atores + primeiro plano (nesta ordem). Nada de chão vazio: o palco já enche a tela.
+      const P = K.palco.rua("ab", { casas: [{ cor: "#f4d58d", telhado: "#c8553d", num: 12 }, { cor: "#a8c5e2", telhado: "#3d5a80", num: 14 }] });
+      const L = K.PALCO.LIVRE; // placas, calendários e números: x 160–920, y 170–740
+      document.getElementById("ab-mundo").innerHTML = P.fundo + P.moveis
+        + K.ator("ab-ana", "ana", P.vagas.esq)
+        + K.ator("ab-bruno", "bruno", P.vagas.dir, { pessoa: { boca: "flat" } })
+        + `<g transform="translate(540,330)">${K.sign("ab-placa", [["O MESMO AUMENTO", 44], ["R$ 300", 110, C.red, "ab-valor"]], { w: 620 })}</g>`
+        + `<g transform="translate(540,600) rotate(-4)">${K.stamp("ab-selo", "TODO MÊS", { fs: 52, bg: C.paper })}</g>`
+        + P.frente;
 
       const tl = gsap.timeline({ paused: true });
-      // Estado do quadro 0 (= último quadro do vídeo)
-      gsap.set("#ab-nota-body", { scale: 1.5, transformOrigin: "50% 50%" });
-      tl.set("#ab-nota-body", { scale: 1.5, transformOrigin: "50% 50%" }, 0);
-      gsap.set("#ab-lata-lid", { y: -140, opacity: 0 });
-      tl.set("#ab-lata-lid", { y: -140, opacity: 0 }, 0);
-      gsap.set(["#ab-tag", "#ab-selo"], { opacity: 0 });
-      tl.set(["#ab-tag", "#ab-selo"], { opacity: 0 }, 0);
-      tl.fromTo("#ab-cam", { scale: 1, svgOrigin: "540 820" }, { scale: 1.06, duration: 5.5, ease: "none" }, 0);
-      // A nota fala (boca abre e fecha nas palavras)
-      const fala = (a, b) => { for (let s = a; s < b - 0.1; s += 0.36) { K.mouth(tl, "ab-nota", "open", s); K.mouth(tl, "ab-nota", "smile", s + 0.18); } };
-      fala(0.0, 1.1);
-      // "Hoje, valho quarenta e um": encolhe para 0,41 do tamanho, a placa corre até R$ 41
-      tl.set("#ab-fant", { opacity: 0.8 }, 1.78);
-      tl.to("#ab-nota-body", { scale: 1.5 * 0.4076, duration: 0.9, ease: "power3.inOut" }, 1.78);
-      K.counter(tl, "#ab-valor", 100, 41, 1.78, 0.96);
-      tl.set("#ab-valor", { fill: C.red }, 1.78);
-      tl.set("#ab-tag", { opacity: 1 }, 2.0);
-      K.pop(tl, "#ab-tag-in", 2.0);
-      K.mouth(tl, "ab-nota", "flat", 2.7);
-      // "E ninguém NUNCA me gastou"
-      tl.set("#ab-selo", { opacity: 1 }, 3.6);
-      tl.fromTo("#ab-selo-in", { scale: 2.2, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.in" }, 3.6);
-      fala(3.6, 4.9);
-      K.mouth(tl, "ab-nota", "sad", 4.95);
+      const ini = (sel, v) => { gsap.set(sel, v); tl.set(sel, v, 0); }; // estado inicial nos dois: seguro para buscar quadros
+      ini(["#ab-selo"], { opacity: 0 });
+      K.pose(tl, "#ab-bruno-armL", 0);      // braços giram por atributo: declare a pose inicial
+      P.ambiente(tl, T0, 0, DUR);            // carro, nuvens, passarinhos: vida contínua sem gastar âncora
+      K.idle(tl, "ab-ana", 0, DUR, 0.2);
+      K.idle(tl, "ab-bruno", 0, DUR, 0.9);
+
+      // Quadro 0 = gancho (o resultado). Âncoras presas ao início da palavra no voice.json:
+      K.pop(tl, "#ab-placa-in", t(0.4), { origin: "50% 50%" });
+      K.counter(tl, "#ab-valor", 0, 300, t(0.6), 0.9);                 // termina no valor exato dito
+      [1.6, 1.85, 2.1, 2.4].forEach((s, i) => K.mouth(tl, "ab-ana", i % 2 ? "smile" : "open", t(s)));
+      tl.set("#ab-selo", { opacity: 1 }, t(3.2));
+      K.slam(tl, "#ab-selo-in", t(3.2));
+      K.mouth(tl, "ab-bruno", "open", t(4.4));
+      K.turn(tl, "#ab-bruno-armL", 0, 120, t(4.4), 0.3, "back.out(2)");  // braço levanta (gira pelo ombro)
+      K.mouth(tl, "ab-bruno", "smile", t(5.2));
+      // Empurrão de câmera curto até a Ana (≤ 1 s), mantendo a placa no quadro.
+      tl.to("#ab-cam", { scale: 1.12, svgOrigin: `${P.vagas.esq} 900`, duration: 0.8, ease: "power2.inOut" }, t(7));
       window.__timelines["abertura"] = tl;
     })();
   </script>

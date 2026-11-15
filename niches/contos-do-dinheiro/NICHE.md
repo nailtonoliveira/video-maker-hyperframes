@@ -33,17 +33,22 @@ Variam também: estação/hora do dia, bairro, elenco secundário e a metáfora 
 - Valores nominais: dizer isso no cartão final (e citar a inflação do período).
 
 ## Visual
-- Ilustração 2D chapada desenhada em SVG por código (`assets/kit.js`): traço `#2a2320` de 5 px, cores lisas, sem
-  degradê exceto céu, sem brilho/partículas, sem granulação.
-- Palco de casa: **a rua** (casa da Ana à esquerda, do Bruno à direita, árvores na frente), enquadrada 1,3×.
-  Segundo palco: **o corte do quintal** (terra em seção) para mostrar mecanismo (juros, semente).
+- Ilustração 2D chapada desenhada em SVG por código (`assets/kit/`, índice em `assets/kit/INDICE.md`): traço
+  `#2a2320` de 5 px, cores lisas, sem degradê exceto céu, sem brilho/partículas, sem granulação.
+- **Câmera perto e tela cheia:** toda cena acontece num **palco pronto** do kit (`K.palco.cozinha`, `rua`, `loja`
+  (mercado/padaria), `tribunal`, `praca`), que enche a tela de cima a baixo: parede ou céu, móveis, chão em
+  perspectiva e um **primeiro plano** (mesa, plateia de costas, rua com carro, canteiro...). Atores com `K.ator`:
+  pés em y 1400, ~480 px de altura, rosto em y ~1000. Nenhum quadro com a metade de baixo vazia.
+- **Vida contínua:** cada palco tem ambiente (`P.ambiente`: nuvens, vapor, carro passando, plateia mexendo).
+- Palco novo só quando a história pede um lugar que não existe: entra no kit no mesmo padrão (`palco-<nome>.js`).
 - Elenco fixo (`KIT.ELENCO`): Ana (coque, blusa `#2a9d8f`), Bruno (cabelo curto, blusa `#e76f51`), a filha
   (vestido `#ffd166`), vizinho (careca, `#9b5de5`), vizinha (chapéu, `#577590`). Personagens novos entram no kit.
 - **Texto dentro da arte** (placas, calendários, carimbos) é legível e faz parte da história; nunca repete a frase
   falada palavra por palavra (balão de fala só para o que não é narrado, ex.: "HA HA HA!").
 - Dinheiro = ouro `#f2b134` (moedas, frutos); alerta/data = vermelho `#d64545`; papel das placas `#fff6e3`.
 - Fonte única: **Nunito** 700/900 (empacotada). Nada abaixo de 28 px.
-- Zona útil: texto entre y 168 e 1330; abaixo disso só chão e rua.
+- Faixas da tela: texto e números em y 170–740 (x 160–920); rostos e objetos em 740–1150; legenda em 1150–1300
+  (sem rosto nem texto ali); pés em 1400; primeiro plano decorativo em 1500–1920 (a interface da plataforma cobre).
 - Legenda `story-pop` (`tools/build_captions.py`): 1–3 palavras, 96 px, branca com contorno de 16 px, números e
   palavras-chave em `#ffd23f`, cada palavra entra quando é dita.
 

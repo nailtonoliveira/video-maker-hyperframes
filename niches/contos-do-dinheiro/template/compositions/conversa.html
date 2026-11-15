@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #co-svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <!-- EXEMPLO DO TEMPLATE (apague e escreva as cenas do episódio). 12–30 s · Conversa na cozinha: palco K.palco.cozinha,
+       fala de personagem com balão, calendário passando o tempo na faixa LIVRE, objeto do kit entrando na bancada. -->
+  <div id="root" data-composition-id="conversa" data-width="1080" data-height="1920">
+    <svg id="co-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+      <g id="co-cam"><g id="co-mundo"></g></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const K = window.KIT, C = K.C, T0 = 12;
+      const t = (abs) => abs - T0;
+      const DUR = 18;
+
+      const P = K.palco.cozinha("co", {});
+      const anos = [["JAN", "2018"], ["DEZ", "2019"], ["DEZ", "2021"], ["DEZ", "2023"]];
+      document.getElementById("co-mundo").innerHTML = P.fundo + P.moveis
+        // objeto sobre a bancada (tampo em y 985): a lata do kit, pequena, entra depois
+        + `<g transform="translate(400,985) scale(0.8)">${K.tin("co-lata")}</g>`
+        + K.ator("co-ana", "ana", P.vagas.esq)
+        + K.ator("co-bruno", "bruno", P.vagas.dir)
+        + `<g transform="translate(540,300)">${K.calendar("co-cal", anos, { w: 240, h: 200 })}</g>`
+        + `<g transform="translate(560,600)">${K.bubble("co-fala", [["SEPARO ANTES", 46], ["DE GASTAR", 46]], { w: 520, h: 170, tx: -200, ty: 250 })}</g>`
+        + P.frente;
+
+      const tl = gsap.timeline({ paused: true });
+      const ini = (sel, v) => { gsap.set(sel, v); tl.set(sel, v, 0); };
+      ini(["#co-lata", "#co-fala"], { opacity: 0 });
+      P.ambiente(tl, T0, 0, DUR);
+      K.idle(tl, "co-ana", 0, DUR, 0.4);
+      K.idle(tl, "co-bruno", 0, DUR, 1.1);
+
+      // "Separo antes de gastar": balão + boca alternando nas palavras (tempos do voice.json)
+      tl.set("#co-fala", { opacity: 1 }, t(13.2));
+      K.pop(tl, "#co-fala-in", t(13.2), { origin: "20% 100%" });
+      [13.2, 13.5, 13.8, 14.1, 14.4].forEach((s, i) => K.mouth(tl, "co-ana", i % 2 ? "smile" : "open", t(s)));
+      K.out(tl, "#co-fala", t(16));
+      // A lata aparece na bancada (clique/efeito na trilha)
+      tl.set("#co-lata", { opacity: 1 }, t(16.4));
+      K.pop(tl, "#co-lata", t(16.4), { origin: "50% 100%" });
+      // Passagem do tempo: o calendário vira ano a ano
+      [18, 19.5, 21].forEach((s, i) => K.page(tl, "co-cal", anos.length, i + 1, t(s)));
+      tl.fromTo("#co-cal", { rotation: 0, svgOrigin: "540 200" }, { rotation: 4, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, t(18));
+      // Bruno reage
+      K.mouth(tl, "co-bruno", "sad", t(22.5));
+      tl.to("#co-cam", { scale: 1.1, svgOrigin: `${P.vagas.dir} 1000`, duration: 0.8, ease: "power2.inOut" }, t(22.5));
+      window.__timelines["conversa"] = tl;
+    })();
+  </script>
+</template>

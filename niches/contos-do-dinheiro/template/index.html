@@ -12,7 +12,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/vendor/gsap.min.js"></script>
-    <script src="assets/kit.js"></script>
+    <script src="assets/kit/base.js"></script>
+    <script src="assets/kit/pessoas.js"></script>
+    <script src="assets/kit/natureza.js"></script>
+    <script src="assets/kit/dinheiro.js"></script>
+    <script src="assets/kit/papelaria.js"></script>
+    <script src="assets/kit/casa.js"></script>
+    <script src="assets/kit/comercio.js"></script>
+    <script src="assets/kit/tribunal.js"></script>
+    <script src="assets/kit/palco-cozinha.js"></script>
+    <script src="assets/kit/palco-rua.js"></script>
+    <script src="assets/kit/palco-loja.js"></script>
+    <script src="assets/kit/palco-tribunal.js"></script>
+    <script src="assets/kit/palco-praca.js"></script>
+    <script src="assets/kit/episodio.js"></script>
     <style>
       :root {
         --ink: #2a2320;
@@ -43,28 +56,16 @@
     </style>
   </head>
   <body>
-    <!-- 002 · A nota que encolheu. Duração = locução (79,94 s) + cartão final (6 s). Quem narra é a nota. -->
+    <!-- EXEMPLO DO TEMPLATE: 3 cenas que mostram o padrão (palco pronto, câmera perto). Duração = voz + cartão final (6 s). -->
     <div id="root" data-composition-id="main" data-start="0" data-duration="79.94" data-width="1080" data-height="1920">
       <div id="abertura" data-composition-id="abertura" data-composition-src="compositions/abertura.html"
-        data-start="0" data-duration="5.55" data-track-index="0" data-track-kind="graphics"
+        data-start="0" data-duration="12" data-track-index="0" data-track-kind="graphics"
         data-width="1080" data-height="1920" style="z-index: 1"></div>
-      <div id="guardar" data-composition-id="guardar" data-composition-src="compositions/guardar.html"
-        data-start="5.55" data-duration="15.05" data-track-index="0" data-track-kind="graphics"
+      <div id="conversa" data-composition-id="conversa" data-composition-src="compositions/conversa.html"
+        data-start="12" data-duration="18" data-track-index="0" data-track-kind="graphics"
         data-width="1080" data-height="1920" style="z-index: 1"></div>
-      <div id="precos" data-composition-id="precos" data-composition-src="compositions/precos.html"
-        data-start="20.6" data-duration="23.15" data-track-index="0" data-track-kind="graphics"
-        data-width="1080" data-height="1920" style="z-index: 1"></div>
-      <div id="aniversario" data-composition-id="aniversario" data-composition-src="compositions/aniversario.html"
-        data-start="43.75" data-duration="10.25" data-track-index="0" data-track-kind="graphics"
-        data-width="1080" data-height="1920" style="z-index: 1"></div>
-      <div id="mercado" data-composition-id="mercado" data-composition-src="compositions/mercado.html"
-        data-start="54" data-duration="11.05" data-track-index="0" data-track-kind="graphics"
-        data-width="1080" data-height="1920" style="z-index: 1"></div>
-      <div id="moral" data-composition-id="moral" data-composition-src="compositions/moral.html"
-        data-start="65.05" data-duration="8.1" data-track-index="0" data-track-kind="graphics"
-        data-width="1080" data-height="1920" style="z-index: 1"></div>
-      <div id="final" data-composition-id="final" data-composition-src="compositions/final.html"
-        data-start="73.15" data-duration="6.79" data-track-index="0" data-track-kind="graphics"
+      <div id="revelacao" data-composition-id="revelacao" data-composition-src="compositions/revelacao.html"
+        data-start="30" data-duration="49.94" data-track-index="0" data-track-kind="graphics"
         data-width="1080" data-height="1920" style="z-index: 1"></div>
       <div id="aviso" data-composition-id="aviso" data-composition-src="compositions/aviso.html"
         data-start="79.94" data-duration="6" data-track-index="0" data-track-kind="graphics"
