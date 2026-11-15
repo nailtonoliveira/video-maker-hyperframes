@@ -3,7 +3,7 @@
 Só roda em nichos com "dados" no niche.json; o tema do catálogo traz o "calculo" (spec do shared/calculo/calculo.py).
 Tudo fica no vídeo: dados/<serie>.json, dados/spec.json, dados/calculo.py, dados/fatos.json.
 """
-import datetime, json, shutil, subprocess, sys, urllib.request
+import datetime, json, re, shutil, subprocess, sys, unicodedata, urllib.request
 
 from . import config
 
@@ -74,24 +74,141 @@ def fatos_para_prompt(vdir):
             "```json\n" + f.read_text(encoding="utf-8").strip() + "\n```")
 
 
-def conferir_numeros(roteiro, vdir, tolerancia=0.006):
-    """Trava: cada número declarado em roteiro['numeros'] tem que existir em dados/fatos.json. → lista de erros."""
+def _fatos(vdir):
     f = vdir / "dados" / "fatos.json"
-    if not f.exists():
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else None
+
+
+def valor_em(fatos, caminho):
+    """Valor de fatos.json num caminho como 'cenarios[0].final_liquido_ir' ou 'ipca.por_ano_pct.2015'."""
+    x = fatos
+    for parte in re.findall(r"[^.\[\]\s]+", caminho):
+        x = x[int(parte)] if isinstance(x, list) else x[parte]
+    if isinstance(x, (dict, list)) or isinstance(x, bool):
+        raise ValueError(f"'{caminho}' não é um número")
+    return float(x)
+
+
+def _sem_acento(s):
+    return "".join(c for c in unicodedata.normalize("NFD", s.lower()) if unicodedata.category(c) != "Mn")
+
+
+# Proporções que a fala afirma ("o dobro", "triplicou", "a metade") → fator. Só passam declaradas em `numeros`
+# com origem "<caminho> / <caminho>" e com a razão calculada coerente com a palavra.
+PROPORCOES = [(r"\bdobr\w*", 2.0), (r"\btripl\w*", 3.0), (r"\bquadrupl\w*|\bquadruplo\w*", 4.0), (r"\bmetade\b", 0.5)]
+# Exagero e promessa: proibidos na série (não dá para conferir e soam como promessa de ganho).
+EXAGEROS = r"\bfortunas?\b|\bmilionari\w*|\bricos?\b|\bricas?\b|\benriquec\w*|\bgarantid\w*|\bsem risco\b|\bdinheiro facil\b"
+# Produto financeiro, banco ou corretora pelo nome.
+PRODUTOS = (r"\btesouro (direto|selic|ipca|prefixado)\b|\bcdbs?\b|\blci\b|\blca\b|\bcaderneta\b|\bnubank\b|\bitau\b"
+            r"|\bbradesco\b|\bsantander\b|\bbanco do brasil\b|\bbtg\b|\bxp\b|\bbitcoin\b|\bcripto\w*")
+
+
+def _proporcao(texto):
+    """[(trecho, fator, modo)] das proporções no texto; modo: 'quase' (< fator), 'mais' (> fator) ou 'igual'."""
+    t = _sem_acento(texto)
+    out = []
+    for pad, fator in PROPORCOES:
+        for m in re.finditer(pad, t):
+            antes = t[max(0, m.start() - 22):m.start()]
+            modo = "quase" if re.search(r"\b(quase|perto d\w|chegou? a)\b", antes) else \
+                   "mais" if re.search(r"\bmais (d[eo] )?(que|do que)\b|\bpassou d\w\b", antes) else "igual"
+            out.append((m.group(0), fator, modo))
+    return out
+
+
+def _cabe(razao, fator, modo):
+    if modo == "quase":
+        return fator * 0.88 <= razao < fator
+    if modo == "mais":
+        return razao > fator
+    return abs(razao - fator) <= fator * 0.06
+
+
+def conferir_texto(texto, onde="texto"):
+    """Trava de palavras (vale para tema e roteiro): sem exagero e sem produto/banco pelo nome. → lista de erros."""
+    t = _sem_acento(texto)
+    erros = [f"{onde}: \"{m.group(0)}\" é exagero/promessa (proibido na série)" for m in re.finditer(EXAGEROS, t)]
+    erros += [f"{onde}: \"{m.group(0)}\" é nome de produto, banco ou corretora (proibido)" for m in re.finditer(PRODUTOS, t)]
+    return erros
+
+
+def conferir_numeros(roteiro, vdir, tolerancia=0.006):
+    """Trava: cada número declarado em roteiro['numeros'] existe em dados/fatos.json (ou é a razão de dois deles),
+    e toda proporção dita na locução ("o dobro", "a metade") está declarada e é verdadeira. → lista de erros."""
+    fatos = _fatos(vdir)
+    if fatos is None:
         return []
     sys.path.insert(0, str(CALCULO.parent))
     from calculo import numeros  # noqa: E402
-    validos = numeros(json.loads(f.read_text(encoding="utf-8")))
+    validos = numeros(fatos)
     erros = []
     decl = roteiro.get("numeros")
     if not decl:
         return ["o roteiro não declarou 'numeros' (cada número dito, com o valor de dados/fatos.json de onde saiu)"]
+    razoes = []  # (dito, razão calculada) das proporções declaradas
     for n in decl:
         try:
             alvo = float(n["valor"])
         except (KeyError, TypeError, ValueError):
             erros.append(f"número sem 'valor': {n}")
             continue
-        if not any(abs(alvo - x) <= max(0.011, abs(x) * tolerancia) for x in validos):
+        origem = str(n.get("origem", ""))
+        if "/" in origem:
+            try:
+                a, b = (valor_em(fatos, x.strip()) for x in origem.split("/", 1))
+                razao = a / b
+            except (KeyError, IndexError, ValueError, ZeroDivisionError) as e:
+                erros.append(f"\"{n.get('dito', '?')}\": origem '{origem}' não existe em dados/fatos.json ({e})")
+                continue
+            if abs(alvo - razao) > max(0.011, abs(razao) * tolerancia):
+                erros.append(f"\"{n.get('dito', '?')}\": {origem} dá {razao:.3f}, não {alvo}")
+            razoes.append((_sem_acento(str(n.get("dito", ""))), razao))
+        elif not any(abs(alvo - x) <= max(0.011, abs(x) * tolerancia) for x in validos):
             erros.append(f"\"{n.get('dito', '?')}\" = {alvo} não está em dados/fatos.json")
+    fala = " ".join(c.get("locucao", "") for c in roteiro.get("cenas", []))
+    for trecho, fator, modo in _proporcao(fala):
+        casadas = [r for d, r in razoes if trecho in d]
+        if not casadas:
+            erros.append(f"a locução diz \"{trecho}\" mas não declarou em 'numeros' de onde sai "
+                         f"(origem \"<caminho> / <caminho>\" de dados/fatos.json)")
+        elif not any(_cabe(r, fator, modo) for r in casadas):
+            rs = ", ".join(f"{r:.2f}" for r in casadas)
+            erros.append(f"a locução diz \"{trecho}\" ({'quase ' if modo == 'quase' else 'mais que ' if modo == 'mais' else ''}"
+                         f"×{fator:g}) mas a razão declarada é {rs}: reescreva com a proporção verdadeira")
+    return erros
+
+
+MES = re.compile(r"^(\d{4})-(0[1-9]|1[0-2])$")
+
+
+def conferir_tema(tema):
+    """Trava do catálogo: o `calculo` roda no calculo.py e o texto não promete o que o cálculo não comprova. → erros."""
+    erros = []
+    texto = " ".join(str(tema.get(k, "")) for k in ("titulo", "gancho", "resumo", "ideia"))
+    erros += conferir_texto(texto, "tema")
+    erros += [f"tema: \"{p[0]}\" é proporção que o cálculo ainda não comprovou (deixe para o roteiro)" for p in _proporcao(texto)]
+    c = tema.get("calculo")
+    if not isinstance(c, dict):
+        return erros + ["sem 'calculo'"]
+    ini, fim = c.get("inicio", ""), c.get("fim")
+    if not MES.match(str(ini)) or ini < "2000-01":
+        erros.append(f"calculo.inicio inválido: {ini!r}")
+    if fim is not None and (not MES.match(str(fim)) or fim <= str(ini)):
+        erros.append(f"calculo.fim inválido: {fim!r}")
+    cen = c.get("cenarios")
+    if not isinstance(cen, list) or not 1 <= len(cen) <= 3:
+        return erros + ["calculo.cenarios: de 1 a 3 cenários"]
+    for s in cen:
+        nome = s.get("nome", "?")
+        if s.get("tipo") not in ("aporte", "parado"):
+            erros.append(f"cenário {nome}: tipo tem que ser 'aporte' ou 'parado'")
+        if s.get("rende", "nada") not in ("cdi", "selic", "nada"):
+            erros.append(f"cenário {nome}: rende tem que ser 'cdi', 'selic' ou 'nada'")
+        if not isinstance(s.get("valor"), (int, float)) or s["valor"] <= 0:
+            erros.append(f"cenário {nome}: valor inválido")
+        de, ate = str(s.get("de", "")), str(s.get("ate", s.get("de", "")))
+        if not MES.match(de) or not MES.match(ate) or ate < de:
+            erros.append(f"cenário {nome}: meses inválidos ({de} → {ate})")
+        elif MES.match(str(ini)) and (de < ini or (fim and ate > fim)):
+            erros.append(f"cenário {nome}: meses fora do período")
     return erros

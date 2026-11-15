@@ -5,7 +5,7 @@ Use pelo atalho da raiz:  ./pipeline <comando> ...   (./pipeline -h para a lista
 import argparse, json, os, pathlib, re, shutil, subprocess, sys, unicodedata
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from dc import config, stages, tts  # noqa: E402
+from dc import config, dados, stages, tts  # noqa: E402
 from dc.catalog import Catalogo, agora  # noqa: E402
 from dc.llm import LLM, LLMError  # noqa: E402
 
@@ -54,6 +54,10 @@ def gerar_temas(nicho, n, ajustes="", ensaio=False):
         dup = cat.duplicado(t, llm)
         if dup:
             say(f"  ✗ repetido, ignorado: {t['titulo']}  (≈ {dup[0]['id']} {dup[0]['titulo']}: {dup[1]})")
+            continue
+        erros = dados.conferir_tema(t) if cfg.get("dados") and not ensaio else []
+        if erros:
+            say(f"  ✗ recusado: {t['titulo']}  ({'; '.join(erros[:3])})")
             continue
         t["slug"] = slugify(t.get("slug") or t["titulo"])
         novo = cat.adicionar(t)

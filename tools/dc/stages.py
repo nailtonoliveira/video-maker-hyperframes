@@ -156,10 +156,11 @@ def etapa_roteiro(v, ajustes=""):
                 raise ValueError(f"'formato' tem que ser um destes: {formatos}")
             if d["formato"] == anterior:
                 raise ValueError(f"formato '{anterior}' foi o do episódio anterior: escolha outro")
-        if not v.ensaio:
-            erros = dados.conferir_numeros(d, v.dir)
+        if not v.ensaio and v.cfg.get("dados"):
+            texto = " ".join([d.get("titulo", ""), d.get("titulo_tela", "")] + [c.get("locucao", "") for c in d.get("cenas", [])])
+            erros = dados.conferir_texto(texto, "roteiro") + dados.conferir_numeros(d, v.dir)
             if erros:
-                raise ValueError("números fora de dados/fatos.json: " + "; ".join(erros[:6]))
+                raise ValueError("trava de números/palavras: " + "; ".join(erros[:6]))
 
     d = v.llm.json("roteiro", p, criativo=True, pesquisa=True, validar=validar)
     v.write_json("roteiro.json", d)
