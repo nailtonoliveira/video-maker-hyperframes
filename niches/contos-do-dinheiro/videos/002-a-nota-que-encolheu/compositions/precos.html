@@ -1,0 +1,99 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #pr-svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <!-- 20,6–43,75 s · 2010→2025: o preço do mesmo carrinho sobe pelo IPCA real e a nota, parada na lata, encolhe na mesma proporção. -->
+  <div id="root" data-composition-id="precos" data-width="1080" data-height="1920">
+    <svg id="pr-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+      <g id="pr-cam"><g id="pr-mundo"></g></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const K = window.KIT, C = K.C, T0 = 20.6;
+      const t = (abs) => abs - T0;
+      // Preço, no fim de cada ano, do que custava R$ 100 em jan/2010 (IPCA, dados/calculo.py)
+      const P = { 2010: 105.91, 2011: 112.79, 2012: 119.39, 2013: 126.44, 2014: 134.54, 2015: 148.90, 2016: 158.26, 2017: 162.93,
+        2018: 169.03, 2019: 176.31, 2020: 184.26, 2021: 202.80, 2022: 214.54, 2023: 224.47, 2024: 235.30, 2025: 245.34 };
+      const ANOS = Object.keys(P).map(Number);
+      const PAG = [["JAN", "2010"], ...ANOS.map((a) => ["DEZ", String(a)])];
+      const S0 = 0.55; // tamanho da nota quando vale R$ 100
+      document.getElementById("pr-mundo").innerHTML = `
+        <rect x="0" y="0" width="1080" height="1920" fill="#fbe8c8"/>
+        <rect x="0" y="1120" width="1080" height="820" fill="#f1d3a1"/>
+        <g transform="translate(540,330)">${K.sign("pr-placa", [["O MESMO CARRINHO", 44], ["R$ 100", 120, C.ink, "pr-valor"]], { w: 760, post: 0 })}</g>
+        <g transform="translate(260,700) scale(0.85)">${K.product("pr-p1", "ARROZ", "#f4f1e8", { w: 170 })}</g>
+        <g transform="translate(440,700) scale(0.85)">${K.product("pr-p2", "FEIJÃO", "#9c6644", { w: 170 })}</g>
+        <g transform="translate(620,700) scale(0.85)">${K.product("pr-p3", "LEITE", "#e9f5fb", { w: 170, garrafa: true })}</g>
+        <g transform="translate(800,700) scale(0.85)">${K.product("pr-p4", "CAFÉ", "#6f4e37", { w: 170 })}</g>
+        <rect x="80" y="700" width="920" height="16" rx="8" fill="${C.trunk}" stroke="${C.ink}" stroke-width="4"/>
+        <g transform="translate(220,950)">${K.calendar("pr-cal", PAG)}</g>
+        <rect x="360" y="1120" width="660" height="26" rx="6" fill="${C.trunk}" stroke="${C.ink}" stroke-width="5"/>
+        <g transform="translate(690,1120) scale(1.3)">${K.tin("pr-lata", { corte: true })}</g>
+        <rect id="pr-fant" x="${690 - 220 * S0}" y="${955 - 110 * S0}" width="${440 * S0}" height="${220 * S0}" rx="10" fill="none" stroke="${C.ink}" stroke-width="4" stroke-dasharray="12 10" opacity=".55"/>
+        <rect id="pr-meio" x="${690 - 110 * S0}" y="${955 - 55 * S0}" width="${220 * S0}" height="${110 * S0}" rx="8" fill="none" stroke="${C.red}" stroke-width="5" stroke-dasharray="10 8"/>
+        <g transform="translate(690,955)">${K.note("pr-nota")}</g>
+        <g transform="translate(540,800)">${K.sign("pr-mes", [["+0,47% POR MÊS (MÉDIA)", 38]], { w: 560, nails: false })}</g>
+        <g transform="translate(770,470) rotate(-6)">${K.sign("pr-s15", [["2015: +10,7%", 52, "#fff"]], { w: 420, bg: C.red, nails: false })}</g>
+        <g transform="translate(770,470) rotate(5)">${K.sign("pr-s21", [["2021: +10,1%", 52, "#fff"]], { w: 420, bg: C.red, nails: false })}</g>
+        <g transform="translate(330,800)">${K.sign("pr-vale", [["VALE R$ 49", 48, C.red]], { w: 340, nails: false })}</g>`;
+
+      const tl = gsap.timeline({ paused: true });
+      gsap.set("#pr-nota-body", { scale: S0, transformOrigin: "50% 50%" });
+      tl.set("#pr-nota-body", { scale: S0, transformOrigin: "50% 50%" }, 0);
+      gsap.set(["#pr-mes", "#pr-s15", "#pr-s21", "#pr-vale", "#pr-meio"], { opacity: 0 });
+      tl.set(["#pr-mes", "#pr-s15", "#pr-s21", "#pr-vale", "#pr-meio"], { opacity: 0 }, 0);
+      tl.fromTo("#pr-cam", { scale: 1.08, svgOrigin: "540 700" }, { scale: 1, duration: 0.9, ease: "power2.out" }, 0);
+
+      // Um ano passa: página do calendário, preço do carrinho e tamanho da nota (S0 × 100 / preço) andam juntos.
+      let preco = 100;
+      function ano(a, ini, dur) {
+        K.page(tl, "pr-cal", PAG.length, ANOS.indexOf(a) + 1, ini);
+        K.counter(tl, "#pr-valor", preco, P[a], ini, dur);
+        tl.to("#pr-nota-body", { scale: S0 * 100 / P[a], duration: dur, ease: "none" }, ini);
+        preco = P[a];
+      }
+      // "Lá fora, os preços subiam. Quase todo mês, um pouquinho." → 2010 a 2014
+      [2010, 2011, 2012, 2013, 2014].forEach((a, i) => ano(a, t(21.8) + i * 1.38, 1.2));
+      tl.set("#pr-mes", { opacity: 1 }, t(24.6));
+      K.pop(tl, "#pr-mes-in", t(24.6));
+      tl.to("#pr-mes", { opacity: 0, duration: 0.2 }, t(28.5));
+      // "Ninguém reparava. Nem eu." → a nota dorme tranquila
+      tl.set("#pr-nota-olhos", { opacity: 0 }, t(26.9));
+      tl.set("#pr-nota-sono", { opacity: 1 }, t(26.9));
+      // 2015
+      ano(2015, t(29.9), 1.2);
+      tl.set("#pr-s15", { opacity: 1 }, t(31.04));
+      tl.fromTo("#pr-s15-in", { scale: 2.2, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.in" }, t(31.04));
+      tl.set("#pr-nota-olhos", { opacity: 1 }, t(31.3));
+      tl.set("#pr-nota-sono", { opacity: 0 }, t(31.3));
+      K.mouth(tl, "pr-nota", "open", t(31.3));
+      // "Eu continuava escrito cem." → aproxima na nota
+      tl.to("#pr-cam", { scale: 2.2, svgOrigin: "690 955", duration: 0.9, ease: "power2.inOut" }, t(32.8));
+      K.mouth(tl, "pr-nota", "flat", t(33.9));
+      tl.to("#pr-s15", { opacity: 0, duration: 0.2 }, t(34.0));
+      tl.to("#pr-cam", { scale: 1, duration: 0.6, ease: "power2.inOut" }, t(34.55));
+      // 2016–2020 voam, 2021 bate
+      [2016, 2017, 2018, 2019, 2020].forEach((a, i) => ano(a, t(34.9) + i * 0.18, 0.16));
+      ano(2021, t(35.9), 0.5);
+      tl.set("#pr-s21", { opacity: 1 }, t(36.1));
+      tl.fromTo("#pr-s21-in", { scale: 2.2, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.in" }, t(36.1));
+      // "E eu já valia... menos da metade." → aparece o contorno da metade; a nota já cabe dentro dele
+      tl.set("#pr-meio", { opacity: 1 }, t(37.6));
+      tl.fromTo("#pr-meio", { scale: 1.6, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, t(37.6));
+      tl.set("#pr-vale", { opacity: 1 }, t(38.7));
+      K.pop(tl, "#pr-vale-in", t(38.7));
+      K.mouth(tl, "pr-nota", "sad", t(38.9));
+      tl.to("#pr-s21", { opacity: 0, duration: 0.25 }, t(39.6));
+      tl.to("#pr-vale", { opacity: 0, duration: 0.25 }, t(40.4));
+      // "E eu ali. Dobrada. Quietinha. Achando que estava segura." → 2022 a 2025, devagar; ela dorme e sorri
+      [2022, 2023, 2024, 2025].forEach((a, i) => ano(a, t(39.9) + i * 0.8, 0.7));
+      tl.set("#pr-nota-olhos", { opacity: 0 }, t(41.48));
+      tl.set("#pr-nota-sono", { opacity: 1 }, t(41.48));
+      K.mouth(tl, "pr-nota", "smile", t(42.32));
+      tl.to("#pr-cam", { scale: 1.35, svgOrigin: "690 955", duration: 1.6, ease: "power1.inOut" }, t(42.0));
+      window.__timelines["precos"] = tl;
+    })();
+  </script>
+</template>

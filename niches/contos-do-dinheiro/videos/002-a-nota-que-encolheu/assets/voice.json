@@ -1,0 +1,1461 @@
+{
+  "idioma": "pt",
+  "probabilidade": 1,
+  "duracao": 79.936125,
+  "segmentos": [
+    {
+      "id": 1,
+      "inicio": 0.0,
+      "fim": 5.0,
+      "texto": "Eu valia R$ 100, hoje vale o R$ 41, e ninguém nunca me gastou.",
+      "palavras": [
+        {
+          "palavra": "Eu",
+          "inicio": 0.0,
+          "fim": 0.22,
+          "probabilidade": 0.826
+        },
+        {
+          "palavra": "valia",
+          "inicio": 0.22,
+          "fim": 0.58,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "R",
+          "inicio": 0.58,
+          "fim": 0.82,
+          "probabilidade": 0.574
+        },
+        {
+          "palavra": "$",
+          "inicio": 0.82,
+          "fim": 0.82,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "100,",
+          "inicio": 0.82,
+          "fim": 0.84,
+          "probabilidade": 0.707
+        },
+        {
+          "palavra": "hoje",
+          "inicio": 1.2,
+          "fim": 1.78,
+          "probabilidade": 0.965
+        },
+        {
+          "palavra": "vale",
+          "inicio": 1.78,
+          "fim": 2.1,
+          "probabilidade": 0.799
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.1,
+          "fim": 2.34,
+          "probabilidade": 0.313
+        },
+        {
+          "palavra": "R",
+          "inicio": 2.34,
+          "fim": 2.58,
+          "probabilidade": 0.918
+        },
+        {
+          "palavra": "$",
+          "inicio": 2.58,
+          "fim": 2.74,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "41,",
+          "inicio": 2.74,
+          "fim": 2.86,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.2,
+          "fim": 3.6,
+          "probabilidade": 0.779
+        },
+        {
+          "palavra": "ninguém",
+          "inicio": 3.6,
+          "fim": 3.88,
+          "probabilidade": 0.974
+        },
+        {
+          "palavra": "nunca",
+          "inicio": 3.88,
+          "fim": 4.4,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "me",
+          "inicio": 4.4,
+          "fim": 4.6,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "gastou.",
+          "inicio": 4.6,
+          "fim": 5.0,
+          "probabilidade": 0.997
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "inicio": 5.7,
+      "fim": 11.18,
+      "texto": "Eu sou uma nota de R$ 100. Em janeiro de 2010, o seu Joaquim me dobrou em 4 e me guardou",
+      "palavras": [
+        {
+          "palavra": "Eu",
+          "inicio": 5.7,
+          "fim": 5.96,
+          "probabilidade": 0.958
+        },
+        {
+          "palavra": "sou",
+          "inicio": 5.96,
+          "fim": 6.14,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "uma",
+          "inicio": 6.14,
+          "fim": 6.3,
+          "probabilidade": 0.962
+        },
+        {
+          "palavra": "nota",
+          "inicio": 6.3,
+          "fim": 6.52,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.52,
+          "fim": 6.68,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "R",
+          "inicio": 6.68,
+          "fim": 6.78,
+          "probabilidade": 0.55
+        },
+        {
+          "palavra": "$",
+          "inicio": 6.78,
+          "fim": 6.78,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "100.",
+          "inicio": 6.78,
+          "fim": 6.92,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "Em",
+          "inicio": 7.44,
+          "fim": 7.64,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "janeiro",
+          "inicio": 7.64,
+          "fim": 7.98,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "de",
+          "inicio": 7.98,
+          "fim": 8.08,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "2010,",
+          "inicio": 8.08,
+          "fim": 8.58,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "o",
+          "inicio": 9.0,
+          "fim": 9.04,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "seu",
+          "inicio": 9.04,
+          "fim": 9.16,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "Joaquim",
+          "inicio": 9.16,
+          "fim": 9.56,
+          "probabilidade": 0.951
+        },
+        {
+          "palavra": "me",
+          "inicio": 9.56,
+          "fim": 9.72,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "dobrou",
+          "inicio": 9.72,
+          "fim": 10.02,
+          "probabilidade": 0.947
+        },
+        {
+          "palavra": "em",
+          "inicio": 10.02,
+          "fim": 10.14,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "4",
+          "inicio": 10.14,
+          "fim": 10.44,
+          "probabilidade": 0.626
+        },
+        {
+          "palavra": "e",
+          "inicio": 10.44,
+          "fim": 10.78,
+          "probabilidade": 0.67
+        },
+        {
+          "palavra": "me",
+          "inicio": 10.78,
+          "fim": 10.86,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "guardou",
+          "inicio": 10.86,
+          "fim": 11.18,
+          "probabilidade": 0.993
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "inicio": 11.18,
+      "fim": 17.44,
+      "texto": "numa lata de biscoito. No envelope, ele escreveu, Pra Lia, nos 18 anos. A Lia tinha 2 anos.",
+      "palavras": [
+        {
+          "palavra": "numa",
+          "inicio": 11.18,
+          "fim": 11.34,
+          "probabilidade": 0.82
+        },
+        {
+          "palavra": "lata",
+          "inicio": 11.34,
+          "fim": 11.6,
+          "probabilidade": 0.924
+        },
+        {
+          "palavra": "de",
+          "inicio": 11.6,
+          "fim": 11.72,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "biscoito.",
+          "inicio": 11.72,
+          "fim": 12.2,
+          "probabilidade": 0.978
+        },
+        {
+          "palavra": "No",
+          "inicio": 12.6,
+          "fim": 12.76,
+          "probabilidade": 0.952
+        },
+        {
+          "palavra": "envelope,",
+          "inicio": 12.76,
+          "fim": 13.04,
+          "probabilidade": 0.755
+        },
+        {
+          "palavra": "ele",
+          "inicio": 13.38,
+          "fim": 13.48,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "escreveu,",
+          "inicio": 13.48,
+          "fim": 14.0,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "Pra",
+          "inicio": 14.28,
+          "fim": 14.36,
+          "probabilidade": 0.05
+        },
+        {
+          "palavra": "Lia,",
+          "inicio": 14.36,
+          "fim": 14.62,
+          "probabilidade": 0.727
+        },
+        {
+          "palavra": "nos",
+          "inicio": 14.88,
+          "fim": 14.96,
+          "probabilidade": 0.919
+        },
+        {
+          "palavra": "18",
+          "inicio": 14.96,
+          "fim": 15.4,
+          "probabilidade": 0.963
+        },
+        {
+          "palavra": "anos.",
+          "inicio": 15.4,
+          "fim": 15.7,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "A",
+          "inicio": 16.36,
+          "fim": 16.5,
+          "probabilidade": 0.895
+        },
+        {
+          "palavra": "Lia",
+          "inicio": 16.5,
+          "fim": 16.64,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "tinha",
+          "inicio": 16.64,
+          "fim": 16.84,
+          "probabilidade": 0.968
+        },
+        {
+          "palavra": "2",
+          "inicio": 16.84,
+          "fim": 17.18,
+          "probabilidade": 0.815
+        },
+        {
+          "palavra": "anos.",
+          "inicio": 17.18,
+          "fim": 17.44,
+          "probabilidade": 0.998
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "inicio": 18.26,
+      "fim": 23.18,
+      "texto": "Eu era o dinheiro mais bem guardado da casa. Lá fora, os preços subiam. Quase todo",
+      "palavras": [
+        {
+          "palavra": "Eu",
+          "inicio": 18.26,
+          "fim": 18.44,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "era",
+          "inicio": 18.44,
+          "fim": 18.6,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "o",
+          "inicio": 18.6,
+          "fim": 18.66,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "dinheiro",
+          "inicio": 18.66,
+          "fim": 18.86,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "mais",
+          "inicio": 18.86,
+          "fim": 19.28,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "bem",
+          "inicio": 19.28,
+          "fim": 19.52,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "guardado",
+          "inicio": 19.52,
+          "fim": 19.98,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "da",
+          "inicio": 19.98,
+          "fim": 20.14,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "casa.",
+          "inicio": 20.14,
+          "fim": 20.38,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "Lá",
+          "inicio": 20.78,
+          "fim": 20.94,
+          "probabilidade": 0.84
+        },
+        {
+          "palavra": "fora,",
+          "inicio": 20.94,
+          "fim": 21.18,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "os",
+          "inicio": 21.48,
+          "fim": 21.56,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "preços",
+          "inicio": 21.56,
+          "fim": 21.82,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "subiam.",
+          "inicio": 21.82,
+          "fim": 22.24,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "Quase",
+          "inicio": 22.68,
+          "fim": 23.0,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "todo",
+          "inicio": 23.0,
+          "fim": 23.18,
+          "probabilidade": 0.997
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "inicio": 23.18,
+      "fim": 27.68,
+      "texto": "mês, um pouquinho. Quase meio por cento por mês em média. Ninguém reparava,",
+      "palavras": [
+        {
+          "palavra": "mês,",
+          "inicio": 23.18,
+          "fim": 23.46,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "um",
+          "inicio": 23.76,
+          "fim": 23.86,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "pouquinho.",
+          "inicio": 23.86,
+          "fim": 24.12,
+          "probabilidade": 0.975
+        },
+        {
+          "palavra": "Quase",
+          "inicio": 24.6,
+          "fim": 24.84,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "meio",
+          "inicio": 24.84,
+          "fim": 25.1,
+          "probabilidade": 0.655
+        },
+        {
+          "palavra": "por",
+          "inicio": 25.1,
+          "fim": 25.3,
+          "probabilidade": 0.945
+        },
+        {
+          "palavra": "cento",
+          "inicio": 25.3,
+          "fim": 25.6,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "por",
+          "inicio": 25.6,
+          "fim": 25.78,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "mês",
+          "inicio": 25.78,
+          "fim": 25.98,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "em",
+          "inicio": 25.98,
+          "fim": 26.1,
+          "probabilidade": 0.913
+        },
+        {
+          "palavra": "média.",
+          "inicio": 26.1,
+          "fim": 26.34,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "Ninguém",
+          "inicio": 26.78,
+          "fim": 27.08,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "reparava,",
+          "inicio": 27.08,
+          "fim": 27.68,
+          "probabilidade": 0.971
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "inicio": 27.68,
+      "fim": 34.24,
+      "texto": "nem eu. Em 2015, os preços subiram mais de 10% num ano só. Eu continuava escrito 100.",
+      "palavras": [
+        {
+          "palavra": "nem",
+          "inicio": 27.68,
+          "fim": 28.06,
+          "probabilidade": 0.3
+        },
+        {
+          "palavra": "eu.",
+          "inicio": 28.06,
+          "fim": 28.3,
+          "probabilidade": 0.984
+        },
+        {
+          "palavra": "Em",
+          "inicio": 28.68,
+          "fim": 28.92,
+          "probabilidade": 0.97
+        },
+        {
+          "palavra": "2015,",
+          "inicio": 28.92,
+          "fim": 29.5,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "os",
+          "inicio": 29.88,
+          "fim": 30.0,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "preços",
+          "inicio": 30.0,
+          "fim": 30.28,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "subiram",
+          "inicio": 30.28,
+          "fim": 30.68,
+          "probabilidade": 0.922
+        },
+        {
+          "palavra": "mais",
+          "inicio": 30.68,
+          "fim": 30.9,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "de",
+          "inicio": 30.9,
+          "fim": 31.04,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "10",
+          "inicio": 31.04,
+          "fim": 31.28,
+          "probabilidade": 0.958
+        },
+        {
+          "palavra": "%",
+          "inicio": 31.28,
+          "fim": 31.7,
+          "probabilidade": 0.97
+        },
+        {
+          "palavra": "num",
+          "inicio": 31.7,
+          "fim": 31.9,
+          "probabilidade": 0.862
+        },
+        {
+          "palavra": "ano",
+          "inicio": 31.9,
+          "fim": 32.12,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "só.",
+          "inicio": 32.12,
+          "fim": 32.36,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "Eu",
+          "inicio": 32.86,
+          "fim": 33.1,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "continuava",
+          "inicio": 33.1,
+          "fim": 33.6,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "escrito",
+          "inicio": 33.6,
+          "fim": 33.88,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "100.",
+          "inicio": 33.88,
+          "fim": 34.24,
+          "probabilidade": 0.824
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "inicio": 34.68,
+      "fim": 41.98,
+      "texto": "Em 2021, mais 10%. E eu já valia menos da metade. E eu ali, dobrada, quietinha,",
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 34.68,
+          "fim": 34.86,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "2021,",
+          "inicio": 34.86,
+          "fim": 35.48,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "mais",
+          "inicio": 35.9,
+          "fim": 36.08,
+          "probabilidade": 0.896
+        },
+        {
+          "palavra": "10%.",
+          "inicio": 36.08,
+          "fim": 37.04,
+          "probabilidade": 0.901
+        },
+        {
+          "palavra": "E",
+          "inicio": 37.04,
+          "fim": 37.52,
+          "probabilidade": 0.774
+        },
+        {
+          "palavra": "eu",
+          "inicio": 37.52,
+          "fim": 37.62,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "já",
+          "inicio": 37.62,
+          "fim": 37.74,
+          "probabilidade": 0.858
+        },
+        {
+          "palavra": "valia",
+          "inicio": 37.74,
+          "fim": 38.12,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "menos",
+          "inicio": 38.12,
+          "fim": 38.76,
+          "probabilidade": 0.785
+        },
+        {
+          "palavra": "da",
+          "inicio": 38.76,
+          "fim": 38.98,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "metade.",
+          "inicio": 38.98,
+          "fim": 39.38,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "E",
+          "inicio": 39.78,
+          "fim": 40.0,
+          "probabilidade": 0.952
+        },
+        {
+          "palavra": "eu",
+          "inicio": 40.0,
+          "fim": 40.14,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "ali,",
+          "inicio": 40.14,
+          "fim": 40.34,
+          "probabilidade": 0.905
+        },
+        {
+          "palavra": "dobrada,",
+          "inicio": 40.68,
+          "fim": 41.12,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "quietinha,",
+          "inicio": 41.48,
+          "fim": 41.98,
+          "probabilidade": 0.991
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "inicio": 42.32,
+      "fim": 48.26,
+      "texto": "achando que estava segura. Em dezembro de 2025, a Lia fez 18 anos. O voo abriu a lata.",
+      "palavras": [
+        {
+          "palavra": "achando",
+          "inicio": 42.32,
+          "fim": 42.66,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "que",
+          "inicio": 42.66,
+          "fim": 42.8,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "estava",
+          "inicio": 42.8,
+          "fim": 43.02,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "segura.",
+          "inicio": 43.02,
+          "fim": 43.42,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "Em",
+          "inicio": 43.92,
+          "fim": 44.08,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "dezembro",
+          "inicio": 44.08,
+          "fim": 44.46,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "de",
+          "inicio": 44.46,
+          "fim": 44.6,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "2025,",
+          "inicio": 44.6,
+          "fim": 45.38,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "a",
+          "inicio": 45.88,
+          "fim": 45.9,
+          "probabilidade": 0.29
+        },
+        {
+          "palavra": "Lia",
+          "inicio": 45.9,
+          "fim": 45.98,
+          "probabilidade": 0.404
+        },
+        {
+          "palavra": "fez",
+          "inicio": 45.98,
+          "fim": 46.22,
+          "probabilidade": 1.0
+        },
+        {
+          "palavra": "18",
+          "inicio": 46.22,
+          "fim": 46.62,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "anos.",
+          "inicio": 46.62,
+          "fim": 46.9,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "O",
+          "inicio": 47.34,
+          "fim": 47.48,
+          "probabilidade": 0.984
+        },
+        {
+          "palavra": "voo",
+          "inicio": 47.48,
+          "fim": 47.64,
+          "probabilidade": 0.892
+        },
+        {
+          "palavra": "abriu",
+          "inicio": 47.64,
+          "fim": 47.96,
+          "probabilidade": 0.943
+        },
+        {
+          "palavra": "a",
+          "inicio": 47.96,
+          "fim": 48.02,
+          "probabilidade": 0.957
+        },
+        {
+          "palavra": "lata.",
+          "inicio": 48.02,
+          "fim": 48.26,
+          "probabilidade": 0.966
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "inicio": 48.96,
+      "fim": 55.1,
+      "texto": "R$ 100 minha neta, guardei pra você. A Lia sorriu e me levou ao mercado. Foi lá que eu entendi.",
+      "palavras": [
+        {
+          "palavra": "R",
+          "inicio": 48.96,
+          "fim": 49.12,
+          "probabilidade": 0.027
+        },
+        {
+          "palavra": "$",
+          "inicio": 49.12,
+          "fim": 49.12,
+          "probabilidade": 0.959
+        },
+        {
+          "palavra": "100",
+          "inicio": 49.12,
+          "fim": 49.2,
+          "probabilidade": 0.828
+        },
+        {
+          "palavra": "minha",
+          "inicio": 49.2,
+          "fim": 49.7,
+          "probabilidade": 0.459
+        },
+        {
+          "palavra": "neta,",
+          "inicio": 49.7,
+          "fim": 50.04,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "guardei",
+          "inicio": 50.28,
+          "fim": 50.6,
+          "probabilidade": 0.917
+        },
+        {
+          "palavra": "pra",
+          "inicio": 50.6,
+          "fim": 50.72,
+          "probabilidade": 0.832
+        },
+        {
+          "palavra": "você.",
+          "inicio": 50.72,
+          "fim": 51.0,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "A",
+          "inicio": 51.58,
+          "fim": 51.8,
+          "probabilidade": 0.878
+        },
+        {
+          "palavra": "Lia",
+          "inicio": 51.8,
+          "fim": 51.88,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "sorriu",
+          "inicio": 51.88,
+          "fim": 52.4,
+          "probabilidade": 0.896
+        },
+        {
+          "palavra": "e",
+          "inicio": 52.4,
+          "fim": 52.66,
+          "probabilidade": 0.69
+        },
+        {
+          "palavra": "me",
+          "inicio": 52.66,
+          "fim": 52.76,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "levou",
+          "inicio": 52.76,
+          "fim": 53.04,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "ao",
+          "inicio": 53.04,
+          "fim": 53.16,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "mercado.",
+          "inicio": 53.16,
+          "fim": 53.42,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "Foi",
+          "inicio": 54.1,
+          "fim": 54.36,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "lá",
+          "inicio": 54.36,
+          "fim": 54.58,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "que",
+          "inicio": 54.58,
+          "fim": 54.7,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "eu",
+          "inicio": 54.7,
+          "fim": 54.78,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "entendi.",
+          "inicio": 54.78,
+          "fim": 55.1,
+          "probabilidade": 0.917
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "inicio": 55.1,
+      "fim": 62.16,
+      "texto": "As mesmas coisas que eu pagava em 2010, agora custavam R$ 245. Eu continuava escrito 100.",
+      "palavras": [
+        {
+          "palavra": "As",
+          "inicio": 55.1,
+          "fim": 55.86,
+          "probabilidade": 0.235
+        },
+        {
+          "palavra": "mesmas",
+          "inicio": 55.86,
+          "fim": 56.18,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "coisas",
+          "inicio": 56.18,
+          "fim": 56.48,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "que",
+          "inicio": 56.48,
+          "fim": 56.7,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "eu",
+          "inicio": 56.7,
+          "fim": 56.76,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "pagava",
+          "inicio": 56.76,
+          "fim": 57.12,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "em",
+          "inicio": 57.12,
+          "fim": 57.22,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "2010,",
+          "inicio": 57.22,
+          "fim": 57.76,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "agora",
+          "inicio": 58.18,
+          "fim": 58.42,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "custavam",
+          "inicio": 58.42,
+          "fim": 58.9,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "R",
+          "inicio": 58.9,
+          "fim": 59.06,
+          "probabilidade": 0.284
+        },
+        {
+          "palavra": "$",
+          "inicio": 59.06,
+          "fim": 59.06,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "245.",
+          "inicio": 59.06,
+          "fim": 60.14,
+          "probabilidade": 0.697
+        },
+        {
+          "palavra": "Eu",
+          "inicio": 60.42,
+          "fim": 60.98,
+          "probabilidade": 0.948
+        },
+        {
+          "palavra": "continuava",
+          "inicio": 60.98,
+          "fim": 61.5,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "escrito",
+          "inicio": 61.5,
+          "fim": 61.8,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "100.",
+          "inicio": 61.8,
+          "fim": 62.16,
+          "probabilidade": 0.868
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "inicio": 62.62,
+      "fim": 68.84,
+      "texto": "Mas por dentro, eu valia R$ 41. Ninguém me roubou. Ninguém me gastou. Os preços me comeram,",
+      "palavras": [
+        {
+          "palavra": "Mas",
+          "inicio": 62.62,
+          "fim": 62.78,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "por",
+          "inicio": 62.78,
+          "fim": 62.96,
+          "probabilidade": 0.942
+        },
+        {
+          "palavra": "dentro,",
+          "inicio": 62.96,
+          "fim": 63.26,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "eu",
+          "inicio": 63.54,
+          "fim": 63.62,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "valia",
+          "inicio": 63.62,
+          "fim": 63.94,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "R",
+          "inicio": 63.94,
+          "fim": 64.22,
+          "probabilidade": 0.852
+        },
+        {
+          "palavra": "$",
+          "inicio": 64.22,
+          "fim": 64.56,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "41.",
+          "inicio": 64.56,
+          "fim": 64.56,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "Ninguém",
+          "inicio": 65.2,
+          "fim": 65.58,
+          "probabilidade": 0.956
+        },
+        {
+          "palavra": "me",
+          "inicio": 65.58,
+          "fim": 65.76,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "roubou.",
+          "inicio": 65.76,
+          "fim": 66.08,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "Ninguém",
+          "inicio": 66.48,
+          "fim": 66.76,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "me",
+          "inicio": 66.76,
+          "fim": 66.92,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "gastou.",
+          "inicio": 66.92,
+          "fim": 67.3,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "Os",
+          "inicio": 67.82,
+          "fim": 68.0,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "preços",
+          "inicio": 68.0,
+          "fim": 68.26,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "me",
+          "inicio": 68.26,
+          "fim": 68.42,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "comeram,",
+          "inicio": 68.42,
+          "fim": 68.84,
+          "probabilidade": 0.986
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "inicio": 69.0,
+      "fim": 74.78,
+      "texto": "um pedacinho por mês. Dinheiro parado não fica parado. Ele encolhe. Ontem, a Lia ganhou outra",
+      "palavras": [
+        {
+          "palavra": "um",
+          "inicio": 69.0,
+          "fim": 69.1,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "pedacinho",
+          "inicio": 69.1,
+          "fim": 69.56,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "por",
+          "inicio": 69.56,
+          "fim": 69.74,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "mês.",
+          "inicio": 69.74,
+          "fim": 69.94,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "Dinheiro",
+          "inicio": 70.38,
+          "fim": 70.72,
+          "probabilidade": 0.821
+        },
+        {
+          "palavra": "parado",
+          "inicio": 70.72,
+          "fim": 71.1,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "não",
+          "inicio": 71.1,
+          "fim": 71.22,
+          "probabilidade": 0.934
+        },
+        {
+          "palavra": "fica",
+          "inicio": 71.22,
+          "fim": 71.46,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "parado.",
+          "inicio": 71.46,
+          "fim": 71.92,
+          "probabilidade": 1.0
+        },
+        {
+          "palavra": "Ele",
+          "inicio": 72.16,
+          "fim": 72.32,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "encolhe.",
+          "inicio": 72.32,
+          "fim": 72.82,
+          "probabilidade": 0.792
+        },
+        {
+          "palavra": "Ontem,",
+          "inicio": 73.32,
+          "fim": 73.7,
+          "probabilidade": 0.984
+        },
+        {
+          "palavra": "a",
+          "inicio": 73.96,
+          "fim": 74.04,
+          "probabilidade": 0.204
+        },
+        {
+          "palavra": "Lia",
+          "inicio": 74.04,
+          "fim": 74.16,
+          "probabilidade": 0.673
+        },
+        {
+          "palavra": "ganhou",
+          "inicio": 74.16,
+          "fim": 74.48,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "outra",
+          "inicio": 74.48,
+          "fim": 74.78,
+          "probabilidade": 0.997
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "inicio": 74.78,
+      "fim": 79.82,
+      "texto": "nota de 100. E já estava procurando uma lata. Eu queria avisar, mas nota não fala.",
+      "palavras": [
+        {
+          "palavra": "nota",
+          "inicio": 74.78,
+          "fim": 75.06,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "de",
+          "inicio": 75.06,
+          "fim": 75.2,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "100.",
+          "inicio": 75.2,
+          "fim": 75.42,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "E",
+          "inicio": 75.94,
+          "fim": 76.08,
+          "probabilidade": 0.947
+        },
+        {
+          "palavra": "já",
+          "inicio": 76.08,
+          "fim": 76.22,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "estava",
+          "inicio": 76.22,
+          "fim": 76.48,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "procurando",
+          "inicio": 76.48,
+          "fim": 76.98,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "uma",
+          "inicio": 76.98,
+          "fim": 77.1,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "lata.",
+          "inicio": 77.1,
+          "fim": 77.38,
+          "probabilidade": 0.963
+        },
+        {
+          "palavra": "Eu",
+          "inicio": 77.98,
+          "fim": 78.12,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "queria",
+          "inicio": 78.12,
+          "fim": 78.36,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "avisar,",
+          "inicio": 78.36,
+          "fim": 78.86,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "mas",
+          "inicio": 79.04,
+          "fim": 79.2,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "nota",
+          "inicio": 79.2,
+          "fim": 79.48,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "não",
+          "inicio": 79.48,
+          "fim": 79.62,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "fala.",
+          "inicio": 79.62,
+          "fim": 79.82,
+          "probabilidade": 0.998
+        }
+      ]
+    }
+  ]
+}

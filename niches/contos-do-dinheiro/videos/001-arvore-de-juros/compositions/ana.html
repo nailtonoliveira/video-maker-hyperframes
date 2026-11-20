@@ -1,0 +1,100 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #an-svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <!-- 24,55–48,75 s · A Ana planta todo mês desde jan/2010; vizinhos riem; seis anos depois ela para (R$ 14.400). -->
+  <div id="root" data-composition-id="ana" data-width="1080" data-height="1920">
+    <svg id="an-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+      <g id="an-cam"><g id="an-mundo"></g></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const K = window.KIT, C = K.C, T0 = 24.55;
+      const t = (abs) => abs - T0; // a narração está em tempo absoluto; a cena conta do zero
+      const PAG = [["JAN", "2010"], ["FEV", "2010"], ["MAR", "2010"], ["ABR", "2010"], ["DEZ", "2011"], ["DEZ", "2012"], ["DEZ", "2013"], ["DEZ", "2014"], ["DEZ", "2015"]];
+      document.getElementById("an-mundo").innerHTML = `${K.sky("an-sky", "skyDay")}
+        ${K.cloud("an-n1", 760, 250, 0.8)}
+        ${K.hills("an-hills", 1000)}
+        ${K.ground("an-chao", 1150)}
+        <g transform="translate(-80,1150)">${K.house("an-casa", { w: 520, h: 430, wall: "#f4d58d", roof: "#c8553d" })}</g>
+        <g transform="translate(300,900)">${K.calendar("an-cal", PAG)}</g>
+        <g transform="translate(900,1150)">${K.person("an-viz1", K.ELENCO.vizinho)}</g>
+        <g transform="translate(1030,1150)">${K.person("an-viz2", K.ELENCO.vizinha)}</g>
+        ${K.fence("an-cerca", 880, 1080, 1150)}
+        <g transform="translate(760,1150)">${K.tree("an-tree", 6)}</g>
+        <g transform="translate(470,1150)">${K.stroller("an-bebe")}</g>
+        <g transform="translate(560,1150)">${K.person("an-ana", K.ELENCO.ana)}</g>
+        <g id="an-moeda" transform="translate(668,990)">${K.coin("an-moeda-in", 22)}</g>
+        <g transform="translate(760,330)">${K.sign("an-placa", [["ANA JÁ PLANTOU", 36], ["R$ 0", 72, C.ink, "an-valor"]], { w: 470 })}</g>
+        <g transform="translate(830,440) rotate(-8)">${K.sign("an-carimbo", [["PAROU EM 2015", 40, "#fff"]], { w: 380, bg: C.red, nails: false })}</g>
+        <g transform="translate(560,640)">${K.bubble("an-fala", [["HA HA HA!", 64]], { w: 420, h: 130, tx: 300, ty: 210 })}</g>`;
+
+      const tl = gsap.timeline({ paused: true });
+      tl.set(["#an-bebe", "#an-moeda", "#an-carimbo", "#an-fala"], { opacity: 0 }, 0);
+      tl.set(["#an-viz1", "#an-viz2"], { y: 300, opacity: 0 }, 0);
+      for (let i = 0; i < 6; i++) tl.set(`#an-tree-f${i}`, { opacity: 0 }, 0);
+      tl.fromTo("#an-cam", { scale: 1.12, svgOrigin: "560 1100" }, { scale: 1, duration: 1.2, ease: "power2.out" }, 0);
+      tl.fromTo("#an-tree-grow", { scale: 0.1, transformOrigin: "50% 100%" }, { scale: 0.1, duration: 0.01 }, 0);
+      K.idle(tl, "an-ana", 0.2, t(28.6));
+
+      // Plantar: braço à frente, a moeda cai ao pé da árvore, a árvore cresce um pouco, a placa soma.
+      let tam = 0.1, val = 0;
+      function planta(abs, valor, novoTam) {
+        const s = t(abs);
+        tl.fromTo("#an-ana-armR", { rotation: 0, transformOrigin: "50% 0%" }, { rotation: -62, duration: 0.25, ease: "power2.out", immediateRender: false }, s - 0.3);
+        tl.set("#an-moeda", { opacity: 1 }, s - 0.05);
+        tl.fromTo("#an-moeda-in", { x: 0, y: 0, scale: 1 }, { x: 40, y: 150, scale: 0.8, duration: 0.3, ease: "power2.in", immediateRender: false }, s - 0.05);
+        tl.set("#an-moeda", { opacity: 0 }, s + 0.27);
+        tl.to("#an-ana-armR", { rotation: 0, duration: 0.3, ease: "power2.inOut" }, s + 0.2);
+        tl.fromTo("#an-tree-grow", { scale: tam }, { scale: novoTam, duration: 0.35, ease: "back.out(2)", immediateRender: false }, s + 0.25);
+        K.counter(tl, "#an-valor", val, valor, s + 0.25, 0.15);
+        tl.fromTo("#an-placa-in", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, s + 0.25);
+        tam = novoTam; val = valor;
+      }
+      planta(29.05, 200, 0.14);
+      K.page(tl, "an-cal", PAG.length, 1, t(30.9));
+      planta(32.05, 400, 0.17);
+      K.page(tl, "an-cal", PAG.length, 2, t(33.4));
+      planta(33.85, 600, 0.2);
+      K.page(tl, "an-cal", PAG.length, 3, t(34.5));
+      planta(34.95, 800, 0.23);
+
+      // Vizinhos riem por cima da cerca
+      tl.fromTo("#an-viz1", { y: 300, opacity: 1 }, { y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t(35.3));
+      tl.fromTo("#an-viz2", { y: 300, opacity: 1 }, { y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t(35.45));
+      K.mouth(tl, "an-viz1", "open", t(35.7));
+      K.mouth(tl, "an-viz2", "open", t(35.8));
+      for (let i = 0; i < 6; i++) {
+        tl.fromTo("#an-viz1-head", { rotation: 0, transformOrigin: "50% 100%" }, { rotation: -10, duration: 0.14, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t(35.75) + i * 0.4);
+        tl.fromTo("#an-viz2-head", { rotation: 0, transformOrigin: "50% 100%" }, { rotation: 9, duration: 0.15, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t(35.95) + i * 0.42);
+      }
+      tl.set("#an-fala", { opacity: 1 }, t(36.95));
+      K.pop(tl, "#an-fala-in", t(36.95), { dur: 0.3 });
+      K.mouth(tl, "an-ana", "flat", t(37.3));
+      tl.to("#an-fala", { opacity: 0, duration: 0.15 }, t(38.6));
+      tl.to(["#an-viz1", "#an-viz2"], { y: 300, opacity: 0, duration: 0.3, ease: "power2.in" }, t(38.7));
+
+      // Seis anos depois: calendário voa até dez/2015, a árvore cresce, a placa corre até R$ 14.400
+      [4, 5, 6, 7, 8].forEach((p, i) => K.page(tl, "an-cal", PAG.length, p, t(38.95) + i * 0.15));
+      tl.fromTo("#an-tree-grow", { scale: 0.23 }, { scale: 0.62, duration: 0.9, ease: "power2.out", immediateRender: false }, t(38.95));
+      K.counter(tl, "#an-valor", 800, 14400, t(38.95), 0.8);
+      [0, 1, 2, 3, 4, 5].forEach((i) => tl.fromTo(`#an-tree-f${i}`, { scale: 0, opacity: 1, transformOrigin: "50% 50%" },
+        { scale: 1.4, duration: 0.25, ease: "back.out(3)", immediateRender: false }, t(39.5) + i * 0.08));
+      K.mouth(tl, "an-ana", "smile", t(39.0));
+      // A filha
+      tl.set("#an-bebe", { opacity: 1 }, t(41.0));
+      K.pop(tl, "#an-bebe-in", t(41.0), { origin: "50% 100%" });
+      // Parou de plantar: a Ana vira para o carrinho, o carimbo bate
+      tl.fromTo("#an-ana-body", { scaleX: 1, transformOrigin: "50% 100%" }, { scaleX: -1, duration: 0.18, ease: "power2.inOut", immediateRender: false }, t(42.1));
+      tl.set("#an-carimbo", { opacity: 1 }, t(43.55));
+      tl.fromTo("#an-carimbo-in", { scale: 2.2, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.in" }, t(43.55));
+      // R$ 14.400
+      tl.fromTo("#an-cam", { scale: 1, svgOrigin: "760 400" }, { scale: 1.25, duration: 1.8, ease: "power2.inOut", immediateRender: false }, t(45.6));
+      tl.fromTo("#an-placa-in", { scale: 1 }, { scale: 1.15, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, t(46.6));
+
+      window.__timelines["ana"] = tl;
+    })();
+  </script>
+</template>

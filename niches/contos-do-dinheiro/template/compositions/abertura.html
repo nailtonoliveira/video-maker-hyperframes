@@ -1,0 +1,51 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #ab-svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <!-- EXEMPLO DO TEMPLATE (apague e escreva as cenas do episódio). 0–12 s · Gancho na rua: palco pronto (K.palco.rua),
+       dois atores na câmera perto, placa com número na faixa LIVRE, contador, empurrão de câmera e ambiente rodando. -->
+  <div id="root" data-composition-id="abertura" data-width="1080" data-height="1920">
+    <svg id="ab-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+      <g id="ab-cam"><g id="ab-mundo"></g></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const K = window.KIT, C = K.C, T0 = 0;
+      const t = (abs) => abs - T0; // agende tudo no tempo ABSOLUTO da narração (assets/voice.json)
+      const DUR = 12;
+
+      // 1) Palco pronto: fundo + móveis + atores + primeiro plano (nesta ordem). Nada de chão vazio: o palco já enche a tela.
+      const P = K.palco.rua("ab", { casas: [{ cor: "#f4d58d", telhado: "#c8553d", num: 12 }, { cor: "#a8c5e2", telhado: "#3d5a80", num: 14 }] });
+      const L = K.PALCO.LIVRE; // placas, calendários e números: x 160–920, y 170–740
+      document.getElementById("ab-mundo").innerHTML = P.fundo + P.moveis
+        + K.ator("ab-ana", "ana", P.vagas.esq)
+        + K.ator("ab-bruno", "bruno", P.vagas.dir, { pessoa: { boca: "flat" } })
+        + `<g transform="translate(540,330)">${K.sign("ab-placa", [["O MESMO AUMENTO", 44], ["R$ 300", 110, C.red, "ab-valor"]], { w: 620 })}</g>`
+        + `<g transform="translate(540,600) rotate(-4)">${K.stamp("ab-selo", "TODO MÊS", { fs: 52, bg: C.paper })}</g>`
+        + P.frente;
+
+      const tl = gsap.timeline({ paused: true });
+      const ini = (sel, v) => { gsap.set(sel, v); tl.set(sel, v, 0); }; // estado inicial nos dois: seguro para buscar quadros
+      ini(["#ab-selo"], { opacity: 0 });
+      K.pose(tl, "#ab-bruno-armL", 0);      // braços giram por atributo: declare a pose inicial
+      P.ambiente(tl, T0, 0, DUR);            // carro, nuvens, passarinhos: vida contínua sem gastar âncora
+      K.idle(tl, "ab-ana", 0, DUR, 0.2);
+      K.idle(tl, "ab-bruno", 0, DUR, 0.9);
+
+      // Quadro 0 = gancho (o resultado). Âncoras presas ao início da palavra no voice.json:
+      K.pop(tl, "#ab-placa-in", t(0.4), { origin: "50% 50%" });
+      K.counter(tl, "#ab-valor", 0, 300, t(0.6), 0.9);                 // termina no valor exato dito
+      [1.6, 1.85, 2.1, 2.4].forEach((s, i) => K.mouth(tl, "ab-ana", i % 2 ? "smile" : "open", t(s)));
+      tl.set("#ab-selo", { opacity: 1 }, t(3.2));
+      K.slam(tl, "#ab-selo-in", t(3.2));
+      K.mouth(tl, "ab-bruno", "open", t(4.4));
+      K.turn(tl, "#ab-bruno-armL", 0, 120, t(4.4), 0.3, "back.out(2)");  // braço levanta (gira pelo ombro)
+      K.mouth(tl, "ab-bruno", "smile", t(5.2));
+      // Empurrão de câmera curto até a Ana (≤ 1 s), mantendo a placa no quadro.
+      tl.to("#ab-cam", { scale: 1.12, svgOrigin: `${P.vagas.esq} 900`, duration: 0.8, ease: "power2.inOut" }, t(7));
+      window.__timelines["abertura"] = tl;
+    })();
+  </script>
+</template>

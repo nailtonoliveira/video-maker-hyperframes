@@ -1,0 +1,81 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #ju-svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <!-- 88,85–102,25 s · Juros compostos à vista: fruto vira semente, semente dá fruto (1→2→4→8→16). Depois: "Quanto?" × "Quando?". -->
+  <div id="root" data-composition-id="juros" data-width="1080" data-height="1920">
+    <svg id="ju-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+      <g id="ju-corte"></g>
+      <g id="ju-placa"></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const K = window.KIT, C = K.C, T0 = 88.85, Y = 1080;
+      const t = (abs) => abs - T0;
+      // Gerações de frutos: cada uma cai e vira o dobro na seguinte.
+      const GER = [1, 2, 4, 8, 16];
+      const r = K.rng(77);
+      let frutos = "", sementes = "";
+      GER.forEach((n, g) => {
+        for (let i = 0; i < n; i++) {
+          const B = [[0, -340, 150], [-115, -290, 105], [115, -290, 105], [-60, -440, 95], [70, -430, 100]][(i + g) % 5];
+          const a = r() * Math.PI * 2, d = Math.sqrt(r()) * (B[2] - 32);
+          const x = Math.round(540 + B[0] + Math.cos(a) * d), y = Math.round(Y + B[1] + Math.sin(a) * d);
+          frutos += `<g id="ju-g${g}-f${i}" transform="translate(${x},${y})">${K.coin(`ju-g${g}-f${i}-in`, 24)}</g>`;
+          sementes += `<g id="ju-g${g}-s${i}" transform="translate(${x},${Y + 30 + Math.round(r() * 60)})"><ellipse rx="12" ry="8" fill="${C.goldDark}" stroke="${C.ink}" stroke-width="3"/></g>`;
+        }
+      });
+      document.getElementById("ju-corte").innerHTML = `${K.corte("juc", Y)}
+        <g transform="translate(540,${Y})">${K.tree("ju-tree", 0)}</g>
+        ${sementes}${frutos}
+        <g transform="translate(540,250)">${K.sign("ju-ano", [["2010", 84, C.ink, "ju-ano-txt"]], { w: 300 })}</g>`;
+      document.getElementById("ju-placa").innerHTML = `${K.sky("jp-sky", "skyDusk")}
+        ${K.hills("jp-hills", 1000)}${K.ground("jp-chao", 1150)}
+        <rect x="524" y="300" width="32" height="860" fill="#6b6b73" stroke="${C.ink}" stroke-width="5"/>
+        <g transform="translate(540,330)">${K.sign("jp-rua", [["RUA DOS JUROS", 52, "#fff"]], { w: 520, bg: "#2e7d4f" })}</g>
+        <g transform="translate(540,560)">${K.sign("jp-quanto", [["QUANTO?", 96]], { w: 560 })}</g>
+        <path id="jp-risco" d="M290 600 L 790 520" stroke="${C.red}" stroke-width="22" stroke-linecap="round"/>
+        <g transform="translate(540,800)">${K.sign("jp-quando", [["QUANDO?", 110, C.goldDark]], { w: 640 })}</g>`;
+
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#ju-placa", { opacity: 0 }, 0);
+      tl.fromTo("#ju-tree-grow", { scale: 0.97, transformOrigin: "50% 100%" }, { scale: 1, duration: 7.5, ease: "power1.in" }, 0);
+      K.counter(tl, "#ju-ano-txt", 2010, 2025, 0.3, 7.2, (v) => String(Math.round(v)));
+      // Todas as gerações começam escondidas
+      GER.forEach((n, g) => { for (let i = 0; i < n; i++) tl.set([`#ju-g${g}-f${i}`, `#ju-g${g}-s${i}`], { opacity: 0 }, 0); });
+      const T = [0.25, 1.75, 3.15, 4.75, 6.1]; // nasce cada geração (casado com "caíram", "semente", "deu fruto")
+      GER.forEach((n, g) => {
+        for (let i = 0; i < n; i++) {
+          const f = `#ju-g${g}-f${i}`, s = `#ju-g${g}-s${i}`, d = i * Math.min(0.06, 0.6 / n);
+          tl.set(f, { opacity: 1 }, T[g] + d);
+          tl.fromTo(`${f}-in`, { scale: 0, x: 0, y: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.25, ease: "back.out(3)" }, T[g] + d);
+          if (g < GER.length - 1) {
+            // cai até o chão e afunda como semente
+            const queda = T[g + 1] - 0.75 + d;
+            const dy = Y - 10 - Number(document.getElementById(f.slice(1)).getAttribute("transform").match(/,(\d+)/)[1]);
+            tl.to(`${f}-in`, { y: dy, duration: 0.35, ease: "power2.in" }, queda);
+            tl.set(f, { opacity: 0 }, queda + 0.36);
+            tl.set(s, { opacity: 1 }, queda + 0.36);
+            tl.fromTo(s, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, immediateRender: false }, queda + 0.36);
+          }
+        }
+      });
+      tl.fromTo("#ju-ano-in", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.15, duration: 0.15, yoyo: true, repeat: 1 }, 7.5);
+
+      // "Quanto?" × "Quando?" (96,7–102,25)
+      tl.set("#ju-corte", { opacity: 0 }, t(96.65));
+      tl.set("#ju-placa", { opacity: 1 }, t(96.65));
+      tl.set(["#jp-quando", "#jp-risco"], { opacity: 0 }, t(96.65));
+      K.pop(tl, "#jp-rua-in", t(96.7));
+      K.pop(tl, "#jp-quanto-in", t(98.8));
+      tl.set("#jp-risco", { opacity: 1 }, t(99.6));
+      tl.fromTo("#jp-risco", { strokeDasharray: 520, strokeDashoffset: 520 }, { strokeDashoffset: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, t(99.6));
+      tl.set("#jp-quando", { opacity: 1 }, t(101.1));
+      K.pop(tl, "#jp-quando-in", t(101.1), { dur: 0.5 });
+
+      window.__timelines["juros"] = tl;
+    })();
+  </script>
+</template>

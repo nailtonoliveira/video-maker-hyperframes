@@ -1,0 +1,88 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #me-svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <!-- 71,45–88,85 s · Dez/2025: a rua mede as árvores (Bruno R$ 37.349 · Ana R$ 43.462). "Mais dinheiro" × "mais tempo". -->
+  <div id="root" data-composition-id="medicao" data-width="1080" data-height="1920">
+    <svg id="me-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+      <g id="me-rua-cam"><g id="me-rua"></g></g>
+      <g id="me-dois"></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const K = window.KIT, C = K.C, T0 = 71.45;
+      const t = (abs) => abs - T0;
+      document.getElementById("me-rua").innerHTML = K.street("me", {
+        anaFrutos: 34, brunoFrutos: 22,
+        placas: [["ANA TEM", "R$ 0", C.ink], ["BRUNO TEM", "R$ 0", C.ink]],
+        extra: `<g transform="translate(540,1180)">${K.person("me-viz1", K.ELENCO.vizinho)}</g>`,
+      });
+      // As placas da rua ganham ids nos valores para os contadores
+      const tx = document.querySelectorAll("#me-ana-placa text, #me-bruno-placa text");
+      tx[1].id = "me-ana-valor"; tx[3].id = "me-bruno-valor";
+      document.getElementById("me-rua").insertAdjacentHTML("beforeend", `
+        <g transform="translate(540,250)">${K.sign("me-data", [["FIM DE 2025", 64, C.red]], { w: 460 })}</g>
+        <g transform="translate(540,400)">${K.sign("me-nota", [["valores reais · 100% do CDI", 30], ["já descontado o IR", 30]], { w: 520, nails: false })}</g>`);
+
+      // Plano 2: os dois, de perto
+      document.getElementById("me-dois").innerHTML = `${K.sky("me2-sky", "skyDusk")}
+        ${K.hills("me2-hills", 1000)}${K.ground("me2-chao", 1150)}
+        <g transform="translate(330,1150)">${K.person("me2-ana", K.ELENCO.ana)}</g>
+        <g transform="translate(760,1150)">${K.person("me2-bruno", K.ELENCO.bruno)}</g>
+        <g id="me2-din" transform="translate(760,480)">${K.sign("me2-din-p", [["MAIS DINHEIRO", 44], ["R$ 24.000", 60, C.goldDark]], { w: 420 })}</g>
+        <g id="me2-tem" transform="translate(330,480)">${K.sign("me2-tem-p", [["MAIS TEMPO", 44], ["16 ANOS", 60, C.red]], { w: 380 })}</g>`;
+
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#me-dois", { opacity: 0 }, 0);
+      tl.set("#me-bruno-tree-grow", { scale: 0.86, transformOrigin: "50% 100%" }, 0);
+      tl.set(["#me-nota", "#me-ana-placa", "#me-bruno-placa"], { opacity: 0 }, 0);
+      tl.fromTo("#me-rua-cam", { scale: 1.15, svgOrigin: "540 1000" }, { scale: 1, duration: 2.2, ease: "power2.out" }, 0);
+      K.pop(tl, "#me-data-in", t(71.9));
+      K.mouth(tl, "me-viz1", "open", t(74.2));
+      K.idle(tl, "me-viz1", 0.2, t(75.6));
+      tl.to("#me-data", { opacity: 0, duration: 0.2 }, t(75.6));
+      tl.set("#me-nota", { opacity: 1 }, t(75.8));
+      K.pop(tl, "#me-nota-in", t(75.8), { dur: 0.3 });
+
+      // Bruno: a fita sobe, a placa corre até 37.349
+      tl.fromTo("#me-bruno-tree-grow", { scaleX: 0.86, scaleY: 0.86 }, { scaleX: 0.83, scaleY: 0.92, duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t(76.4));
+      tl.fromTo("#me-viz1-head", { rotation: 0, transformOrigin: "50% 100%" }, { rotation: 12, duration: 0.3 }, t(75.9));
+      tl.set("#me-bruno-placa", { opacity: 1 }, t(76.3));
+      K.pop(tl, "#me-bruno-placa-in", t(76.3), { dur: 0.25 });
+      K.counter(tl, "#me-bruno-valor", 0, 37349, t(76.5), 1.4);
+      tl.fromTo("#me-bruno-placa-in", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.2, duration: 0.15, yoyo: true, repeat: 1 }, t(77.95));
+      // Ana: a fita sobe mais, a placa corre até 43.462
+      tl.to("#me-viz1-head", { rotation: -12, duration: 0.3 }, t(78.9));
+      tl.set("#me-ana-placa", { opacity: 1 }, t(79.1));
+      K.pop(tl, "#me-ana-placa-in", t(79.1), { dur: 0.25 });
+      K.counter(tl, "#me-ana-valor", 0, 43462, t(79.3), 1.4);
+      tl.fromTo("#me-ana-placa-in", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.25, duration: 0.16, yoyo: true, repeat: 1 }, t(80.75));
+      tl.fromTo("#me-ana-tree-grow", { scaleX: 1, scaleY: 1, transformOrigin: "50% 100%" }, { scaleX: 0.96, scaleY: 1.07, duration: 0.16, yoyo: true, repeat: 1 }, t(80.75));
+
+      // Plano 2 (81,9): "Mas eu plantei mais!" — o Bruno protesta, a Ana aponta para o chão
+      tl.set("#me-rua", { opacity: 0 }, t(81.85));
+      tl.set("#me-dois", { opacity: 1 }, t(81.85));
+      tl.set(["#me2-din", "#me2-tem"], { opacity: 0 }, t(81.85));
+      tl.fromTo("#me-dois", { scale: 1.3, svgOrigin: "540 1150" }, { scale: 1.22, duration: 7, ease: "none", immediateRender: false }, t(81.85));
+      tl.fromTo("#me2-bruno-body", { scaleX: -1, transformOrigin: "50% 100%" }, { scaleX: -1, duration: 0.01, immediateRender: false }, t(81.85));
+      K.mouth(tl, "me2-bruno", "open", t(81.9));
+      K.mouth(tl, "me2-ana", "smile", t(81.9));
+      tl.fromTo("#me2-bruno-armL", { rotation: 0, transformOrigin: "50% 0%" }, { rotation: 150, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t(81.95));
+      tl.fromTo("#me2-bruno-armR", { rotation: 0, transformOrigin: "50% 0%" }, { rotation: -150, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t(82.0));
+      tl.fromTo("#me2-bruno-body", { y: 0 }, { y: -40, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, t(82.2));
+      tl.to(["#me2-bruno-armL", "#me2-bruno-armR"], { rotation: 0, duration: 0.3 }, t(83.3));
+      K.mouth(tl, "me2-bruno", "flat", t(83.3));
+      // A Ana aponta para o chão (84,7)
+      tl.fromTo("#me2-ana-armR", { rotation: 0, transformOrigin: "50% 0%" }, { rotation: -35, duration: 0.25, ease: "power2.out", immediateRender: false }, t(84.55));
+      tl.set("#me2-din", { opacity: 1 }, t(85.9));
+      K.pop(tl, "#me2-din-p-in", t(85.9));
+      tl.set("#me2-tem", { opacity: 1 }, t(87.5));
+      K.pop(tl, "#me2-tem-p-in", t(87.5));
+      K.mouth(tl, "me2-bruno", "sad", t(88.0));
+
+      window.__timelines["medicao"] = tl;
+    })();
+  </script>
+</template>

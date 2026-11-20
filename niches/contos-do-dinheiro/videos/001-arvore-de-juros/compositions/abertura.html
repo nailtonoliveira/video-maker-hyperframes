@@ -1,0 +1,87 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #ab-svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <!-- 0–24,55 s · Gancho na rua (resultado primeiro) → corte do quintal: regra do mundo (dinheiro vira árvore, fruto = juro). -->
+  <div id="root" data-composition-id="abertura" data-width="1080" data-height="1920">
+    <svg id="ab-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+      <g id="ab-rua-cam"><g id="ab-rua"></g></g>
+      <g id="ab-corte" opacity="0"></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const K = window.KIT, C = K.C;
+      // ---------- Mundo 1: a rua no fim de 2025 (mesmo quadro do final, para o loop) ----------
+      document.getElementById("ab-rua").innerHTML = K.street("ab", {
+        anaFrutos: 34, brunoFrutos: 22,
+        placas: [["ANA PLANTOU", "R$ 14.400", C.ink], ["BRUNO PLANTOU", "R$ 24.000", C.ink]],
+      });
+      // ---------- Mundo 2: corte do quintal (chão em y = 1080) ----------
+      const Y = 1080;
+      document.getElementById("ab-corte").innerHTML = `${K.corte("abc", Y)}
+        <g transform="translate(540,${Y})">${K.tree("abc-tree", 4)}</g>
+        <g transform="translate(540,${Y})">${K.sprout("abc-broto")}</g>
+        <g id="abc-mao" transform="translate(540,0)"><g id="abc-mao-in">
+          <path d="M-34 -40 L -34 360 Q 0 396 34 360 L 34 -40 Z" fill="#c68642" stroke="${C.ink}" stroke-width="5"/>
+          <rect x="-52" y="-40" width="104" height="250" fill="#2a9d8f" stroke="${C.ink}" stroke-width="5"/>
+        </g></g>
+        <g id="abc-moeda" transform="translate(540,420)">${K.coin("abc-moeda-in", 44)}</g>
+        <g id="abc-semente" transform="translate(680,${Y})">${K.coin("abc-semente-in", 30)}</g>
+        <g transform="translate(830,330)">${K.sign("abc-juro", [["JURO", 80, C.goldDark]], { w: 300, nails: false })}</g>
+        <path id="abc-seta" d="M760 400 C 720 470 640 500 590 520" fill="none" stroke="${C.ink}" stroke-width="10" stroke-linecap="round"/>
+        <g transform="translate(540,380)">${K.sign("abc-cdi", [["PLANTAR =", 58], ["RENDER 100%", 78, C.red], ["DO CDI", 78, C.red]], { w: 640 })}</g>`;
+
+      const tl = gsap.timeline({ paused: true });
+
+      // GANCHO (0–5,4): quadro 0 já mostra o resultado; a árvore da Ana "respira" maior, as placas batem.
+      tl.fromTo("#ab-rua-cam", { scale: 1, svgOrigin: "540 1100" }, { scale: 1.06, duration: 4.9, ease: "sine.inOut" }, 0);
+      tl.fromTo("#ab-ana-tree-grow", { scaleY: 1, scaleX: 1, transformOrigin: "50% 100%" },
+        { scaleY: 1.07, scaleX: 0.97, duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, 1.0);
+      tl.fromTo("#ab-ana-placa-in", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.2, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, 3.3);
+      tl.fromTo("#ab-bruno-placa-in", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.2, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, 3.9);
+      tl.set("#ab-bruno-tree-grow", { scale: 0.86, transformOrigin: "50% 100%" }, 0);
+      // Mergulho no chão do quintal da Ana
+      tl.to("#ab-rua-cam", { scale: 5, svgOrigin: "254 1210", duration: 0.5, ease: "power3.in" }, 4.95);
+      tl.set("#ab-rua", { opacity: 0 }, 5.45);
+      tl.set("#ab-corte", { opacity: 1 }, 5.45);
+
+      // REGRA (5,5–19,3): moeda desce, vira broto, vira árvore, dá fruto
+      tl.set(["#abc-tree", "#abc-broto", "#abc-juro", "#abc-seta", "#abc-cdi", "#abc-semente"], { opacity: 0 }, 5.45);
+      tl.fromTo("#abc-mao-in", { y: -460 }, { y: 0, duration: 0.6, ease: "power2.out" }, 5.6);
+      tl.fromTo("#abc-moeda", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 6.2);
+      tl.fromTo("#abc-moeda-in", { y: 0 }, { y: 760, duration: 0.55, ease: "power2.in" }, 7.0);
+      tl.to("#abc-mao-in", { y: -460, duration: 0.5, ease: "power2.in" }, 7.3);
+      tl.to("#abc-moeda-in", { scale: 0.7, duration: 0.3 }, 7.55);
+      tl.set("#abc-broto", { opacity: 1 }, 8.35);
+      tl.fromTo("#abc-broto-grow", { scale: 0, transformOrigin: "50% 100%" }, { scale: 1.6, duration: 0.5, ease: "back.out(2)" }, 8.35);
+      tl.set("#abc-broto", { opacity: 0 }, 9.1);
+      tl.set("#abc-tree", { opacity: 1 }, 9.1);
+      tl.fromTo("#abc-tree-grow", { scale: 0.25, transformOrigin: "50% 100%" }, { scale: 0.85, duration: 0.9, ease: "back.out(1.4)" }, 9.1);
+      tl.to("#abc-moeda", { opacity: 0, duration: 0.2 }, 9.1);
+      [1, 2, 3].forEach((i) => tl.set(`#abc-tree-f${i}`, { opacity: 0 }, 5.45));
+      tl.fromTo("#abc-tree-f0", { scale: 0, transformOrigin: "50% 50%" }, { scale: 2.6, duration: 0.4, ease: "back.out(3)" }, 11.6);
+      // FRUTO = JURO
+      tl.set(["#abc-juro", "#abc-seta"], { opacity: 1 }, 13.8);
+      K.pop(tl, "#abc-juro-in", 13.8);
+      tl.fromTo("#abc-seta", { strokeDasharray: 260, strokeDashoffset: 260 }, { strokeDashoffset: 0, duration: 0.3 }, 13.95);
+      // O fruto cai, vira semente, nasce galho com mais frutos
+      tl.to(["#abc-juro", "#abc-seta"], { opacity: 0, duration: 0.2 }, 15.2);
+      tl.to("#abc-tree-f0", { opacity: 0, duration: 0.05 }, 15.4);
+      tl.set("#abc-semente", { opacity: 1 }, 15.4);
+      tl.fromTo("#abc-semente-in", { x: -130, y: -330 }, { x: 0, y: -14, duration: 0.5, ease: "bounce.out" }, 15.4);
+      tl.to("#abc-semente-in", { y: 110, scale: 0.6, duration: 0.5, ease: "power2.in" }, 16.5);
+      tl.fromTo("#abc-tree-grow", { scale: 0.85 }, { scale: 1.08, duration: 0.6, ease: "back.out(1.6)", immediateRender: false }, 17.85);
+      [0, 1, 2, 3].forEach((i, j) => tl.fromTo(`#abc-tree-f${i}`, { scale: 0, opacity: 1, transformOrigin: "50% 50%" },
+        { scale: 2, duration: 0.35, ease: "back.out(3)", immediateRender: false }, 18.1 + j * 0.12));
+      // PLANTAR = 100% DO CDI
+      tl.to("#abc-tree", { opacity: 0.25, duration: 0.3 }, 19.6);
+      tl.set("#abc-cdi", { opacity: 1 }, 19.75);
+      K.pop(tl, "#abc-cdi-in", 19.75);
+      tl.fromTo("#abc-cdi-in", { rotation: 0 }, { rotation: -3, duration: 0.18, yoyo: true, repeat: 1, ease: "power1.inOut" }, 22.5);
+
+      window.__timelines["abertura"] = tl;
+    })();
+  </script>
+</template>

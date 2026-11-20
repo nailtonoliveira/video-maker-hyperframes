@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #re-svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <!-- EXEMPLO DO TEMPLATE (apague e escreva as cenas do episódio). 30–79,94 s · Revelação no tribunal: palco
+       K.palco.tribunal com o juiz atrás da mesa (vaga "juiz"), plateia de costas no primeiro plano, número real
+       revelado com contador e carimbo, martelo batendo. -->
+  <div id="root" data-composition-id="revelacao" data-width="1080" data-height="1920">
+    <svg id="re-svg" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+      <g id="re-cam"><g id="re-mundo"></g></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const K = window.KIT, C = K.C, T0 = 30;
+      const t = (abs) => abs - T0;
+      const DUR = 49.94;
+
+      const P = K.palco.tribunal("re", { placa: "TRIBUNAL DO BAIRRO" });
+      const J = P.vagas.juiz;
+      document.getElementById("re-mundo").innerHTML = P.fundo
+        // ordem: fundo → quem fica ATRÁS dos móveis (o juiz) → móveis → atores → primeiro plano
+        + K.ator("re-juiz", "vizinho", J.x, { y: J.y, escala: J.escala, pessoa: { propR: K.gavel("re-martelo", 14) } })
+        + P.moveis
+        + K.ator("re-ana", "ana", P.vagas.esq)
+        + K.ator("re-bruno", "bruno", P.vagas.dir, { pessoa: { boca: "flat" } })
+        + `<g transform="translate(540,330)">${K.sign("re-placa", [["SEIS ANOS DEPOIS", 44], ["R$ 0", 120, C.red, "re-valor"]], { w: 660 })}</g>`
+        + `<g transform="translate(540,620) rotate(-5)">${K.stamp("re-carimbo", "COMPROVADO", { fs: 56, bg: C.paper })}</g>`
+        + P.frente;
+
+      const tl = gsap.timeline({ paused: true });
+      const ini = (sel, v) => { gsap.set(sel, v); tl.set(sel, v, 0); };
+      ini(["#re-placa", "#re-carimbo"], { opacity: 0 });
+      K.pose(tl, "#re-juiz-armR", 0);
+      P.ambiente(tl, T0, 0, DUR);
+      K.idle(tl, "re-ana", 0, DUR, 0.3);
+      K.idle(tl, "re-bruno", 0, DUR, 0.8);
+
+      // Revelação: placa entra, contador corre até o valor exato de dados/fatos.json, carimbo bate, martelo bate.
+      tl.set("#re-placa", { opacity: 1 }, t(31));
+      K.pop(tl, "#re-placa-in", t(31));
+      K.counter(tl, "#re-valor", 0, 27160.36, t(31.6), 1.6);          // termina em "R$ 27.160" (brl arredonda)
+      tl.set("#re-carimbo", { opacity: 1 }, t(33.6));
+      K.slam(tl, "#re-carimbo-in", t(33.6));
+      K.turn(tl, "#re-juiz-armR", 0, -110, t(34.2), 0.2, "power2.out");
+      K.turn(tl, "#re-juiz-armR", -110, 0, t(34.45), 0.12, "power2.in");
+      K.mouth(tl, "re-ana", "open", t(35));
+      K.mouth(tl, "re-ana", "smile", t(35.4));
+      K.mouth(tl, "re-bruno", "sad", t(35.4));
+      window.__timelines["revelacao"] = tl;
+    })();
+  </script>
+</template>

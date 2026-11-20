@@ -1,0 +1,1775 @@
+{
+  "idioma": "pt",
+  "probabilidade": 1,
+  "duracao": 112.0595,
+  "segmentos": [
+    {
+      "id": 1,
+      "inicio": 0.0,
+      "fim": 5.02,
+      "texto": "A árvore dela ficou maior e ela plantou quase 10 mil reais a menos.",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 0.0,
+          "fim": 0.1,
+          "probabilidade": 0.468
+        },
+        {
+          "palavra": "árvore",
+          "inicio": 0.1,
+          "fim": 0.46,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "dela",
+          "inicio": 0.46,
+          "fim": 0.76,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "ficou",
+          "inicio": 0.76,
+          "fim": 1.12,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "maior",
+          "inicio": 1.12,
+          "fim": 1.6,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.6,
+          "fim": 2.38,
+          "probabilidade": 0.632
+        },
+        {
+          "palavra": "ela",
+          "inicio": 2.38,
+          "fim": 2.56,
+          "probabilidade": 0.984
+        },
+        {
+          "palavra": "plantou",
+          "inicio": 2.56,
+          "fim": 2.96,
+          "probabilidade": 0.965
+        },
+        {
+          "palavra": "quase",
+          "inicio": 2.96,
+          "fim": 3.28,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "10",
+          "inicio": 3.28,
+          "fim": 3.72,
+          "probabilidade": 0.596
+        },
+        {
+          "palavra": "mil",
+          "inicio": 3.72,
+          "fim": 3.98,
+          "probabilidade": 0.881
+        },
+        {
+          "palavra": "reais",
+          "inicio": 3.98,
+          "fim": 4.34,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "a",
+          "inicio": 4.34,
+          "fim": 4.58,
+          "probabilidade": 0.908
+        },
+        {
+          "palavra": "menos.",
+          "inicio": 4.58,
+          "fim": 5.02,
+          "probabilidade": 0.993
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "inicio": 5.5,
+      "fim": 11.58,
+      "texto": "Nessa rua, todo o dinheiro que você guarda vira uma árvore no quintal e toda a árvore",
+      "palavras": [
+        {
+          "palavra": "Nessa",
+          "inicio": 5.5,
+          "fim": 5.96,
+          "probabilidade": 0.928
+        },
+        {
+          "palavra": "rua,",
+          "inicio": 5.96,
+          "fim": 6.24,
+          "probabilidade": 0.892
+        },
+        {
+          "palavra": "todo",
+          "inicio": 6.74,
+          "fim": 6.94,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "o",
+          "inicio": 6.94,
+          "fim": 7.14,
+          "probabilidade": 0.556
+        },
+        {
+          "palavra": "dinheiro",
+          "inicio": 7.14,
+          "fim": 7.34,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "que",
+          "inicio": 7.34,
+          "fim": 7.58,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "você",
+          "inicio": 7.58,
+          "fim": 7.84,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "guarda",
+          "inicio": 7.84,
+          "fim": 8.44,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "vira",
+          "inicio": 8.44,
+          "fim": 8.96,
+          "probabilidade": 0.928
+        },
+        {
+          "palavra": "uma",
+          "inicio": 8.96,
+          "fim": 9.14,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "árvore",
+          "inicio": 9.14,
+          "fim": 9.54,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "no",
+          "inicio": 9.54,
+          "fim": 9.7,
+          "probabilidade": 0.927
+        },
+        {
+          "palavra": "quintal",
+          "inicio": 9.7,
+          "fim": 10.14,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "e",
+          "inicio": 10.14,
+          "fim": 10.88,
+          "probabilidade": 0.737
+        },
+        {
+          "palavra": "toda",
+          "inicio": 10.88,
+          "fim": 11.14,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "a",
+          "inicio": 11.14,
+          "fim": 11.32,
+          "probabilidade": 0.93
+        },
+        {
+          "palavra": "árvore",
+          "inicio": 11.32,
+          "fim": 11.58,
+          "probabilidade": 0.996
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "inicio": 11.58,
+      "fim": 12.18,
+      "texto": "da fruto.",
+      "palavras": [
+        {
+          "palavra": "da",
+          "inicio": 11.58,
+          "fim": 11.74,
+          "probabilidade": 0.924
+        },
+        {
+          "palavra": "fruto.",
+          "inicio": 11.74,
+          "fim": 12.18,
+          "probabilidade": 0.909
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "inicio": 12.66,
+      "fim": 18.82,
+      "texto": "O fruto é o juro quando o fruto cai ele vira semente e nasce mais galho.",
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 12.66,
+          "fim": 12.86,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "fruto",
+          "inicio": 12.86,
+          "fim": 13.34,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "é",
+          "inicio": 13.34,
+          "fim": 13.72,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "o",
+          "inicio": 13.72,
+          "fim": 13.88,
+          "probabilidade": 0.925
+        },
+        {
+          "palavra": "juro",
+          "inicio": 13.88,
+          "fim": 14.18,
+          "probabilidade": 0.685
+        },
+        {
+          "palavra": "quando",
+          "inicio": 14.18,
+          "fim": 14.96,
+          "probabilidade": 0.401
+        },
+        {
+          "palavra": "o",
+          "inicio": 14.96,
+          "fim": 15.14,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "fruto",
+          "inicio": 15.14,
+          "fim": 15.44,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "cai",
+          "inicio": 15.44,
+          "fim": 15.76,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "ele",
+          "inicio": 15.76,
+          "fim": 16.32,
+          "probabilidade": 0.875
+        },
+        {
+          "palavra": "vira",
+          "inicio": 16.32,
+          "fim": 16.62,
+          "probabilidade": 0.957
+        },
+        {
+          "palavra": "semente",
+          "inicio": 16.62,
+          "fim": 17.16,
+          "probabilidade": 0.757
+        },
+        {
+          "palavra": "e",
+          "inicio": 17.16,
+          "fim": 17.86,
+          "probabilidade": 0.945
+        },
+        {
+          "palavra": "nasce",
+          "inicio": 17.86,
+          "fim": 18.18,
+          "probabilidade": 0.923
+        },
+        {
+          "palavra": "mais",
+          "inicio": 18.18,
+          "fim": 18.38,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "galho.",
+          "inicio": 18.38,
+          "fim": 18.82,
+          "probabilidade": 0.78
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "inicio": 19.4,
+      "fim": 24.24,
+      "texto": "Aqui plantar é deixar o dinheiro rendendo 100% do CDI.",
+      "palavras": [
+        {
+          "palavra": "Aqui",
+          "inicio": 19.4,
+          "fim": 19.78,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "plantar",
+          "inicio": 19.78,
+          "fim": 20.8,
+          "probabilidade": 0.837
+        },
+        {
+          "palavra": "é",
+          "inicio": 20.8,
+          "fim": 21.08,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "deixar",
+          "inicio": 21.08,
+          "fim": 21.42,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "o",
+          "inicio": 21.42,
+          "fim": 21.62,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "dinheiro",
+          "inicio": 21.62,
+          "fim": 21.94,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "rendendo",
+          "inicio": 21.94,
+          "fim": 22.5,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "100",
+          "inicio": 22.5,
+          "fim": 22.84,
+          "probabilidade": 0.965
+        },
+        {
+          "palavra": "%",
+          "inicio": 22.84,
+          "fim": 23.26,
+          "probabilidade": 0.962
+        },
+        {
+          "palavra": "do",
+          "inicio": 23.26,
+          "fim": 23.64,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "CDI.",
+          "inicio": 23.64,
+          "fim": 24.24,
+          "probabilidade": 0.762
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "inicio": 24.84,
+      "fim": 30.12,
+      "texto": "Em janeiro de 2010 a Ana tinha 20 anos e plantou 200 reais.",
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 24.58,
+          "fim": 24.92,
+          "probabilidade": 0.141
+        },
+        {
+          "palavra": "janeiro",
+          "inicio": 24.92,
+          "fim": 25.4,
+          "probabilidade": 0.87
+        },
+        {
+          "palavra": "de",
+          "inicio": 25.4,
+          "fim": 25.58,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "2010",
+          "inicio": 25.58,
+          "fim": 26.3,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "a",
+          "inicio": 26.3,
+          "fim": 27.02,
+          "probabilidade": 0.446
+        },
+        {
+          "palavra": "Ana",
+          "inicio": 27.02,
+          "fim": 27.22,
+          "probabilidade": 0.699
+        },
+        {
+          "palavra": "tinha",
+          "inicio": 27.22,
+          "fim": 27.54,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "20",
+          "inicio": 27.54,
+          "fim": 27.88,
+          "probabilidade": 0.723
+        },
+        {
+          "palavra": "anos",
+          "inicio": 27.88,
+          "fim": 28.2,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "e",
+          "inicio": 28.2,
+          "fim": 28.62,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "plantou",
+          "inicio": 28.62,
+          "fim": 29.04,
+          "probabilidade": 0.965
+        },
+        {
+          "palavra": "200",
+          "inicio": 29.04,
+          "fim": 29.54,
+          "probabilidade": 0.806
+        },
+        {
+          "palavra": "reais.",
+          "inicio": 29.54,
+          "fim": 30.12,
+          "probabilidade": 0.994
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "inicio": 30.7,
+      "fim": 36.46,
+      "texto": "No mês seguinte mais 200 e no outro e no outro os vizinhos riam.",
+      "palavras": [
+        {
+          "palavra": "No",
+          "inicio": 30.7,
+          "fim": 30.88,
+          "probabilidade": 0.935
+        },
+        {
+          "palavra": "mês",
+          "inicio": 30.88,
+          "fim": 31.04,
+          "probabilidade": 0.789
+        },
+        {
+          "palavra": "seguinte",
+          "inicio": 31.04,
+          "fim": 31.4,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "mais",
+          "inicio": 31.4,
+          "fim": 32.04,
+          "probabilidade": 0.343
+        },
+        {
+          "palavra": "200",
+          "inicio": 32.04,
+          "fim": 32.64,
+          "probabilidade": 0.851
+        },
+        {
+          "palavra": "e",
+          "inicio": 32.64,
+          "fim": 33.34,
+          "probabilidade": 0.621
+        },
+        {
+          "palavra": "no",
+          "inicio": 33.34,
+          "fim": 33.52,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "outro",
+          "inicio": 33.52,
+          "fim": 33.84,
+          "probabilidade": 0.977
+        },
+        {
+          "palavra": "e",
+          "inicio": 33.84,
+          "fim": 34.44,
+          "probabilidade": 0.556
+        },
+        {
+          "palavra": "no",
+          "inicio": 34.44,
+          "fim": 34.6,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "outro",
+          "inicio": 34.6,
+          "fim": 35.04,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "os",
+          "inicio": 35.04,
+          "fim": 35.68,
+          "probabilidade": 0.672
+        },
+        {
+          "palavra": "vizinhos",
+          "inicio": 35.68,
+          "fim": 36.08,
+          "probabilidade": 0.89
+        },
+        {
+          "palavra": "riam.",
+          "inicio": 36.08,
+          "fim": 36.46,
+          "probabilidade": 0.844
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "inicio": 37.02,
+      "fim": 38.34,
+      "texto": "Isso aí é graveto, Ana.",
+      "palavras": [
+        {
+          "palavra": "Isso",
+          "inicio": 37.02,
+          "fim": 37.2,
+          "probabilidade": 0.95
+        },
+        {
+          "palavra": "aí",
+          "inicio": 37.2,
+          "fim": 37.4,
+          "probabilidade": 0.96
+        },
+        {
+          "palavra": "é",
+          "inicio": 37.4,
+          "fim": 37.5,
+          "probabilidade": 0.952
+        },
+        {
+          "palavra": "graveto,",
+          "inicio": 37.5,
+          "fim": 37.94,
+          "probabilidade": 0.523
+        },
+        {
+          "palavra": "Ana.",
+          "inicio": 38.12,
+          "fim": 38.34,
+          "probabilidade": 0.965
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "inicio": 38.84,
+      "fim": 43.02,
+      "texto": "Seis anos depois a Ana teve uma filha e parou de plantar.",
+      "palavras": [
+        {
+          "palavra": "Seis",
+          "inicio": 38.84,
+          "fim": 39.12,
+          "probabilidade": 0.82
+        },
+        {
+          "palavra": "anos",
+          "inicio": 39.12,
+          "fim": 39.32,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "depois",
+          "inicio": 39.32,
+          "fim": 39.7,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "a",
+          "inicio": 39.7,
+          "fim": 40.32,
+          "probabilidade": 0.731
+        },
+        {
+          "palavra": "Ana",
+          "inicio": 40.32,
+          "fim": 40.6,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "teve",
+          "inicio": 40.6,
+          "fim": 40.88,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "uma",
+          "inicio": 40.88,
+          "fim": 41.1,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "filha",
+          "inicio": 41.1,
+          "fim": 41.58,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "e",
+          "inicio": 41.58,
+          "fim": 42.04,
+          "probabilidade": 0.906
+        },
+        {
+          "palavra": "parou",
+          "inicio": 42.04,
+          "fim": 42.4,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "de",
+          "inicio": 42.4,
+          "fim": 42.54,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "plantar.",
+          "inicio": 42.54,
+          "fim": 43.02,
+          "probabilidade": 0.99
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "inicio": 43.52,
+      "fim": 45.04,
+      "texto": "Nunca mais colocou um real.",
+      "palavras": [
+        {
+          "palavra": "Nunca",
+          "inicio": 43.52,
+          "fim": 43.76,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "mais",
+          "inicio": 43.76,
+          "fim": 44.08,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "colocou",
+          "inicio": 44.08,
+          "fim": 44.56,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "um",
+          "inicio": 44.56,
+          "fim": 44.74,
+          "probabilidade": 0.889
+        },
+        {
+          "palavra": "real.",
+          "inicio": 44.74,
+          "fim": 45.04,
+          "probabilidade": 0.721
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "inicio": 45.64,
+      "fim": 48.3,
+      "texto": "Ela tinha plantado 14.400.",
+      "palavras": [
+        {
+          "palavra": "Ela",
+          "inicio": 45.64,
+          "fim": 45.84,
+          "probabilidade": 0.99
+        },
+        {
+          "palavra": "tinha",
+          "inicio": 45.84,
+          "fim": 46.06,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "plantado",
+          "inicio": 46.06,
+          "fim": 46.6,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "14",
+          "inicio": 46.6,
+          "fim": 47.2,
+          "probabilidade": 0.964
+        },
+        {
+          "palavra": ".400.",
+          "inicio": 47.2,
+          "fim": 48.3,
+          "probabilidade": 0.876
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "inicio": 48.84,
+      "fim": 53.42,
+      "texto": "Foi aí que o Bruno, da casa ao lado, olhou para a árvore dela e pensou.",
+      "palavras": [
+        {
+          "palavra": "Foi",
+          "inicio": 48.84,
+          "fim": 49.1,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "aí",
+          "inicio": 49.1,
+          "fim": 49.34,
+          "probabilidade": 0.905
+        },
+        {
+          "palavra": "que",
+          "inicio": 49.34,
+          "fim": 49.52,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "o",
+          "inicio": 49.52,
+          "fim": 49.62,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "Bruno,",
+          "inicio": 49.62,
+          "fim": 49.96,
+          "probabilidade": 0.856
+        },
+        {
+          "palavra": "da",
+          "inicio": 50.2,
+          "fim": 50.32,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "casa",
+          "inicio": 50.32,
+          "fim": 50.56,
+          "probabilidade": 0.809
+        },
+        {
+          "palavra": "ao",
+          "inicio": 50.56,
+          "fim": 50.9,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "lado,",
+          "inicio": 50.9,
+          "fim": 51.26,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "olhou",
+          "inicio": 51.68,
+          "fim": 51.88,
+          "probabilidade": 0.931
+        },
+        {
+          "palavra": "para",
+          "inicio": 51.88,
+          "fim": 52.12,
+          "probabilidade": 0.623
+        },
+        {
+          "palavra": "a",
+          "inicio": 52.12,
+          "fim": 52.22,
+          "probabilidade": 0.914
+        },
+        {
+          "palavra": "árvore",
+          "inicio": 52.22,
+          "fim": 52.48,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "dela",
+          "inicio": 52.48,
+          "fim": 52.74,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "e",
+          "inicio": 52.74,
+          "fim": 52.98,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "pensou.",
+          "inicio": 52.98,
+          "fim": 53.42,
+          "probabilidade": 0.996
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "inicio": 53.98,
+      "fim": 55.12,
+      "texto": "Agora é a minha vez.",
+      "palavras": [
+        {
+          "palavra": "Agora",
+          "inicio": 53.88,
+          "fim": 54.26,
+          "probabilidade": 0.161
+        },
+        {
+          "palavra": "é",
+          "inicio": 54.26,
+          "fim": 54.48,
+          "probabilidade": 0.968
+        },
+        {
+          "palavra": "a",
+          "inicio": 54.48,
+          "fim": 54.58,
+          "probabilidade": 0.921
+        },
+        {
+          "palavra": "minha",
+          "inicio": 54.58,
+          "fim": 54.68,
+          "probabilidade": 0.954
+        },
+        {
+          "palavra": "vez.",
+          "inicio": 54.68,
+          "fim": 55.12,
+          "probabilidade": 0.982
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "inicio": 55.58,
+      "fim": 61.66,
+      "texto": "De 2016 até 2025 o Bruno plantou 200 reais todo mês.",
+      "palavras": [
+        {
+          "palavra": "De",
+          "inicio": 55.58,
+          "fim": 55.64,
+          "probabilidade": 0.954
+        },
+        {
+          "palavra": "2016",
+          "inicio": 55.64,
+          "fim": 56.24,
+          "probabilidade": 0.675
+        },
+        {
+          "palavra": "até",
+          "inicio": 56.24,
+          "fim": 57.28,
+          "probabilidade": 0.914
+        },
+        {
+          "palavra": "2025",
+          "inicio": 57.28,
+          "fim": 58.36,
+          "probabilidade": 0.889
+        },
+        {
+          "palavra": "o",
+          "inicio": 58.36,
+          "fim": 59.4,
+          "probabilidade": 0.421
+        },
+        {
+          "palavra": "Bruno",
+          "inicio": 59.4,
+          "fim": 59.6,
+          "probabilidade": 0.869
+        },
+        {
+          "palavra": "plantou",
+          "inicio": 59.6,
+          "fim": 60.08,
+          "probabilidade": 0.951
+        },
+        {
+          "palavra": "200",
+          "inicio": 60.08,
+          "fim": 60.42,
+          "probabilidade": 0.444
+        },
+        {
+          "palavra": "reais",
+          "inicio": 60.42,
+          "fim": 60.94,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "todo",
+          "inicio": 60.94,
+          "fim": 61.24,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "mês.",
+          "inicio": 61.24,
+          "fim": 61.66,
+          "probabilidade": 0.99
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "inicio": 62.16,
+      "fim": 62.86,
+      "texto": "10 anos.",
+      "palavras": [
+        {
+          "palavra": "10",
+          "inicio": 62.16,
+          "fim": 62.52,
+          "probabilidade": 0.336
+        },
+        {
+          "palavra": "anos.",
+          "inicio": 62.52,
+          "fim": 62.86,
+          "probabilidade": 0.997
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "inicio": 63.58,
+      "fim": 70.92,
+      "texto": "Nunca falhou 24 mil reais e a árvore da Ana, ninguém mexia nela, ela só crescia.",
+      "palavras": [
+        {
+          "palavra": "Nunca",
+          "inicio": 63.58,
+          "fim": 63.78,
+          "probabilidade": 0.986
+        },
+        {
+          "palavra": "falhou",
+          "inicio": 63.78,
+          "fim": 64.16,
+          "probabilidade": 0.975
+        },
+        {
+          "palavra": "24",
+          "inicio": 64.16,
+          "fim": 65.4,
+          "probabilidade": 0.242
+        },
+        {
+          "palavra": "mil",
+          "inicio": 65.4,
+          "fim": 65.78,
+          "probabilidade": 0.937
+        },
+        {
+          "palavra": "reais",
+          "inicio": 65.78,
+          "fim": 66.1,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "e",
+          "inicio": 66.1,
+          "fim": 67.1,
+          "probabilidade": 0.29
+        },
+        {
+          "palavra": "a",
+          "inicio": 67.1,
+          "fim": 67.24,
+          "probabilidade": 0.943
+        },
+        {
+          "palavra": "árvore",
+          "inicio": 67.24,
+          "fim": 67.6,
+          "probabilidade": 0.978
+        },
+        {
+          "palavra": "da",
+          "inicio": 67.6,
+          "fim": 67.8,
+          "probabilidade": 0.944
+        },
+        {
+          "palavra": "Ana,",
+          "inicio": 67.8,
+          "fim": 68.08,
+          "probabilidade": 0.671
+        },
+        {
+          "palavra": "ninguém",
+          "inicio": 68.64,
+          "fim": 68.84,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "mexia",
+          "inicio": 68.84,
+          "fim": 69.3,
+          "probabilidade": 0.972
+        },
+        {
+          "palavra": "nela,",
+          "inicio": 69.3,
+          "fim": 69.66,
+          "probabilidade": 0.964
+        },
+        {
+          "palavra": "ela",
+          "inicio": 70.04,
+          "fim": 70.2,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "só",
+          "inicio": 70.2,
+          "fim": 70.38,
+          "probabilidade": 0.987
+        },
+        {
+          "palavra": "crescia.",
+          "inicio": 70.38,
+          "fim": 70.92,
+          "probabilidade": 0.91
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "inicio": 71.52,
+      "fim": 75.32,
+      "texto": "No fim de 2025 a rua inteira foi medir.",
+      "palavras": [
+        {
+          "palavra": "No",
+          "inicio": 71.52,
+          "fim": 71.66,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "fim",
+          "inicio": 71.66,
+          "fim": 71.82,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "de",
+          "inicio": 71.82,
+          "fim": 71.98,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "2025",
+          "inicio": 71.98,
+          "fim": 72.84,
+          "probabilidade": 0.875
+        },
+        {
+          "palavra": "a",
+          "inicio": 72.84,
+          "fim": 74.1,
+          "probabilidade": 0.788
+        },
+        {
+          "palavra": "rua",
+          "inicio": 74.1,
+          "fim": 74.24,
+          "probabilidade": 0.825
+        },
+        {
+          "palavra": "inteira",
+          "inicio": 74.24,
+          "fim": 74.68,
+          "probabilidade": 0.979
+        },
+        {
+          "palavra": "foi",
+          "inicio": 74.68,
+          "fim": 74.86,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "medir.",
+          "inicio": 74.86,
+          "fim": 75.32,
+          "probabilidade": 0.947
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "inicio": 75.8,
+      "fim": 78.4,
+      "texto": "A árvore do Bruno, 37 mil.",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 75.8,
+          "fim": 76.04,
+          "probabilidade": 0.962
+        },
+        {
+          "palavra": "árvore",
+          "inicio": 76.04,
+          "fim": 76.38,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "do",
+          "inicio": 76.38,
+          "fim": 76.54,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "Bruno,",
+          "inicio": 76.54,
+          "fim": 76.9,
+          "probabilidade": 0.998
+        },
+        {
+          "palavra": "37",
+          "inicio": 77.38,
+          "fim": 78.02,
+          "probabilidade": 0.978
+        },
+        {
+          "palavra": "mil.",
+          "inicio": 78.02,
+          "fim": 78.4,
+          "probabilidade": 0.945
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "inicio": 78.96,
+      "fim": 81.24,
+      "texto": "A da Ana, 43 mil.",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 78.76,
+          "fim": 79.12,
+          "probabilidade": 0.069
+        },
+        {
+          "palavra": "da",
+          "inicio": 79.12,
+          "fim": 79.28,
+          "probabilidade": 0.266
+        },
+        {
+          "palavra": "Ana,",
+          "inicio": 79.28,
+          "fim": 79.6,
+          "probabilidade": 0.595
+        },
+        {
+          "palavra": "43",
+          "inicio": 80.02,
+          "fim": 80.76,
+          "probabilidade": 0.938
+        },
+        {
+          "palavra": "mil.",
+          "inicio": 80.76,
+          "fim": 81.24,
+          "probabilidade": 0.837
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "inicio": 81.94,
+      "fim": 82.82,
+      "texto": "Mas eu plantei mais.",
+      "palavras": [
+        {
+          "palavra": "Mas",
+          "inicio": 81.94,
+          "fim": 82.04,
+          "probabilidade": 0.917
+        },
+        {
+          "palavra": "eu",
+          "inicio": 82.04,
+          "fim": 82.2,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "plantei",
+          "inicio": 82.2,
+          "fim": 82.58,
+          "probabilidade": 0.929
+        },
+        {
+          "palavra": "mais.",
+          "inicio": 82.58,
+          "fim": 82.82,
+          "probabilidade": 0.98
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "inicio": 83.56,
+      "fim": 84.98,
+      "texto": "A Ana apontou para o chão.",
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 83.56,
+          "fim": 83.64,
+          "probabilidade": 0.97
+        },
+        {
+          "palavra": "Ana",
+          "inicio": 83.64,
+          "fim": 83.96,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "apontou",
+          "inicio": 83.96,
+          "fim": 84.48,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "para",
+          "inicio": 84.48,
+          "fim": 84.64,
+          "probabilidade": 0.578
+        },
+        {
+          "palavra": "o",
+          "inicio": 84.64,
+          "fim": 84.76,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "chão.",
+          "inicio": 84.76,
+          "fim": 84.98,
+          "probabilidade": 0.942
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "inicio": 85.5,
+      "fim": 86.56,
+      "texto": "Você plantou mais dinheiro.",
+      "palavras": [
+        {
+          "palavra": "Você",
+          "inicio": 85.5,
+          "fim": 85.66,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "plantou",
+          "inicio": 85.66,
+          "fim": 86.04,
+          "probabilidade": 0.943
+        },
+        {
+          "palavra": "mais",
+          "inicio": 86.04,
+          "fim": 86.2,
+          "probabilidade": 0.996
+        },
+        {
+          "palavra": "dinheiro.",
+          "inicio": 86.2,
+          "fim": 86.56,
+          "probabilidade": 0.982
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "inicio": 87.22,
+      "fim": 88.24,
+      "texto": "Eu plantei mais tempo.",
+      "palavras": [
+        {
+          "palavra": "Eu",
+          "inicio": 87.22,
+          "fim": 87.3,
+          "probabilidade": 0.988
+        },
+        {
+          "palavra": "plantei",
+          "inicio": 87.3,
+          "fim": 87.66,
+          "probabilidade": 0.963
+        },
+        {
+          "palavra": "mais",
+          "inicio": 87.66,
+          "fim": 87.84,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "tempo.",
+          "inicio": 87.84,
+          "fim": 88.24,
+          "probabilidade": 1.0
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "inicio": 88.96,
+      "fim": 91.4,
+      "texto": "Os frutos dela caíram por 16 anos.",
+      "palavras": [
+        {
+          "palavra": "Os",
+          "inicio": 88.96,
+          "fim": 89.1,
+          "probabilidade": 0.969
+        },
+        {
+          "palavra": "frutos",
+          "inicio": 89.1,
+          "fim": 89.4,
+          "probabilidade": 0.96
+        },
+        {
+          "palavra": "dela",
+          "inicio": 89.4,
+          "fim": 89.76,
+          "probabilidade": 0.993
+        },
+        {
+          "palavra": "caíram",
+          "inicio": 89.76,
+          "fim": 90.2,
+          "probabilidade": 0.923
+        },
+        {
+          "palavra": "por",
+          "inicio": 90.2,
+          "fim": 90.42,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "16",
+          "inicio": 90.42,
+          "fim": 90.92,
+          "probabilidade": 0.831
+        },
+        {
+          "palavra": "anos.",
+          "inicio": 90.92,
+          "fim": 91.4,
+          "probabilidade": 0.996
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "inicio": 91.98,
+      "fim": 96.0,
+      "texto": "Cada fruto virou semente e cada semente deu fruto também.",
+      "palavras": [
+        {
+          "palavra": "Cada",
+          "inicio": 91.98,
+          "fim": 92.26,
+          "probabilidade": 0.966
+        },
+        {
+          "palavra": "fruto",
+          "inicio": 92.26,
+          "fim": 92.72,
+          "probabilidade": 0.985
+        },
+        {
+          "palavra": "virou",
+          "inicio": 92.72,
+          "fim": 92.98,
+          "probabilidade": 0.872
+        },
+        {
+          "palavra": "semente",
+          "inicio": 92.98,
+          "fim": 93.54,
+          "probabilidade": 0.867
+        },
+        {
+          "palavra": "e",
+          "inicio": 93.54,
+          "fim": 94.22,
+          "probabilidade": 0.111
+        },
+        {
+          "palavra": "cada",
+          "inicio": 94.22,
+          "fim": 94.48,
+          "probabilidade": 0.991
+        },
+        {
+          "palavra": "semente",
+          "inicio": 94.48,
+          "fim": 95.02,
+          "probabilidade": 0.989
+        },
+        {
+          "palavra": "deu",
+          "inicio": 95.02,
+          "fim": 95.22,
+          "probabilidade": 0.967
+        },
+        {
+          "palavra": "fruto",
+          "inicio": 95.22,
+          "fim": 95.64,
+          "probabilidade": 0.982
+        },
+        {
+          "palavra": "também.",
+          "inicio": 95.64,
+          "fim": 96.0,
+          "probabilidade": 0.98
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "inicio": 96.68,
+      "fim": 100.16,
+      "texto": "Por isso nessa rua ninguém pergunta quanto você plantou.",
+      "palavras": [
+        {
+          "palavra": "Por",
+          "inicio": 96.68,
+          "fim": 96.9,
+          "probabilidade": 0.97
+        },
+        {
+          "palavra": "isso",
+          "inicio": 96.9,
+          "fim": 97.16,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "nessa",
+          "inicio": 97.16,
+          "fim": 97.42,
+          "probabilidade": 0.6
+        },
+        {
+          "palavra": "rua",
+          "inicio": 97.42,
+          "fim": 97.76,
+          "probabilidade": 0.946
+        },
+        {
+          "palavra": "ninguém",
+          "inicio": 97.76,
+          "fim": 98.28,
+          "probabilidade": 0.376
+        },
+        {
+          "palavra": "pergunta",
+          "inicio": 98.28,
+          "fim": 98.84,
+          "probabilidade": 0.973
+        },
+        {
+          "palavra": "quanto",
+          "inicio": 98.84,
+          "fim": 99.3,
+          "probabilidade": 0.911
+        },
+        {
+          "palavra": "você",
+          "inicio": 99.3,
+          "fim": 99.64,
+          "probabilidade": 0.994
+        },
+        {
+          "palavra": "plantou.",
+          "inicio": 99.64,
+          "fim": 100.16,
+          "probabilidade": 0.969
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "inicio": 100.68,
+      "fim": 101.62,
+      "texto": "Pergunda quando.",
+      "palavras": [
+        {
+          "palavra": "Pergunda",
+          "inicio": 100.68,
+          "fim": 101.18,
+          "probabilidade": 0.521
+        },
+        {
+          "palavra": "quando.",
+          "inicio": 101.18,
+          "fim": 101.62,
+          "probabilidade": 0.968
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "inicio": 102.36,
+      "fim": 108.34,
+      "texto": "Ontem a filha da Ana plantou a primeira moeda e daqui a uns anos alguém vai olhar",
+      "palavras": [
+        {
+          "palavra": "Ontem",
+          "inicio": 102.36,
+          "fim": 102.78,
+          "probabilidade": 0.827
+        },
+        {
+          "palavra": "a",
+          "inicio": 102.78,
+          "fim": 103.22,
+          "probabilidade": 0.631
+        },
+        {
+          "palavra": "filha",
+          "inicio": 103.22,
+          "fim": 103.56,
+          "probabilidade": 0.937
+        },
+        {
+          "palavra": "da",
+          "inicio": 103.56,
+          "fim": 103.7,
+          "probabilidade": 0.997
+        },
+        {
+          "palavra": "Ana",
+          "inicio": 103.7,
+          "fim": 103.98,
+          "probabilidade": 0.983
+        },
+        {
+          "palavra": "plantou",
+          "inicio": 103.98,
+          "fim": 104.44,
+          "probabilidade": 0.899
+        },
+        {
+          "palavra": "a",
+          "inicio": 104.44,
+          "fim": 104.58,
+          "probabilidade": 0.992
+        },
+        {
+          "palavra": "primeira",
+          "inicio": 104.58,
+          "fim": 104.9,
+          "probabilidade": 0.976
+        },
+        {
+          "palavra": "moeda",
+          "inicio": 104.9,
+          "fim": 105.42,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "e",
+          "inicio": 105.42,
+          "fim": 106.22,
+          "probabilidade": 0.25
+        },
+        {
+          "palavra": "daqui",
+          "inicio": 106.22,
+          "fim": 106.42,
+          "probabilidade": 0.939
+        },
+        {
+          "palavra": "a",
+          "inicio": 106.42,
+          "fim": 106.6,
+          "probabilidade": 0.735
+        },
+        {
+          "palavra": "uns",
+          "inicio": 106.6,
+          "fim": 106.76,
+          "probabilidade": 0.939
+        },
+        {
+          "palavra": "anos",
+          "inicio": 106.76,
+          "fim": 107.14,
+          "probabilidade": 0.981
+        },
+        {
+          "palavra": "alguém",
+          "inicio": 107.14,
+          "fim": 107.8,
+          "probabilidade": 0.955
+        },
+        {
+          "palavra": "vai",
+          "inicio": 107.8,
+          "fim": 108.04,
+          "probabilidade": 0.999
+        },
+        {
+          "palavra": "olhar",
+          "inicio": 108.04,
+          "fim": 108.34,
+          "probabilidade": 0.999
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "inicio": 108.34,
+      "fim": 111.6,
+      "texto": "para rua e dizer, a árvore dela ficou maior.",
+      "palavras": [
+        {
+          "palavra": "para",
+          "inicio": 108.34,
+          "fim": 108.54,
+          "probabilidade": 0.755
+        },
+        {
+          "palavra": "rua",
+          "inicio": 108.54,
+          "fim": 108.82,
+          "probabilidade": 0.345
+        },
+        {
+          "palavra": "e",
+          "inicio": 108.82,
+          "fim": 108.96,
+          "probabilidade": 0.957
+        },
+        {
+          "palavra": "dizer,",
+          "inicio": 108.96,
+          "fim": 109.24,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "a",
+          "inicio": 109.96,
+          "fim": 110.14,
+          "probabilidade": 0.971
+        },
+        {
+          "palavra": "árvore",
+          "inicio": 110.14,
+          "fim": 110.52,
+          "probabilidade": 0.98
+        },
+        {
+          "palavra": "dela",
+          "inicio": 110.52,
+          "fim": 110.84,
+          "probabilidade": 0.97
+        },
+        {
+          "palavra": "ficou",
+          "inicio": 110.84,
+          "fim": 111.14,
+          "probabilidade": 0.995
+        },
+        {
+          "palavra": "maior.",
+          "inicio": 111.14,
+          "fim": 111.6,
+          "probabilidade": 0.993
+        }
+      ]
+    }
+  ]
+}

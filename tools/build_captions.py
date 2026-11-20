@@ -53,9 +53,12 @@ for seg in data["segmentos"]:
         words.append({"text": txt, "raw": raw, "start": w["inicio"], "end": w["fim"]})
 
 MAX_WORDS, MAX_CHARS, PAUSE = cfg["max_words"], cfg["max_chars"], cfg["pause"]
+UNIDADES = {"mil", "milhão", "milhões", "bilhão", "bilhões", "reais", "anos", "dias", "meses", "%"}
 groups, cur = [], []
 for i, w in enumerate(words):
-    if cur and (len(cur) >= MAX_WORDS or len(" ".join(x["text"] for x in cur + [w])) > MAX_CHARS):
+    # Nunca separa um número da sua unidade ("10 | mil", "200 | reais").
+    junto = cur and re.search(r"\d", cur[-1]["text"]) and w["text"].lower() in UNIDADES
+    if cur and not junto and (len(cur) >= MAX_WORDS or len(" ".join(x["text"] for x in cur + [w])) > MAX_CHARS):
         groups.append(cur); cur = []
     cur.append(w)
     nxt = words[i + 1] if i + 1 < len(words) else None
@@ -84,7 +87,81 @@ for s in spans:
             ", ".join("[%s, %s]" % (w["start"], w["end"]) for w in s["words"]))
     )
 
-if cfg["style"] == "dark-pill":
+if cfg["style"] == "story-pop":
+    # Estilo "conto": 1–2 palavras grandes, brancas com contorno grosso, palavra falada em destaque (ouro),
+    # números e palavras de "destaques" sempre na cor de destaque. Feito para fábulas narradas (contos-do-dinheiro).
+    DEST = {d.lower() for d in cfg.get("destaques", [])}
+    def _cls(t):
+        return " cap-hot" if (t.lower().strip("!?\"") in DEST or re.search(r"\d", t)) else ""
+    markup = []
+    for s in spans:
+        ws = " ".join(f'<span class="cap-w{_cls(w["text"])}" id="{s["id"]}-w{j}">{html.escape(w["text"])}</span>'
+                      for j, w in enumerate(s["words"]) if w["text"])
+        markup.append(f'      <div class="cap-g" id="{s["id"]}"><span class="cap-t">{ws}</span></div>')
+    out = f"""<template>
+  <style>
+    #root {{
+      position: absolute;
+      inset: 0;
+      font-family: {cfg["font_family"]};
+    }}
+    .cap-g {{
+      position: absolute;
+      left: {cfg["left"]}px;
+      width: {cfg["width"]}px;
+      bottom: {cfg["bottom"]}px;
+      text-align: center;
+      overflow: visible;
+      visibility: hidden;
+      opacity: 0;
+    }}
+    .cap-t {{
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+      gap: 0 22px;
+    }}
+    .cap-w {{
+      display: inline-block;
+      font-size: {cfg["font_size"]}px;
+      font-weight: 900;
+      line-height: 1.05;
+      color: {cfg["ink"]};
+      -webkit-text-stroke: {cfg.get("stroke", 14)}px {cfg.get("stroke_color", "#1a1412")};
+      paint-order: stroke fill;
+      text-shadow: 0 8px 0 {cfg.get("stroke_color", "#1a1412")};
+    }}
+    .cap-hot {{
+      color: {cfg["active"]};
+    }}
+  </style>
+  <!-- Gerado por tools/build_captions.py a partir de assets/voice.json; edite captions.json e rode de novo. -->
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+{chr(10).join(markup)}
+  </div>
+  <script>
+    (function () {{
+      const tl = gsap.timeline({{ paused: true }});
+      function G(id, start, end, ws) {{
+        const g = "#" + id;
+        tl.set(g, {{ visibility: "visible" }}, start);
+        tl.set(g, {{ opacity: 1 }}, start);
+        ws.forEach(([s, e], j) => {{
+          const w = document.querySelector(g + "-w" + j);
+          if (!w) return;
+          tl.fromTo(w, {{ opacity: 0, scale: 0.6, y: 18 }}, {{ opacity: 1, scale: 1, y: 0, duration: 0.16, ease: "back.out(3)" }}, Math.max(s, start));
+        }});
+        tl.to(g, {{ opacity: 0, duration: 0.06, ease: "power2.in" }}, end - 0.06);
+        tl.set(g, {{ opacity: 0, visibility: "hidden" }}, end);
+      }}
+{chr(10).join(script)}
+      window.__timelines["captions"] = tl;
+    }})();
+  </script>
+</template>
+"""
+elif cfg["style"] == "dark-pill":
     out = f"""<template>
   <style>
     #root {{
